@@ -1,0 +1,67 @@
+#my_page{
+  min-height: 352px;
+  .panel-heading{
+            background-image: url("../images/header.png"); 
+            // border-radius: 3px;
+  .panel-title{
+
+    span{
+      margin-right: 10px;
+    }
+      a{
+        color:#FEBF00;
+      }
+  }
+  }
+  i{
+    margin-right: 5px;
+  }
+  .title{
+        background-image: url("../images/header.png"); 
+        // border-radius:3px;
+      h3{
+        color:#FEBF00;
+        line-height: 38px;
+        font-weight: 500;
+        font-size: 1.4em;
+        margin-left: 10px;
+      }
+  }
+  .panel-body{
+
+  }
+  table tr td a{
+    color:black;
+  }
+  .table-bordered {
+    th{
+      text-align: center;
+
+    }
+    td{
+      text-align: center;
+    }
+  }
+  .register{
+    margin-top: 25px;
+  }
+  .btn i{
+  margin-left: 5px;
+  }
+  
+}
+ @media(max-width:780px){
+  table tr td{
+ font-size:10px;
+
+
+}
+table th{
+  font-size: 10px;
+}
+}
+table{
+  margin-top: 5px;
+
+}
+
