@@ -349,7 +349,7 @@ html, body {
 
 #products .title {
   min-height: 30px;
-  background-image: url("../images/header.png");
+  background-image: url("Content/images/header.png");
   margin-bottom: 30px; }
   #products .title h3 {
     color: #FEBF00;
@@ -706,4 +706,6 @@ span.round-tab:hover {
 #mehsulu_al {
   height: 500px; }
 
-/*# sourceMappingURL=style.css.map */
+.title{
+    background-color:black;
+}
