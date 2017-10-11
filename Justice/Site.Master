@@ -6,67 +6,151 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps" rel="stylesheet">
+    <title><%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
+        <%: Scripts.Render("~/Scripts/Custom") %>
+        <%: Styles.Render("~/Content/css") %>
+        <%: Styles.Render("~/Content/sass") %>
     </asp:PlaceHolder>
-
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body>
-    <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
-                <asp:ScriptReference Name="respond" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
-            </Scripts>
-        </asp:ScriptManager>
+ <style>
+    .top-primary-menu ul li a {
+    font-size: 12px;
+}
+</style>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </footer>
-        </div>
+    <header class="top-primary-menu" style="border-top:3px solid #FEBF00;">
+                <div class="container-fluid sifirla">
+                    <nav style="border-bottom: none;margin-bottom: 0px;" class="navbar navbar-default navbar-static-top primary-menu">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                    MENYU
+                                </button>
+                            </div>
+                            <div  id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li style="margin-right: 0px;" class="hidden-xs">
+                                        <a href="index.php" title=""><i class="fa fa-home"></i> ANA SƏHİFƏ</a>
+                                    </li>
+                                    <li class="hidden-sm"><a href="sunproducts.php">TEZLİKLƏ SATIŞDA</a></li>
+                                    <!-- <li class="hidden-sm"><a href="">Yazarlar</a></li> -->
+                                    <!-- <li class="hidden-sm"><a href="/u/yayinevi/2/listele">Yayınevleri</a></li> -->
 
-    </form>
+                                    <li class="dropdown  altmenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KATEQORİYALAR <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <?php
+                                                    $file = file_get_contents("http://localhost/api/?v=1&m=getAllCategories");
+                                                    $file = substr($file, 3);
+                                                    $json = json_decode($file);
+                                                    foreach($json->data as $data){
+                                                        echo "<li><a href='category.php?cat=$data->id&s=1'>". $data->category_name ."</a></li>"; 
+                                                    }
+                                            ?> 
+                                        </ul>
+                                    </li>
+                                    <li class="mypage.php"><a href="mypage.php">SƏHİFƏM</a></li>
+
+
+                                    
+                                    <li class="uppercase"><a id="effect" href="campaign.php" ><i class="fa fa-gift hidden-md hidden-sm" style="color: #FEBF00;"></i><strong>&nbsp;KAMPANİYALAR</strong></a></li>
+                                    <li class="uppercase"><a href="favorite.php" class="favorite-products"><i class="fa fa-star hidden-md hidden-sm" style="color: #FEBF00;"></i>&nbsp;BƏYƏNDİKLƏRİM</a></li>
+
+
+									<!-- telefon formatinda acilacaq olanlar -->
+                                                
+                                                
+                                    <li class="visible-xs">
+                                        <a href="basket.php" class="u-url shop-basket">
+                                        <i class="fa fa-shopping-cart"></i>Səbətim -  Məhsul sayı: <span style="font-weight: 600;color:#FEBF00;" class="basketcount" ><?php print $cart; ?></span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                    	<div class="hidden-xs">
+                                			<div class="as-sepet">
+                                    
+                                    			<a href="basket.php" class="u-url shop-basket">
+                                        		<i class="fa fa-shopping-cart"></i>
+                                        		<span class="big">SƏBƏTİM</span> 
+                                        		<p>
+                                           			 Məhsul sayı: <span style="font-weight: 600;color:#FEBF00;" class="basketcount" ><?php print $cart; ?></span>
+                                        		</p>
+                                    			</a>
+                                    
+                                			</div>
+
+                            			</div>
+                                    </li>
+                                    <li>
+			                                <div class="hidden-xs">
+                                                   <a class='u-url individual' href='login.php'>
+                                                   <i class='fa fa-user'></i>
+                                                   <span class='big'>DAXIL OL </span>
+												<p class="kayitol">
+												"QEYDİYYATDAN KEÇ"
+												</p>
+												</a>
+			                                </div>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </nav>
+
+                </div>
+            </header>
+	
+            <header id="header" class="top-header" style="border-bottom:3px solid #FEBF00;padding-bottom: 10px;margin-bottom: 20px; ">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="middle-area ">
+                            <div class="logo col-md-3">
+                                <a href="index.php" title="">
+                                    <img class="img-responsive logo" src="Content/images/looogooo.png" alt="Logo" />
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-12 hidden-xs">
+								<h3 style="margin-top:10px;">HƏBSXANA İNCƏSƏNƏTİ</h3>
+                            </div>
+                            <div class="search-form-block col-md-5 col-sm-12 col-xs-12">
+
+                                <form action="search.php" method="GET">
+									<input type="search" name="word" placeholder="Axtar...." id="txtSearch" autocomplete="off" />
+									<button style="top:5px;" id="btnSearchMaster" class="send">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</button>
+									<div class="search-suggests" id="divFilterSearch">
+									</div>
+								</form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+<div class="container body-content">
+<asp:ContentPlaceHolder ID="MainContent" runat="server">
+</asp:ContentPlaceHolder>
+<hr />
+<footer>
+    <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+</footer>
+</div>
+
 </body>
 </html>

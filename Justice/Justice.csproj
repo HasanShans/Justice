@@ -141,17 +141,50 @@
     <Content Include="Content\css\smoothproducts.css" />
     <Content Include="Content\css\smoothproducts.min.css" />
     <Content Include="Content\css\style.css" />
-    <Content Include="Content\js\bootstrap.js" />
-    <Content Include="Content\js\bootstrap.min.js" />
-    <Content Include="Content\js\font-awesome.js" />
-    <Content Include="Content\js\index.php" />
-    <Content Include="Content\js\jquery-3.1.1.min.js" />
-    <Content Include="Content\js\jquery.js" />
-    <Content Include="Content\js\jssor.slider-25.2.0.min.js" />
-    <Content Include="Content\js\npm.js" />
-    <Content Include="Content\js\script.js" />
-    <Content Include="Content\js\smoothproducts.js" />
-    <Content Include="Content\js\smoothproducts.min.js" />
+    <Content Include="Content\images\download.jpg" />
+    <Content Include="Content\images\download11.png" />
+    <Content Include="Content\images\header.png" />
+    <Content Include="Content\images\looogooo.png" />
+    <Content Include="Content\images\products\110966.jpg" />
+    <Content Include="Content\images\products\154247.JPG" />
+    <Content Include="Content\images\products\190206.jpg" />
+    <Content Include="Content\images\products\194808.jpg" />
+    <Content Include="Content\images\products\200171.jpg" />
+    <Content Include="Content\images\products\217076.JPG" />
+    <Content Include="Content\images\products\249969.jpg" />
+    <Content Include="Content\images\products\251761.jpg" />
+    <Content Include="Content\images\products\259126.jpg" />
+    <Content Include="Content\images\products\277795.jpg" />
+    <Content Include="Content\images\products\2792.jpg" />
+    <Content Include="Content\images\products\296131.jpg" />
+    <Content Include="Content\images\products\296852.jpg" />
+    <Content Include="Content\images\products\335982.jpg" />
+    <Content Include="Content\images\products\340193.jpg" />
+    <Content Include="Content\images\products\346380.JPG" />
+    <Content Include="Content\images\products\373968.jpg" />
+    <Content Include="Content\images\products\377898.jpg" />
+    <Content Include="Content\images\products\394412.jpg" />
+    <Content Include="Content\images\products\407156.JPG" />
+    <Content Include="Content\images\products\4327.JPG" />
+    <Content Include="Content\images\products\5488.jpg" />
+    <Content Include="Content\images\products\68732.jpg" />
+    <Content Include="Content\images\slider\slide1.jpg" />
+    <Content Include="Content\images\slider\slide2.jpg" />
+    <Content Include="Content\images\slider\slide3.jpg" />
+    <Content Include="Content\images\slider\slide4.jpg" />
+    <Content Include="Content\images\slider\slide5.jpg" />
+    <Content Include="Content\images\slider\slide6.jpg" />
+    <Content Include="Scripts\Custom\bootstrap.js" />
+    <Content Include="Scripts\Custom\bootstrap.min.js" />
+    <Content Include="Scripts\Custom\font-awesome.js" />
+    <Content Include="Scripts\Custom\index.php" />
+    <Content Include="Scripts\Custom\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\Custom\jquery.js" />
+    <Content Include="Scripts\Custom\jssor.slider-25.2.0.min.js" />
+    <Content Include="Scripts\Custom\npm.js" />
+    <Content Include="Scripts\Custom\script.js" />
+    <Content Include="Scripts\Custom\smoothproducts.js" />
+    <Content Include="Scripts\Custom\smoothproducts.min.js" />
     <Content Include="Content\sass\index.php" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
@@ -192,7 +225,7 @@
     <Content Include="Content\sass\_mypage.scss" />
     <Content Include="Content\sass\_productsingle.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Home.aspx" />
+    <Content Include="Index.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -233,12 +266,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
