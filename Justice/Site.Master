@@ -47,14 +47,7 @@
                                     <li class="dropdown  altmenu">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KATEQORİYALAR <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                            <?php
-                                                    $file = file_get_contents("http://localhost/api/?v=1&m=getAllCategories");
-                                                    $file = substr($file, 3);
-                                                    $json = json_decode($file);
-                                                    foreach($json->data as $data){
-                                                        echo "<li><a href='category.php?cat=$data->id&s=1'>". $data->category_name ."</a></li>"; 
-                                                    }
-                                            ?> 
+                                                        <li><a href=""></a>dasd</li>
                                         </ul>
                                     </li>
                                     <li class="mypage.php"><a href="mypage.php">SƏHİFƏM</a></li>
@@ -92,13 +85,13 @@
                                     </li>
                                     <li>
 			                                <div class="hidden-xs">
-                                                   <a class='u-url individual' href='login.php'>
+                                                <asp:HyperLink runat="server" CssClass="u-url individual" NavigateUrl="~/Main/Login.aspx">
                                                    <i class='fa fa-user'></i>
                                                    <span class='big'>DAXIL OL </span>
 												<p class="kayitol">
 												"QEYDİYYATDAN KEÇ"
 												</p>
-												</a>
+                                                </asp:HyperLink>
 			                                </div>
                                     </li>
                                     
@@ -119,7 +112,7 @@
                         <div class="middle-area ">
                             <div class="logo col-md-3">
                                 <a href="index.php" title="">
-                                    <img class="img-responsive logo" src="Content/images/looogooo.png" alt="Logo" />
+                                    <img class="img-responsive logo" src="../Content/images/looogooo.png" alt="Logo" />
                                 </a>
                             </div>
                             <div class="col-md-4 col-sm-12 hidden-xs">
