@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Justice.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps" rel="stylesheet">
+    <title><%: Page.Title %></title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Styles.Render("~/bundles/adminCss") %>
+        <asp:ContentPlaceHolder ID="Additional" runat="server">
+        </asp:ContentPlaceHolder>
+    </asp:PlaceHolder>
+
+</head>
+<body>
+        <div class="header navbar navbar-inverse ">
+            <!-- BEGIN TOP NAVIGATION BAR -->
+            <div class="navbar-inner">
+                <div class="header-seperation">
+                    <ul class="nav pull-left notifcation-center" id="main-menu-toggle-wrapper" style="display: none">
+                        <li class="dropdown"><a id="main-menu-toggle" href="#main-menu" class="">
+                            <div class="iconset top-menu-toggle-white"></div>
+                        </a></li>
+                    </ul>
+                    <!-- BEGIN LOGO -->
+
+                    <h3 style="text-align: center; color: #fff; font-family: monospace; font-size: 35px">Həbsxana incəsənəti</h3>
+                    <!-- END LOGO -->
+                    <ul class="nav pull-right notifcation-center">
+                        <li class="dropdown" id="header_task_bar"><a href="#" class="dropdown-toggle active" data-toggle="">
+                            <div class="iconset top-home"></div>
+                        </a></li>
+                        <li class="dropdown" id="header_inbox_bar"><a href="/admin/orders.php" class="dropdown-toggle">
+                            <div class="iconset top-messages"></div>
+                            <span class='badge' id='msgs-badge'></span>
+                        </a></li>
+                        <li class="dropdown" id="portrait-chat-toggler" style="display: none"><a href="#sidr" class="chat-menu-toggle">
+                            <div class="iconset top-chat-white "></div>
+                        </a></li>
+                    </ul>
+                </div>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <div class="header-quick-nav">
+                    <!-- BEGIN TOP NAVIGATION MENU -->
+                    <div class="pull-left">
+                        <ul class="nav quick-section">
+                            <li class="quicklinks"><a href="#" class="" id="layout-condensed-toggle">
+                                <div class="iconset top-menu-toggle-dark"></div>
+                            </a></li>
+                        </ul>
+                        <ul class="nav quick-section">
+                            <li class="quicklinks"><a href="#" class="">
+                                <div class="iconset top-reload"></div>
+                            </a></li>
+                            <li class="quicklinks"><span class="h-seperate"></span></li>
+                            <li class="quicklinks"><a href="#" class="">
+                                <div class="iconset top-tiles"></div>
+                            </a></li>
+                            <li class="m-r-10 input-prepend inside search-form no-boarder"><span class="add-on"><span class="iconset top-search"></span></span>
+                                <input name="" type="text" class="no-boarder " placeholder="Search Dashboard" style="width: 250px;">
+                            </li>
+                            <li>
+                                <b>Yeni sifarişlər: &nbsp"..."&nbsp|&nbsp
+						Poçta çatdırılmış sifarişlər: &nbsp"..."&nbsp|&nbsp
+						Təhvil verilmiş sifarişlər: &nbsp"..."</b>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END TOP NAVIGATION MENU -->
+                    <!-- BEGIN CHAT TOGGLER -->
+
+                    <!-- END CHAT TOGGLER -->
+                </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END TOP NAVIGATION BAR -->
+        </div>
+        <!-- END HEADER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container row-fluid">
+            <uc:AdminLeftMenu id="AdminLeftMenu" runat="server"/>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+             </asp:ContentPlaceHolder>
+        </div>
+        
+    <%: Scripts.Render("~/bundles/adminJs") %>
+       <script type="text/javascript">
+        $(document).ready(function () {
+            $(".live-tile,.flip-list").liveTile();
+        });
+    </script>
+    </body>
+</html>
