@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Justice {
+namespace Justice.Main {
     
     
     public partial class Information {

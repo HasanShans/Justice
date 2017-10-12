@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Index.aspx.cs" Inherits="Justice.Home" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Index.aspx.cs" Inherits="Justice.Main.Index" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Additional" Runat="Server">
     <script src="../Scripts/Main/jssor.slider-25.2.0.min.js"></script>

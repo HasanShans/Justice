@@ -14,7 +14,7 @@
                     </div>
                     <div class="grid-body no-border">
                         <br>
-                        "<form action='' method='post'>
+                        "<form method='post'>
                             <div class="form-group">
                                 <label class="form-label">Cəzaçəkmə müəssisəsi adı</label>
                                 <div class='input-with-icon  right'>

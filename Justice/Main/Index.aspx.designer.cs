@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Justice {
+namespace Justice.Main {
     
     
-    public partial class Home {
+    public partial class Index {
     }
 }

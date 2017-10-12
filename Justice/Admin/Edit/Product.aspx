@@ -15,7 +15,7 @@
                     </div>
                     <div class="grid-body no-border">
                         <br>
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label class="form-label">Məhsulun adı</label>
                                 <span class="help">e.g. "Moto x"</span>

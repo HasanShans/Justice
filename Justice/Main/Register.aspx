@@ -9,72 +9,69 @@
                         <h3>Qeydiyyatdan keç</h3>
                     </div>
                     <div class="register">
-                        <form action="api/?v=1&m=signup" method="POST">
+                        <form runat="server">
                             <div class="form-group row">
-                                <label for="inputName3" class="col-sm-3 col-form-label">Ad </label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="name" id="inputName3" placeholder="Adınızı daxil edin">
+                                <asp:Label ID="Label1" runat="server" CssClass="col-md-2 control-label" Text="Ad"></asp:Label>
+                                <div class="col-md-10">
+                                    <asp:TextBox ID="tbName" CssClass="form-control" runat="server" placeholder="Ad"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorUsername" CssClass="text-danger" runat="server" ErrorMessage="Ad Boş Qoyula Bilməz" ControlToValidate="tbName"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputSurname3" class="col-sm-3 col-form-label">Soyad </label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="lname" id="inputSurname3" placeholder="Soyadınızı daxil edin">
+                                <asp:Label ID="Label2" runat="server" CssClass="col-md-2 control-label" Text="Soyad"></asp:Label>
+                                <div class="col-md-10">
+                                    <asp:TextBox ID="tbSurname" CssClass="form-control" runat="server" placeholder="Soyad"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger" runat="server" ErrorMessage="Soyad Boş Qoyula Bilməz" ControlToValidate="tbSurname"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-3 col-form-label">Email </label>
-                                <div class="col-sm-9">
-                                    <input type="email" class="form-control" name="mail" id="inputEmail3" placeholder="Email">
+                                <asp:Label ID="Label3" runat="server" CssClass="col-md-2 control-label" Text="Email" TextMode="Email"></asp:Label>
+                                <div class="col-md-10">
+                                    <asp:TextBox ID="tbEmail" CssClass="form-control" runat="server" placeholder="Email"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Email Boş Qoyla Bilməz" ControlToValidate="tbEmail"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-3 col-form-label">Şifrə</label>
-                                <div class="col-sm-9">
-                                    <input type="password" class="form-control" name="pass" id="inputPassword3" placeholder="Şifrə">
+                                <asp:Label ID="Label4" runat="server" CssClass="col-md-2 control-label" Text="Şifrə"></asp:Label>
+                                <div class="col-md-10">
+                                    <asp:TextBox ID="tbPassword" CssClass="form-control" runat="server" placeholder="Şifrə" TextMode="Password"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="text-danger" runat="server" ErrorMessage="Şifrə Boş Qoyula Bilməz" ControlToValidate="tbPassword"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputPassword3" class="col-sm-3 col-form-label">Şifrə Təkrar</label>
-                                <div class="col-sm-9">
-                                    <input type="password" class="form-control" name="dublpass" id="inputPassword3" placeholder="Şifrə Təkrar">
+                                <asp:Label ID="Label5" runat="server" CssClass="col-md-2 control-label" Text="Şifrəni Təkrarlayın"></asp:Label>
+                                <div class="col-md-10">
+                                    <asp:TextBox ID="tbPasswordConfirm" CssClass="form-control" runat="server" placeholder="Təkrar Şifrə" TextMode="Password"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" CssClass="text-danger" runat="server" ErrorMessage="Şifrəni Təkrarlayın" ControlToValidate="tbPasswordConfirm"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="birthDate" class="col-sm-3 control-label">Doğum tarixiniz</label>
-                                <div class="col-sm-9">
-                                    <input type="date" id="birthDate" name="birthday" class="form-control">
+                                <asp:Label ID="Label6" runat="server" CssClass="col-md-2 control-label" Text="Doğum Tarixi"></asp:Label>
+                                <div class="col-md-10">
+                                    <asp:TextBox ID="tbBirthdate" CssClass="form-control" runat="server" placeholder="Doğum Tarixi" TextMode="Date"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" CssClass="text-danger" runat="server" ErrorMessage="Doğum Tarixi Boş Qoyula Bilməz" ControlToValidate="tbBirthdate"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
                             <div class="form-group row ">
-                                <div class="col-sm-9 col-sm-offset-3">
+                                <div class="col-sm-10 col-sm-offset-2">
                                     <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input ">
-                                            Email vasitəsilə məlumatlandırılmaq istəyirəm
-
-                                        </label>
+                                        <asp:CheckBox ID="tbLicense" runat="server" />
+                                        <asp:LinkButton ID="lblLicense" runat="server" PostBackUrl="~/">Müqaviləni oxudum ,anladım və təsdiqləyirəm</asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-group row ">
-                                <div class="col-sm-9 col-sm-offset-3">
+                                <div class="col-sm-10 col-sm-offset-2">
                                     <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input ">
-                                            <a href="">Müqaviləni oxudum ,anladım və təsdiqləyirəm</a>
-                                        </label>
+                                     <asp:Label ID="lblMsg" runat="server"></asp:Label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class=" col-sm-12">
-                                    <button type="submit" class="btn btn-success pull-right">
-                                        Qydiyyatdan Keç <i class="fa fa-check" aria-hidden="true"></i>
-                                    </button>
+                                    <asp:Button ID="btSignup" runat="server" Class="btn btn-success pull-right" Text="Qeydiyyatdan Keç"  OnClick="btSignup_Click" />
                                 </div>
                             </div>
                         </form>
