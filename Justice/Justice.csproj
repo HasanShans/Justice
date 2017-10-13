@@ -54,6 +54,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -139,6 +141,27 @@
     <Content Include="Admin\Orders.aspx" />
     <Content Include="Admin\PostDeliveredOrders.aspx" />
     <Content Include="Admin\Products.aspx" />
+    <None Include="Connected Services\NotariatService\configuration91.svcinfo" />
+    <None Include="Connected Services\NotariatService\configuration.svcinfo" />
+    <Content Include="Connected Services\NotariatService\Justice.NotariatService.AddPersonRelationInfoResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotariatService\Justice.NotariatService.FullDocListResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotariatService\Justice.NotariatService.FullDocSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotariatService\Justice.NotariatService.FullPersonListResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotariatService\Justice.NotariatService.SearchByPinResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\NotariatService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Content\Admin\css\animate.min.css" />
     <Content Include="Content\Admin\css\bootstrap-table-responsive.css" />
     <Content Include="Content\Admin\css\custom-icon-set.css" />
@@ -1183,6 +1206,16 @@
     <Content Include="Content\Admin\scss\variables.css.map" />
     <Content Include="Content\Admin\scss\variables.scss" />
     <Content Include="Admin\Admin.Master" />
+    <None Include="Connected Services\NotariatService\NotariatService.wsdl" />
+    <None Include="Connected Services\NotariatService\NotariatService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\NotariatService\NotariatService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\NotariatService\NotariatService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Main\Index.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1315,6 +1348,11 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\NotariatService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Admin\LeftSideBar.ascx.cs">
       <DependentUpon>LeftSideBar.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1396,6 +1434,7 @@
     <Compile Include="Main\Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Proxy\Notariat.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1405,6 +1444,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\Admin\plugins\jquery-sparkline\" />
   </ItemGroup>
@@ -1417,6 +1457,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\NotariatService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

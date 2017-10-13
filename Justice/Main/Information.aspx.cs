@@ -1,17 +1,83 @@
-﻿using System;
+﻿using Justice.NotariatService;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Globalization;
 
 namespace Justice.Main
 {
     public partial class Information : System.Web.UI.Page
     {
+
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
+        int UserID;
+        CultureInfo provider = CultureInfo.InvariantCulture;
         protected void Page_Load(object sender, EventArgs e)
         {
+            UserID = Convert.ToInt32(Session["ID"].ToString());
+            if (sqlConnection.State == ConnectionState.Closed)
+                sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand("UsersSelectByID", sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@ID", UserID);
+            sqlCommand.ExecuteNonQuery();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            if (dataTable.Rows.Count != 0)
+            {
+                nameTextBox.Text = dataTable.Rows[0][1].ToString();
+                surnameTextBox.Text = dataTable.Rows[0][2].ToString();
+                emailTextBox.Text = dataTable.Rows[0][3].ToString();
+                dateTextBox.Text = Convert.ToDateTime(dataTable.Rows[0][4].ToString()).ToString();
+                emailTextBox.Enabled = false;
+            }
+        }
 
+        protected void submitClick(object sender, EventArgs e)
+        {
+            NotariatServiceClient service = new NotariatServiceClient();
+            service.ClientCredentials.UserName.UserName = "notariat";
+            service.ClientCredentials.UserName.Password = "932N0+aR4";
+            
+            SearchParam param = new SearchParam();
+            param.SearchType = SearchType.DocumentByNumber;
+
+            param.Document = new SearchDocument();
+            SearchDocument document = param.Document;
+            document = param.Document;
+            document.Series = "aze";
+            document.Number = serialTextBox.Text;
+            document.IsAddressSpecified = false;
+            document.IsPhotoSpecified = false;
+
+            FullDocSearchResult result = service.GetOneDocument(param);
+            FullPerson person = result.Document.Person;
+            nameTextBox.Text = person.FirstName;
+            surnameTextBox.Text = person.LastName;
+            dateTextBox.Text = person.DateOfBirthStr;
+
+            service.Close();
+            if (sqlConnection.State == ConnectionState.Closed)
+                sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand("UsersUpdateInfoWithService", sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@ID", UserID);
+            sqlCommand.Parameters.AddWithValue("@FirstName", nameTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@LastName", surnameTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@BirthDate", dateTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@IDSerialNumber", serialTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@City", cityTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@PostIndex", postTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@MobilePhone", mobileTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@HomePhone", homePhoneTextBox.Text);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
         }
     }
 }

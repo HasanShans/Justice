@@ -61,6 +61,7 @@ namespace Justice.Main
                     }
                     Session["NAME"] = dataTable.Rows[0][1].ToString() + " " + dataTable.Rows[0][2].ToString();
                     Session["EMAIL"] = dataTable.Rows[0][3].ToString();
+                    Session["ID"] = dataTable.Rows[0][0];
                     if (Request.QueryString["rurl"] != null)
                     {
                         String page = Request.QueryString["rurl"];

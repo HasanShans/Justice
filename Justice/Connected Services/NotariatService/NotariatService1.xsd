@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="https://reyestr.gov.az" elementFormDefault="qualified" targetNamespace="https://reyestr.gov.az" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://registryservice.gov.az:10443/NotariatService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://registryservice.gov.az:10443/NotariatService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Registry.Core.Services.WCF.Models.RegistryNotariat.Request" />
+  <xs:element name="GetOneDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="param" nillable="true" type="tns:SearchParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SearchParam">
+    <xs:sequence>
+      <xs:element name="SearchType" type="tns:SearchType" />
+      <xs:element name="Document" nillable="true" type="tns:SearchDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchParam" nillable="true" type="tns:SearchParam" />
+  <xs:simpleType name="SearchType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="PersonByPin" />
+      <xs:enumeration value="PersonByVesksKod" />
+      <xs:enumeration value="PersonByDocNumber" />
+      <xs:enumeration value="PersonsByDetails" />
+      <xs:enumeration value="PersonsByLike" />
+      <xs:enumeration value="DocumentByNumber" />
+      <xs:enumeration value="DocumentsByName" />
+      <xs:enumeration value="DocumentsByPin" />
+      <xs:enumeration value="RelationsByPin" />
+      <xs:enumeration value="CertificateByNumber" />
+      <xs:enumeration value="DeadPersonsByDetails" />
+      <xs:enumeration value="CertificateByBirthDate" />
+      <xs:enumeration value="WatchPersonByPeriod" />
+      <xs:enumeration value="WatchPersonByDocNumber" />
+      <xs:enumeration value="DocumentsByDetails" />
+      <xs:enumeration value="DocumentsByNameWithoutDOB">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">20</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SearchType" nillable="true" type="tns:SearchType" />
+  <xs:complexType name="SearchDocument">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Series" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="tns:DocType" />
+          <xs:element minOccurs="0" name="DocDateStr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" type="tns:Status" />
+          <xs:element minOccurs="0" name="Person" nillable="true" type="tns:SearchPerson" />
+          <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="IsAddressSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPhotoSpecified" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SearchDocument" nillable="true" type="tns:SearchDocument" />
+  <xs:complexType name="EntityBase">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="EntityBase" nillable="true" type="tns:EntityBase" />
+  <xs:complexType name="DocType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganName" type="tns:Organ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocType" nillable="true" type="tns:DocType" />
+  <xs:simpleType name="Organ">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Notset" />
+      <xs:enumeration value="ARIS" />
+      <xs:enumeration value="IAMAS" />
+      <xs:enumeration value="VMMS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Organ" nillable="true" type="tns:Organ" />
+  <xs:simpleType name="Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Passive" />
+      <xs:enumeration value="Active" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Status" nillable="true" type="tns:Status" />
+  <xs:complexType name="SearchPerson">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Pin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PinDateStr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VesksKod" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateOfBirthStr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateOfBirthEndStr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" type="tns:Gender" />
+          <xs:element minOccurs="0" name="BirthPlace" nillable="true" type="tns:Place" />
+          <xs:element minOccurs="0" name="Citizenship" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BloodGroup" nillable="true" type="tns:BloodGroup" />
+          <xs:element minOccurs="0" name="EyeColor" nillable="true" type="tns:EyeColor" />
+          <xs:element minOccurs="0" name="Height" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="CreateDateStr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateDateStr" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SearchPerson" nillable="true" type="tns:SearchPerson" />
+  <xs:simpleType name="Gender">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="M" />
+      <xs:enumeration value="F" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Gender" nillable="true" type="tns:Gender" />
+  <xs:complexType name="Place">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsoCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Place" nillable="true" type="tns:Place" />
+  <xs:complexType name="BloodGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BloodGroup" nillable="true" type="tns:BloodGroup" />
+  <xs:complexType name="EyeColor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EyeColor" nillable="true" type="tns:EyeColor" />
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Territory" nillable="true" type="tns:Place" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Apt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="House" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="tns:Status" />
+      <xs:element minOccurs="0" name="CreateDateStr" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:element name="GetOneDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetOneDocumentResult" nillable="true" type="tns:FullDocSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FullDocSearchResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Document" nillable="true" type="tns:FullDocument" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullDocSearchResult" nillable="true" type="tns:FullDocSearchResult" />
+  <xs:complexType name="Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResultType" type="tns:ResultType" />
+      <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfBrokenRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Result" nillable="true" type="tns:Result" />
+  <xs:simpleType name="ResultType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="NotFound" />
+      <xs:enumeration value="InformationFound" />
+      <xs:enumeration value="MultiDocFound" />
+      <xs:enumeration value="MultiPersonFound" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ResultType" nillable="true" type="tns:ResultType" />
+  <xs:complexType name="ArrayOfBrokenRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BrokenRule" nillable="true" type="tns:BrokenRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBrokenRule" nillable="true" type="tns:ArrayOfBrokenRule" />
+  <xs:complexType name="BrokenRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BrokenRuleType" type="tns:RuleType" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BrokenRule" nillable="true" type="tns:BrokenRule" />
+  <xs:simpleType name="RuleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="Warning" />
+      <xs:enumeration value="Info" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RuleType" nillable="true" type="tns:RuleType" />
+  <xs:complexType name="FullDocument">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Series" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="tns:DocType" />
+          <xs:element minOccurs="0" name="DocDateStr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IssuingLocation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" type="tns:Status" />
+          <xs:element minOccurs="0" name="Person" nillable="true" type="tns:FullPerson" />
+          <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="Photo" nillable="true" type="tns:Photo" />
+          <xs:element minOccurs="0" name="ExpireDateStr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InvalidationDateStr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InvalidationReason" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullDocument" nillable="true" type="tns:FullDocument" />
+  <xs:complexType name="FullPerson">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Person">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PinDateStr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateOfDeathStr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BirthPlace" nillable="true" type="tns:Place" />
+          <xs:element minOccurs="0" name="MaritalStatus" type="tns:MaritalStatus" />
+          <xs:element minOccurs="0" name="MilitaryStatus" type="tns:MilitaryStatus" />
+          <xs:element minOccurs="0" name="BloodGroup" nillable="true" type="tns:BloodGroup" />
+          <xs:element minOccurs="0" name="EyeColor" nillable="true" type="tns:EyeColor" />
+          <xs:element minOccurs="0" name="Height" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="CreateDateStr" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullPerson" nillable="true" type="tns:FullPerson" />
+  <xs:complexType name="Person">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Pin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateOfBirthStr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" type="tns:Gender" />
+          <xs:element minOccurs="0" name="Citizenship" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
+  <xs:simpleType name="MaritalStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Single" />
+      <xs:enumeration value="Married" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MaritalStatus" nillable="true" type="tns:MaritalStatus" />
+  <xs:simpleType name="MilitaryStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="NoMil" />
+      <xs:enumeration value="MilSvc" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MilitaryStatus" nillable="true" type="tns:MilitaryStatus" />
+  <xs:complexType name="Photo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MediaFile">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Status" type="tns:Status" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Photo" nillable="true" type="tns:Photo" />
+  <xs:complexType name="MediaFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileLength" type="xs:int" />
+      <xs:element minOccurs="0" name="FileBinary" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MediaFile" nillable="true" type="tns:MediaFile" />
+  <xs:element name="GetDeadPersons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="param" nillable="true" type="tns:SearchParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeadPersonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDeadPersonsResult" nillable="true" type="tns:FullPersonListResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FullPersonListResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Persons" nillable="true" type="tns:ArrayOfFullPerson" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullPersonListResult" nillable="true" type="tns:FullPersonListResult" />
+  <xs:complexType name="ArrayOfFullPerson">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FullPerson" nillable="true" type="tns:FullPerson" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFullPerson" nillable="true" type="tns:ArrayOfFullPerson" />
+  <xs:element name="GetDocumentList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="param" nillable="true" type="tns:SearchParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDocumentListResult" nillable="true" type="tns:FullDocListResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FullDocListResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Documents" nillable="true" type="tns:ArrayOfFullDocument" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullDocListResult" nillable="true" type="tns:FullDocListResult" />
+  <xs:complexType name="ArrayOfFullDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FullDocument" nillable="true" type="tns:FullDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFullDocument" nillable="true" type="tns:ArrayOfFullDocument" />
+  <xs:element name="GetPersonByPin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="tns:SearchByPinReq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SearchByPinReq">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PIN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchByPinReq" nillable="true" type="tns:SearchByPinReq" />
+  <xs:element name="GetPersonByPinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPersonByPinResult" nillable="true" type="tns:SearchByPinResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SearchByPinResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Person" nillable="true" type="tns:PersonInfo" />
+          <xs:element minOccurs="0" name="Relations" nillable="true" type="tns:ArrayOfRelation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SearchByPinResult" nillable="true" type="tns:SearchByPinResult" />
+  <xs:complexType name="BaseResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResultType" type="tns:RegistryResultType" />
+      <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfValidationRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseResult" nillable="true" type="tns:BaseResult" />
+  <xs:simpleType name="RegistryResultType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="ValidationError" />
+      <xs:enumeration value="PersonNotFound" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RegistryResultType" nillable="true" type="tns:RegistryResultType" />
+  <xs:complexType name="ArrayOfValidationRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValidationRule" nillable="true" type="tns:ValidationRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfValidationRule" nillable="true" type="tns:ArrayOfValidationRule" />
+  <xs:complexType name="ValidationRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Member" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationRule" nillable="true" type="tns:ValidationRule" />
+  <xs:complexType name="PersonInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Pin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" type="tns:Gender" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonInfo" nillable="true" type="tns:PersonInfo" />
+  <xs:complexType name="ArrayOfRelation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Relation" nillable="true" type="tns:Relation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelation" nillable="true" type="tns:ArrayOfRelation" />
+  <xs:complexType name="Relation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RelationType" type="tns:RegistryRelationType" />
+      <xs:element minOccurs="0" name="Person" nillable="true" type="tns:PersonInfo" />
+      <xs:element minOccurs="0" name="RelationStatus" type="tns:RegistryRelationStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Relation" nillable="true" type="tns:Relation" />
+  <xs:simpleType name="RegistryRelationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Spouse" />
+      <xs:enumeration value="Father" />
+      <xs:enumeration value="Mother" />
+      <xs:enumeration value="Child" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RegistryRelationType" nillable="true" type="tns:RegistryRelationType" />
+  <xs:simpleType name="RegistryRelationStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Confirmed" />
+      <xs:enumeration value="Added" />
+      <xs:enumeration value="Deleted" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RegistryRelationStatus" nillable="true" type="tns:RegistryRelationStatus" />
+  <xs:element name="AddPersonRelationInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Registry.Core.Services.WCF.Models.RegistryNotariat.Request" minOccurs="0" name="request" nillable="true" type="q1:AddPersonRelationInfoReq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPersonRelationInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddPersonRelationInfoResult" nillable="true" type="tns:AddPersonRelationInfoResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AddPersonRelationInfoResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResult">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddPersonRelationInfoResult" nillable="true" type="tns:AddPersonRelationInfoResult" />
+</xs:schema>

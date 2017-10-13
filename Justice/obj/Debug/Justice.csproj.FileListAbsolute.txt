@@ -82,6 +82,7 @@ C:\Users\Hasan Shans\source\repos\Justice\Justice\bin\Microsoft.AI.Web.xml
 C:\Users\Hasan Shans\source\repos\Justice\Justice\obj\Debug\Justice.csproj.CoreCompileInputs.cache
 C:\Users\Hasan Shans\source\repos\Justice\Justice\obj\Debug\Justice.dll
 C:\Users\Hasan Shans\source\repos\Justice\Justice\obj\Debug\Justice.pdb
+<<<<<<< HEAD
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.csprojResolveAssemblyReference.cache
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.csproj.CoreCompileInputs.cache
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.dll
@@ -167,3 +168,6 @@ C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.Depend
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.Web.xml
+=======
+C:\Users\Hasan Shans\source\repos\Justice\Justice\obj\Debug\Justice.csprojResolveAssemblyReference.cache
+>>>>>>> 83eeefa34d20bbb425fe563804ebc6bc922f07cc

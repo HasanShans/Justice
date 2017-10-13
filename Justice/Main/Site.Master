@@ -83,10 +83,10 @@
                             <li class="dropdown  altmenu" style="float:right">
                                 <asp:HyperLink ID="linkNameEmail" runat="server" NavigateUrl="#" CssClass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" Visible="false"><%=Username %><span class="caret"></span></asp:HyperLink>
                                 <ul class="dropdown-menu">
-                                    <li><asp:HyperLink runat="server" NavigateUrl="#">Səhifəm</asp:HyperLink></li>
+                                    <li><asp:HyperLink runat="server" NavigateUrl="Information.aspx">Səhifəm</asp:HyperLink></li>
                                     <li><asp:HyperLink runat="server" NavigateUrl="#">Bəyəndiklərim</asp:HyperLink></li>
                                     <li><asp:HyperLink runat="server" NavigateUrl="#">Səbətim</asp:HyperLink></li>
-                                    <li><asp:LinkButton runat="server" OnClick="signOut_Click">Çıxış</asp:LinkButton></li>
+                                    <li><asp:LinkButton runat="server" OnClick="signOut_Click" CausesValidation="false">Çıxış</asp:LinkButton></li>
                                 </ul>
                             </li>
                         </ul>

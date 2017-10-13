@@ -33,7 +33,7 @@
                             <div class='form-group row'>
                                 <asp:Label ID="dateLabel" AssociatedControlID="dateTextBox" Text="Doğum tarixi" CssClass="col-sm-3 col-form-label" runat="server" />
                                 <div class='col-sm-9'>
-                                    <asp:TextBox ID="dateTextBox" CssClass="form-control" runat="server" />
+                                    <asp:TextBox ID="dateTextBox" CssClass="form-control" TextMode="Date" runat="server" />
                                 </div>
                             </div>
 
@@ -44,6 +44,7 @@
                                         <span class='input-group-addon'>AZE</span>
                                         <asp:TextBox ID="serialTextBox" CssClass="form-control" runat="server" />
                                     </div>
+                                    <asp:RequiredFieldValidator runat="server" id="serialValidator" controltovalidate="serialTextBox" cssClass="text-danger" errormessage="Şəxsiyyət vəsiqəsi seriya nömrəsini qeyd edin!" />
                                 </div>
                             </div>
 
@@ -51,6 +52,7 @@
                                 <asp:Label ID="cityLabel" AssociatedControlID="cityTextBox" Text="Ya&#351;ad&#305;&#287;&#305;n&#305;z &#350;&#601;h&#601;r *" CssClass="col-sm-3 col-form-label" runat="server" />
                                 <div class='col-sm-9'>
                                     <asp:TextBox ID="cityTextBox" CssClass="form-control" runat="server" />
+                                    <asp:RequiredFieldValidator runat="server" id="cityValidator" controltovalidate="cityTextBox" cssClass="text-danger" errormessage="Yaşadığınız şəhəri qeyd edin!" />
                                 </div>
                             </div>
                             <!-- /.form-group -->
@@ -60,6 +62,7 @@
                                 <asp:Label ID="postLabel" AssociatedControlID="postTextBox" Text="Poçt kodu *" CssClass="col-sm-3 col-form-label" runat="server" />
                                 <div class='col-sm-9'>
                                     <asp:TextBox ID="postTextBox" CssClass="form-control" runat="server" />
+                                    <asp:RequiredFieldValidator runat="server" id="postValidator" controltovalidate="postTextBox" cssClass="text-danger" errormessage="Poçt kodunu qeyd edin!" />
                                 </div>
                             </div>
 
@@ -67,6 +70,7 @@
                                 <asp:Label ID="mobileLabel" AssociatedControlID="mobileTextBox" Text="Mobil nömrə *" CssClass="col-sm-3 col-form-label" runat="server" />
                                 <div class='col-sm-9'>
                                     <asp:TextBox ID="mobileTextBox" CssClass="form-control" runat="server" />
+                                    <asp:RequiredFieldValidator runat="server" id="mobileValidator" controltovalidate="mobileTextBox" cssClass="text-danger" errormessage="Mobil nömrənizi qeyd edin!" />
                                 </div>
                             </div>
 
@@ -79,7 +83,7 @@
 
                             <div class='form-group row'>
                                 <div class=' col-sm-12'>
-                                    <button type='submit' class='btn btn-success pull-right'>
+                                    <button class='btn btn-success pull-right' onserverclick="submitClick" runat="server">
                                         Yadda Saxla<i class='fa fa-check' aria-hidden='true'></i>
                                     </button>
                                 </div>
