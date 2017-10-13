@@ -29,41 +29,70 @@ namespace Justice
                     "~/Scripts/WebForms/MsAjax/MicrosoftAjaxTimer.js",
                     "~/Scripts/WebForms/MsAjax/MicrosoftAjaxWebForms.js"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/Custom").Include(
-                  "~/Scripts/Custom/font-awesome.js",
-                  "~/Scripts/Custom/jquery.js",
-                  "~/Scripts/Custom/jssor.slider-25.2.0.min.js",
-                  "~/Scripts/Custom/npm.js",
-                  "~/Scripts/Custom/script.js",
-                  "~/Scripts/Custom/smoothproducts.min.js",
-                  "~/Scripts/Custom/smoothproducts.js"));
+            bundles.Add(new ScriptBundle("~/bundles/indexJs").Include(
+                "~/Scripts/Main/bootstrap.js",
+                "~/Scripts/Main/jquery-3.1.1.min.js",
+                "~/Scripts/Main/bootstrap.min.js",
+                "~/Scripts/Main/script.js",
+                "~/Scripts/Main/font-awesome.js"
+                ));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                    "~/Content/css/bootstrap-theme.min.css",
-                    "~/Content/css/bootstrap.min.css",
-                    "~/Content/css/bootstrap.css",
-                    "~/Content/css/bootstrap-theme.css",
-                    "~/Content/css/font-awesome.min.css",
-                    "~/Content/css/font-awesome.css",
-                    "~/Content/css/jqzoom.css",
-                    "~/Content/css/smoothproducts.min.css",
-                    "~/Content/css/smoothproducts.css",
-                    "~/Content/css/style.css"));
+            bundles.Add(new ScriptBundle("~/bundles/adminJs").Include(
+                "~/Content/Admin/plugins/jquery-1.8.3.min.js",
+                "~/Content/Admin/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js",
+                "~/Content/Admin/plugins/bootstrap/js/bootstrap.min.js",
+                "~/Content/Admin/plugins/breakpoints.js",
+                "~/Content/Admin/plugins/jquery-unveil/jquery.unveil.min.js",
+                "~/Content/Admin/plugins/jquery-block-ui/jqueryblockui.js",
+                "~/Content/Admin/plugins/jquery-lazyload/jquery.lazyload.min.js",
+                "~/Content/Admin/plugins/jquery-slider/jquery.sidr.min.js",
+                "~/Content/Admin/plugins/jquery-slimscroll/jquery.slimscroll.min.js",
+                "~/Content/Admin/plugins/webarchScroll.js",
+                "~/Content/Admin/plugins/pace/pace.min.js",
+                "~/Content/Admin/plugins/jquery-numberAnimate/jquery.animateNumbers.js",
+                "~/Content/Admin/plugins/skycons/skycons.js",
+                "~/Content/Admin/plugins/owl-carousel/owl.carousel.min.js",
+                "~/Content/Admin/plugins/bootstrap-select2/select2.min.js",
+                "~/Content/Admin/plugins/jquery-datatable/js/jquery.dataTables.min.js",
+                "~/Content/Admin/plugins/jquery-datatable/extra/js/TableTools.min.js",
+                "~/Content/Admin//plugins/datatables-responsive/js/datatables.responsive.js",
+                "~/Scripts/Admin/js/datatables.js",
+                "~/Content/Admin//plugins/jquery-metrojs/MetroJs.min.js",
+                "~/Scripts/Admin/js/core.js"));
 
-            bundles.Add(new StyleBundle("~/Content/sass").Include(
-                    "~/Content/sass/_basket.scss",
-                    "~/Content/sass/_login.scss",
-                    "~/Content/sass/_mehsulual.scss",
-                    "~/Content/sass/_mypage.scss",
-                    "~/Content/sass/_productsingle.scss",
-                    "~/Content/sass/style.scss",
-                    "~/Content/sass/_home.scss"));
+            
 
+            bundles.Add(new ScriptBundle("~/bundles/mainJs").IncludeDirectory("~/Scripts/Main/", "*.js", false));
 
-            // Use the Development version of Modernizr to develop with and learn from. Then, when you’re
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                            "~/Scripts/modernizr-*"));
+            bundles.Add(new StyleBundle("~/bundles/mainCss").IncludeDirectory("~/Content/Main/css", "*.css", false));
+            bundles.Add(new StyleBundle("~/bundles/mainSass").IncludeDirectory("~/Content/Main/sass", "*.sass", false));
+
+            //bundles.Add(new StyleBundle("~/bundles/adminCss").IncludeDirectory("~/Scripts/Admin/plugins", "*.css", true)
+            //                                   .IncludeDirectory("~/Content/Admin/css", "*.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/adminCss").Include(
+                "~/Content/Admin/plugins/jquery-polymaps/style.css",
+                "~/Content/Admin/plugins/jquery-metrojs/MetroJs.css",
+                "~/Content/Admin/plugins/shape-hover/css/demo.css",
+                "~/Content/Admin/plugins/shape-hover/css/component.css",
+                "~/Content/Admin/plugins/owl-carousel/owl.carousel.css",
+                "~/Content/Admin/plugins/owl-carousel/owl.theme.css",
+                "~/Content/Admin/plugins/pace/pace-theme-flash.css",
+                "~/Content/Admin/plugins/jquery-slider/css/jquery.sidr.light.css",
+                "~/Content/Admin/plugins/jquery-isotope/isotope.css",
+                "~/Content/Admin/plugins/boostrapv3/css/bootstrap.min.css",
+                "~/Content/Admin/plugins/boostrapv3/css/bootstrap-theme.min.css",
+                "~/Content/Admin/plugins/font-awesome/css/font-awesome.css",
+                "~/Content/Admin/css/animate.min.css",
+                "~/Content/Admin/css/style.css",
+                "~/Content/Admin/css/responsive.css",
+                "~/Content/Admin/css/custom-icon-set.css",
+                "~/Content/Admin/css/magic_space.css",
+                "~/Content/Admin/css/tiles_responsive.css",
+                "~/Content/Admin/plugins/bootstrap-select2/select2.css",
+                "~/Content/Admin/plugins/jquery-datatable/css/jquery.dataTables.css",
+                "~/Content/Admin/plugins/boostrap-checkbox/css/bootstrap-checkbox.css",
+                "~/Content/Admin/plugins/datatables-responsive/css/datatables.responsive.css"));
 
             ScriptManager.ScriptResourceMapping.AddDefinition(
                 "respond",

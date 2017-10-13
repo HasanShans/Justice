@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecoverPassword.aspx.cs" Inherits="Justice.Main.RecoverPassword" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="RecoverPassword.aspx.cs" Inherits="Justice.Main.RecoverPassword" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <section id="user">
         <div class="container">
@@ -9,7 +9,6 @@
                             <h3>Yeni Şifrə</h3>
                         </div>
                         <div class="login">
-                            <form runat="server">
                                 <div class="form-group row">
                                     <asp:Label ID="lblPass" runat="server" CssClass="col-md-2 control-label" Text="Yeni Şifrə" Visible="False"></asp:Label>
                                     <div class="col-md-10">
@@ -30,7 +29,6 @@
                                         <asp:Label ID="lblMsg" runat="server"></asp:Label>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>

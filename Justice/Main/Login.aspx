@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Justice.Main.Login" %>
-
+<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Login.aspx.cs" Inherits="Justice.Main.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <section id="user">
@@ -11,7 +10,6 @@
                             <h3>Daxil ol</h3>
                         </div>
                         <div class="login">
-                            <form runat="server">
                                 <div class="form-group row">
                                     <asp:Label ID="Label2" runat="server" CssClass="col-md-2 control-label" Text="Email"></asp:Label>
                                     <div class="col-md-10">
@@ -55,7 +53,6 @@
                                         <asp:Label ID="lblMsg" runat="server"></asp:Label>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="Justice.Main.ForgotPassword" %>
+﻿<%@ Page Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="Justice.Main.ForgotPassword" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <section id="user">
@@ -10,7 +11,6 @@
                             <h3>Şifrəmi Unutdum</h3>
                         </div>
                         <div class="login">
-                            <form runat="server">
                                 <div class="form-group row">
                                     <asp:Label ID="Label2" runat="server" CssClass="col-md-2 control-label" Text="Email"></asp:Label>
                                     <div class="col-md-10">
@@ -24,7 +24,6 @@
                                         <asp:Label ID="lblMsg" runat="server"></asp:Label>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>

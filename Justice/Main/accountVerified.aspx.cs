@@ -10,14 +10,14 @@ using System.Data;
 
 namespace Justice.Main
 {
-    public partial class accountVerified : System.Web.UI.Page
+    public partial class AccountVerified : System.Web.UI.Page
     {
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (sqlConnection.State == ConnectionState.Closed)
                 sqlConnection.Open();
-            int UserID = Convert.ToInt32(Request.QueryString["UserID"])/5432;
+            int UserID = Convert.ToInt32(Request.QueryString["UserID"]) / 5432;
             if (Request.QueryString["UserID"] != null)
             {
                 SqlCommand sqlCommand = new SqlCommand("UsersVerifyAccount", sqlConnection);

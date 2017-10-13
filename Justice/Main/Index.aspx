@@ -1,64 +1,67 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Index.aspx.cs" Inherits="Justice.Home" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Index.aspx.cs" Inherits="Justice.Main.Index" %>
 
+<asp:Content ID="Content2" ContentPlaceHolderID="Additional" Runat="Server">
+    <script src="../Scripts/Main/jssor.slider-25.2.0.min.js"></script>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-     <script type="text/javascript">
-         jssor_1_slider_init = function () {
+    <script>
+        jssor_1_slider_init = function () {
 
-             var jssor_1_SlideshowTransitions = [
-                 { $Duration: 1200, $Zoom: 1, $Easing: { $Zoom: $Jease$.$InCubic, $Opacity: $Jease$.$OutQuad }, $Opacity: 2 },
-                 { $Duration: 1000, $Zoom: 11, $SlideOut: true, $Easing: { $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                 { $Duration: 1200, $Zoom: 1, $Rotate: 1, $During: { $Zoom: [0.2, 0.8], $Rotate: [0.2, 0.8] }, $Easing: { $Zoom: $Jease$.$Swing, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$Swing }, $Opacity: 2, $Round: { $Rotate: 0.5 } },
-                 { $Duration: 1000, $Zoom: 11, $Rotate: 1, $SlideOut: true, $Easing: { $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo }, $Opacity: 2, $Round: { $Rotate: 0.8 } },
-                 { $Duration: 1200, x: 0.5, $Cols: 2, $Zoom: 1, $Assembly: 2049, $ChessMode: { $Column: 15 }, $Easing: { $Left: $Jease$.$InCubic, $Zoom: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                 { $Duration: 1200, x: 4, $Cols: 2, $Zoom: 11, $SlideOut: true, $Assembly: 2049, $ChessMode: { $Column: 15 }, $Easing: { $Left: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                 { $Duration: 1200, x: 0.6, $Zoom: 1, $Rotate: 1, $During: { $Left: [0.2, 0.8], $Zoom: [0.2, 0.8], $Rotate: [0.2, 0.8] }, $Easing: $Jease$.$Swing, $Opacity: 2, $Round: { $Rotate: 0.5 } },
-                 { $Duration: 1000, x: -4, $Zoom: 11, $Rotate: 1, $SlideOut: true, $Easing: { $Left: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo }, $Opacity: 2, $Round: { $Rotate: 0.8 } },
-                 { $Duration: 1200, x: -0.6, $Zoom: 1, $Rotate: 1, $During: { $Left: [0.2, 0.8], $Zoom: [0.2, 0.8], $Rotate: [0.2, 0.8] }, $Easing: $Jease$.$Swing, $Opacity: 2, $Round: { $Rotate: 0.5 } },
-                 { $Duration: 1000, x: 4, $Zoom: 11, $Rotate: 1, $SlideOut: true, $Easing: { $Left: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo }, $Opacity: 2, $Round: { $Rotate: 0.8 } },
-                 { $Duration: 1200, x: 0.5, y: 0.3, $Cols: 2, $Zoom: 1, $Rotate: 1, $Assembly: 2049, $ChessMode: { $Column: 15 }, $Easing: { $Left: $Jease$.$InCubic, $Top: $Jease$.$InCubic, $Zoom: $Jease$.$InCubic, $Opacity: $Jease$.$OutQuad, $Rotate: $Jease$.$InCubic }, $Opacity: 2, $Round: { $Rotate: 0.7 } },
-                 { $Duration: 1000, x: 0.5, y: 0.3, $Cols: 2, $Zoom: 1, $Rotate: 1, $SlideOut: true, $Assembly: 2049, $ChessMode: { $Column: 15 }, $Easing: { $Left: $Jease$.$InExpo, $Top: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo }, $Opacity: 2, $Round: { $Rotate: 0.7 } },
-                 { $Duration: 1200, x: -4, y: 2, $Rows: 2, $Zoom: 11, $Rotate: 1, $Assembly: 2049, $ChessMode: { $Row: 28 }, $Easing: { $Left: $Jease$.$InCubic, $Top: $Jease$.$InCubic, $Zoom: $Jease$.$InCubic, $Opacity: $Jease$.$OutQuad, $Rotate: $Jease$.$InCubic }, $Opacity: 2, $Round: { $Rotate: 0.7 } },
-                 { $Duration: 1200, x: 1, y: 2, $Cols: 2, $Zoom: 11, $Rotate: 1, $Assembly: 2049, $ChessMode: { $Column: 19 }, $Easing: { $Left: $Jease$.$InCubic, $Top: $Jease$.$InCubic, $Zoom: $Jease$.$InCubic, $Opacity: $Jease$.$OutQuad, $Rotate: $Jease$.$InCubic }, $Opacity: 2, $Round: { $Rotate: 0.8 } }
-             ];
+            var jssor_1_SlideshowTransitions = [
+                { $Duration: 1200, $Zoom: 1, $Easing: { $Zoom: $Jease$.$InCubic, $Opacity: $Jease$.$OutQuad }, $Opacity: 2 },
+                { $Duration: 1000, $Zoom: 11, $SlideOut: true, $Easing: { $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
+                { $Duration: 1200, $Zoom: 1, $Rotate: 1, $During: { $Zoom: [0.2, 0.8], $Rotate: [0.2, 0.8] }, $Easing: { $Zoom: $Jease$.$Swing, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$Swing }, $Opacity: 2, $Round: { $Rotate: 0.5 } },
+                { $Duration: 1000, $Zoom: 11, $Rotate: 1, $SlideOut: true, $Easing: { $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo }, $Opacity: 2, $Round: { $Rotate: 0.8 } },
+                { $Duration: 1200, x: 0.5, $Cols: 2, $Zoom: 1, $Assembly: 2049, $ChessMode: { $Column: 15 }, $Easing: { $Left: $Jease$.$InCubic, $Zoom: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
+                { $Duration: 1200, x: 4, $Cols: 2, $Zoom: 11, $SlideOut: true, $Assembly: 2049, $ChessMode: { $Column: 15 }, $Easing: { $Left: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
+                { $Duration: 1200, x: 0.6, $Zoom: 1, $Rotate: 1, $During: { $Left: [0.2, 0.8], $Zoom: [0.2, 0.8], $Rotate: [0.2, 0.8] }, $Easing: $Jease$.$Swing, $Opacity: 2, $Round: { $Rotate: 0.5 } },
+                { $Duration: 1000, x: -4, $Zoom: 11, $Rotate: 1, $SlideOut: true, $Easing: { $Left: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo }, $Opacity: 2, $Round: { $Rotate: 0.8 } },
+                { $Duration: 1200, x: -0.6, $Zoom: 1, $Rotate: 1, $During: { $Left: [0.2, 0.8], $Zoom: [0.2, 0.8], $Rotate: [0.2, 0.8] }, $Easing: $Jease$.$Swing, $Opacity: 2, $Round: { $Rotate: 0.5 } },
+                { $Duration: 1000, x: 4, $Zoom: 11, $Rotate: 1, $SlideOut: true, $Easing: { $Left: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo }, $Opacity: 2, $Round: { $Rotate: 0.8 } },
+                { $Duration: 1200, x: 0.5, y: 0.3, $Cols: 2, $Zoom: 1, $Rotate: 1, $Assembly: 2049, $ChessMode: { $Column: 15 }, $Easing: { $Left: $Jease$.$InCubic, $Top: $Jease$.$InCubic, $Zoom: $Jease$.$InCubic, $Opacity: $Jease$.$OutQuad, $Rotate: $Jease$.$InCubic }, $Opacity: 2, $Round: { $Rotate: 0.7 } },
+                { $Duration: 1000, x: 0.5, y: 0.3, $Cols: 2, $Zoom: 1, $Rotate: 1, $SlideOut: true, $Assembly: 2049, $ChessMode: { $Column: 15 }, $Easing: { $Left: $Jease$.$InExpo, $Top: $Jease$.$InExpo, $Zoom: $Jease$.$InExpo, $Opacity: $Jease$.$Linear, $Rotate: $Jease$.$InExpo }, $Opacity: 2, $Round: { $Rotate: 0.7 } },
+                { $Duration: 1200, x: -4, y: 2, $Rows: 2, $Zoom: 11, $Rotate: 1, $Assembly: 2049, $ChessMode: { $Row: 28 }, $Easing: { $Left: $Jease$.$InCubic, $Top: $Jease$.$InCubic, $Zoom: $Jease$.$InCubic, $Opacity: $Jease$.$OutQuad, $Rotate: $Jease$.$InCubic }, $Opacity: 2, $Round: { $Rotate: 0.7 } },
+                { $Duration: 1200, x: 1, y: 2, $Cols: 2, $Zoom: 11, $Rotate: 1, $Assembly: 2049, $ChessMode: { $Column: 19 }, $Easing: { $Left: $Jease$.$InCubic, $Top: $Jease$.$InCubic, $Zoom: $Jease$.$InCubic, $Opacity: $Jease$.$OutQuad, $Rotate: $Jease$.$InCubic }, $Opacity: 2, $Round: { $Rotate: 0.8 } }
+            ];
 
-             var jssor_1_options = {
-                 $AutoPlay: 1,
-                 $SlideshowOptions: {
-                     $Class: $JssorSlideshowRunner$,
-                     $Transitions: jssor_1_SlideshowTransitions,
-                     $TransitionsOrder: 1
-                 },
-                 $BulletNavigatorOptions: {
-                     $Class: $JssorBulletNavigator$
-                 },
-                 $ThumbnailNavigatorOptions: {
-                     $Class: $JssorThumbnailNavigator$,
-                     $Cols: 4,
-                     $Orientation: 2,
-                     $Align: 150
-                 }
-             };
+            var jssor_1_options = {
+                $AutoPlay: 1,
+                $SlideshowOptions: {
+                    $Class: $JssorSlideshowRunner$,
+                    $Transitions: jssor_1_SlideshowTransitions,
+                    $TransitionsOrder: 1
+                },
+                $BulletNavigatorOptions: {
+                    $Class: $JssorBulletNavigator$
+                },
+                $ThumbnailNavigatorOptions: {
+                    $Class: $JssorThumbnailNavigator$,
+                    $Cols: 4,
+                    $Orientation: 2,
+                    $Align: 150
+                }
+            };
 
-             var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
 
-             /*#region responsive code begin*/
-             /*remove responsive code if you don't want the slider scales while window resizing*/
-             function ScaleSlider() {
-                 var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-                 if (refSize) {
-                     refSize = Math.min(refSize, 1138);
-                     jssor_1_slider.$ScaleWidth(refSize);
-                 }
-                 else {
-                     window.setTimeout(ScaleSlider, 30);
-                 }
-             }
-             ScaleSlider();
-             $Jssor$.$AddEvent(window, "load", ScaleSlider);
-             $Jssor$.$AddEvent(window, "resize", ScaleSlider);
-             $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
-             /*#endregion responsive code end*/
-         };
+            /*#region responsive code begin*/
+            /*remove responsive code if you don't want the slider scales while window resizing*/
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 1138);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+            /*#endregion responsive code end*/
+        };
     </script>
      <style>
         /* jssor slider loading skin double-tail-spin css */
@@ -102,28 +105,28 @@
             </div>
             <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1138px;height:380px;overflow:hidden;">
                 <div>
-                    <img data-u="image" src="/Content/images/slider/slide1.jpg" />
-                    <img data-u="thumb" src="/Content/images/slider/slide1.jpg" />
+                    <img data-u="image" src="../Content/Main/images/slider/slide1.jpg" />
+                    <img data-u="thumb" src="../Content/Main/images/slider/slide1.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="/Content/images/slider/slide2.jpg" />
-                    <img data-u="thumb" src="/Content/images/slider/slide2.jpg" />
+                    <img data-u="image" src="../Content/Main/images/slider/slide2.jpg" />
+                    <img data-u="thumb" src="../Content/Main/images/slider/slide2.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="/Content/images/slider/slide3.jpg" />
-                    <img data-u="thumb" src="/Content/images/slider/slide3.jpg" />
+                    <img data-u="image" src="../Content/Main/images/slider/slide3.jpg" />
+                    <img data-u="thumb" src="../Content/Main/images/slider/slide3.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="/Content/images/slider/slide4.jpg" />
-                    <img data-u="thumb" src="/Content/images/slider/slide4.jpg" />
+                    <img data-u="image" src="../Content/Main/images/slider/slide4.jpg" />
+                    <img data-u="thumb" src="../Content/Main/images/slider/slide4.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="/Content/images/slider/slide5.jpg" />
-                    <img data-u="thumb" src="/Content/images/slider/slide5.jpg" />
+                    <img data-u="image" src="../Content/Main/images/slider/slide5.jpg" />
+                    <img data-u="thumb" src="../Content/Main/images/slider/slide5.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="/Content/images/slider/slide6.jpg" />
-                    <img data-u="thumb" src="/Content/images/slider/slide6.jpg" />
+                    <img data-u="image" src="../Content/Main/images/slider/slide6.jpg" />
+                    <img data-u="thumb" src="../Content/Main/images/slider/slide6.jpg" />
                 </div>
             </div>
         <!-- Thumbnail Navigator -->
@@ -229,7 +232,7 @@
         				</div>
                     <div class='images'>
                         <a href='productsingle.php?code=". $data->code ."'>
-                        <img class='img-responsive'  src='~/Content/images/products/110966.jpg' alt=''></a>
+                        <img class='img-responsive'  src='../Content/Main/images/products/110966.jpg' alt=''></a>
                     </div>
                     <div class='detailes'>
                         <h5 class='text-center'>
@@ -248,8 +251,6 @@
         </div>
     </div>
 </section>
+    <%: Scripts.Render("~/bundles/indexJs") %>
     <script type="text/javascript">jssor_1_slider_init();</script>
-    <%: Scripts.Render("~/Scripts/Custom/jquery-3.1.1.min.js") %>
-    <%: Scripts.Render("~/Scripts/Custom/bootstrap.js") %>
-    <%: Scripts.Render("~/Scripts/Custom/script.js") %>
 </asp:Content>

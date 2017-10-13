@@ -10,7 +10,7 @@
 namespace Justice.Main {
     
     
-    public partial class accountVerified {
+    public partial class AccountVerified {
         
         /// <summary>
         /// lblMsg control.

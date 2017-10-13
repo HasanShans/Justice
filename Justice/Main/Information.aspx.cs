@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Justice
+namespace Justice.Main
 {
     public partial class Information : System.Web.UI.Page
     {

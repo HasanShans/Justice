@@ -15,11 +15,18 @@ namespace Justice.Main
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Cookies["EMAIL"] != null && Request.Cookies["PASSWORD"] != null)
+            if (Session["NAME"] == null)
             {
-                tbEmail.Text = Request.Cookies["UNAME"].Value;
-                tbPassword.Attributes["value"] = Request.Cookies["PASSWORD"].Value;
-                tbRememberMe.Checked = true;
+                if (Request.Cookies["EMAIL"] != null && Request.Cookies["PASSWORD"] != null)
+                {
+                    tbEmail.Text = Request.Cookies["EMAIL"].Value;
+                    tbPassword.Attributes["value"] = Request.Cookies["PASSWORD"].Value;
+                    tbRememberMe.Checked = true;
+                }
+            }
+            else
+            {
+                Response.Redirect("Index.aspx");
             }
         }
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -52,8 +59,8 @@ namespace Justice.Main
                         Response.Cookies["EMAIL"].Expires = DateTime.Now.AddDays(-1);
                         Response.Cookies["PASSWORD"].Expires = DateTime.Now.AddDays(-1);
                     }
-                    Session["NAME"] = dataTable.Rows[0][1] + " " + dataTable.Rows[0][2];
-                    Session["EMAIL"] = dataTable.Rows[0][3];
+                    Session["NAME"] = dataTable.Rows[0][1].ToString() + " " + dataTable.Rows[0][2].ToString();
+                    Session["EMAIL"] = dataTable.Rows[0][3].ToString();
                     if (Request.QueryString["rurl"] != null)
                     {
                         String page = Request.QueryString["rurl"];

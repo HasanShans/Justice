@@ -17,7 +17,10 @@ namespace Justice.Main
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["NAME"] != null)
+            {
+                Response.Redirect("Index.aspx");
+            }
         }
         protected void btSignup_Click(object sender, EventArgs e)
         {
@@ -59,7 +62,7 @@ namespace Justice.Main
 
                         String toEmailAddress = tbEmail.Text.Trim().ToString();
                         String username = tbName.Text.Trim().ToString()+" "+tbSurname.Text.Trim().ToString();
-                        String messageBody = "Salam, Hörmətli " + username + ". <br/> <br/> Hesabınızı təsdiqləmək üçün <a href=\" http://localhost:50857/Main/accountVerified.aspx?UserID=" + UserID + "\">bu linkə</a> klikləyin.<br/><br/>Həbsxana İncəsənəti";
+                        String messageBody = "Salam, Hörmətli " + username + ". <br/> <br/> Hesabınızı təsdiqləmək üçün <a href=\" http://localhost:50857/Main/AccountVerified.aspx?UserID=" + UserID + "\">bu linkə</a> klikləyin.<br/><br/>Həbsxana İncəsənəti";
                         MailMessage mailMessage = new MailMessage("youremail@address.com", toEmailAddress);
                         mailMessage.Body = messageBody;
                         mailMessage.IsBodyHtml = true;
