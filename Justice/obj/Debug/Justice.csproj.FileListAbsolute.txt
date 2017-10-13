@@ -82,3 +82,4 @@ C:\Users\Hasan Shans\source\repos\Justice\Justice\bin\Microsoft.AI.Web.xml
 C:\Users\Hasan Shans\source\repos\Justice\Justice\obj\Debug\Justice.csproj.CoreCompileInputs.cache
 C:\Users\Hasan Shans\source\repos\Justice\Justice\obj\Debug\Justice.dll
 C:\Users\Hasan Shans\source\repos\Justice\Justice\obj\Debug\Justice.pdb
+C:\Users\Hasan Shans\source\repos\Justice\Justice\obj\Debug\Justice.csprojResolveAssemblyReference.cache

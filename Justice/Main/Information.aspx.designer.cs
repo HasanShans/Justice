@@ -112,6 +112,15 @@ namespace Justice.Main {
         protected global::System.Web.UI.WebControls.TextBox serialTextBox;
         
         /// <summary>
+        /// serialValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator serialValidator;
+        
+        /// <summary>
         /// cityLabel control.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace Justice.Main {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox cityTextBox;
+        
+        /// <summary>
+        /// cityValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator cityValidator;
         
         /// <summary>
         /// postLabel control.
@@ -148,6 +166,15 @@ namespace Justice.Main {
         protected global::System.Web.UI.WebControls.TextBox postTextBox;
         
         /// <summary>
+        /// postValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator postValidator;
+        
+        /// <summary>
         /// mobileLabel control.
         /// </summary>
         /// <remarks>
@@ -164,6 +191,15 @@ namespace Justice.Main {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox mobileTextBox;
+        
+        /// <summary>
+        /// mobileValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator mobileValidator;
         
         /// <summary>
         /// homePhoneLabel control.
