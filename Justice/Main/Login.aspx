@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class=" col-sm-12">
-                                        <asp:Button ID="btLogin" runat="server" Class="btn btn-success pull-right" Text="Daxil Ol" />
+                                        <asp:Button ID="btLogin" runat="server" Class="btn btn-success pull-right" Text="Daxil Ol" OnClick="btnLogin_Click"/>
                                         <asp:Label ID="lblMsg" runat="server"></asp:Label>
                                     </div>
                                 </div>

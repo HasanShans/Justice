@@ -45,13 +45,21 @@ namespace Justice.Main
                         sqlCommand.Parameters.AddWithValue("@BirthDate", tbBirthdate.Text.Trim());
                         sqlCommand.Parameters.AddWithValue("@Password", tbPassword.Text.Trim());
                         sqlCommand.ExecuteNonQuery();
-                        sqlConnection.Close();
+
+                        //Get Last Registered User's ID
+
+                        SqlCommand sqlCommand2 = new SqlCommand("UsersSelectLastRegisteredUser", sqlConnection);
+                        sqlCommand2.CommandType = CommandType.StoredProcedure;
+                        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand2);
+                        DataTable dataTable = new DataTable();
+                        sqlDataAdapter.Fill(dataTable);
+                        int UserID = Convert.ToInt32(dataTable.Rows[0][0])*5432;
 
                         //Send mail to user for verification
 
                         String toEmailAddress = tbEmail.Text.Trim().ToString();
                         String username = tbName.Text.Trim().ToString()+" "+tbSurname.Text.Trim().ToString();
-                        String messageBody = "Salam, hörmətli " + username + ". <br/> <br/> Hesabınızı təsdiqləmək üçün aşağıdakı linkə klikləyin. <br/> http://localhost:63986/RecoverPassword.aspx?Uid= <br/><br/>Həbsxana İncəsənəti" + 3;
+                        String messageBody = "Salam, Hörmətli " + username + ". <br/> <br/> Hesabınızı təsdiqləmək üçün <a href=\" http://localhost:50857/Main/accountVerified.aspx?UserID=" + UserID + "\">bu linkə</a> klikləyin.<br/><br/>Həbsxana İncəsənəti";
                         MailMessage mailMessage = new MailMessage("youremail@address.com", toEmailAddress);
                         mailMessage.Body = messageBody;
                         mailMessage.IsBodyHtml = true;

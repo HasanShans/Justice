@@ -174,10 +174,12 @@
     <Content Include="Content\images\slider\slide4.jpg" />
     <Content Include="Content\images\slider\slide5.jpg" />
     <Content Include="Content\images\slider\slide6.jpg" />
+    <Content Include="Main\accountVerified.aspx" />
     <Content Include="Main\ForgotPassword.aspx" />
     <Content Include="Main\Information.aspx" />
     <Content Include="Controls\LeftSideBar.ascx" />
     <Content Include="Main\Login.aspx" />
+    <Content Include="Main\RecoverPassword.aspx" />
     <Content Include="Main\Register.aspx" />
     <Content Include="Scripts\Custom\bootstrap.js" />
     <Content Include="Scripts\Custom\bootstrap.min.js" />
@@ -273,6 +275,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Main\accountVerified.aspx.cs">
+      <DependentUpon>accountVerified.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\accountVerified.aspx.designer.cs">
+      <DependentUpon>accountVerified.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -307,6 +316,13 @@
     </Compile>
     <Compile Include="Main\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\RecoverPassword.aspx.cs">
+      <DependentUpon>RecoverPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\RecoverPassword.aspx.designer.cs">
+      <DependentUpon>RecoverPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
