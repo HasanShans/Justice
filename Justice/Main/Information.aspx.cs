@@ -20,6 +20,9 @@ namespace Justice.Main
         protected void Page_Load(object sender, EventArgs e)
         {
             UserID = Convert.ToInt32(Session["ID"].ToString());
+            nameTextBox.Enabled = false;
+            surnameTextBox.Enabled = false;
+            dateTextBox.Enabled = false;
             if (sqlConnection.State == ConnectionState.Closed)
                 sqlConnection.Open();
             SqlCommand sqlCommand = new SqlCommand("UsersSelectByID", sqlConnection);
@@ -31,11 +34,20 @@ namespace Justice.Main
             sqlDataAdapter.Fill(dataTable);
             if (dataTable.Rows.Count != 0)
             {
-                nameTextBox.Text = dataTable.Rows[0][1].ToString();
-                surnameTextBox.Text = dataTable.Rows[0][2].ToString();
-                emailTextBox.Text = dataTable.Rows[0][3].ToString();
-                dateTextBox.Text = Convert.ToDateTime(dataTable.Rows[0][4].ToString()).ToString();
-                emailTextBox.Enabled = false;
+                if (dataTable.Rows[0][6].ToString() == "0")
+                {
+                    nameTextBox.Text = "Şəxsiyyət Vəsiqəsindəki Adınız";
+                    surnameTextBox.Text = "Şəxsiyyət Vəsiqəsindəki Soyadınız";
+                    emailTextBox.Text = dataTable.Rows[0][3].ToString();
+                }
+                else
+                {
+                    nameTextBox.Text = dataTable.Rows[0][1].ToString();
+                    surnameTextBox.Text = dataTable.Rows[0][2].ToString();
+                    emailTextBox.Text = dataTable.Rows[0][3].ToString();
+                    serialTextBox.Text = dataTable.Rows[0][6].ToString();
+                    serialTextBox.Enabled = false;
+                }
             }
         }
 
@@ -72,10 +84,10 @@ namespace Justice.Main
             sqlCommand.Parameters.AddWithValue("@LastName", surnameTextBox.Text);
             sqlCommand.Parameters.AddWithValue("@BirthDate", dateTextBox.Text);
             sqlCommand.Parameters.AddWithValue("@IDSerialNumber", serialTextBox.Text);
-            sqlCommand.Parameters.AddWithValue("@City", cityTextBox.Text);
-            sqlCommand.Parameters.AddWithValue("@PostIndex", postTextBox.Text);
-            sqlCommand.Parameters.AddWithValue("@MobilePhone", mobileTextBox.Text);
-            sqlCommand.Parameters.AddWithValue("@HomePhone", homePhoneTextBox.Text);
+            //sqlCommand.Parameters.AddWithValue("@City", cityTextBox.Text);
+            //sqlCommand.Parameters.AddWithValue("@PostIndex", postTextBox.Text);
+            //sqlCommand.Parameters.AddWithValue("@MobilePhone", mobileTextBox.Text);
+            //sqlCommand.Parameters.AddWithValue("@HomePhone", homePhoneTextBox.Text);
             sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
         }

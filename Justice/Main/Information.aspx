@@ -51,35 +51,11 @@
                             <div class='form-group row'>
                                 <asp:Label ID="cityLabel" AssociatedControlID="cityTextBox" Text="Ya&#351;ad&#305;&#287;&#305;n&#305;z &#350;&#601;h&#601;r *" CssClass="col-sm-3 col-form-label" runat="server" />
                                 <div class='col-sm-9'>
-                                    <asp:TextBox ID="cityTextBox" CssClass="form-control" runat="server" />
+                                    <asp:DropDownList ID="ddlBrands" CssClass="form-control" runat="server"></asp:DropDownList>
                                     <asp:RequiredFieldValidator runat="server" id="cityValidator" controltovalidate="cityTextBox" cssClass="text-danger" errormessage="Yaşadığınız şəhəri qeyd edin!" />
                                 </div>
                             </div>
                             <!-- /.form-group -->
-
-
-                            <div class='form-group row'>
-                                <asp:Label ID="postLabel" AssociatedControlID="postTextBox" Text="Poçt kodu *" CssClass="col-sm-3 col-form-label" runat="server" />
-                                <div class='col-sm-9'>
-                                    <asp:TextBox ID="postTextBox" CssClass="form-control" runat="server" />
-                                    <asp:RequiredFieldValidator runat="server" id="postValidator" controltovalidate="postTextBox" cssClass="text-danger" errormessage="Poçt kodunu qeyd edin!" />
-                                </div>
-                            </div>
-
-                            <div class='form-group row'>
-                                <asp:Label ID="mobileLabel" AssociatedControlID="mobileTextBox" Text="Mobil nömrə *" CssClass="col-sm-3 col-form-label" runat="server" />
-                                <div class='col-sm-9'>
-                                    <asp:TextBox ID="mobileTextBox" CssClass="form-control" runat="server" />
-                                    <asp:RequiredFieldValidator runat="server" id="mobileValidator" controltovalidate="mobileTextBox" cssClass="text-danger" errormessage="Mobil nömrənizi qeyd edin!" />
-                                </div>
-                            </div>
-
-                            <div class='form-group row'>
-                                <asp:Label ID="homePhoneLabel" AssociatedControlID="homePhoneTextBox" Text="Ev nömrəsi" CssClass="col-sm-3 col-form-label" runat="server" />
-                                <div class='col-sm-9'>
-                                    <asp:TextBox ID="homePhoneTextBox" CssClass="form-control" runat="server" />
-                                </div>
-                            </div>
 
                             <div class='form-group row'>
                                 <div class=' col-sm-12'>
