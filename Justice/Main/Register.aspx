@@ -79,3 +79,6 @@
         </div>
     </section>
 </asp:Content>
+  <asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">
+    <%: Scripts.Render("~/bundles/indexJs") %>
+</asp:Content>

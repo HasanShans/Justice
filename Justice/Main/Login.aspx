@@ -1,5 +1,6 @@
 <%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Login.aspx.cs" Inherits="Justice.Main.Login" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <section id="user">
         <div class="container">
@@ -59,4 +60,7 @@
             </div>
         </div>
     </section>
+</asp:Content>
+<asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">
+    <%: Scripts.Render("~/bundles/indexJs") %>
 </asp:Content>

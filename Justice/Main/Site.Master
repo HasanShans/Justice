@@ -10,10 +10,10 @@
     <title><%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
-        <%: Styles.Render("~/bundles/mainCss") %>
-        <%: Styles.Render("~/bundles/mainSass") %>
-          <asp:ContentPlaceHolder ID="Additional" runat="server">
+        <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
         </asp:ContentPlaceHolder>
+         <%: Styles.Render("~/bundles/mainCss") %>
+         <%: Styles.Render("~/bundles/mainSass") %>
     </asp:PlaceHolder>
 
 </head>
@@ -103,7 +103,7 @@
                 <div class="middle-area ">
                     <div class="logo col-md-3">
                         <a href="index.php" title="">
-                            <img class="img-responsive logo" src="../Content/Main/images/looogooo.png" alt="Logo" />
+                            <img class="img-responsive logo" src="/Content/Main/images/looogooo.png" alt="Logo" />
                         </a>
                     </div>
                     <div class="col-md-4 col-sm-12 hidden-xs">
@@ -133,7 +133,8 @@
             <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
         </footer>
     </div>
-    <%: Scripts.Render("~/bundles/indexJs") %>
+          <asp:ContentPlaceHolder ID="EndContent" runat="server">
+        </asp:ContentPlaceHolder>
         </form>
 </body>
 </html>
