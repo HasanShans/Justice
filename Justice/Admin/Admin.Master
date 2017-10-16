@@ -17,6 +17,7 @@
 
 </head>
 <body>
+     <form runat="server">
         <div class="header navbar navbar-inverse ">
             <!-- BEGIN TOP NAVIGATION BAR -->
             <div class="navbar-inner">
@@ -93,5 +94,6 @@
             $(".live-tile,.flip-list").liveTile();
         });
     </script>
+   </form>
     </body>
 </html>

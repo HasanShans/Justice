@@ -189,7 +189,7 @@ html, body {
         position: absolute;
         padding-top: 25px;
         padding-left: 21px;
-        background: url(../Content/Main/images/discount.png) 10px 10px no-repeat;
+        background: url(/Content/Main/images/discount.png) 10px 10px no-repeat;
         width: 60px;
         height: 60px;
     }
@@ -259,7 +259,7 @@ html, body {
     color: #FEBF00; }
 #show_case .title {
     height: 50px;
-    background-image: url("../Content/Main/images/header.png");
+    background-image: url("/Content/Main/images/header.png");
 }
   #show_case .title h3, #show_case .title p {
     color: #FEBF00; }
@@ -382,7 +382,7 @@ html, body {
         position: absolute;
         padding-top: 25px;
         padding-left: 21px;
-        background: url(../Content/Main/images/discount.png) 10px 10px no-repeat;
+        background: url(/Content/Main/images/discount.png) 10px 10px no-repeat;
         width: 60px;
         height: 60px;
     }
@@ -431,7 +431,7 @@ html, body {
         color: white; }
 
 footer {
-    background-image: url("../Content/Main/images/header.png");
+    background-image: url("/Content/Main/images/header.png");
     min-height: 38px;
     color: #FEBF00;
     padding: 10px 10px 0px 10px;
@@ -462,7 +462,7 @@ footer {
 
 #user .title {
     height: 50px;
-    background-image: url("../Content/Main/images/header.png");
+    background-image: url("/Content/Main/images/header.png");
 }
   #user .title h3 {
     color: #FEBF00;
@@ -481,7 +481,7 @@ footer {
   margin-bottom: 15px; }
     #basket .title {
         height: 50px;
-        background-image: url("../Content/Main/images/header.png");
+        background-image: url("/Content/Main/images/header.png");
     }
     #basket .title h3 {
       color: #FEBF00;
@@ -512,7 +512,7 @@ footer {
 #product_single .title {
     margin-bottom: 25px;
     min-height: 50px;
-    background-image: url("../Content/Main/images/header.png");
+    background-image: url("/Content/Main/images/header.png");
 }
   #product_single .title h3 {
     color: #FEBF00;

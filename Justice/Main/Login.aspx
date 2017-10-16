@@ -1,5 +1,6 @@
 <%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Login.aspx.cs" Inherits="Justice.Main.Login" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <section id="user">
         <div class="container">
@@ -10,7 +11,6 @@
                             <h3>Daxil ol</h3>
                         </div>
                         <div class="login">
-                            <form runat="server">
                                 <div class="form-group row">
                                     <asp:Label ID="Label2" runat="server" CssClass="col-md-2 control-label" Text="Email"></asp:Label>
                                     <div class="col-md-10">
@@ -50,15 +50,17 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class=" col-sm-12">
-                                        <asp:Button ID="btLogin" runat="server" Class="btn btn-success pull-right" Text="Daxil Ol" />
+                                        <asp:Button ID="btLogin" runat="server" Class="btn btn-success pull-right" Text="Daxil Ol" OnClick="btnLogin_Click"/>
                                         <asp:Label ID="lblMsg" runat="server"></asp:Label>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+</asp:Content>
+<asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">
+    <%: Scripts.Render("~/bundles/indexJs") %>
 </asp:Content>

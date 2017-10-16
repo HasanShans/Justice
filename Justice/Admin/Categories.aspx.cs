@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Justice.Admin
@@ -15,17 +16,16 @@ namespace Justice.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (SqlCommand comm = new SqlCommand("SELECT * FROM Categories", sqlConnection))
+            using (SqlCommand comm = new SqlCommand("GetAllCategories", sqlConnection))
             {
+                comm.CommandType = CommandType.StoredProcedure;
                 try
                 {
                     sqlConnection.Open();
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
-                        
                         DataTable data = new DataTable();
                         data.Load(reader);
-
                         if (!IsPostBack)
                         {
                             repeater.DataSource = data;
@@ -41,14 +41,14 @@ namespace Justice.Admin
                     // don't swallow it.
                 }
             }
-
-            
-
         }
 
         protected void EditButton_Click(object sender, EventArgs e)
         {
-
+            foreach (RepeaterItem item in repeater.Items)
+            {
+                HtmlTableRow tr = (HtmlTableRow) item.FindControl("trID");
+            }
         }
 
         protected void DeleteButton_Click(object sender, EventArgs e)

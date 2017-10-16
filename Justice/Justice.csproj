@@ -466,6 +466,8 @@
     <Content Include="Content\Main\css\smoothproducts.css" />
     <Content Include="Content\Main\css\smoothproducts.min.css" />
     <Content Include="Content\Main\css\style.css" />
+    <Content Include="Content\Main\images\discount.png" />
+    <Content Include="Content\Main\images\double-tail-spin.svg" />
     <Content Include="Content\Main\images\download.jpg" />
     <Content Include="Content\Main\images\download11.png" />
     <Content Include="Content\Main\images\header.png" />
@@ -499,12 +501,17 @@
     <Content Include="Content\Main\images\slider\slide4.jpg" />
     <Content Include="Content\Main\images\slider\slide5.jpg" />
     <Content Include="Content\Main\images\slider\slide6.jpg" />
+    <Content Include="Content\Main\images\sp-loading.gif" />
     <Content Include="Controls\Admin\LeftSideBar.ascx" />
     <Content Include="Content\Main\fonts\index.php" />
+    <Content Include="Main\AccountVerified.aspx" />
     <Content Include="Main\ForgotPassword.aspx" />
     <Content Include="Main\Information.aspx" />
     <Content Include="Controls\LeftSideBar.ascx" />
     <Content Include="Main\Login.aspx" />
+    <Content Include="Main\Product.aspx" />
+    <Content Include="Main\Purchase.aspx" />
+    <Content Include="Main\RecoverPassword.aspx" />
     <Content Include="Main\Register.aspx" />
     <Content Include="Scripts\Admin\js\calender.js" />
     <Content Include="Scripts\Admin\js\charts.js" />
@@ -1361,6 +1368,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Main\AccountVerified.aspx.cs">
+      <DependentUpon>AccountVerified.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\AccountVerified.aspx.designer.cs">
+      <DependentUpon>AccountVerified.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1395,6 +1409,27 @@
     </Compile>
     <Compile Include="Main\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Product.aspx.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Product.aspx.designer.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Purchase.aspx.cs">
+      <DependentUpon>Purchase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Purchase.aspx.designer.cs">
+      <DependentUpon>Purchase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\RecoverPassword.aspx.cs">
+      <DependentUpon>RecoverPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\RecoverPassword.aspx.designer.cs">
+      <DependentUpon>RecoverPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>

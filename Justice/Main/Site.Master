@@ -10,14 +10,15 @@
     <title><%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
-        <%: Styles.Render("~/bundles/mainCss") %>
-        <%: Styles.Render("~/bundles/mainSass") %>
-          <asp:ContentPlaceHolder ID="Additional" runat="server">
+        <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
         </asp:ContentPlaceHolder>
+         <%: Styles.Render("~/bundles/mainCss") %>
+         <%: Styles.Render("~/bundles/mainSass") %>
     </asp:PlaceHolder>
 
 </head>
 <body>
+    <form runat="server">
     <style>
         .top-primary-menu ul li a {
             font-size: 12px;
@@ -38,9 +39,9 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li style="margin-right: 0px;" class="hidden-xs">
-                                <a href="index.php" title=""><i class="fa fa-home"></i>ANA SƏHİFƏ</a>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Main/Index.aspx" title=""><i class="fa fa-home"></i>ANA SƏHİFƏ</asp:HyperLink>
                             </li>
-                            <li class="hidden-sm"><a href="sunproducts.php">TEZLİKLƏ SATIŞDA</a></li>
+                            <li class="hidden-sm"><asp:HyperLink runat="server" NavigateUrl="#">TEZLİKLƏ SATIŞDA</asp:HyperLink></li>
                             <!-- <li class="hidden-sm"><a href="">Yazarlar</a></li> -->
                             <!-- <li class="hidden-sm"><a href="/u/yayinevi/2/listele">Yayınevleri</a></li> -->
 
@@ -49,38 +50,44 @@
                                 <ul class="dropdown-menu">
                                 </ul>
                             </li>
-                            <li class="mypage.php"><a href="mypage.php">SƏHİFƏM</a></li>
-                            <li class="uppercase"><a id="effect" href="campaign.php"><i class="fa fa-gift hidden-md hidden-sm" style="color: #FEBF00;"></i><strong>&nbsp;KAMPANİYALAR</strong></a></li>
-                            <li class="uppercase"><a href="favorite.php" class="favorite-products"><i class="fa fa-star hidden-md hidden-sm" style="color: #FEBF00;"></i>&nbsp;BƏYƏNDİKLƏRİM</a></li>
+                            <li class="uppercase"><asp:HyperLink runat="server" ID="effect" NavigateUrl="#"><i CssClass="fa fa-gift hidden-md hidden-sm" style="color: #FEBF00;"></i><strong>&nbsp;KAMPANİYALAR</strong></asp:HyperLink></li>
+                            <li class="mypage.php"><asp:HyperLink ID="linkMypage" runat="server" NavigateUrl="#">SƏHİFƏM</asp:HyperLink></li>
+                            <li class="uppercase"><asp:HyperLink runat="server" ID="linkLiked" NavigateUrl="#" CssClass="favorite-products"><i class="fa fa-star hidden-md hidden-sm" style="color: #FEBF00;"></i>&nbsp;BƏYƏNDİKLƏRİM</asp:HyperLink></li>
                             <!-- telefon formatinda acilacaq olanlar -->
                             <li class="visible-xs">
-                                <a href="basket.php" class="u-url shop-basket">
+                                <asp:HyperLink  runat="server" NavigateUrl="#" CssClass="u-url shop-basket">
                                     <i class="fa fa-shopping-cart"></i>Səbətim -  Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount"></span>
-                                </a>
+                                </asp:HyperLink>
                             </li>
                             <li>
                                 <div class="hidden-xs">
                                     <div class="as-sepet">
-                                        <a href="basket.php" class="u-url shop-basket">
+                                        <asp:HyperLink ID="linkCart" runat="server" NavigateUrl="#"  CssClass="u-url shop-basket">
                                             <i class="fa fa-shopping-cart"></i>
                                             <span class="big">SƏBƏTİM</span>
                                             <p>
                                                 Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount"></span>
                                             </p>
-                                        </a>
+                                        </asp:HyperLink>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="hidden-xs">
-                                    <a class='u-url individual' href='login.php'>
-                                        <i class='fa fa-user'></i>
-                                        <span class='big'>DAXIL OL </span>
-                                        <p class="kayitol">
-                                            "QEYDİYYATDAN KEÇ"
-                                        </p>
-                                    </a>
-                                </div>
+                            
+                            <li class="dropdown  altmenu" >
+                                <asp:HyperLink ID="linkLoginReg" runat="server" NavigateUrl="#" CssClass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" Visible="false">Daxil Ol / Yeni<span class="caret"></span></asp:HyperLink>
+                                <ul class="dropdown-menu">
+                                    <li><asp:HyperLink runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink></li>
+                                    <li><asp:HyperLink runat="server" NavigateUrl="Register.aspx">Üzv Ol</asp:HyperLink></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown  altmenu" style="float:right">
+                                <asp:HyperLink ID="linkNameEmail" runat="server" NavigateUrl="#" CssClass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" Visible="false"><%=Username %><span class="caret"></span></asp:HyperLink>
+                                <ul class="dropdown-menu">
+                                    <li><asp:HyperLink runat="server" NavigateUrl="Information.aspx">Səhifəm</asp:HyperLink></li>
+                                    <li><asp:HyperLink runat="server" NavigateUrl="#">Bəyəndiklərim</asp:HyperLink></li>
+                                    <li><asp:HyperLink runat="server" NavigateUrl="#">Səbətim</asp:HyperLink></li>
+                                    <li><asp:LinkButton runat="server" OnClick="signOut_Click" CausesValidation="false">Çıxış</asp:LinkButton></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -96,7 +103,7 @@
                 <div class="middle-area ">
                     <div class="logo col-md-3">
                         <a href="index.php" title="">
-                            <img class="img-responsive logo" src="../Content/Main/images/looogooo.png" alt="Logo" />
+                            <img class="img-responsive logo" src="/Content/Main/images/looogooo.png" alt="Logo" />
                         </a>
                     </div>
                     <div class="col-md-4 col-sm-12 hidden-xs">
@@ -104,14 +111,12 @@
                     </div>
                     <div class="search-form-block col-md-5 col-sm-12 col-xs-12">
 
-                        <form action="search.php" method="GET">
                             <input type="search" name="word" placeholder="Axtar...." id="txtSearch" autocomplete="off" />
                             <button style="top: 5px;" id="btnSearchMaster" class="send">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </button>
                             <div class="search-suggests" id="divFilterSearch">
                             </div>
-                        </form>
                     </div>
 
                 </div>
@@ -128,6 +133,8 @@
             <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
         </footer>
     </div>
-    <%: Scripts.Render("~/bundles/indexJs") %>
+          <asp:ContentPlaceHolder ID="EndContent" runat="server">
+        </asp:ContentPlaceHolder>
+        </form>
 </body>
 </html>

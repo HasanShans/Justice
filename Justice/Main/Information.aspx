@@ -11,7 +11,6 @@
                         <h3>Məlumatlarım</h3>
                     </div>
                     <div class="register">
-                        <form runat="server">
                             <div class='form-group row'>
                                 <asp:Label ID="nameLabel" AssociatedControlID="nameTextBox" Text="Ad" CssClass="col-sm-3 col-form-label" runat="server" />
                                 <div class='col-sm-9'>
@@ -89,10 +88,12 @@
                                     </button>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+</asp:Content>
+<asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">
+    <%: Scripts.Render("~/bundles/indexJs") %>
 </asp:Content>

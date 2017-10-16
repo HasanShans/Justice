@@ -9,7 +9,6 @@
                         <h3>Qeydiyyatdan keç</h3>
                     </div>
                     <div class="register">
-                        <form runat="server">
                             <div class="form-group row">
                                 <asp:Label ID="Label1" runat="server" CssClass="col-md-2 control-label" Text="Ad"></asp:Label>
                                 <div class="col-md-10">
@@ -74,10 +73,12 @@
                                     <asp:Button ID="btSignup" runat="server" Class="btn btn-success pull-right" Text="Qeydiyyatdan Keç"  OnClick="btSignup_Click" />
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+</asp:Content>
+  <asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">
+    <%: Scripts.Render("~/bundles/indexJs") %>
 </asp:Content>

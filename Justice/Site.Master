@@ -38,58 +38,51 @@
                             <div  id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <li style="margin-right: 0px;" class="hidden-xs">
-                                        <a href="index.php" title=""><i class="fa fa-home"></i> ANA SƏHİFƏ</a>
+                                        <asp:HyperLink runat="server" NavigateUrl="~/Main/Index.aspx" title=""><i class="fa fa-home"></i> ANA SƏHİFƏ</asp:HyperLink>
                                     </li>
-                                    <li class="hidden-sm"><a href="sunproducts.php">TEZLİKLƏ SATIŞDA</a></li>
+                                    <li class="hidden-sm"><asp:HyperLink runat="server" NavigateUrl="#">TEZLİKLƏ SATIŞDA</asp:HyperLink></li>
                                     <!-- <li class="hidden-sm"><a href="">Yazarlar</a></li> -->
                                     <!-- <li class="hidden-sm"><a href="/u/yayinevi/2/listele">Yayınevleri</a></li> -->
 
                                     <li class="dropdown  altmenu">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KATEQORİYALAR <span class="caret"></span></a>
+                                        <asp:HyperLink runat="server" NavigateUrl="#" CssClass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KATEQORİYALAR <span class="caret"></span></asp:HyperLink>
                                         <ul class="dropdown-menu">
-                                                        <li><a href=""></a>dasd</li>
+                                                        <li><a href="#"></a>dasd</li>
                                         </ul>
                                     </li>
-                                    <li class="mypage.php"><a href="mypage.php">SƏHİFƏM</a></li>
-
-
-                                    
-                                    <li class="uppercase"><a id="effect" href="campaign.php" ><i class="fa fa-gift hidden-md hidden-sm" style="color: #FEBF00;"></i><strong>&nbsp;KAMPANİYALAR</strong></a></li>
-                                    <li class="uppercase"><a href="favorite.php" class="favorite-products"><i class="fa fa-star hidden-md hidden-sm" style="color: #FEBF00;"></i>&nbsp;BƏYƏNDİKLƏRİM</a></li>
+                                    <li class="uppercase"><asp:HyperLink runat="server"  ID="effect" NavigateUrl="#" ><i class="fa fa-gift hidden-md hidden-sm" style="color: #FEBF00;"></i><strong>&nbsp;KAMPANİYALAR</strong></asp:HyperLink></li>
+                                    <li class="mypage.php"><asp:HyperLink runat="server" ID="linkMypage" NavigateUrl="#">SƏHİFƏM</asp:HyperLink></li>
+                                    <li class="uppercase"><asp:HyperLink runat="server" ID="linkLiked" NavigateUrl="#" CssClass="favorite-products"><i class="fa fa-star hidden-md hidden-sm" style="color: #FEBF00;"></i>&nbsp;BƏYƏNDİKLƏRİM</asp:HyperLink></li>
 
 
 									<!-- telefon formatinda acilacaq olanlar -->
                                                 
                                                 
                                     <li class="visible-xs">
-                                        <a href="basket.php" class="u-url shop-basket">
+                                        <asp:HyperLink runat="server" ID="linkCart" NavigateUrl="#" CssClass="u-url shop-basket">
                                         <i class="fa fa-shopping-cart"></i>Səbətim -  Məhsul sayı: <span style="font-weight: 600;color:#FEBF00;" class="basketcount" ><?php print $cart; ?></span>
-                                        </a>
+                                        </asp:HyperLink>
                                     </li>
 
-                                    <li>
-                                    	<div class="hidden-xs">
-                                			<div class="as-sepet">
-                                    
-                                    			<a href="basket.php" class="u-url shop-basket">
-                                        		<i class="fa fa-shopping-cart"></i>
-                                        		<span class="big">SƏBƏTİM</span> 
-                                        		<p>
-                                           			 Məhsul sayı: <span style="font-weight: 600;color:#FEBF00;" class="basketcount" ><?php print $cart; ?></span>
-                                        		</p>
-                                    			</a>
-                                    
-                                			</div>
-
-                            			</div>
-                                    </li>
+                      
                                     <li>
 			                                <div class="hidden-xs">
-                                                <asp:HyperLink runat="server" CssClass="u-url individual" NavigateUrl="~/Main/Login.aspx">
+                                                <asp:HyperLink runat="server" ID="linkLoginReg" CssClass="u-url individual" NavigateUrl="~/Main/Login.aspx">
                                                    <i class='fa fa-user'></i>
                                                    <span class='big'>DAXIL OL </span>
 												<p class="kayitol">
 												"QEYDİYYATDAN KEÇ"
+												</p>
+                                                </asp:HyperLink>
+			                                </div>
+                                    </li>
+                                    <li>
+			                                <div class="hidden-xs">
+                                                <asp:HyperLink runat="server" ID="linkNameEmail" CssClass="u-url individual" NavigateUrl="~/Main/Login.aspx">
+                                                   <i class='fa fa-user'></i>
+                                                   <span class='big' id="spanName"><%= Session["NAME"] %></span>
+												<p class="kayitol" id="pEmail">
+												<%= Session["EMAIL"] %>
 												</p>
                                                 </asp:HyperLink>
 			                                </div>

@@ -7,17 +7,36 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Globalization;
 
 namespace Justice.Main
 {
     public partial class Information : System.Web.UI.Page
     {
 
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PrisonShop;Integrated Security=True");
-
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
+        int UserID;
+        CultureInfo provider = CultureInfo.InvariantCulture;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            UserID = Convert.ToInt32(Session["ID"].ToString());
+            if (sqlConnection.State == ConnectionState.Closed)
+                sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand("UsersSelectByID", sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@ID", UserID);
+            sqlCommand.ExecuteNonQuery();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            if (dataTable.Rows.Count != 0)
+            {
+                nameTextBox.Text = dataTable.Rows[0][1].ToString();
+                surnameTextBox.Text = dataTable.Rows[0][2].ToString();
+                emailTextBox.Text = dataTable.Rows[0][3].ToString();
+                dateTextBox.Text = Convert.ToDateTime(dataTable.Rows[0][4].ToString()).ToString();
+                emailTextBox.Enabled = false;
+            }
         }
 
         protected void submitClick(object sender, EventArgs e)
@@ -44,31 +63,21 @@ namespace Justice.Main
             dateTextBox.Text = person.DateOfBirthStr;
 
             service.Close();
-            
-            using (SqlCommand comm = new SqlCommand("information", sqlConnection))
-            {
-                comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.AddWithValue("@first", nameTextBox.Text);
-                comm.Parameters.AddWithValue("@last", surnameTextBox.Text);
-                comm.Parameters.AddWithValue("@email", emailTextBox.Text);
-                comm.Parameters.AddWithValue("@birth", dateTextBox.Text);
-                comm.Parameters.AddWithValue("@serial", serialTextBox.Text);
-                comm.Parameters.AddWithValue("@city", cityTextBox.Text);
-                comm.Parameters.AddWithValue("@post", postTextBox.Text);
-                comm.Parameters.AddWithValue("@mobile", mobileTextBox.Text);
-                comm.Parameters.AddWithValue("@homephone", homePhoneTextBox.Text);
-                try
-                {
-                    sqlConnection.Open();
-                    comm.ExecuteNonQuery();
-                }
-                catch (SqlException ex)
-                {
-                    // other codes here
-                    // do something with the exception
-                    // don't swallow it.
-                }
-            }
+            if (sqlConnection.State == ConnectionState.Closed)
+                sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand("UsersUpdateInfoWithService", sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@ID", UserID);
+            sqlCommand.Parameters.AddWithValue("@FirstName", nameTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@LastName", surnameTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@BirthDate", dateTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@IDSerialNumber", serialTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@City", cityTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@PostIndex", postTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@MobilePhone", mobileTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@HomePhone", homePhoneTextBox.Text);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
         }
     }
 }
