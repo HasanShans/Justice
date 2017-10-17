@@ -9,21 +9,21 @@ using System.Configuration;
 using System.Data;
 using System.Net.Mail;
 using System.Net;
+using Justice.App_Code;
 
 namespace Justice.Main
 {
     public partial class ForgotPassword : System.Web.UI.Page
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
         protected void btPassRec_Click(object sender, EventArgs e)
         {
-            if (sqlConnection.State == ConnectionState.Closed)
-                sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("UsersSelectByEmail", sqlConnection);
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("UsersSelectByEmail", DB.Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@Email", tbEmail.Text.Trim());
             sqlCommand.ExecuteNonQuery();
@@ -37,7 +37,7 @@ namespace Justice.Main
                     String Name = dataTable.Rows[0][1] + " " + dataTable.Rows[0][2];
                     String myGUID = Guid.NewGuid().ToString();
                     int Uid = Convert.ToInt32(dataTable.Rows[0][0]);
-                    SqlCommand sqlCommand1 = new SqlCommand("ForgotPassRequestsCreate", sqlConnection);
+                    SqlCommand sqlCommand1 = new SqlCommand("ForgotPassRequestsCreate", DB.Connection);
                     sqlCommand1.CommandType = CommandType.StoredProcedure;
                     sqlCommand1.Parameters.AddWithValue("@ID", myGUID);
                     sqlCommand1.Parameters.AddWithValue("@UserID", Uid);

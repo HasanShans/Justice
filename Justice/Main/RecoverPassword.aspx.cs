@@ -7,23 +7,24 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using Justice.App_Code;
 
 namespace Justice.Main
 {
     public partial class RecoverPassword : System.Web.UI.Page
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
+        
         String Guid;
         DataTable dataTable = new DataTable();
         int UserID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (sqlConnection.State == ConnectionState.Closed)
-                sqlConnection.Open();
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
             Guid = Request.QueryString["UserID"];
             if (Guid != null)
             {
-                SqlCommand sqlCommand = new SqlCommand("ForgotPassRequestsGetByGuid", sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand("ForgotPassRequestsGetByGuid", DB.Connection);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@ID", Guid);
                 sqlCommand.ExecuteNonQuery();
@@ -63,20 +64,20 @@ namespace Justice.Main
 
         protected void btPassRec_Click(object sender, EventArgs e)
         {
-            if (sqlConnection.State == ConnectionState.Closed)
-                sqlConnection.Open();
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
             if (tbPass.Text == tbPassConf.Text && tbPass.Text != "" && tbPassConf.Text != "")
             {
-                SqlCommand sqlCommand = new SqlCommand("UsersUpdatePassword", sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand("UsersUpdatePassword", DB.Connection);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@ID", UserID);
                 sqlCommand.Parameters.AddWithValue("@Password", tbPass.Text.Trim());
                 sqlCommand.ExecuteNonQuery();
-                SqlCommand sqlCommand1 = new SqlCommand("ForgotPassRequestsDeleteByUid", sqlConnection);
+                SqlCommand sqlCommand1 = new SqlCommand("ForgotPassRequestsDeleteByUid", DB.Connection);
                 sqlCommand1.CommandType = CommandType.StoredProcedure;
                 sqlCommand1.Parameters.AddWithValue("@UserID", UserID);
                 sqlCommand1.ExecuteNonQuery();
-                sqlConnection.Close();
+                DB.Connection.Close();
                 Response.Redirect("~/Main/Index.aspx");
             }
         }

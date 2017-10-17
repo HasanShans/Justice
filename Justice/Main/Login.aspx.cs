@@ -7,12 +7,13 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using Justice.App_Code;
 
 namespace Justice.Main
 {
     public partial class Login : System.Web.UI.Page
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["NAME"] == null)
@@ -31,20 +32,20 @@ namespace Justice.Main
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if (sqlConnection.State == ConnectionState.Closed)
-                sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("UsersCheckLogin", sqlConnection);
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("UsersCheckLogin", DB.Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@Email", tbEmail.Text.Trim());
             sqlCommand.Parameters.AddWithValue("@Password", tbPassword.Text.Trim());
             sqlCommand.ExecuteNonQuery();
-            sqlConnection.Close();
+            DB.Connection.Close();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
             if (dataTable.Rows.Count != 0)
             {
-                if (Convert.ToInt32(dataTable.Rows[0][11]) == 1)
+                if (Convert.ToInt32(dataTable.Rows[0][7]) == 1)
                 {
                     if (tbRememberMe.Checked == true)
                     {
@@ -81,8 +82,9 @@ namespace Justice.Main
             else
             {
                 lblMsg.ForeColor = System.Drawing.Color.Red;
-                lblMsg.Text = "Email və ya Şifrə Yanlışdır";
+                lblMsg.Text = "Email və ya Parol Yanlışdır";
             }
+            DB.Connection.Close();
         }
     }
 }

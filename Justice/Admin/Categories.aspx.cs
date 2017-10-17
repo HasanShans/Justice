@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Justice.App_Code;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,52 +9,52 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
+
 namespace Justice.Admin
 {
     public partial class Categories : System.Web.UI.Page
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PrisonShop;Integrated Security=True");
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (SqlCommand comm = new SqlCommand("GetAllCategories", sqlConnection))
+            if (!IsPostBack)
             {
-                comm.CommandType = CommandType.StoredProcedure;
-                try
-                {
-                    sqlConnection.Open();
-                    using (SqlDataReader reader = comm.ExecuteReader())
-                    {
-                        DataTable data = new DataTable();
-                        data.Load(reader);
-                        if (!IsPostBack)
-                        {
-                            repeater.DataSource = data;
-                            repeater.DataBind();
-                        }
-                        sqlConnection.Close();
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    // other codes here
-                    // do something with the exception
-                    // don't swallow it.
-                }
+                BindCategories();
             }
         }
 
-        protected void EditButton_Click(object sender, EventArgs e)
+        private void BindCategories()
         {
-            foreach (RepeaterItem item in repeater.Items)
-            {
-                HtmlTableRow tr = (HtmlTableRow) item.FindControl("trID");
-            }
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("CategoriesSelectAll", DB.Connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.ExecuteNonQuery();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            rprtCategories.DataSource = dataTable;
+            rprtCategories.DataBind();
+            DB.Connection.Close();
         }
 
-        protected void DeleteButton_Click(object sender, EventArgs e)
+        protected void CategoryEditClick(object sender, EventArgs e)
         {
+            int CategoryID = int.Parse(((sender as Button).NamingContainer.FindControl("lblCatID") as Label).Text);
+            Response.Redirect("~/Admin/Add/Category?CategoryID=" + CategoryID);
+        }
 
+        protected void CategoryDeleteClick(object sender, EventArgs e)
+        {
+            int CategoryID = int.Parse(((sender as Button).NamingContainer.FindControl("lblCatID") as Label).Text);
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("CategoriesDeleteByID", DB.Connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("ID", CategoryID);
+            sqlCommand.ExecuteNonQuery();
+            BindCategories();
+            DB.Connection.Close();
         }
     }
 }

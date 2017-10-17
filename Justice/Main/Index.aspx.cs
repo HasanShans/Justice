@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Justice.App_Code;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,20 +8,26 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace Justice.Main
 {
     public partial class Index : System.Web.UI.Page
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PrisonShop;Integrated Security=True");
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            BindProducts();
+        }
 
-            using (SqlCommand comm = new SqlCommand("GetProductList", sqlConnection))
+        private void BindProducts()
+        {
+            using (SqlCommand comm = new SqlCommand("ProductsSelectAllJoinImages", DB.Connection))
             {
+                comm.CommandType = CommandType.StoredProcedure;
                 try
                 {
-                    sqlConnection.Open();
+                    if (DB.Connection.State == ConnectionState.Closed)
+                        DB.Connection.Open();
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
                         DataTable data = new DataTable();
@@ -30,7 +37,7 @@ namespace Justice.Main
                             productRepeater.DataSource = data;
                             productRepeater.DataBind();
                         }
-                        sqlConnection.Close();
+                        
                     }
                 }
                 catch (SqlException ex)
@@ -39,6 +46,7 @@ namespace Justice.Main
                     // do something with the exception
                     // don't swallow it.
                 }
+                DB.Connection.Close();
             }
         }
     }

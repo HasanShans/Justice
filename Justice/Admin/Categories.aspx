@@ -15,33 +15,42 @@
                         </div>
 
                         <div class="grid-body ">
-                            <a href="Add/Category.aspx" class="btn btn-primary" style="margin-bottom: 20px" id="test2">Kateqoriya əlavə et</a>
-                            <table class="table" id="example3">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Ad</th>
-                                        <th>Redakte et</th>
-                                        <th>Ləğv et</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <asp:Repeater ID="repeater" runat="server">
-                                        <ItemTemplate>
-                                            <tr class='odd gradeX'>
-                                                <td><%# Eval("ID") %></td>
-                                                <td><%# Eval("CategoryName") %></td>
-                                                <td>
-                                                    <asp:Button ID="EditButton" CssClass="btn btn-primary btn-sm" runat="server" Text="Redaktə et" />
-                                                </td>
-                                                <td>
-                                                    <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm" runat="server" Text="Ləğv et" />
-                                                </td>
+                                <asp:HyperLink runat="server" CssClass="btn btn-primary" style="margin-bottom: 20px" ID="test2" NavigateUrl="~/Admin/Add/Category.aspx" Text="Kateqoriya əlavə et"></asp:HyperLink>
+                            <asp:Repeater ID="rprtCategories" runat="server">
+                                <HeaderTemplate>
+                                    <table class="table" id="example3">
+                                        <col width="100" />
+                                        <col width="400" />
+                                        <col width="20" />
+                                        <col width="20" />
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Ad</th>
+                                                <th>Redakte et</th>
+                                                <th>Ləğv et</th>
                                             </tr>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </tbody>
-                            </table>
+                                        </thead>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <tbody>
+
+                                        <tr class='odd gradeX'>
+                                            <td><%#Eval("ID") %></td>
+                                            <td><%#Eval("CategoryName") %></td>
+                                            <td>
+                                                <asp:Button runat="server" CssClass='btn btn-primary btn-sm' OnClick="CategoryEditClick"  Text="Redaktə Et"></asp:Button>
+                                            <td>
+                                                <asp:Label ID="lblCatID" runat="server" Text='<%# Eval("ID") %>' visible="false"/>
+                                                <asp:Button runat="server" CssClass='btn btn-danger btn-sm' OnClick ="CategoryDeleteClick" OnClientClick="return confirm('Siz bu kateqoriyanı silmək istədiyinizdən əminsiniz? Silinmiş məlumat geri qaytarıla bilməz.');" Text="Ləğv Et
+                                                    "></asp:Button></td>
+                                        </tr>
+                                    </tbody>
+                                </ItemTemplate>
+                                <FooterTemplate>
+                                    </table>
+                                </FooterTemplate>
+                            </asp:Repeater>
                         </div>
                     </div>
                 </div>

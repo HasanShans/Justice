@@ -25,7 +25,13 @@
                     <div class="row">
 						<div class='col-md-12'>
                             <div class='title'>
-                                <h3><a href='index.php'>Ana Səhifə</a> <i class='fa fa-arrow-right' aria-hidden='true'></i> <a href='category.php?cat='".$json->data[0]->category_id."'> ".$json->data[0]->category_name." </a> <i class='fa fa-arrow-right' aria-hidden='true'></i> ".$json->data[0]->product_name."</h3>
+                                <h3>
+                                    <a href='../Index.aspx'>Ana Səhifə</a> 
+                                    <i class='fa fa-arrow-right' aria-hidden='true'></i> 
+                                    <a href='../Category?id=<%= data["kateqoriya_ID"]%>'> <%= data["mehsul_kateqoriya"] %></a> 
+                                    <i class='fa fa-arrow-right' aria-hidden='true'></i> 
+                                     <%= data["mehsul_ad"] %>
+                                </h3>
                             </div>
                         </div>
                         <div class='col-md-5'>
@@ -46,11 +52,11 @@
                                   <tbody>
 										<tr>
 										  <td>Məhsul kodu</td>
-										  <td><%= data["mehsul_kodu"] %></td>
+										  <td><%= data["mehsul_kod"] %></td>
 										</tr>
 										<tr>
 										  <td>Məhsulun adı</td>
-										  <td><%= data["mehsul_adi"] %></td>
+										  <td><%= data["mehsul_ad"] %></td>
 										</tr>
 										<tr>
 										  <td> Məhsulun ölçüləri</td>
@@ -70,7 +76,7 @@
 										</tr>
 										<tr>
 											<td>Anbardakı sayı</td>
-											<td><%= data["mehsul_sayi"] %></td>
+											<td><%= data["mehsul_say"] %></td>
 										</tr>
 										<tr>
 											<td>Əlavə məlumat</td>
@@ -79,7 +85,7 @@
 
 										<tr>
 											<td>Qiyməti </td>
-											<td><%= data["mehsul_qiymeti"] %> AZN</td>
+											<td><%= data["mehsul_qiymet"] %> AZN</td>
 										</tr>
 										<tr>
 											<td>Endirimli qiyməti</td>
@@ -96,13 +102,9 @@
                 <div class='container'>
                     <div class='row'>
                         <div class='col-md-8 col-md-offset-4'>
-                            <button class='pull-right btn btn-success addtobasket' data-id='<%= data["ID"] %>' data-price='<%= data["mehsul_qiymeti"] %>' data-img='<%= data["image1"] %>' data-name='<%= data["mehsul_adi"] %>' data-code='<%= data["mehsul_kodu"] %>'>
-
-                                <a href='javascript:;' >
-                                    <i class='fa fa-shopping-cart' aria-hidden='true'></i>
-                                    Səbətə Əlavə Et
-                                </a>
-                            </button>
+                            <asp:LinkButton cssClass='pull-right btn btn-success addtobasket' runat="server" ID="addToCart" OnClick="addToCart_Click">
+                                   <i class='fa fa-shopping-cart' aria-hidden='true'></i>Səbətə əlavə et
+                            </asp:LinkButton>
                             <button type='button' class=' pull-right btn btn-secondary'>
 								<a href='/api/?v=1&m=addFavorite&user_id=".$json2->data->id."&product_id=".$json->data[0]->id."'><i class='fa fa-star-o'></i>Bəyəndiklərimə əlavə et</a>
                             </button>
@@ -191,4 +193,4 @@
     </script>  
  </asp:Content>
   
-        
+        

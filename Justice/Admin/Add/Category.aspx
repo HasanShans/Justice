@@ -14,20 +14,19 @@
                     </div>
                     <div class="grid-body no-border">
                         <br>
-                        <form action='' method='POST'>
                             <div class="form-group">
                                 <label class="form-label">Kateqoriya adı</label>
                                 <div class="input-with-icon  right">
                                     <i class=""></i>
-                                    <input type="text" name="name" value="" id="form1Email" class="form-control">
+                                    <asp:TextBox ID="txtCat" runat="server" CssClass="form-control" ></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-actions">
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-danger btn-cons"><i class="icon-ok"></i>Save</button>
+                                    <asp:Button runat="server" ID="btnSave" CssClass="btn btn-success btn-cons" Visible="false" OnClick="btnSave_Click" Text="Əlavə Et"></asp:Button>
+                                    <asp:Button runat="server" ID="btnEdit" CssClass="btn btn-warning btn-cons" Visible="false" OnClick="btnEdit_Click" Text="Yenilə"></asp:Button>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
