@@ -15,8 +15,11 @@ namespace Justice.Main
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            using (SqlCommand comm = new SqlCommand("GetProductList", sqlConnection))
+            BindProducts();
+        }
+        private void BindProducts()
+        {
+            using (SqlCommand comm = new SqlCommand("ProductsSelectAllJoinImages", sqlConnection))
             {
                 try
                 {

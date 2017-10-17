@@ -15,9 +15,12 @@ namespace Justice.Main
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PrisonShop;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            BindProduct();  
+        }
+        private void BindProduct()
+        {
             int id = Convert.ToInt32(Request.QueryString["id"]);
-            using (SqlCommand comm = new SqlCommand("GetProductDetails", sqlConnection))
+            using (SqlCommand comm = new SqlCommand("ProductSelectByIDJoinCategoriesImages", sqlConnection))
             {
                 comm.CommandType = CommandType.StoredProcedure;
                 comm.Parameters.AddWithValue("@id", id);
@@ -56,6 +59,5 @@ namespace Justice.Main
                 }
             }
         }
-
     }
  }
