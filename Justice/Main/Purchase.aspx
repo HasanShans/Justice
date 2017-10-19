@@ -28,7 +28,8 @@
                                     <ItemTemplate>
                                         <tr>
                                             <th>
-                                                <img width="80" src="../Content/Main/Images/thumb_<%# Eval("image1") %>.jpg" alt="<%# Eval("ProductName") %>"></th>
+                                                <img width="80" src="/Content/Main/Images/thumb/thumb_<%# Eval("Image1") %>.jpg" alt="<%# Eval("ProductName") %>">
+                                            </th>
                                             <td><%# Eval("Price") %></td>
                                             <td>
                                                 <select class="count_update">
@@ -39,7 +40,9 @@
                                                 <a href=""><i style="cursor: pointer; font-size: 20px; color: #FEBF00;" class="fa fa-exchange"></i></a>
                                             </td>
                                             <td>
-                                                <a class="removebasketproduct" style="cursor: pointer; font-size: 25px; color: #FEBF00;" href="javascript:;"><i class="fa fa-times"></i></a>
+                                                <asp:LinkButton ID="RemoveFromCart" runat="server" style="cursor: pointer; font-size: 25px; color: #FEBF00;" CommandArgument='<%# Eval("ProductID") %>' OnClick="RemoveFromCart_Click" >
+                                                   <i class="fa fa-times"></i>
+                                                </asp:LinkButton>                                           
                                             </td>
                                         </tr>
                                     </ItemTemplate>
@@ -76,4 +79,5 @@
     </section>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="EndContent" runat="server">
+    <%: Scripts.Render("~/bundles/indexJs") %>
 </asp:Content>
