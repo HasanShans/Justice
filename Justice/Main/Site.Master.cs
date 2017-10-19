@@ -73,5 +73,11 @@ namespace Justice
             Session["ID"] = null;
             Response.Redirect("Index.aspx");
         }
+
+        protected void btnSearchMaster_Click(object sender, EventArgs e)
+        {
+            string n = String.Format("{0}", Request.Form["word"]);
+            Response.Redirect("~/Main/Search?n=" + n);
+        }
     }
 }

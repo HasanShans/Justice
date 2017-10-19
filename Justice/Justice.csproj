@@ -514,6 +514,7 @@
     <Content Include="Main\Purchase.aspx" />
     <Content Include="Main\RecoverPassword.aspx" />
     <Content Include="Main\Register.aspx" />
+    <Content Include="Main\Search.aspx" />
     <Content Include="Scripts\Admin\js\calender.js" />
     <Content Include="Scripts\Admin\js\charts.js" />
     <Content Include="Scripts\Admin\js\chat.js" />
@@ -1446,6 +1447,13 @@
     </Compile>
     <Compile Include="Main\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Main\Site.Master.cs">
