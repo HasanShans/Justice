@@ -19,11 +19,12 @@ namespace Justice.Main
 
         private void BindProducts()
         {
-            if (Session.SessionID != null)
+            if (Session["ID"] != null)
             {
-                using (SqlCommand comm = new SqlCommand("CartSelectByUserID", DB.Connection))
+                using (SqlCommand comm = new SqlCommand("CartSelectByUserIDJoinImagesAndProducts", DB.Connection))
                 {
-                    comm.Parameters.AddWithValue("@user_id", Convert.ToInt32(Session.SessionID));
+                    comm.CommandType = CommandType.StoredProcedure;
+                    comm.Parameters.AddWithValue("@user_id", Convert.ToInt32(Session["ID"]));
                     try
                     {
                         if (DB.Connection.State == ConnectionState.Closed)
@@ -49,6 +50,30 @@ namespace Justice.Main
             {
                 Response.Redirect("~/Main/Login.aspx");
             }
+        }
+
+        protected void RemoveFromCart_Click(object sender, EventArgs e)
+        {
+            using (SqlCommand comm = new SqlCommand("CartDeleteByUserIDAndProductID", DB.Connection))
+            {
+                LinkButton btn = (LinkButton)(sender);
+                int productID = int.Parse(btn.CommandArgument.ToString());
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.Parameters.AddWithValue("@user_id", Convert.ToInt32(Session["ID"]));
+                comm.Parameters.AddWithValue("@product_id", productID);
+                try
+                {
+                if (DB.Connection.State == ConnectionState.Closed)
+                    DB.Connection.Open();
+                    comm.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+
+                }
+                DB.Connection.Close();
+            }
+            Response.Redirect("~/Main/Purchase.aspx");
         }
     }
 }

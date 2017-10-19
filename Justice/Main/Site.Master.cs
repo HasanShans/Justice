@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Justice.App_Code;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,6 +16,7 @@ namespace Justice
         public string Username;
         protected void Page_Load(object sender, EventArgs e)
         {
+            BindCategories();
             
             if (Session["NAME"] == null)
             {
@@ -29,6 +33,36 @@ namespace Justice
                 linkMypage.Visible = true;
                 linkNameEmail.Visible = true;
                
+            }
+        }
+
+        private void BindCategories()
+        {
+            using (SqlCommand comm = new SqlCommand("CategoriesSelectAll", DB.Connection))
+            {
+                comm.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    if (DB.Connection.State == ConnectionState.Closed)
+                        DB.Connection.Open();
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        DataTable data = new DataTable();
+                        data.Load(reader);
+                        if (!IsPostBack)
+                        {
+                            repeaterCategories.DataSource = data;
+                            repeaterCategories.DataBind();
+                        }
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    // other codes here
+                    // do something with the exception
+                    // don't swallow it.
+                }
+                DB.Connection.Close();
             }
         }
 

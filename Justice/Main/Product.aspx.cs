@@ -64,7 +64,7 @@ namespace Justice.Main
             }
         }
 
-        protected void addToCart_Click(object sender, EventArgs e)
+        protected void AddToCart_Click(object sender, EventArgs e)
         {
             if (Session["ID"] != null)
             {
@@ -72,23 +72,23 @@ namespace Justice.Main
                 if (DB.Connection.State == ConnectionState.Closed)
                     DB.Connection.Open();
 
-                using (SqlCommand comm = new SqlCommand("CartCreate", DB.Connection))
+                using (SqlCommand comm2 = new SqlCommand("CartSelectByUserIDAndProductID", DB.Connection))
                 {
-                    using (SqlCommand comm2 = new SqlCommand("CartSelectByUserID", DB.Connection))
-                    {
-                        comm2.CommandType = CommandType.StoredProcedure;
-                        comm2.Parameters.AddWithValue("@user_id", userID);
-                        SqlDataReader reader = comm2.ExecuteReader();
-
-                        if (reader.Read() == false)
+                    comm2.CommandType = CommandType.StoredProcedure;
+                    comm2.Parameters.AddWithValue("@user_id", userID);
+                    comm2.Parameters.AddWithValue("@product_id", data["mehsul_ID"]);
+                    SqlDataReader reader = comm2.ExecuteReader();
+                     if (reader.Read() == false)
+                     {
+                        reader.Close();
+                        using (SqlCommand comm = new SqlCommand("CartCreate", DB.Connection))
                         {
-                            reader.Close();
                             comm.CommandType = CommandType.StoredProcedure;
                             comm.Parameters.AddWithValue("@user_id", userID);
                             comm.Parameters.AddWithValue("@product_id", data["mehsul_ID"]);
                             comm.ExecuteNonQuery();
                         }
-                    }
+                     }
                 }
                 DB.Connection.Close();
             }

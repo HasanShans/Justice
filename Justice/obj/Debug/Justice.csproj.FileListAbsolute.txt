@@ -1,5 +1,3 @@
-C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.csprojResolveAssemblyReference.cache
-C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.csproj.CoreCompileInputs.cache
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\ApplicationInsights.config
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\roslyn\csc.exe
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\roslyn\csc.exe.config
@@ -81,5 +79,6 @@ C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.Depend
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.Web.xml
+C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.csproj.CoreCompileInputs.cache
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.dll
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.pdb

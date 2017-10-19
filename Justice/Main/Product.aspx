@@ -102,7 +102,7 @@
                 <div class='container'>
                     <div class='row'>
                         <div class='col-md-8 col-md-offset-4'>
-                            <asp:LinkButton cssClass='pull-right btn btn-success addtobasket' runat="server" ID="addToCart" OnClick="addToCart_Click">
+                            <asp:LinkButton cssClass='pull-right btn btn-success addtobasket' runat="server" ID="AddToCart" OnClick="AddToCart_Click">
                                    <i class='fa fa-shopping-cart' aria-hidden='true'></i>Səbətə əlavə et
                             </asp:LinkButton>
                             <button type='button' class=' pull-right btn btn-secondary'>
@@ -167,28 +167,6 @@
     /* wait for images to load */
     $(window).load(function () {
         $('.sp-wrap').smoothproducts();
-        $('.addtobasket').click(function () {
-            var id = $(this).data('id'), price = $(this).data('price'), img = $(this).data('img'), name = $(this).data('name'), code = $(this).data('code');
-            var data = [];
-            data.push({ 'id': id }), data.push({ 'name': name }), data.push({ 'price': price }), data.push({ 'img': img }), data.push({ 'code': code }), data.push({ 'action': 'add' });
-            if (id > 0) {
-                $.post('basket-action.php', { data: data }).done(function (data) {
-                    console.log(data.cart_item);
-                    $('.basketcount').html(data.cart_item);
-                });
-            }
-        });
-
-        $('.removebasketproduct').click(function () {
-            var id = $(this).data('id');
-            var data = [];
-            data.push({ 'id': id }), data.push({ 'action': 'remove' });
-            $.post('basket-action.php', { data: data }).done(function (data) {
-                if (data.success == true) {
-                    $('#product-' + data.id).remove(), $('#product_count').html(data.product_count), $('#product_sum').html(data.product_sum), $('.basketcount').html(data.product_sum);
-                }
-            });
-        });
     });
     </script>  
  </asp:Content>
