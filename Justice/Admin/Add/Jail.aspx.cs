@@ -6,21 +6,21 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using Justice.App_Code;
 
 namespace Justice.Admin.Add
 {
     public partial class Jail : System.Web.UI.Page
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
         int JailID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString.AllKeys.Contains("JailID"))
             {
                 JailID = Convert.ToInt32(Request.QueryString["JailID"]);
-                if (sqlConnection.State == ConnectionState.Closed)
-                    sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand("JailsSelectByID", sqlConnection);
+                if (DB.Connection.State == ConnectionState.Closed)
+                    DB.Connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("JailsSelectByID", DB.Connection);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@ID", JailID);
                 sqlCommand.ExecuteNonQuery();
@@ -43,9 +43,9 @@ namespace Justice.Admin.Add
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (sqlConnection.State == ConnectionState.Closed)
-                sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("JailsCreate", sqlConnection);
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("JailsCreate", DB.Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@JailName", txtJail.Text.ToString().Trim());
             sqlCommand.ExecuteNonQuery();
@@ -54,9 +54,9 @@ namespace Justice.Admin.Add
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            if (sqlConnection.State == ConnectionState.Closed)
-                sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("JailsUpdate", sqlConnection);
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("JailsUpdate", DB.Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@ID", JailID);
             sqlCommand.Parameters.AddWithValue("@JailName", txtJail.Text.ToString().Trim());

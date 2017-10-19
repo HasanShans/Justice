@@ -19,10 +19,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <asp:Label ID="Label1" runat="server" CssClass="col-md-2 control-label" Text="Şifrə"></asp:Label>
+                                    <asp:Label ID="Label1" runat="server" CssClass="col-md-2 control-label" Text="Parol"></asp:Label>
                                     <div class="col-md-10">
-                                        <asp:TextBox ID="tbPassword" CssClass="form-control" runat="server" placeholder="Şifrə" TextMode="Password"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Şifrəni Daxil Edin" ControlToValidate="tbPassword"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="tbPassword" CssClass="form-control" runat="server" placeholder="Parol" TextMode="Password"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Parolu Daxil Edin" ControlToValidate="tbPassword"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
 
@@ -37,7 +37,7 @@
                                 <div class="form-group row ">
                                     <div class="col-sm-10 col-sm-offset-2">
                                         <div class="form-check">
-                                            <asp:HyperLink runat="server" ID="lbForgotPass" NavigateUrl="~/Main/ForgotPassword.aspx">Şifrəmi Unutdum</asp:HyperLink>
+                                            <asp:HyperLink runat="server" ID="lbForgotPass" NavigateUrl="~/Main/ForgotPassword.aspx">Parolu Unutdum</asp:HyperLink>
                                         </div>
                                     </div>
                                 </div>

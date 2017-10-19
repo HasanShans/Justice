@@ -7,26 +7,28 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using Justice.App_Code;
 
 namespace Justice.Main
 {
     public partial class AccountVerified : System.Web.UI.Page
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (sqlConnection.State == ConnectionState.Closed)
-                sqlConnection.Open();
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
             int UserID = Convert.ToInt32(Request.QueryString["UserID"]) / 5432;
             if (Request.QueryString["UserID"] != null)
             {
-                SqlCommand sqlCommand = new SqlCommand("UsersVerifyAccount", sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand("UsersVerifyAccount", DB.Connection);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@ID", UserID);
                 sqlCommand.ExecuteNonQuery();
                 lblMsg.ForeColor = System.Drawing.Color.Green;
                 lblMsg.Text = "Hörmətli istifadəçi, sizin hesabınız təsdiq olunmuşdur.";
             }
+            DB.Connection.Close();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Justice.App_Code;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,7 +14,7 @@ namespace Justice.Admin
 {
     public partial class Categories : System.Web.UI.Page
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,9 +25,9 @@ namespace Justice.Admin
 
         private void BindCategories()
         {
-            if (sqlConnection.State == ConnectionState.Closed)
-                sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("CategoriesSelectAll", sqlConnection);
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("CategoriesSelectAll", DB.Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.ExecuteNonQuery();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -34,6 +35,7 @@ namespace Justice.Admin
             sqlDataAdapter.Fill(dataTable);
             rprtCategories.DataSource = dataTable;
             rprtCategories.DataBind();
+            DB.Connection.Close();
         }
 
         protected void CategoryEditClick(object sender, EventArgs e)
@@ -45,13 +47,14 @@ namespace Justice.Admin
         protected void CategoryDeleteClick(object sender, EventArgs e)
         {
             int CategoryID = int.Parse(((sender as Button).NamingContainer.FindControl("lblCatID") as Label).Text);
-            if (sqlConnection.State == ConnectionState.Closed)
-                sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("CategoriesDeleteByID", sqlConnection);
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("CategoriesDeleteByID", DB.Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("ID", CategoryID);
             sqlCommand.ExecuteNonQuery();
             BindCategories();
+            DB.Connection.Close();
         }
     }
 }

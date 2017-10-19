@@ -6,21 +6,22 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using Justice.App_Code;
+
 
 namespace Justice.Admin.Add
 {
     public partial class Product : System.Web.UI.Page
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
         int CategoryID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Request.QueryString.AllKeys.Contains("CategoryID"))
             {
                 CategoryID = Convert.ToInt32(Request.QueryString["CategoryID"]);
-                if (sqlConnection.State == ConnectionState.Closed)
-                    sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand("CategoriesSelectByID", sqlConnection);
+                if (DB.Connection.State == ConnectionState.Closed)
+                    DB.Connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("CategoriesSelectByID", DB.Connection);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@ID", CategoryID);
                 sqlCommand.ExecuteNonQuery();
@@ -43,9 +44,9 @@ namespace Justice.Admin.Add
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (sqlConnection.State == ConnectionState.Closed)
-                sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("CategoriesCreate", sqlConnection);
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("CategoriesCreate", DB.Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@CategoryName", txtCat.Text.ToString().Trim());
             sqlCommand.ExecuteNonQuery();
@@ -54,9 +55,9 @@ namespace Justice.Admin.Add
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            if (sqlConnection.State == ConnectionState.Closed)
-                sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("CategoriesUpdate", sqlConnection);
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("CategoriesUpdate", DB.Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@ID", CategoryID);
             sqlCommand.Parameters.AddWithValue("@CategoryName", txtCat.Text.ToString().Trim());

@@ -62,7 +62,7 @@
                             <li>
                                 <div class="hidden-xs">
                                     <div class="as-sepet">
-                                        <asp:HyperLink ID="linkCart" runat="server" NavigateUrl="#"  CssClass="u-url shop-basket">
+                                        <asp:HyperLink ID="linkCart" runat="server" NavigateUrl="~/Main/Purchase.aspx"  CssClass="u-url shop-basket">
                                             <i class="fa fa-shopping-cart"></i>
                                             <span class="big">SƏBƏTİM</span>
                                             <p>

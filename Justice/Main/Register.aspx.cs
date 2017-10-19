@@ -8,13 +8,13 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Net.Mail;
 using System.Net;
-
+using Justice.App_Code;
 
 namespace Justice.Main
 {
     public partial class Register : System.Web.UI.Page
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=GADIR\SQLEXPRESS;Initial Catalog=PrisonShop;Integrated Security=True");
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["NAME"] != null)
@@ -28,11 +28,11 @@ namespace Justice.Main
             {
                 if(tbPassword.Text == tbPasswordConfirm.Text)
                 {
-                    if (sqlConnection.State == ConnectionState.Closed)
-                        sqlConnection.Open();
+                    if (DB.Connection.State == ConnectionState.Closed)
+                        DB.Connection.Open();
                     //Check if user already registered
 
-                    SqlCommand sqlCommand1 = new SqlCommand("CheckIfEmailExists", sqlConnection);
+                    SqlCommand sqlCommand1 = new SqlCommand("CheckIfEmailExists", DB.Connection);
                     sqlCommand1.CommandType = CommandType.StoredProcedure;
                     sqlCommand1.Parameters.AddWithValue("@Email", tbEmail.Text.Trim());
                     int records = (int)sqlCommand1.ExecuteScalar();
@@ -40,7 +40,7 @@ namespace Justice.Main
                     {
                         //Add user to database
 
-                        SqlCommand sqlCommand = new SqlCommand("UsersCreate", sqlConnection);
+                        SqlCommand sqlCommand = new SqlCommand("UsersCreate", DB.Connection);
                         sqlCommand.CommandType = CommandType.StoredProcedure;
                         sqlCommand.Parameters.AddWithValue("@FirstName", tbName.Text.Trim());
                         sqlCommand.Parameters.AddWithValue("@LastName", tbSurname.Text.Trim());
@@ -51,7 +51,7 @@ namespace Justice.Main
 
                         //Get Last Registered User's ID
 
-                        SqlCommand sqlCommand2 = new SqlCommand("UsersSelectLastRegisteredUser", sqlConnection);
+                        SqlCommand sqlCommand2 = new SqlCommand("UsersSelectLastRegisteredUser", DB.Connection);
                         sqlCommand2.CommandType = CommandType.StoredProcedure;
                         SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand2);
                         DataTable dataTable = new DataTable();
@@ -100,6 +100,8 @@ namespace Justice.Main
                 lblMsg.ForeColor = System.Drawing.Color.Red;
                 lblMsg.Text = "Qeydiyyatdan Keçmək Üçün Müqavilənin Şərtləri ilə Razılaşmalısınız";
             }
+
+            DB.Connection.Close();
         }
 
     }
