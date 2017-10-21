@@ -21,7 +21,6 @@ namespace Justice
             if (Session["NAME"] == null)
             {
                 linkLoginReg.Visible = true;
-                linkLiked.Visible = false;
                 linkMypage.Visible = false;
                 linkNameEmail.Visible = false;
             }
@@ -29,10 +28,8 @@ namespace Justice
             {
                 this.Username = Session["NAME"].ToString();
                 linkLoginReg.Visible = false;
-                linkLiked.Visible = true;
                 linkMypage.Visible = true;
                 linkNameEmail.Visible = true;
-               
             }
         }
 
