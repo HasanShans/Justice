@@ -134,9 +134,6 @@
     <Content Include="Admin\Add\Product.aspx" />
     <Content Include="Admin\Categories.aspx" />
     <Content Include="Admin\DeliveredOrders.aspx" />
-    <Content Include="Admin\Edit\Category.aspx" />
-    <Content Include="Admin\Edit\Jail.aspx" />
-    <Content Include="Admin\Edit\Product.aspx" />
     <Content Include="Admin\Jails.aspx" />
     <Content Include="Admin\Orders.aspx" />
     <Content Include="Admin\PostDeliveredOrders.aspx" />
@@ -505,12 +502,17 @@
     <Content Include="Controls\Admin\LeftSideBar.ascx" />
     <Content Include="Content\Main\fonts\index.php" />
     <Content Include="Main\AccountVerified.aspx" />
+    <Content Include="Main\ChangePassword.aspx" />
     <Content Include="Main\ForgotPassword.aspx" />
     <Content Include="Main\Information.aspx" />
     <Content Include="Controls\LeftSideBar.ascx" />
     <Content Include="Main\Login.aspx" />
+    <Content Include="Main\Orders.aspx" />
+    <Content Include="Main\Points.aspx" />
     <Content Include="Main\Product.aspx" />
+    <Content Include="Main\ProductsSoon.aspx" />
     <Content Include="Main\Purchase.aspx" />
+    <Content Include="Main\Receipts.aspx" />
     <Content Include="Main\RecoverPassword.aspx" />
     <Content Include="Main\Register.aspx" />
     <Content Include="Main\Search.aspx" />
@@ -1303,27 +1305,6 @@
     <Compile Include="Admin\DeliveredOrders.aspx.designer.cs">
       <DependentUpon>DeliveredOrders.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Edit\Category.aspx.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Edit\Category.aspx.designer.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Edit\Jail.aspx.cs">
-      <DependentUpon>Jail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Edit\Jail.aspx.designer.cs">
-      <DependentUpon>Jail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Edit\Product.aspx.cs">
-      <DependentUpon>Product.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Edit\Product.aspx.designer.cs">
-      <DependentUpon>Product.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Jails.aspx.cs">
       <DependentUpon>Jails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1377,6 +1358,13 @@
     <Compile Include="Main\AccountVerified.aspx.designer.cs">
       <DependentUpon>AccountVerified.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Main\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1412,6 +1400,20 @@
     <Compile Include="Main\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Main\Orders.aspx.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Orders.aspx.designer.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Points.aspx.cs">
+      <DependentUpon>Points.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Points.aspx.designer.cs">
+      <DependentUpon>Points.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main\Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1419,12 +1421,26 @@
     <Compile Include="Main\Product.aspx.designer.cs">
       <DependentUpon>Product.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Main\ProductsSoon.aspx.cs">
+      <DependentUpon>ProductsSoon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\ProductsSoon.aspx.designer.cs">
+      <DependentUpon>ProductsSoon.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main\Purchase.aspx.cs">
       <DependentUpon>Purchase.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Main\Purchase.aspx.designer.cs">
       <DependentUpon>Purchase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Receipts.aspx.cs">
+      <DependentUpon>Receipts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Receipts.aspx.designer.cs">
+      <DependentUpon>Receipts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main\RecoverPassword.aspx.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>

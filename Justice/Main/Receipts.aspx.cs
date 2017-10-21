@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Justice.Admin.Edit
+namespace Justice.Main
 {
-    public partial class Product1 : System.Web.UI.Page
+    public partial class Receits : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -7,9 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Justice.Admin.Edit {
+namespace Justice.Main {
     
     
-    public partial class Jail {
+    public partial class Points {
+        
+        /// <summary>
+        /// LeftMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Justice.LeftSideBar LeftMenu;
     }
 }

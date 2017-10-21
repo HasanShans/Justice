@@ -30,7 +30,6 @@ namespace Justice
                 linkLoginReg.Visible = false;
                 linkMypage.Visible = true;
                 linkNameEmail.Visible = true;
-               
             }
         }
 

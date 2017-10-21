@@ -9,9 +9,12 @@
                     <div class="sign_in">
                         <div class="title">
                             <h3>Şifrəmi Unutdum</h3>
-                        </div>
+                        </div><br />
                         <div class="login">
-                                <div class="form-group row">
+                            <div class="row">
+                                 <asp:Label ID="Label1" runat="server" CssClass="col-md-8 col-md-offset-2 control-label" Text="Şifrənizi bərpa etmək üçün qeydiyyatdan keçdiyiniz email ünvanınızı daxil edin." Font-Size="Medium" Font-Bold="true" ></asp:Label>
+                            </div>
+                            <div class="form-group row">
                                     <asp:Label ID="Label2" runat="server" CssClass="col-md-2 control-label" Text="Email"></asp:Label>
                                     <div class="col-md-10">
                                         <asp:TextBox ID="tbEmail" CssClass="form-control" runat="server" placeholder="Email" TextMode="Email"></asp:TextBox>
