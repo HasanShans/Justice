@@ -16,119 +16,119 @@
                     </div>
                     <div class="grid-body no-border">
                         <br>
-                        <form action='' method='POST' enctype='multipart/form-data'>
-                            <div class="form-group">
-                                <label class="form-label">Məhsulun adı</label>
-                                <span class="help">Məs :"Nərd"</span>
-                                <div class="input-with-icon  right">
-                                    <i class=""></i>
-                                    <input type="text" name="product_name" value="" id="form1Name" class="form-control">
-                                </div>
+                        <div class="form-group">
+                            <label class="form-label">Məhsulun adı *</label>
+                            <span class="help">Məs :"Nərd"</span>
+                            <div class="input-with-icon  right">
+                                <i class=""></i>
+                                <asp:TextBox ID="txtPname" runat="server" CssClass="form-control" ></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" CssClass="text-danger" runat="server" ErrorMessage="Məhsul Adı Boş Qoyula Bilməz" ControlToValidate="txtPname"></asp:RequiredFieldValidator>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Məhsulun ölçüsü</label>
-                                <span class="help">En x uzunluq x hündürlük </span>
-                                <div class="input-with-icon  right">
-                                    <i class=""></i>
-                                    <input type="text" name="size" value="" id="form1Size" class="form-control ">
-                                    <input type="hidden" name="_token" value="nI34N2Y1to3NYJ3Cp4LIIDO7y2O9TM5NzKai6r9I">
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Məhsulun ölçüsü *</label>
+                            <span class="help">En x uzunluq x hündürlük </span>
+                            <div class="input-with-icon  right">
+                                <i class=""></i>
+                                <asp:TextBox ID="txtPsize" runat="server" CssClass="form-control" ></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" CssClass="text-danger" runat="server" ErrorMessage="Məhsul Ölçüsü Boş Qoyula Bilməz" ControlToValidate="txtPsize"></asp:RequiredFieldValidator>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Material növü</label>
-                                <span class="help">Məs: "Taxta"</span>
-                                <div class="input-with-icon  right">
-                                    <i class=""></i>
-                                    <input type="text" name="raw" value="" id="form1Name" class="form-control">
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Material növü *</label>
+                            <span class="help">Məs: "Taxta"</span>
+                            <div class="input-with-icon  right">
+                                <i class=""></i>
+                                <asp:TextBox ID="txtPMaterial" runat="server" CssClass="form-control" ></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Materialı Boş Qoyula Bilməz" ControlToValidate="txtPMaterial"></asp:RequiredFieldValidator>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Məhsul haqqında əlavə məlumat </label>
-                                <span class="help">Məs: "dekor"</span>
-                                <div class="input-with-icon  right">
-                                    <i class=""></i>
-                                    <textarea style="resize: vertical; max-width: 100%;" rows="9" name="description" class="form-control"></textarea>
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Məhsul haqqında əlavə məlumat </label>
+                            <span class="help">Məs: "dekor"</span>
+                            <div class="input-with-icon  right">
+                                <i class=""></i>
+                                <asp:TextBox ID="txtPdescription" runat="server" CssClass="form-control" TextMode="MultiLine" ></asp:TextBox>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">İstehsal yeri</label>
-                                <select class="form-control" name="jail_id" value="">
-                                    <option value='".$data->id."'>".$data->jail_name."</option>
-                                    "
-                                </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">İstehsal yeri *</label>
+                            <asp:DropDownList ID="ddlJails" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" CssClass="text-danger" runat="server" ErrorMessage="İstehsal Yeri Boş Qoyula Bilməz" ControlToValidate="ddlJails"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Ağırlıq (kq)</label>
+                            <span class="help">e.g "3.2"</span>
+                            <div class="input-with-icon  right">
+                                <i class=""></i>
+                                <asp:TextBox ID="txtPweight" runat="server" CssClass="form-control"></asp:TextBox>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Ağırlıq</label>
-                                <span class="help">e.g. "kq"</span>
-                                <div class="input-with-icon  right">
-                                    <i class=""></i>
-                                    <input type="number" name="weight" value="" id="form1Weight" class="form-control ">
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Anbardakı sayı *</label>
+                            <span class="help">e.g. "say"</span>
+                            <div class="input-with-icon  right">
+                                <i class=""></i>
+                                <asp:TextBox ID="txtPamount" runat="server" CssClass="form-control" TextMode="Number" ></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Anbardakı Sayı Boş Qoyula Bilməz" ControlToValidate="txtPamount"></asp:RequiredFieldValidator>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Anbardakı sayı</label>
-                                <span class="help">e.g. "say"</span>
-                                <div class="input-with-icon  right">
-                                    <i class=""></i>
-                                    <input type="number" name="amount" value="" id="form1Number" class="form-control ">
-                                    <input type="hidden" name="_token" value="nI34N2Y1to3NYJ3Cp4LIIDO7y2O9TM5NzKai6r9I">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">İstehsalçı</label>
-                                <select class="form-control" name="prisoner_id" value="">
-                                    <option value='".$data->id."'>".$data->name." ".$data->lastname."</option>
-                                    "
-                                </select>
-                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">İstehsalçı *</label>
+                            <asp:DropDownList ID="ddlPrisoners" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" CssClass="text-danger" runat="server" ErrorMessage="Məhbus Adı Boş Qoyula Bilməz" ControlToValidate="ddlPrisoners"></asp:RequiredFieldValidator>
+                        </div>
 
-                            <div class="form-group">
-                                <label class="form-label">Kateqoriyası</label>
-                                <select class="form-control" name="category_id" value="">
-                                    <option value='".$data->id."'>".$data->category_name."</option>
-                                </select>
+                        <div class="form-group">
+                            <label class="form-label">Kateqoriyası *</label>
+                            <asp:DropDownList ID="ddlCategories" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Kateqoriyası Boş Qoyula Bilməz" ControlToValidate="ddlCategories"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Qiyməti *</label>
+                            <div class="input-with-icon  right">
+                                <i class=""></i>
+                                <asp:TextBox ID="txtPprice" runat="server" CssClass="form-control" TextMode="Number" ></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Qiyməti Boş Qoyula Bilməz" ControlToValidate="txtPprice"></asp:RequiredFieldValidator>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Qiyməti</label>
-                                <div class="input-with-icon  right">
-                                    <i class=""></i>
-                                    <input type="number" name="price" value="" id="form1Name" class="form-control ">
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Endirim qiyməti *</label>
+                            <div class="input-with-icon  right">
+                                <i class=""></i>
+                                <asp:TextBox ID="txtPdiscountPrice" runat="server" CssClass="form-control" TextMode="Number" ></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Endirim Qiyməti Şəkil Boş Qoyula Bilməz" ControlToValidate="txtPdiscountPrice"></asp:RequiredFieldValidator>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Endirim qiyməti</label>
-                                <div class="input-with-icon  right">
-                                    <i class=""></i>
-                                    <input type="number" name="discount" value="" id="form1Name" class="form-control ">
-                                </div>
-                            </div>
+                        </div>
 
-                            <div class="form-group">
-                                <label class="form-label">Məhsulun şəkli</label>
-                                <div class="input-with-icon  right">
-                                    <i class=""></i>
-                                    <input style="border-style: none" type="file" name="image1" multiple>
-                                    <input style="border-style: none" type="file" name="image2" multiple>
-                                    <input style="border-style: none" type="file" name="image3" multiple>
-                                    <input style="border-style: none" type="file" name="image4" multiple>
-                                </div>
+                        <div class="form-group">
+                            <label class="form-label">Məhsulun şəkli</label>
+                            <span class="help">(Minimum şəkil sayı 1)</span>
+                            <div class="input-with-icon  right">
+                                <i class=""></i>
+                                <asp:FileUpload ID="img1p" CssClass="form-control" runat="server" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger" runat="server" ErrorMessage="Birinci Şəkil Boş Qoyula Bilməz" ControlToValidate="img1p"></asp:RequiredFieldValidator>
+                                <asp:FileUpload ID="img2p" CssClass="form-control" runat="server" /><br />
+                                <asp:FileUpload ID="img3p" CssClass="form-control" runat="server" /><br />
+                                <asp:FileUpload ID="img4p" CssClass="form-control" runat="server" /><br />
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Satış məsələsi </label>
-                                <div class="input-with-icon  right">
-                                    <i class=""></i>
-                                    <input type="radio" name="soon" value="0" checked>
-                                    Satışda<br>
-                                    <input type="radio" name="soon" value="1">
-                                    Tezliklə Satışda<br>
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Məhsulun Mövcudluğu *</label>
+                            <div class="input-with-icon  right">
+                                    <asp:RadioButtonList ID="rblPavailability" runat="server">
+                                        <asp:ListItem>Satışda</asp:ListItem>
+                                        <asp:ListItem>Tezliklə Satışda</asp:ListItem>
+                                    </asp:RadioButtonList>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator13" CssClass="text-danger" runat="server" ErrorMessage="Bu Sahə Boş Qoyula Bilməz" ControlToValidate="rblPavailability"></asp:RequiredFieldValidator>
                             </div>
-                            <div class="form-actions">
-                                <div class="pull-right">
-                                    <button type="submit" class="btn btn-danger btn-cons"><i class="icon-ok"></i>Yadda saxla</button>
-                                </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="pull-right">
+                                <asp:Button runat="server" ID="btnSave" CssClass="btn btn-success btn-cons" OnClick="btnSave_Click" Visible="false" Text="Əlavə Et"></asp:Button>
+                                <asp:Button runat="server" ID="btnEdit" CssClass="btn btn-warning btn-cons" Visible="false" OnClick="btnSave_Click" Text="Yenilə"></asp:Button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

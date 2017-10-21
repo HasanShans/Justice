@@ -52,7 +52,7 @@
                                         <asp:Repeater ID="repeaterCategories" runat="server">
                                             <ItemTemplate>
                                                 <li style="margin-right: 0px;" class="hidden-xs">
-                                                    <a href="/Main/Category?id=<%# Eval("ID") %>"><%# Eval("CategoryName") %></a>
+                                                    <a href="/Main/Index?Category=<%# Eval("CategoryName") %>"><%# Eval("CategoryName") %></a>
                                                 </li>
                                             </ItemTemplate>
                                         </asp:Repeater>
@@ -62,8 +62,6 @@
                                     <asp:HyperLink runat="server" ID="effect" NavigateUrl="#"><i CssClass="fa fa-gift hidden-md hidden-sm" style="color: #FEBF00;"></i><strong>&nbsp;KAMPANİYALAR</strong></asp:HyperLink></li>
                                 <li class="mypage.php">
                                     <asp:HyperLink ID="linkMypage" runat="server" NavigateUrl="#">SƏHİFƏM</asp:HyperLink></li>
-                                <li class="uppercase">
-                                    <asp:HyperLink runat="server" ID="linkLiked" NavigateUrl="#" CssClass="favorite-products"><i class="fa fa-star hidden-md hidden-sm" style="color: #FEBF00;"></i>&nbsp;BƏYƏNDİKLƏRİM</asp:HyperLink></li>
                                 <!-- telefon formatinda acilacaq olanlar -->
                                 <li class="visible-xs">
                                     <asp:HyperLink runat="server" NavigateUrl="#" CssClass="u-url shop-basket">
@@ -101,7 +99,7 @@
                                         <li>
                                             <asp:HyperLink runat="server" NavigateUrl="#">Bəyəndiklərim</asp:HyperLink></li>
                                         <li>
-                                            <asp:HyperLink runat="server" NavigateUrl="#">Səbətim</asp:HyperLink></li>
+                                            <asp:HyperLink runat="server" NavigateUrl="~/Main/Purchase.aspx">Səbətim</asp:HyperLink></li>
                                         <li>
                                             <asp:LinkButton runat="server" OnClick="signOut_Click" CausesValidation="false">Çıxış</asp:LinkButton></li>
                                     </ul>
@@ -118,9 +116,9 @@
                 <div class="row">
                     <div class="middle-area ">
                         <div class="logo col-md-3">
-                            <a href="index.php" title="">
+                            <asp:HyperLink runat="server" NavigateUrl="~/Main/Index.aspx">
                                 <img class="img-responsive logo" src="/Content/Main/images/looogooo.png" alt="Logo" />
-                            </a>
+                            </asp:HyperLink>
                         </div>
                         <div class="col-md-4 col-sm-12 hidden-xs">
                             <h3 style="margin-top: 10px;">HƏBSXANA İNCƏSƏNƏTİ</h3>

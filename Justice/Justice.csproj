@@ -134,9 +134,6 @@
     <Content Include="Admin\Add\Product.aspx" />
     <Content Include="Admin\Categories.aspx" />
     <Content Include="Admin\DeliveredOrders.aspx" />
-    <Content Include="Admin\Edit\Category.aspx" />
-    <Content Include="Admin\Edit\Jail.aspx" />
-    <Content Include="Admin\Edit\Product.aspx" />
     <Content Include="Admin\Jails.aspx" />
     <Content Include="Admin\Orders.aspx" />
     <Content Include="Admin\PostDeliveredOrders.aspx" />
@@ -505,7 +502,6 @@
     <Content Include="Controls\Admin\LeftSideBar.ascx" />
     <Content Include="Content\Main\fonts\index.php" />
     <Content Include="Main\AccountVerified.aspx" />
-    <Content Include="Main\Category.aspx" />
     <Content Include="Main\ForgotPassword.aspx" />
     <Content Include="Main\Information.aspx" />
     <Content Include="Controls\LeftSideBar.ascx" />
@@ -1307,27 +1303,6 @@
     <Compile Include="Admin\DeliveredOrders.aspx.designer.cs">
       <DependentUpon>DeliveredOrders.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Edit\Category.aspx.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Edit\Category.aspx.designer.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Edit\Jail.aspx.cs">
-      <DependentUpon>Jail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Edit\Jail.aspx.designer.cs">
-      <DependentUpon>Jail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Edit\Product.aspx.cs">
-      <DependentUpon>Product.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Edit\Product.aspx.designer.cs">
-      <DependentUpon>Product.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Jails.aspx.cs">
       <DependentUpon>Jails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1380,13 +1355,6 @@
     </Compile>
     <Compile Include="Main\AccountVerified.aspx.designer.cs">
       <DependentUpon>AccountVerified.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Main\Category.aspx.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Main\Category.aspx.designer.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
