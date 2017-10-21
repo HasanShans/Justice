@@ -14,8 +14,6 @@ namespace Justice.Main
 {
     public partial class Information : System.Web.UI.Page
     {
-
-        
         int UserID;
         CultureInfo provider = CultureInfo.InvariantCulture;
         protected void Page_Load(object sender, EventArgs e)
