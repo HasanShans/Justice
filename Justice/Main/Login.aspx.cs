@@ -24,6 +24,45 @@ namespace Justice.Main
                     tbPassword.Attributes["value"] = Request.Cookies["PASSWORD"].Value;
                     tbRememberMe.Checked = true;
                 }
+                if (Request.QueryString.AllKeys.Contains("VerifyAccount"))
+                {
+                    if (DB.Connection.State == ConnectionState.Closed)
+                        DB.Connection.Open();
+                    int UserID = Convert.ToInt32(Request.QueryString["VerifyAccount"]) / 7654321;
+                    if (Request.QueryString["VerifyAccount"] != null)
+                    {
+                        SqlCommand sqlCommand1 = new SqlCommand("UsersSelectByID", DB.Connection);
+                        sqlCommand1.CommandType = CommandType.StoredProcedure;
+                        sqlCommand1.Parameters.AddWithValue("@ID", UserID);
+                        sqlCommand1.ExecuteNonQuery();
+                        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand1);
+                        DataTable dataTable = new DataTable();
+                        sqlDataAdapter.Fill(dataTable);
+                        if (dataTable.Rows.Count != 0)
+                        {
+                            if (Convert.ToInt32(dataTable.Rows[0]["Verified"]) == 1)
+                            {
+                                lblMsgVerify.ForeColor = System.Drawing.Color.Red;
+                                lblMsgVerify.Text = "Error";
+                            }
+                            else
+                            {
+                                SqlCommand sqlCommand = new SqlCommand("UsersVerifyAccount", DB.Connection);
+                                sqlCommand.CommandType = CommandType.StoredProcedure;
+                                sqlCommand.Parameters.AddWithValue("@ID", UserID);
+                                sqlCommand.ExecuteNonQuery();
+                                lblMsgVerify.ForeColor = System.Drawing.Color.Green;
+                                lblMsgVerify.Text = "Hörmətli istifadəçi, sizin hesabınız təsdiq olunmuşdur.";
+                            }
+                        }
+                        else
+                        {
+                            lblMsgVerify.ForeColor = System.Drawing.Color.Red;
+                            lblMsgVerify.Text = "Belə bir hesab bazamızda mövcud deyil";
+                        }
+                    }
+                    DB.Connection.Close();
+                }
             }
             else
             {
@@ -45,7 +84,7 @@ namespace Justice.Main
             sqlDataAdapter.Fill(dataTable);
             if (dataTable.Rows.Count != 0)
             {
-                if (Convert.ToInt32(dataTable.Rows[0][7]) == 1)
+                if (Convert.ToInt32(dataTable.Rows[0]["Verified"]) == 1)
                 {
                     if (tbRememberMe.Checked == true)
                     {
@@ -60,9 +99,9 @@ namespace Justice.Main
                         Response.Cookies["EMAIL"].Expires = DateTime.Now.AddDays(-1);
                         Response.Cookies["PASSWORD"].Expires = DateTime.Now.AddDays(-1);
                     }
-                    Session["NAME"] = dataTable.Rows[0][1].ToString() + " " + dataTable.Rows[0][2].ToString();
-                    Session["EMAIL"] = dataTable.Rows[0][3].ToString();
-                    Session["ID"] = dataTable.Rows[0][0];
+                    Session["NAME"] = dataTable.Rows[0]["FirstName"].ToString() + " " + dataTable.Rows[0]["LastName"].ToString();
+                    Session["EMAIL"] = dataTable.Rows[0]["Email"].ToString();
+                    Session["ID"] = dataTable.Rows[0]["ID"];
                     if (Request.QueryString["rurl"] != null)
                     {
                         String page = Request.QueryString["rurl"];

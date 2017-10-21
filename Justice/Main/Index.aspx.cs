@@ -20,32 +20,32 @@ namespace Justice.Main
         }
         private void BindProducts()
         {
-            using (SqlCommand comm = new SqlCommand("ProductsSelectAllJoinImages", DB.Connection))
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand;
+            if (Request.QueryString.AllKeys.Contains("Category"))
             {
-                comm.CommandType = CommandType.StoredProcedure;
-                try
-                {
-                    if (DB.Connection.State == ConnectionState.Closed)
-                        DB.Connection.Open();
-                    using (SqlDataReader reader = comm.ExecuteReader())
-                    {
-                        DataTable data = new DataTable();
-                        data.Load(reader);
-                        if (!IsPostBack)
-                        {
-                            productRepeater.DataSource = data;
-                            productRepeater.DataBind();
-                        }
-                        
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    // other codes here
-                    // do something with the exception
-                    // don't swallow it.
-                }
-                DB.Connection.Close();
+                String categoryName = Request.QueryString["Category"].ToString();
+                sqlCommand = new SqlCommand("ProductsSelectByCategoryNameJoinCategoriesImages", DB.Connection);
+                sqlCommand.Parameters.AddWithValue("@CategoryName", categoryName);
+            }
+            else
+            {
+                sqlCommand = new SqlCommand("ProductsSelectAllJoinImages", DB.Connection);
+            }
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.ExecuteNonQuery();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            if (dataTable.Rows.Count != 0)
+            {
+                productRepeater.DataSource = dataTable;
+                productRepeater.DataBind();
+            }
+            else
+            {
+
             }
         }
     }

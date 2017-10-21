@@ -25,7 +25,7 @@
                             <div class="form-actions">
                                 <div class="pull-right">
                                     <asp:Button runat="server" ID="btnSave" CssClass="btn btn-success btn-cons" Visible="false" OnClick="btnSave_Click" Text="Əlavə Et"></asp:Button>
-                                    <asp:Button runat="server" ID="btnEdit" CssClass="btn btn-warning btn-cons" Visible="false" OnClick="btnEdit_Click" Text="Yenilə"></asp:Button>
+                                    <asp:Button runat="server" ID="btnEdit" CssClass="btn btn-warning btn-cons" Visible="false" OnClick="btnSave_Click" Text="Yenilə"></asp:Button>
                                 </div>
                             </div>
                     </div>

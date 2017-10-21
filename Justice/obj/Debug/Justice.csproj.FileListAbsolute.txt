@@ -82,3 +82,4 @@ C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.Web.xm
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.csproj.CoreCompileInputs.cache
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.dll
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.pdb
+C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.csprojResolveAssemblyReference.cache

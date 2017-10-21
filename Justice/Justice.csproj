@@ -505,7 +505,6 @@
     <Content Include="Controls\Admin\LeftSideBar.ascx" />
     <Content Include="Content\Main\fonts\index.php" />
     <Content Include="Main\AccountVerified.aspx" />
-    <Content Include="Main\Category.aspx" />
     <Content Include="Main\ForgotPassword.aspx" />
     <Content Include="Main\Information.aspx" />
     <Content Include="Controls\LeftSideBar.ascx" />
@@ -1376,13 +1375,6 @@
     </Compile>
     <Compile Include="Main\AccountVerified.aspx.designer.cs">
       <DependentUpon>AccountVerified.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Main\Category.aspx.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Main\Category.aspx.designer.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>

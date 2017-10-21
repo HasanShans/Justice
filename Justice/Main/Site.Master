@@ -52,7 +52,7 @@
                                         <asp:Repeater ID="repeaterCategories" runat="server">
                                             <ItemTemplate>
                                                 <li style="margin-right: 0px;" class="hidden-xs">
-                                                    <a href="/Main/Category?id=<%# Eval("ID") %>"><%# Eval("CategoryName") %></a>
+                                                    <a href="/Main/Index?Category=<%# Eval("CategoryName") %>"><%# Eval("CategoryName") %></a>
                                                 </li>
                                             </ItemTemplate>
                                         </asp:Repeater>
@@ -101,7 +101,7 @@
                                         <li>
                                             <asp:HyperLink runat="server" NavigateUrl="#">Bəyəndiklərim</asp:HyperLink></li>
                                         <li>
-                                            <asp:HyperLink runat="server" NavigateUrl="#">Səbətim</asp:HyperLink></li>
+                                            <asp:HyperLink runat="server" NavigateUrl="~/Main/Purchase.aspx">Səbətim</asp:HyperLink></li>
                                         <li>
                                             <asp:LinkButton runat="server" OnClick="signOut_Click" CausesValidation="false">Çıxış</asp:LinkButton></li>
                                     </ul>
@@ -119,9 +119,9 @@
 
                     <div class="middle-area ">
                         <div class="logo col-md-3">
-                            <a href="index.php" title="">
+                            <asp:HyperLink runat="server" NavigateUrl="~/Main/Index.aspx">
                                 <img class="img-responsive logo" src="/Content/Main/images/looogooo.png" alt="Logo" />
-                            </a>
+                            </asp:HyperLink>
                         </div>
                         <div class="col-md-4 col-sm-12 hidden-xs">
                             <h3 style="margin-top: 10px;">HƏBSXANA İNCƏSƏNƏTİ</h3>

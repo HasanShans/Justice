@@ -56,13 +56,13 @@ namespace Justice.Main
                         SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand2);
                         DataTable dataTable = new DataTable();
                         sqlDataAdapter.Fill(dataTable);
-                        int UserID = Convert.ToInt32(dataTable.Rows[0][0])*5432;
+                        int UserID = Convert.ToInt32(dataTable.Rows[0][0])*7654321;
 
                         //Send mail to user for verification
 
                         String toEmailAddress = tbEmail.Text.Trim().ToString();
                         String username = tbName.Text.Trim().ToString()+" "+tbSurname.Text.Trim().ToString();
-                        String messageBody = "Salam, Hörmətli " + username + ". <br/> <br/> Hesabınızı təsdiqləmək üçün <a href=\" http://localhost:50857/Main/AccountVerified.aspx?UserID=" + UserID + "\">bu linkə</a> klikləyin.<br/><br/>Həbsxana İncəsənəti";
+                        String messageBody = "Salam, Hörmətli " + username + ". <br/> <br/> Hesabınızı təsdiqləmək üçün <a href=\" http://localhost:50857/Main/Login.aspx?VerifyAccount=" + UserID + "\">bu linkə</a> klikləyin.<br/><br/>Həbsxana İncəsənəti";
                         MailMessage mailMessage = new MailMessage("youremail@address.com", toEmailAddress);
                         mailMessage.Body = messageBody;
                         mailMessage.IsBodyHtml = true;

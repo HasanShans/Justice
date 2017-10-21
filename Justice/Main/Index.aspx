@@ -274,7 +274,7 @@
                                 </div>
                                 <div class='images'>
                                     <a href='Product/?id=<%# Eval("ID") %>'>
-                                        <img class='img-responsive' src='../Content/Main/images/products/<%# Eval("Image1") %>.jpg' alt=''></a>
+                                        <img class='img-responsive' src='../Content/Main/images/products/<%# Eval("ID") %>/<%#Eval("Name") %><%#Eval("Extention") %>' alt=''></a>
                                 </div>
                                 <div class='detailes'>
                                     <h5 class='text-center'>

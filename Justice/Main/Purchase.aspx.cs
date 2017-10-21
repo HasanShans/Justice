@@ -19,7 +19,7 @@ namespace Justice.Main
 
         private void BindProducts()
         {
-            if (Session["ID"] != null)
+            if (Session["NAME"] != null)
             {
                 using (SqlCommand comm = new SqlCommand("CartSelectByUserIDJoinImagesAndProducts", DB.Connection))
                 {
@@ -48,7 +48,7 @@ namespace Justice.Main
                 }
             } else
             {
-                Response.Redirect("~/Main/Login.aspx");
+                Response.Redirect("~/Main/Login.aspx?rurl=Purchase");
             }
         }
 
