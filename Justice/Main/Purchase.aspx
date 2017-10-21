@@ -58,10 +58,10 @@
                         </div>
                         <div class="sifaris">
                             <p>Məhsul ədədi</p>
-                            <p><span id="product_count"></span></p>
+                            <p><span id="product_count"><%= amount %></span></p>
                             <hr class="hr1">
                             <p>Ümumi məbləğ</p>
-                            <p><span id="product_sum">AZN</span></p>
+                            <p><span id="product_sum"><%= sum %> AZN</span></p>
                             <hr class="hr1">
                             <p>Çatdırılma</p>
                             <p><span>20AZN dan cox alış-veriş etdiyiniz üçün çatdırılma pulsuzdur</span></p>

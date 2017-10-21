@@ -12,6 +12,8 @@ namespace Justice.Main
 {
     public partial class Purchase : System.Web.UI.Page
     {
+        public int sum = 0;
+        public int amount = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             BindProducts();
@@ -33,6 +35,11 @@ namespace Justice.Main
                         {
                             DataTable data = new DataTable();
                             data.Load(reader);
+                            foreach (DataRow row in data.Rows)
+                            {
+                                amount++;
+                                sum += Convert.ToInt32(row["Price"]);
+                            }
                             if (!IsPostBack)
                             {
                                 repeater.DataSource = data;

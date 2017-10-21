@@ -62,8 +62,6 @@
                                     <asp:HyperLink runat="server" ID="effect" NavigateUrl="#"><i CssClass="fa fa-gift hidden-md hidden-sm" style="color: #FEBF00;"></i><strong>&nbsp;KAMPANİYALAR</strong></asp:HyperLink></li>
                                 <li class="mypage.php">
                                     <asp:HyperLink ID="linkMypage" runat="server" NavigateUrl="#">SƏHİFƏM</asp:HyperLink></li>
-                                <li class="uppercase">
-                                    <asp:HyperLink runat="server" ID="linkLiked" NavigateUrl="#" CssClass="favorite-products"><i class="fa fa-star hidden-md hidden-sm" style="color: #FEBF00;"></i>&nbsp;BƏYƏNDİKLƏRİM</asp:HyperLink></li>
                                 <!-- telefon formatinda acilacaq olanlar -->
                                 <li class="visible-xs">
                                     <asp:HyperLink runat="server" NavigateUrl="#" CssClass="u-url shop-basket">
@@ -116,7 +114,6 @@
         <header id="header" class="top-header" style="border-bottom: 3px solid #FEBF00; padding-bottom: 10px; margin-bottom: 20px;">
             <div class="container">
                 <div class="row">
-
                     <div class="middle-area ">
                         <div class="logo col-md-3">
                             <asp:HyperLink runat="server" NavigateUrl="~/Main/Index.aspx">
@@ -129,18 +126,16 @@
                         <div class="search-form-block col-md-5 col-sm-12 col-xs-12">
 
                             <input type="search" name="word" placeholder="Axtar...." id="txtSearch" autocomplete="off" />
-                            <button style="top: 5px;" id="btnSearchMaster" class="send">
+                            <asp:LinkButton ID="btnSearchMaster" runat="server" CssClass="send" onClick="btnSearchMaster_Click">
                                 <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
+                            </asp:LinkButton>
                             <div class="search-suggests" id="divFilterSearch">
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </header>
-
 
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
@@ -195,7 +190,6 @@
                             </p>
                         </div>
                     </div>
-
                 </div>
             </footer>
         </div>
