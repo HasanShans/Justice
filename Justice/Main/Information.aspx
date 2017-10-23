@@ -48,13 +48,14 @@
                                 </div>
                             </div>
 
-                            <div class='form-group row'>
+
+                            <%--<div class='form-group row'>
                                 <asp:Label ID="cityLabel" AssociatedControlID="cityTextBox" Text="Ya&#351;ad&#305;&#287;&#305;n&#305;z &#350;&#601;h&#601;r *" CssClass="col-sm-3 col-form-label" runat="server" />
                                 <div class='col-sm-9'>
                                     <asp:DropDownList ID="ddlBrands" CssClass="form-control" runat="server"></asp:DropDownList>
                                     <asp:RequiredFieldValidator runat="server" id="cityValidator" controltovalidate="cityTextBox" cssClass="text-danger" errormessage="Yaşadığınız şəhəri qeyd edin!" />
                                 </div>
-                            </div>
+                            </div>--%>
                             <!-- /.form-group -->
 
                             <div class='form-group row'>

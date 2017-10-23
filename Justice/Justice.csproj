@@ -135,6 +135,7 @@
     <Content Include="Admin\Categories.aspx" />
     <Content Include="Admin\DeliveredOrders.aspx" />
     <Content Include="Admin\Jails.aspx" />
+    <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\Orders.aspx" />
     <Content Include="Admin\PostDeliveredOrders.aspx" />
     <Content Include="Admin\Products.aspx" />
@@ -159,11 +160,17 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Content\Admin\css\AdminLTE.css" />
     <Content Include="Content\Admin\css\animate.min.css" />
     <Content Include="Content\Admin\css\bootstrap-table-responsive.css" />
+    <Content Include="Content\Admin\css\bootstrap.css" />
     <Content Include="Content\Admin\css\custom-icon-set.css" />
     <Content Include="Content\Admin\css\custom-icons.css" />
+    <Content Include="Content\Admin\css\dataTables.bootstrap.css" />
+    <Content Include="Content\Admin\css\font-awesome.css" />
+    <Content Include="Content\Admin\css\font-awesome.min.css" />
     <Content Include="Content\Admin\css\index.php" />
+    <Content Include="Content\Admin\css\ionicons.css" />
     <Content Include="Content\Admin\css\large_screen_tweak.css" />
     <Content Include="Content\Admin\css\magic_space.css" />
     <Content Include="Content\Admin\css\mixins.css" />
@@ -177,6 +184,7 @@
     <Content Include="Content\Admin\css\style.css" />
     <Content Include="Content\Admin\css\tiles_responsive.css" />
     <Content Include="Content\Admin\css\var.css" />
+    <Content Include="Content\Admin\css\_all-skins.css" />
     <Content Include="Content\Admin\fonts\custom-set.dev.svg" />
     <Content Include="Content\Admin\fonts\custom-set.svg" />
     <Content Include="Content\Admin\fonts\index.php" />
@@ -514,32 +522,18 @@
     <Content Include="Main\RecoverPassword.aspx" />
     <Content Include="Main\Register.aspx" />
     <Content Include="Main\Search.aspx" />
-    <Content Include="Scripts\Admin\js\calender.js" />
-    <Content Include="Scripts\Admin\js\charts.js" />
-    <Content Include="Scripts\Admin\js\chat.js" />
-    <Content Include="Scripts\Admin\js\core.js" />
-    <Content Include="Scripts\Admin\js\dashboard.js" />
-    <Content Include="Scripts\Admin\js\dashboard_v2.js" />
-    <Content Include="Scripts\Admin\js\datatables.js" />
-    <Content Include="Scripts\Admin\js\datatable_boostrap_extend.js" />
+    <Content Include="Scripts\Admin\js\adminlte.js" />
+    <Content Include="Scripts\Admin\js\adminlte.min.js" />
+    <Content Include="Scripts\Admin\js\bootstrap.js" />
+    <Content Include="Scripts\Admin\js\bootstrap.min.js" />
+    <Content Include="Scripts\Admin\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\Admin\js\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\Admin\js\demo.js" />
-    <Content Include="Scripts\Admin\js\email_comman.js" />
-    <Content Include="Scripts\Admin\js\form_elements.js" />
-    <Content Include="Scripts\Admin\js\form_validations.js" />
-    <Content Include="Scripts\Admin\js\google_maps.js" />
-    <Content Include="Scripts\Admin\js\group_list.js" />
-    <Content Include="Scripts\Admin\js\icon.js" />
-    <Content Include="Scripts\Admin\js\index.php" />
+    <Content Include="Scripts\Admin\js\fastclick.js" />
+    <Content Include="Scripts\Admin\js\jquery.dataTables.js" />
+    <Content Include="Scripts\Admin\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\Admin\js\jquery.js" />
     <Content Include="Scripts\Admin\js\jquery.min.js" />
-    <Content Include="Scripts\Admin\js\login.js" />
-    <Content Include="Scripts\Admin\js\login_v2.js" />
-    <Content Include="Scripts\Admin\js\messages_notifications.js" />
-    <Content Include="Scripts\Admin\js\notifications.js" />
-    <Content Include="Scripts\Admin\js\search_results.js" />
-    <Content Include="Scripts\Admin\js\support_ticket.js" />
-    <Content Include="Scripts\Admin\js\tabs_accordian.js" />
-    <Content Include="Scripts\Admin\js\vector_maps.js" />
-    <Content Include="Scripts\Admin\js\widgets.js" />
     <Content Include="Content\Admin\plugins\boostrap-checkbox\css\bootstrap-checkbox.css" />
     <Content Include="Content\Admin\plugins\boostrap-checkbox\img\Tick.png" />
     <Content Include="Content\Admin\plugins\boostrap-checkbox\js\bootstrap-checkbox.js" />
@@ -1309,6 +1303,13 @@
     </Compile>
     <Compile Include="Admin\Jails.aspx.designer.cs">
       <DependentUpon>Jails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Orders.aspx.cs">
       <DependentUpon>Orders.aspx</DependentUpon>

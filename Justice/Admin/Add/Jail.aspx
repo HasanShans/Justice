@@ -2,10 +2,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="page-content ">
-        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
         <div class="clearfix"></div>
         <div class="content">
-
             <div class="col-md-12">
                 <div class="grid simple">
                     <div class="grid-title no-border">
@@ -32,4 +30,5 @@
                 </div>
             </div>
         </div>
+     </div>
 </asp:Content>
