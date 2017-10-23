@@ -197,17 +197,16 @@
                     <div class="best_seller">
                         <div class="title">
                             <h3 class="text-left">Ən çox satılan</h3>
-                            <p class="text-right"><a href="mostsold.php">Hamısını göstər</a></p>
+                            <p class="text-right"><a href="ProductsFilter.aspx?ProductsMostSold=">Hamısını göstər</a></p>
                         </div>
                         <div class='row title_content'>
                             <div class='col-md-5'>
-                                <img src='thumb/thumb_".$json->data[1]->image1."' alt=''>
+                                <img src='../Content/Main/images/products/<%= data["MSImagePath"] %>' alt=''>
                             </div>
                             <div class='col-md-7'>
-                                <h3>Product Name</h3>
+                                <h3><%= data["MSProductName"] %></h3>
                                 <div class='addShopp'>
-                                    <p class='pull-left'>XXX AZN</p>
-                                    <a href=''></a>
+                                    <p class='pull-left'><%= data["MSPrice"] %> AZN</p>
                                 </div>
                             </div>
                         </div>
@@ -218,16 +217,16 @@
                     <div class="new_product">
                         <div class="title">
                             <h3 class="text-left">Yeni məhsullar</h3>
-                            <p class="text-right"><a href="lastproducts.php">Hamısını göstər</a></p>
+                            <p class="text-right"><a href="ProductsFilter.aspx?ProductsNew=">Hamısını göstər</a></p>
                         </div>
                         <div class='row title_content'>
                             <div class='col-md-5'>
-                                <img src='thumb/thumb_".$json->data[0]->image1."' alt=''>
+                                <img src='../Content/Main/images/products/<%= data["NPImagePath"] %>' alt=''>
                             </div>
                             <div class='col-md-7'>
-                                <h3>PRODUCT NAME</h3>
+                                <h3><%= data["NPProductName"] %></h3>
                                 <div class='addShopp'>
-                                    <p class='pull-left'>XXX AZN</p>
+                                    <p class='pull-left'><%= data["NPPrice"] %> AZN</p>
                                     <a href=''></a>
                                 </div>
                             </div>
@@ -239,7 +238,7 @@
                     <div class="konsept">
                         <div class="title">
                             <h3 class="text-left">Konsept məhsullar</h3>
-                            <p class="text-right"><a href="category.php?cat=5">Hamısını göstər</a></p>
+                            <p class="text-right"><a href="ProductsFilter.aspx?ProductsConcept=">Hamısını göstər</a></p>
                         </div>
                         <div class='row title_content'>
                             <div class='col-md-5'>

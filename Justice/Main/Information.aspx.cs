@@ -18,6 +18,18 @@ namespace Justice.Main
         CultureInfo provider = CultureInfo.InvariantCulture;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["NAME"] != null)
+            {
+                BindUserInfo();
+            }
+            else
+            {
+                Response.Redirect("~/Main/Login?rurl=Information");
+            }
+            
+        }
+        private void BindUserInfo()
+        {
             UserID = Convert.ToInt32(Session["ID"].ToString());
             nameTextBox.Enabled = false;
             surnameTextBox.Enabled = false;
@@ -33,7 +45,7 @@ namespace Justice.Main
             sqlDataAdapter.Fill(dataTable);
             if (dataTable.Rows.Count != 0)
             {
-                if (dataTable.Rows[0][6].ToString() == "0")
+                if (dataTable.Rows[0]["IDSerialNumber"].ToString() == "0")
                 {
                     nameTextBox.Text = "Şəxsiyyət Vəsiqəsindəki Adınız";
                     surnameTextBox.Text = "Şəxsiyyət Vəsiqəsindəki Soyadınız";
@@ -41,15 +53,14 @@ namespace Justice.Main
                 }
                 else
                 {
-                    nameTextBox.Text = dataTable.Rows[0][1].ToString();
-                    surnameTextBox.Text = dataTable.Rows[0][2].ToString();
-                    emailTextBox.Text = dataTable.Rows[0][3].ToString();
-                    serialTextBox.Text = dataTable.Rows[0][6].ToString();
+                    nameTextBox.Text = dataTable.Rows[0]["FirstName"].ToString();
+                    surnameTextBox.Text = dataTable.Rows[0]["LastName"].ToString();
+                    emailTextBox.Text = dataTable.Rows[0]["Email"].ToString();
+                    serialTextBox.Text = dataTable.Rows[0]["IDSerialNumber"].ToString();
                     serialTextBox.Enabled = false;
                 }
             }
         }
-
         protected void submitClick(object sender, EventArgs e)
         {
             NotariatServiceClient service = new NotariatServiceClient();
@@ -79,14 +90,14 @@ namespace Justice.Main
             SqlCommand sqlCommand = new SqlCommand("UsersUpdateInfoWithService", DB.Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@ID", UserID);
-            sqlCommand.Parameters.AddWithValue("@FirstName", nameTextBox.Text);
-            sqlCommand.Parameters.AddWithValue("@LastName", surnameTextBox.Text);
-            sqlCommand.Parameters.AddWithValue("@BirthDate", dateTextBox.Text);
-            sqlCommand.Parameters.AddWithValue("@IDSerialNumber", serialTextBox.Text);
-            //sqlCommand.Parameters.AddWithValue("@City", cityTextBox.Text);
-            //sqlCommand.Parameters.AddWithValue("@PostIndex", postTextBox.Text);
-            //sqlCommand.Parameters.AddWithValue("@MobilePhone", mobileTextBox.Text);
-            //sqlCommand.Parameters.AddWithValue("@HomePhone", homePhoneTextBox.Text);
+            sqlCommand.Parameters.AddWithValue("@FirstName", nameTextBox.Text.ToString().Trim());
+            sqlCommand.Parameters.AddWithValue("@LastName", surnameTextBox.Text.ToString().Trim());
+            sqlCommand.Parameters.AddWithValue("@BirthDate", dateTextBox.Text.ToString().Trim());
+            sqlCommand.Parameters.AddWithValue("@IDSerialNumber", serialTextBox.Text.ToString().Trim());
+            sqlCommand.Parameters.AddWithValue("@City", cityTextBox.Text.ToString().Trim());
+            sqlCommand.Parameters.AddWithValue("@PostIndex", PostIndexTextBox.Text.ToString().Trim());
+            sqlCommand.Parameters.AddWithValue("@MobilePhone", MobilePhoneTextBox.Text.ToString().Trim());
+            sqlCommand.Parameters.AddWithValue("@HomePhone", HomePhoneTextBox.Text.ToString().Trim());
             sqlCommand.ExecuteNonQuery();
             DB.Connection.Close();
         }

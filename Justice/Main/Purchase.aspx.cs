@@ -49,7 +49,7 @@ namespace Justice.Main
                     }
                     catch (SqlException ex)
                     {
-
+                    
                     }
                     DB.Connection.Close();
                 }

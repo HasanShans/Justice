@@ -13,5 +13,13 @@ namespace Justice
         {
 
         }
+        protected void btnSignOut_Click(object sender, EventArgs e)
+        {
+            Session["NAME"] = null;
+            Session["EMAIL"] = null;
+            Session["ID"] = null;
+            Response.Redirect("Index.aspx");
+        }
+
     }
 }

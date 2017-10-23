@@ -22,46 +22,44 @@ namespace Justice.Main
         private void BindProduct()
         {
             int id = Convert.ToInt32(Request.QueryString["id"]);
-            using (SqlCommand comm = new SqlCommand("ProductsSelectByIDJoinCategoriesImages", DB.Connection))
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand comm = new SqlCommand("ProductsSelectByIDJoinCategoriesImages", DB.Connection);
+            comm.CommandType = CommandType.StoredProcedure;
+            comm.Parameters.AddWithValue("@id", id);
+            comm.ExecuteNonQuery();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(comm);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            if (dataTable.Rows.Count != 0)
             {
-                comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.AddWithValue("@id", id);
-                try
-                {
-                    if (DB.Connection.State == ConnectionState.Closed)
-                        DB.Connection.Open();
-                    using (SqlDataReader reader = comm.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            data.Add("image1", reader["Image1"].ToString());
-                            data.Add("image2", reader["Image2"].ToString());
-                            data.Add("image3", reader["Image3"].ToString());
-                            data.Add("image4", reader["Image4"].ToString());
-
-                            data.Add("mehsul_ID", reader["ID"].ToString());
-                            data.Add("mehsul_kod", reader["Code"].ToString());
-                            data.Add("mehsul_ad", reader["ProductName"].ToString());
-                            data.Add("mehsul_olcu", reader["Size"].ToString());
-                            data.Add("mehsul_material", reader["Material"].ToString());
-                            data.Add("kateqoriya_ID", reader["CategoryID"].ToString());
-                            data.Add("mehsul_kateqoriya", reader["CategoryName"].ToString());
-                            data.Add("mehsul_ceki", reader["Weight"].ToString());
-                            data.Add("mehsul_say", reader["StockAmount"].ToString());
-                            data.Add("elave_melumat", reader["Description"].ToString());
-                            data.Add("mehsul_qiymet", reader["Price"].ToString());
-                            data.Add("endirimli_qiymet", reader["Discount"].ToString());
-                        }
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    // other codes here
-                    // do something with the exception
-                    // don't swallow it.
-                }
-                DB.Connection.Close();
+                data.Add("mehsul_ID", dataTable.Rows[0]["ID"].ToString());
+                data.Add("mehsul_kod", dataTable.Rows[0]["Code"].ToString());
+                data.Add("mehsul_ad", dataTable.Rows[0]["ProductName"].ToString());
+                data.Add("mehsul_olcu", dataTable.Rows[0]["Size"].ToString());
+                data.Add("mehsul_material", dataTable.Rows[0]["Material"].ToString());
+                data.Add("kateqoriya_ID", dataTable.Rows[0]["CategoryID"].ToString());
+                data.Add("mehsul_kateqoriya", dataTable.Rows[0]["CategoryName"].ToString());
+                data.Add("mehsul_ceki", dataTable.Rows[0]["Weight"].ToString());
+                data.Add("mehsul_say", dataTable.Rows[0]["StockAmount"].ToString());
+                data.Add("elave_melumat", dataTable.Rows[0]["Description"].ToString());
+                data.Add("mehsul_qiymet", dataTable.Rows[0]["Price"].ToString());
+                data.Add("endirimli_qiymet", dataTable.Rows[0]["Discount"].ToString());
             }
+            SqlCommand comm1 = new SqlCommand("ImagesSelectByProductID", DB.Connection);
+            comm1.CommandType = CommandType.StoredProcedure;
+            comm1.Parameters.AddWithValue("@ProductID", id);
+            comm1.ExecuteNonQuery();
+            SqlDataAdapter sqlDataAdapter1 = new SqlDataAdapter(comm1);
+            DataTable dataTable1 = new DataTable();
+            sqlDataAdapter1.Fill(dataTable1);
+            if (dataTable1.Rows.Count != 0)
+            {
+                rprtImages.DataSource = dataTable1;
+                rprtImages.DataBind();
+            }
+            DB.Connection.Close();
+            
         }
 
         protected void AddToCart_Click(object sender, EventArgs e)

@@ -42,7 +42,7 @@
                                     <asp:HyperLink runat="server" NavigateUrl="~/Main/Index.aspx" title=""><i class="fa fa-home"></i>ANA SƏHİFƏ</asp:HyperLink>
                                 </li>
                                 <li class="hidden-sm">
-                                    <asp:HyperLink runat="server" NavigateUrl="#">TEZLİKLƏ SATIŞDA</asp:HyperLink></li>
+                                    <asp:HyperLink runat="server" NavigateUrl="~/Main/ProductsFilter.aspx?ProductSoon=">TEZLİKLƏ SATIŞDA</asp:HyperLink></li>
                                 <!-- <li class="hidden-sm"><a href="">Yazarlar</a></li> -->
                                 <!-- <li class="hidden-sm"><a href="/u/yayinevi/2/listele">Yayınevleri</a></li> -->
 
@@ -61,7 +61,7 @@
                                 <li class="uppercase">
                                     <asp:HyperLink runat="server" ID="effect" NavigateUrl="#"><i CssClass="fa fa-gift hidden-md hidden-sm" style="color: #FEBF00;"></i><strong>&nbsp;KAMPANİYALAR</strong></asp:HyperLink></li>
                                 <li class="mypage.php">
-                                    <asp:HyperLink ID="linkMypage" runat="server" NavigateUrl="#">SƏHİFƏM</asp:HyperLink></li>
+                                    <asp:HyperLink ID="linkMypage" runat="server" NavigateUrl="~/Main/Information.aspx">SƏHİFƏM</asp:HyperLink></li>
                                 <!-- telefon formatinda acilacaq olanlar -->
                                 <li class="visible-xs">
                                     <asp:HyperLink runat="server" NavigateUrl="#" CssClass="u-url shop-basket">
@@ -75,7 +75,9 @@
                                             <i class="fa fa-shopping-cart"></i>
                                             <span class="big">SƏBƏTİM</span>
                                             <p>
-                                                Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount"></span>
+                                                Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount">
+                                                    <asp:Label runat="server" ID="lblCartCount" Text=""></asp:Label>
+                                                             </span>
                                             </p>
                                             </asp:HyperLink>
                                         </div>
@@ -97,7 +99,9 @@
                                         <li>
                                             <asp:HyperLink runat="server" NavigateUrl="Information.aspx">Səhifəm</asp:HyperLink></li>
                                         <li>
-                                            <asp:HyperLink runat="server" NavigateUrl="#">Bəyəndiklərim</asp:HyperLink></li>
+                                        <li>
+                                            <asp:HyperLink runat="server" NavigateUrl="Orders.aspx">Sifarişlərim</asp:HyperLink></li>
+                                        <li>
                                         <li>
                                             <asp:HyperLink runat="server" NavigateUrl="~/Main/Purchase.aspx">Səbətim</asp:HyperLink></li>
                                         <li>
@@ -126,7 +130,7 @@
                         <div class="search-form-block col-md-5 col-sm-12 col-xs-12">
 
                             <input type="search" name="word" placeholder="Axtar...." id="txtSearch" autocomplete="off" />
-                            <asp:LinkButton ID="btnSearchMaster" runat="server" CssClass="send" onClick="btnSearchMaster_Click">
+                            <asp:LinkButton ID="btnSearchMaster" runat="server" CssClass="send" OnClick="btnSearchMaster_Click">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </asp:LinkButton>
                             <div class="search-suggests" id="divFilterSearch">
@@ -145,7 +149,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-2">
-                            <img src="/Content/Main/images/Edliyye-Logo.png" alt=""></div>
+                            <img src="/Content/Main/images/Edliyye-Logo.png" alt="">
+                        </div>
                         <div class="col-md-2">
                             <ul>
                                 <li><a style="color: #FF9C00;" href="">Məhsullar</a> </li>
