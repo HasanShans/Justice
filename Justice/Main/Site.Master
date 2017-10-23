@@ -42,7 +42,7 @@
                                     <asp:HyperLink runat="server" NavigateUrl="~/Main/Index.aspx" title=""><i class="fa fa-home"></i>ANA SƏHİFƏ</asp:HyperLink>
                                 </li>
                                 <li class="hidden-sm">
-                                    <asp:HyperLink runat="server" NavigateUrl="~/Main/ProductsSoon.aspx">TEZLİKLƏ SATIŞDA</asp:HyperLink></li>
+                                    <asp:HyperLink runat="server" NavigateUrl="~/Main/ProductsFilter.aspx?ProductSoon=">TEZLİKLƏ SATIŞDA</asp:HyperLink></li>
                                 <!-- <li class="hidden-sm"><a href="">Yazarlar</a></li> -->
                                 <!-- <li class="hidden-sm"><a href="/u/yayinevi/2/listele">Yayınevleri</a></li> -->
 
@@ -75,7 +75,9 @@
                                             <i class="fa fa-shopping-cart"></i>
                                             <span class="big">SƏBƏTİM</span>
                                             <p>
-                                                Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount"></span>
+                                                Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount">
+                                                    <asp:Label runat="server" ID="lblCartCount" Text=""></asp:Label>
+                                                             </span>
                                             </p>
                                             </asp:HyperLink>
                                         </div>

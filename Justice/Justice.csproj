@@ -129,15 +129,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\Add\Category.aspx" />
-    <Content Include="Admin\Add\Jail.aspx" />
-    <Content Include="Admin\Add\Product.aspx" />
-    <Content Include="Admin\Categories.aspx" />
-    <Content Include="Admin\DeliveredOrders.aspx" />
-    <Content Include="Admin\Jails.aspx" />
-    <Content Include="Admin\Orders.aspx" />
-    <Content Include="Admin\PostDeliveredOrders.aspx" />
-    <Content Include="Admin\Products.aspx" />
+    <Content Include="Staff\Add\Category.aspx" />
+    <Content Include="Staff\Add\Jail.aspx" />
+    <Content Include="Staff\Add\Product.aspx" />
+    <Content Include="Staff\Categories.aspx" />
+    <Content Include="Staff\DeliveredOrders.aspx" />
+    <Content Include="Staff\Jails.aspx" />
+    <Content Include="Staff\Orders.aspx" />
+    <Content Include="Staff\PostDeliveredOrders.aspx" />
+    <Content Include="Staff\Products.aspx" />
     <None Include="Connected Services\NotariatService\configuration91.svcinfo" />
     <None Include="Connected Services\NotariatService\configuration.svcinfo" />
     <Content Include="Connected Services\NotariatService\Justice.NotariatService.AddPersonRelationInfoResult.datasource">
@@ -510,7 +510,7 @@
     <Content Include="Main\Orders.aspx" />
     <Content Include="Main\Points.aspx" />
     <Content Include="Main\Product.aspx" />
-    <Content Include="Main\ProductsSoon.aspx" />
+    <Content Include="Main\ProductsFilter.aspx" />
     <Content Include="Main\Purchase.aspx" />
     <Content Include="Main\Receipts.aspx" />
     <Content Include="Main\RecoverPassword.aspx" />
@@ -1213,7 +1213,7 @@
     <Content Include="Content\Admin\scss\theme.scss" />
     <Content Include="Content\Admin\scss\variables.css.map" />
     <Content Include="Content\Admin\scss\variables.scss" />
-    <Content Include="Admin\Admin.Master" />
+    <Content Include="Staff\Admin.Master" />
     <None Include="Connected Services\NotariatService\NotariatService.wsdl" />
     <None Include="Connected Services\NotariatService\NotariatService.xsd">
       <SubType>Designer</SubType>
@@ -1263,74 +1263,74 @@
     <Content Include="Main\Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Add\Category.aspx.cs">
+    <Compile Include="Staff\Add\Category.aspx.cs">
       <DependentUpon>Category.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Add\Category.aspx.designer.cs">
+    <Compile Include="Staff\Add\Category.aspx.designer.cs">
       <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Add\Jail.aspx.cs">
+    <Compile Include="Staff\Add\Jail.aspx.cs">
       <DependentUpon>Jail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Add\Jail.aspx.designer.cs">
+    <Compile Include="Staff\Add\Jail.aspx.designer.cs">
       <DependentUpon>Jail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Add\Product.aspx.cs">
+    <Compile Include="Staff\Add\Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Add\Product.aspx.designer.cs">
+    <Compile Include="Staff\Add\Product.aspx.designer.cs">
       <DependentUpon>Product.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Admin.Master.cs">
+    <Compile Include="Staff\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Admin.Master.designer.cs">
+    <Compile Include="Staff\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Categories.aspx.cs">
+    <Compile Include="Staff\Categories.aspx.cs">
       <DependentUpon>Categories.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Categories.aspx.designer.cs">
+    <Compile Include="Staff\Categories.aspx.designer.cs">
       <DependentUpon>Categories.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\DeliveredOrders.aspx.cs">
+    <Compile Include="Staff\DeliveredOrders.aspx.cs">
       <DependentUpon>DeliveredOrders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\DeliveredOrders.aspx.designer.cs">
+    <Compile Include="Staff\DeliveredOrders.aspx.designer.cs">
       <DependentUpon>DeliveredOrders.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Jails.aspx.cs">
+    <Compile Include="Staff\Jails.aspx.cs">
       <DependentUpon>Jails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Jails.aspx.designer.cs">
+    <Compile Include="Staff\Jails.aspx.designer.cs">
       <DependentUpon>Jails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Orders.aspx.cs">
+    <Compile Include="Staff\Orders.aspx.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Orders.aspx.designer.cs">
+    <Compile Include="Staff\Orders.aspx.designer.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\PostDeliveredOrders.aspx.cs">
+    <Compile Include="Staff\PostDeliveredOrders.aspx.cs">
       <DependentUpon>PostDeliveredOrders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\PostDeliveredOrders.aspx.designer.cs">
+    <Compile Include="Staff\PostDeliveredOrders.aspx.designer.cs">
       <DependentUpon>PostDeliveredOrders.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Products.aspx.cs">
+    <Compile Include="Staff\Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Products.aspx.designer.cs">
+    <Compile Include="Staff\Products.aspx.designer.cs">
       <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\DB.cs" />
@@ -1421,12 +1421,12 @@
     <Compile Include="Main\Product.aspx.designer.cs">
       <DependentUpon>Product.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\ProductsSoon.aspx.cs">
-      <DependentUpon>ProductsSoon.aspx</DependentUpon>
+    <Compile Include="Main\ProductsFilter.aspx.cs">
+      <DependentUpon>ProductsFilter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\ProductsSoon.aspx.designer.cs">
-      <DependentUpon>ProductsSoon.aspx</DependentUpon>
+    <Compile Include="Main\ProductsFilter.aspx.designer.cs">
+      <DependentUpon>ProductsFilter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main\Purchase.aspx.cs">
       <DependentUpon>Purchase.aspx</DependentUpon>

@@ -11,21 +11,30 @@ using System.Web.UI.WebControls;
 
 namespace Justice.Main
 {
-    public partial class Index : System.Web.UI.Page
+    public partial class ProductsSoon : System.Web.UI.Page
     {
-        public Dictionary<string, string> data = new Dictionary<string, string>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindProducts();
-            BindMostSoldProducts();
-            BindNewProducts();
-            BindConceptProducts();
+            if (Request.QueryString.AllKeys.Contains("ProductsSoon"))
+            {
+                BindProductsSoon();
+            }else if (Request.QueryString.AllKeys.Contains("ProductsMostSold"))
+            {
+                BindMostSoldProducts();
+            }else if (Request.QueryString.AllKeys.Contains("ProductsNew"))
+            {
+                BindNewProducts();
+            }else if (Request.QueryString.AllKeys.Contains("ProductsConcept"))
+            {
+                BindNewProducts();
+            }
         }
         private void BindMostSoldProducts()
         {
-            if (DB.Connection.State == ConnectionState.Closed)
+            if(DB.Connection.State == ConnectionState.Closed)
                 DB.Connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("ProductsSelectMostSold", DB.Connection);
+            SqlCommand sqlCommand = new SqlCommand("ProductsSelectMostSoldAll", DB.Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.ExecuteNonQuery();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -33,17 +42,15 @@ namespace Justice.Main
             sqlDataAdapter.Fill(dataTable);
             if (dataTable.Rows.Count != 0)
             {
-                data.Add("MSImagePath", dataTable.Rows[0]["ID"].ToString()+"/"+ dataTable.Rows[0]["Name"].ToString()+ dataTable.Rows[0]["Extention"].ToString());
-                data.Add("MSProductName", dataTable.Rows[0]["ProductName"].ToString());
-                data.Add("MSPrice", dataTable.Rows[0]["Price"].ToString());
+                productRepeater.DataSource = dataTable;
+                productRepeater.DataBind();
             }
-            
         }
         private void BindNewProducts()
         {
             if (DB.Connection.State == ConnectionState.Closed)
                 DB.Connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("ProductsSelectNew", DB.Connection);
+            SqlCommand sqlCommand = new SqlCommand("ProductsSelectNewAll", DB.Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.ExecuteNonQuery();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -51,30 +58,19 @@ namespace Justice.Main
             sqlDataAdapter.Fill(dataTable);
             if (dataTable.Rows.Count != 0)
             {
-                data.Add("NPImagePath", dataTable.Rows[0]["ID"].ToString() + "/" + dataTable.Rows[0]["Name"].ToString() + dataTable.Rows[0]["Extention"].ToString());
-                data.Add("NPProductName", dataTable.Rows[0]["ProductName"].ToString());
-                data.Add("NPPrice", dataTable.Rows[0]["Price"].ToString());
+                productRepeater.DataSource = dataTable;
+                productRepeater.DataBind();
             }
         }
         private void BindConceptProducts()
         {
 
         }
-        private void BindProducts()
+        private void BindProductsSoon()
         {
             if (DB.Connection.State == ConnectionState.Closed)
                 DB.Connection.Open();
-            SqlCommand sqlCommand;
-            if (Request.QueryString.AllKeys.Contains("Category"))
-            {
-                String categoryName = Request.QueryString["Category"].ToString();
-                sqlCommand = new SqlCommand("ProductsSelectByCategoryNameJoinCategoriesImages", DB.Connection);
-                sqlCommand.Parameters.AddWithValue("@CategoryName", categoryName);
-            }
-            else
-            {
-                sqlCommand = new SqlCommand("ProductsSelectAllJoinImages", DB.Connection);
-            }
+            SqlCommand sqlCommand = new SqlCommand("ProductsSelectAllByAvailability", DB.Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.ExecuteNonQuery();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);

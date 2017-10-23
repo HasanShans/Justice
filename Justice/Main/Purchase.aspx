@@ -17,9 +17,8 @@
                             <thead>
                                 <tr>
                                     <th>Məhsul</th>
-                                    <th>Məbləğ</th>
+                                    <th>Qiyməti</th>
                                     <th>Sayı</th>
-                                    <th></th>
                                     <th><a style="cursor: pointer; font-size: 25px; color: #FEBF00;" href=""><i class="fa fa-times"></i></a></th>
                                 </tr>
                             </thead>
@@ -27,18 +26,16 @@
                                 <asp:Repeater ID="repeater" runat="server">
                                     <ItemTemplate>
                                         <tr>
-                                            <th>
-                                                <img width="80" src="/Content/Main/Images/thumb/thumb_<%# Eval("Image1") %>.jpg" alt="<%# Eval("ProductName") %>">
-                                            </th>
-                                            <td><%# Eval("Price") %></td>
+                                            <td>
+                                                <img width="80" src="../Content/Main/images/products/<%# Eval("ProductID") %>/<%# Eval("Name") %><%# Eval("Extention") %>" alt="<%# Eval("ProductName") %>">
+                                            </td>
+                                            <td><%# Eval("Price") %> AZN</td>
                                             <td>
                                                 <select class="count_update">
                                                     <option>1</option>
                                                 </select>
                                             </td>
-                                            <td>
-                                                <a href=""><i style="cursor: pointer; font-size: 20px; color: #FEBF00;" class="fa fa-exchange"></i></a>
-                                            </td>
+
                                             <td>
                                                 <asp:LinkButton ID="RemoveFromCart" runat="server" style="cursor: pointer; font-size: 25px; color: #FEBF00;" CommandArgument='<%# Eval("ProductID") %>' OnClick="RemoveFromCart_Click" >
                                                    <i class="fa fa-times"></i>
@@ -65,11 +62,9 @@
                             <hr class="hr1">
                             <p>Çatdırılma</p>
                             <p><span>20AZN dan cox alış-veriş etdiyiniz üçün çatdırılma pulsuzdur</span></p>
-                            <form action="http://192.168.5.22/api/?v=1&m=addToOrders" method="POST">
                                 <input type="text" name="price" value="" hidden>
                                 <input type="text" name="amount" value=">" hidden>
                                 <button name="buy" type="submit" style="width: 100%;" class="btn btn-success ">Məhsulu al <i class="fa fa-check" aria-hidden="true"></i></button>
-                            </form>
                             <!--<button  type="submit" style="width: 100%;" class="btn btn-success "> <a href="address1.php">Məhsulu al</a> <i class="fa fa-check" aria-hidden="true"></i>-->
                         </div>
                     </div>

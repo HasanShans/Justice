@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Justice.Main {
+namespace Justice.Staff {
     
     
-    public partial class Product {
+    public partial class Admin {
         
         /// <summary>
-        /// rprtImages control.
+        /// Additional control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rprtImages;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Additional;
         
         /// <summary>
-        /// AddToCart control.
+        /// AdminLeftMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton AddToCart;
+        protected global::Justice.Controls.Admin.LeftSideBar AdminLeftMenu;
+        
+        /// <summary>
+        /// MainContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
     }
 }

@@ -23,6 +23,7 @@ namespace Justice
                 linkLoginReg.Visible = true;
                 linkMypage.Visible = false;
                 linkNameEmail.Visible = false;
+                lblCartCount.Text = "0";
             }
             else
             {
@@ -30,9 +31,19 @@ namespace Justice
                 linkLoginReg.Visible = false;
                 linkMypage.Visible = true;
                 linkNameEmail.Visible = true;
+                BindCountOfCartProducts();
             }
         }
-
+        private void BindCountOfCartProducts()
+        {
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("CartCount", DB.Connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@UserID", Convert.ToInt32(Session["ID"]));
+            String count = sqlCommand.ExecuteScalar().ToString();
+            lblCartCount.Text = count;
+        }
         private void BindCategories()
         {
             using (SqlCommand comm = new SqlCommand("CategoriesSelectAll", DB.Connection))
