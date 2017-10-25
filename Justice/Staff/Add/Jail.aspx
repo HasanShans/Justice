@@ -19,6 +19,7 @@
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtJail" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator SetFocusOnError="true" Display="Dynamic" ID="RequiredFieldValidator6" CssClass="text-danger" runat="server" ErrorMessage="Kateqoriya Boş Qoyula Bilməz" ControlToValidate="txtJail"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-actions">

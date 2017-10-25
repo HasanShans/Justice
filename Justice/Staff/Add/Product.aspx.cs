@@ -158,6 +158,9 @@ namespace Justice.Staff.Add
             {
                 sqlCommand = new SqlCommand("ProductsCreate", DB.Connection);
             }
+            int discountPrice = Convert.ToInt32(txtPdiscountPrice.Text);
+            int price = Convert.ToInt32(txtPprice.Text);
+            float discount = ((price - discountPrice) * 100) / price;
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@ProductName", txtPname.Text.ToString().Trim());
             sqlCommand.Parameters.AddWithValue("@Size", txtPsize.Text.ToString().Trim());
@@ -170,6 +173,7 @@ namespace Justice.Staff.Add
             sqlCommand.Parameters.AddWithValue("@JailID", Convert.ToInt32(ddlJails.SelectedItem.Value));
             sqlCommand.Parameters.AddWithValue("@CategoryID", Convert.ToInt32(ddlCategories.SelectedItem.Value));
             sqlCommand.Parameters.AddWithValue("@StockAvailability", productAvailability);
+            sqlCommand.Parameters.AddWithValue("@Discount", discount);
             sqlCommand.Parameters.AddWithValue("@PrisonerID", Convert.ToInt32(ddlPrisoners.SelectedItem.Value));
             sqlCommand.ExecuteNonQuery();
 
@@ -193,6 +197,7 @@ namespace Justice.Staff.Add
                 sqlCommand3.Parameters.AddWithValue("@ProductID", lastInsertedID);
                 sqlCommand3.Parameters.AddWithValue("@Name", txtPname.Text.ToString().Trim() + "01");
                 sqlCommand3.Parameters.AddWithValue("@Extention", extention);
+                sqlCommand3.Parameters.AddWithValue("@Role", "1");
                 sqlCommand3.ExecuteNonQuery();
             }
             if (img2p.HasFile)
@@ -209,6 +214,7 @@ namespace Justice.Staff.Add
                 sqlCommand3.Parameters.AddWithValue("@ProductID", lastInsertedID);
                 sqlCommand3.Parameters.AddWithValue("@Name", txtPname.Text.ToString().Trim() + "02");
                 sqlCommand3.Parameters.AddWithValue("@Extention", extention);
+                sqlCommand3.Parameters.AddWithValue("@Role", "0");
                 sqlCommand3.ExecuteNonQuery();
             }
             if (img3p.HasFile)
@@ -225,6 +231,7 @@ namespace Justice.Staff.Add
                 sqlCommand3.Parameters.AddWithValue("@ProductID", lastInsertedID);
                 sqlCommand3.Parameters.AddWithValue("@Name", txtPname.Text.ToString().Trim() + "03");
                 sqlCommand3.Parameters.AddWithValue("@Extention", extention);
+                sqlCommand3.Parameters.AddWithValue("@Role", "0");
                 sqlCommand3.ExecuteNonQuery();
             }
             if (img4p.HasFile)
@@ -241,6 +248,7 @@ namespace Justice.Staff.Add
                 sqlCommand3.Parameters.AddWithValue("@ProductID", lastInsertedID);
                 sqlCommand3.Parameters.AddWithValue("@Name", txtPname.Text.ToString().Trim() + "04");
                 sqlCommand3.Parameters.AddWithValue("@Extention", extention);
+                sqlCommand3.Parameters.AddWithValue("@Role", "0");
                 sqlCommand3.ExecuteNonQuery();
             }
             Response.Redirect("~/Staff/Products.aspx");

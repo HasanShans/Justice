@@ -19,7 +19,7 @@
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtPname" runat="server" CssClass="form-control"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" CssClass="text-danger" runat="server" ErrorMessage="Məhsul Adı Boş Qoyula Bilməz" ControlToValidate="txtPname"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" CssClass="text-danger" runat="server" ErrorMessage="Məhsul Adı Boş Qoyula Bilməz" ControlToValidate="txtPname" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-group">
@@ -28,7 +28,7 @@
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtPsize" runat="server" CssClass="form-control"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" CssClass="text-danger" runat="server" ErrorMessage="Məhsul Ölçüsü Boş Qoyula Bilməz" ControlToValidate="txtPsize"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" CssClass="text-danger" runat="server" ErrorMessage="Məhsul Ölçüsü Boş Qoyula Bilməz" ControlToValidate="txtPsize" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-group">
@@ -37,7 +37,7 @@
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtPMaterial" runat="server" CssClass="form-control"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Materialı Boş Qoyula Bilməz" ControlToValidate="txtPMaterial"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Materialı Boş Qoyula Bilməz" ControlToValidate="txtPMaterial" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-group">
@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <label class="form-label">İstehsal yeri *</label>
                             <asp:DropDownList ID="ddlJails" CssClass="form-control" runat="server"></asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" CssClass="text-danger" runat="server" ErrorMessage="İstehsal Yeri Boş Qoyula Bilməz" ControlToValidate="ddlJails"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" CssClass="text-danger" runat="server" ErrorMessage="İstehsal Yeri Boş Qoyula Bilməz" ControlToValidate="ddlJails" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Ağırlıq (kq)</label>
@@ -59,6 +59,7 @@
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtPweight" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RegularExpressionValidator ControlToValidate="txtPweight" ID="RegularExpressionValidator2" ValidationExpression="^\d+(\.\d+)*$" runat="server" ErrorMessage="Məhsulun Çəkisi Ədəd Olmalıdır (Məs; 3.5 , 4 , 6)" SetFocusOnError="true" Display="Dynamic"></asp:RegularExpressionValidator>
                             </div>
                         </div>
                         <div class="form-group">
@@ -67,26 +68,26 @@
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtPamount" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Anbardakı Sayı Boş Qoyula Bilməz" ControlToValidate="txtPamount"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Anbardakı Sayı Boş Qoyula Bilməz" ControlToValidate="txtPamount" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">İstehsalçı *</label>
                             <asp:DropDownList ID="ddlPrisoners" CssClass="form-control" runat="server"></asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" CssClass="text-danger" runat="server" ErrorMessage="Məhbus Adı Boş Qoyula Bilməz" ControlToValidate="ddlPrisoners"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" CssClass="text-danger" runat="server" ErrorMessage="Məhbus Adı Boş Qoyula Bilməz" ControlToValidate="ddlPrisoners" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Kateqoriyası *</label>
                             <asp:DropDownList ID="ddlCategories" CssClass="form-control" runat="server"></asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Kateqoriyası Boş Qoyula Bilməz" ControlToValidate="ddlCategories"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Kateqoriyası Boş Qoyula Bilməz" ControlToValidate="ddlCategories" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Qiyməti *</label>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtPprice" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Qiyməti Boş Qoyula Bilməz" ControlToValidate="txtPprice"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Qiyməti Boş Qoyula Bilməz" ControlToValidate="txtPprice" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-group">
@@ -94,7 +95,7 @@
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtPdiscountPrice" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Endirim Qiyməti Şəkil Boş Qoyula Bilməz" ControlToValidate="txtPdiscountPrice"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Endirim Qiyməti Şəkil Boş Qoyula Bilməz" ControlToValidate="txtPdiscountPrice" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
                         </div>
 
@@ -104,7 +105,7 @@
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:FileUpload ID="img1p" CssClass="form-control" runat="server" />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger" runat="server" ErrorMessage="Birinci Şəkil Boş Qoyula Bilməz" ControlToValidate="img1p"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger" runat="server" ErrorMessage="Birinci Şəkil Boş Qoyula Bilməz" ControlToValidate="img1p" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                                 <asp:FileUpload ID="img2p" CssClass="form-control" runat="server" /><br />
                                 <asp:FileUpload ID="img3p" CssClass="form-control" runat="server" /><br />
                                 <asp:FileUpload ID="img4p" CssClass="form-control" runat="server" /><br />
@@ -117,7 +118,7 @@
                                     <asp:ListItem>Satışda</asp:ListItem>
                                     <asp:ListItem>Tezliklə Satışda</asp:ListItem>
                                 </asp:RadioButtonList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator13" CssClass="text-danger" runat="server" ErrorMessage="Bu Sahə Boş Qoyula Bilməz" ControlToValidate="rblPavailability"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator13" CssClass="text-danger" runat="server" ErrorMessage="Bu Sahə Boş Qoyula Bilməz" ControlToValidate="rblPavailability" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-actions">

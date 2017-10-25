@@ -103,6 +103,15 @@ namespace Justice.Staff.Add {
         protected global::System.Web.UI.WebControls.TextBox txtPweight;
         
         /// <summary>
+        /// RegularExpressionValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        /// <summary>
         /// txtPamount control.
         /// </summary>
         /// <remarks>

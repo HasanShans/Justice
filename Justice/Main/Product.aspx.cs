@@ -15,8 +15,10 @@ namespace Justice.Main
         public Dictionary<string, string> data = new Dictionary<string, string>();
 
         protected void Page_Load(object sender, EventArgs e)
-        {    
-            BindProduct();
+        {
+            
+                BindProduct();
+            
         }
 
         private void BindProduct()
@@ -44,7 +46,7 @@ namespace Justice.Main
                 data.Add("mehsul_say", dataTable.Rows[0]["StockAmount"].ToString());
                 data.Add("elave_melumat", dataTable.Rows[0]["Description"].ToString());
                 data.Add("mehsul_qiymet", dataTable.Rows[0]["Price"].ToString());
-                data.Add("endirimli_qiymet", dataTable.Rows[0]["Discount"].ToString());
+                data.Add("endirimli_qiymet", dataTable.Rows[0]["DiscountPrice"].ToString());
             }
             SqlCommand comm1 = new SqlCommand("ImagesSelectByProductID", DB.Connection);
             comm1.CommandType = CommandType.StoredProcedure;
@@ -89,6 +91,7 @@ namespace Justice.Main
                      }
                 }
                 DB.Connection.Close();
+                Response.Redirect("~/Main/Product.aspx?id="+data["mehsul_ID"]);
             }
             else
             {

@@ -12,8 +12,8 @@
                     <ItemTemplate>
                         <div class='col-md-3'>
                             <div class='product'>
-                                <div class='discount' style='right: 25px;'>
-                                    <span><%# Eval("Discount")%> AZN</span>
+                                <div runat="server" class="discount" style='right: 25px;' Visible='<%# Eval("Discount").ToString()!="0" %>'>
+                                    <span><%# Eval("Discount")%> %</span>
                                 </div>
                                 <div class='images'>
                                     <a href='Product/?id=<%# Eval("ID") %>'>
@@ -24,7 +24,9 @@
                                         <a href='Product/?id=<%# Eval("ID") %>'><%# Eval("ProductName") %></a>
                                     </h5>
                                     <div class='addShopp'>
-                                        <p class='pull-left'><%# Eval("Price") %> AZN</p>
+                                        <p runat="server" class='pull-left' Visible='<%# Eval("Price").ToString()==Eval("DiscountPrice").ToString() %>'><%# Eval("Price") %> AZN</p>    
+                                        <p runat="server" style="text-decoration:line-through" class='pull-left' Visible='<%# Eval("Price").ToString()!=Eval("DiscountPrice").ToString() %>'><%# Eval("Price") %> AZN</p>
+                                        <p runat="server" class='pull-left' Visible='<%# Eval("Price").ToString()!=Eval("DiscountPrice").ToString() %>'><%# Eval("DiscountPrice") %> AZN</p>
                                         <a href=''>
                                             <button class='pull-right'>
                                                 <a href='http://192.168.5.22/api/?v=1&m=addFavorite&user_id=".$json2->data->id."&product_id=".$data->id."'><i class='fa fa-star-o fa-2x' aria-hidden='true'></i></a>

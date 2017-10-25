@@ -18,6 +18,7 @@
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtCat" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator SetFocusOnError="true" Display="Dynamic" ID="RequiredFieldValidator6" CssClass="text-danger" runat="server" ErrorMessage="Kateqoriya Boş Qoyula Bilməz" ControlToValidate="txtCat"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-actions">
@@ -26,8 +27,7 @@
                                 <asp:Button runat="server" ID="btnEdit" CssClass="btn btn-warning btn-cons" Visible="false" OnClick="btnSave_Click" Text="Yenilə"></asp:Button>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>                </div>
             </div>
         </div>
     </section>

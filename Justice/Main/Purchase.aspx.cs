@@ -16,7 +16,8 @@ namespace Justice.Main
         public int amount = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindProducts();
+ 
+                BindProducts();
         }
 
         private void BindProducts()
@@ -35,10 +36,15 @@ namespace Justice.Main
                         {
                             DataTable data = new DataTable();
                             data.Load(reader);
+                            if (data.Rows.Count == 0)
+                            {
+                                btnProductBuy.Enabled = false;
+                            }
+                            
                             foreach (DataRow row in data.Rows)
                             {
                                 amount++;
-                                sum += Convert.ToInt32(row["Price"]);
+                                sum += Convert.ToInt32(row["DiscountPrice"]);
                             }
                             if (!IsPostBack)
                             {
@@ -81,6 +87,11 @@ namespace Justice.Main
                 DB.Connection.Close();
             }
             Response.Redirect("~/Main/Purchase.aspx");
+        }
+
+        protected void productBuy_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

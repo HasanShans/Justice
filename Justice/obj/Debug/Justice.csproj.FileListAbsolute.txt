@@ -79,7 +79,6 @@ C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.Depend
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Microsoft.AI.Web.xml
-C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.csprojResolveAssemblyReference.cache
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.csproj.CoreCompileInputs.cache
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.dll
 C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.pdb
@@ -168,3 +167,5 @@ C:\Users\Hasan Shans\source\repos\Justice\Justice\bin\Microsoft.AI.DependencyCol
 C:\Users\Hasan Shans\source\repos\Justice\Justice\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Hasan Shans\source\repos\Justice\Justice\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Hasan Shans\source\repos\Justice\Justice\bin\Microsoft.AI.Web.xml
+C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\bin\Pagination.dll
+C:\Users\Gadir\Desktop\ASP_.NET_projects\Justice\Justice\obj\Debug\Justice.csprojResolveAssemblyReference.cache

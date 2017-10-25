@@ -35,7 +35,7 @@ namespace Justice.Main
             {
                 data.Add("MSImagePath", dataTable.Rows[0]["ID"].ToString()+"/"+ dataTable.Rows[0]["Name"].ToString()+ dataTable.Rows[0]["Extention"].ToString());
                 data.Add("MSProductName", dataTable.Rows[0]["ProductName"].ToString());
-                data.Add("MSPrice", dataTable.Rows[0]["Price"].ToString());
+                data.Add("MSPrice", dataTable.Rows[0]["DiscountPrice"].ToString());
             }
             
         }
@@ -53,7 +53,7 @@ namespace Justice.Main
             {
                 data.Add("NPImagePath", dataTable.Rows[0]["ID"].ToString() + "/" + dataTable.Rows[0]["Name"].ToString() + dataTable.Rows[0]["Extention"].ToString());
                 data.Add("NPProductName", dataTable.Rows[0]["ProductName"].ToString());
-                data.Add("NPPrice", dataTable.Rows[0]["Price"].ToString());
+                data.Add("NPPrice", dataTable.Rows[0]["DiscountPrice"].ToString());
             }
         }
         private void BindConceptProducts()
