@@ -2,98 +2,131 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
-<head runat="server">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps" rel="stylesheet">
-    <title><%: Page.Title %></title>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
 
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Page</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <asp:PlaceHolder runat="server">
-        <%: Styles.Render("~/bundles/adminCss") %>
-        <asp:ContentPlaceHolder ID="Additional" runat="server">
-        </asp:ContentPlaceHolder>
+        <%:Styles.Render("~/bundles/adminCss") %>
     </asp:PlaceHolder>
-
 </head>
-<body>
-    <form runat ="server">
-        <div class="header navbar navbar-inverse ">
-            <!-- BEGIN TOP NAVIGATION BAR -->
-            <div class="navbar-inner">
-                <div class="header-seperation">
-                    <ul class="nav pull-left notifcation-center" id="main-menu-toggle-wrapper" style="display: none">
-                        <li class="dropdown"><a id="main-menu-toggle" href="#main-menu" class="">
-                            <div class="iconset top-menu-toggle-white"></div>
-                        </a></li>
-                    </ul>
-                    <!-- BEGIN LOGO -->
-
-                    <h3 style="text-align: center; color: #fff; font-family: monospace; font-size: 35px">Həbsxana incəsənəti</h3>
-                    <!-- END LOGO -->
-                    <ul class="nav pull-right notifcation-center">
-                        <li class="dropdown" id="header_task_bar"><a href="#" class="dropdown-toggle active" data-toggle="">
-                            <div class="iconset top-home"></div>
-                        </a></li>
-                        <li class="dropdown" id="header_inbox_bar"><a href="/admin/orders.php" class="dropdown-toggle">
-                            <div class="iconset top-messages"></div>
-                            <span class='badge' id='msgs-badge'></span>
-                        </a></li>
-                        <li class="dropdown" id="portrait-chat-toggler" style="display: none"><a href="#sidr" class="chat-menu-toggle">
-                            <div class="iconset top-chat-white "></div>
-                        </a></li>
-                    </ul>
-                </div>
-                <!-- END RESPONSIVE MENU TOGGLER -->
-                <div class="header-quick-nav">
-                    <!-- BEGIN TOP NAVIGATION MENU -->
-                    <div class="pull-left">
-                        <ul class="nav quick-section">
-                            <li class="quicklinks"><a href="#" class="" id="layout-condensed-toggle">
-                                <div class="iconset top-menu-toggle-dark"></div>
-                            </a></li>
-                        </ul>
-                        <ul class="nav quick-section">
-                            <li class="quicklinks"><a href="#" class="">
-                                <div class="iconset top-reload"></div>
-                            </a></li>
-                            <li class="quicklinks"><span class="h-seperate"></span></li>
-                            <li class="quicklinks"><a href="#" class="">
-                                <div class="iconset top-tiles"></div>
-                            </a></li>
-                            <li class="m-r-10 input-prepend inside search-form no-boarder"><span class="add-on"><span class="iconset top-search"></span></span>
-                                <input name="" type="text" class="no-boarder " placeholder="Search Dashboard" style="width: 250px;">
+<body class="hold-transition skin-blue sidebar-mini">
+    <form runat="server">
+        <div class="wrapper">
+            <header class="main-header">
+                <a href="http://localhost:50857/Staff/Products.aspx" class="logo">
+                    <span class="logo-mini"><b>PA</b></span>
+                    <span class="logo-lg"><b>Prison</b>Art</span>
+                </a>
+                <nav class="navbar navbar-static-top">
+                    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                           
+                            <!-- Notifications: style can be found in dropdown.less -->
+                            <li class="dropdown notifications-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bell-o"></i>
+                                    <span class="label label-warning">10</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="header">You have 10 notifications</li>
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul class="menu">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-users text-aqua"></i>5 new members joined today
+                                                </a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </li>
+                                    <li class="footer"><a href="#">View all</a></li>
+                                </ul>
                             </li>
-                            <li>
-                                <b>Yeni sifarişlər: &nbsp"..."&nbsp|&nbsp
-						Poçta çatdırılmış sifarişlər: &nbsp"..."&nbsp|&nbsp
-						Təhvil verilmiş sifarişlər: &nbsp"..."</b>
-                            </li>
+                            <!-- Tasks: style can be found in dropdown.less -->
+                            
+                            <!-- User Account: style can be found in dropdown.less -->
+                            
                         </ul>
                     </div>
-                    <!-- END TOP NAVIGATION MENU -->
-                    <!-- BEGIN CHAT TOGGLER -->
+                </nav>
+            </header>
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-right image">
+                            <img src="" class="img-circle" alt="" style="width:50px;">
+                        </div>
+                        <div class="pull-left info" >
+                            <p>Həbsxana İncəsənəti</p>
+                        </div>
+                    </div>
+                    <ul class="sidebar-menu" data-widget="tree">
+                        <li class="header">İdarə</li>
+                        <li class="treeview">
+                        <li><a href="http://localhost:50857/Staff/Categories.aspx"><i class="fa fa-circle-o"></i>Kateqoriyalar</a></li>
+                        <li><a href="http://localhost:50857/Staff/Products.aspx"><i class="fa fa-circle-o"></i>Məhsullar</a></li>
+                        <li><a href="http://localhost:50857/Staff/Jails.aspx"><i class="fa fa-circle-o"></i>Cəzaçəkmə müəssisəsi</a></li>
+                        <li><a href="http://localhost:50857/Staff/Orders.aspx"><i class="fa fa-circle-o"></i>Sifarişlər</a></li>
+                        <li><a href="http://localhost:50857/Staff/DeliveredOrders.aspx"><i class="fa fa-circle-o"></i>Çatdırılmış Sifarişlər</a></li>
+                    </ul>
+                </section>
+            </aside>
 
-                    <!-- END CHAT TOGGLER -->
-                </div>
-                <!-- END TOP NAVIGATION MENU -->
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+               
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
             </div>
-            <!-- END TOP NAVIGATION BAR -->
+            <footer class="main-footer">
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> 2.4.0
+                </div>
+                <strong>Copyright &copy; 2017 <a href="#">Həbsxana İncəsənəti</a>.</strong> Bütün Hüquqlar Qorunur
+            </footer>
+
+            
+            <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+
+            <div class="control-sidebar-bg"></div>
         </div>
-        <!-- END HEADER -->
-        <!-- BEGIN CONTAINER -->
-        <div class="page-container row-fluid">
-            <uc:AdminLeftMenu id="AdminLeftMenu" runat="server"/>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-             </asp:ContentPlaceHolder>
-        </div>
-        
-    <%: Scripts.Render("~/bundles/adminJs") %>
-       <script type="text/javascript">
-        $(document).ready(function () {
-            $(".live-tile,.flip-list").liveTile();
-        });
+    </form>
+    <%:Scripts.Render("~/bundles/adminJs") %>
+    <script>
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+        $(function () {
+            $('.select2').select2()
+        }
     </script>
-        </form>
-    </body>
+</body>
 </html>

@@ -129,15 +129,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Staff\Add\Category.aspx" />
-    <Content Include="Staff\Add\Jail.aspx" />
-    <Content Include="Staff\Add\Product.aspx" />
-    <Content Include="Staff\Categories.aspx" />
-    <Content Include="Staff\DeliveredOrders.aspx" />
-    <Content Include="Staff\Jails.aspx" />
-    <Content Include="Staff\Orders.aspx" />
-    <Content Include="Staff\PostDeliveredOrders.aspx" />
-    <Content Include="Staff\Products.aspx" />
     <None Include="Connected Services\NotariatService\configuration91.svcinfo" />
     <None Include="Connected Services\NotariatService\configuration.svcinfo" />
     <Content Include="Connected Services\NotariatService\Justice.NotariatService.AddPersonRelationInfoResult.datasource">
@@ -159,11 +150,17 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Content\Admin\css\AdminLTE.css" />
     <Content Include="Content\Admin\css\animate.min.css" />
     <Content Include="Content\Admin\css\bootstrap-table-responsive.css" />
+    <Content Include="Content\Admin\css\bootstrap.css" />
     <Content Include="Content\Admin\css\custom-icon-set.css" />
     <Content Include="Content\Admin\css\custom-icons.css" />
+    <Content Include="Content\Admin\css\dataTables.bootstrap.css" />
+    <Content Include="Content\Admin\css\font-awesome.css" />
+    <Content Include="Content\Admin\css\font-awesome.min.css" />
     <Content Include="Content\Admin\css\index.php" />
+    <Content Include="Content\Admin\css\ionicons.css" />
     <Content Include="Content\Admin\css\large_screen_tweak.css" />
     <Content Include="Content\Admin\css\magic_space.css" />
     <Content Include="Content\Admin\css\mixins.css" />
@@ -174,9 +171,11 @@
     <Content Include="Content\Admin\css\modules\vector_maps.css" />
     <Content Include="Content\Admin\css\print.css" />
     <Content Include="Content\Admin\css\responsive.css" />
+    <Content Include="Content\Admin\css\select2.min.css" />
     <Content Include="Content\Admin\css\style.css" />
     <Content Include="Content\Admin\css\tiles_responsive.css" />
     <Content Include="Content\Admin\css\var.css" />
+    <Content Include="Content\Admin\css\_all-skins.css" />
     <Content Include="Content\Admin\fonts\custom-set.dev.svg" />
     <Content Include="Content\Admin\fonts\custom-set.svg" />
     <Content Include="Content\Admin\fonts\index.php" />
@@ -499,10 +498,8 @@
     <Content Include="Content\Main\images\slider\slide5.jpg" />
     <Content Include="Content\Main\images\slider\slide6.jpg" />
     <Content Include="Content\Main\images\sp-loading.gif" />
-    <Content Include="Controls\Admin\LeftSideBar.ascx" />
     <Content Include="Content\Main\fonts\index.php" />
     <Content Include="Main\AccountVerified.aspx" />
-    <Content Include="Main\ChangePassword.aspx" />
     <Content Include="Main\ForgotPassword.aspx" />
     <Content Include="Main\Information.aspx" />
     <Content Include="Controls\LeftSideBar.ascx" />
@@ -516,32 +513,18 @@
     <Content Include="Main\RecoverPassword.aspx" />
     <Content Include="Main\Register.aspx" />
     <Content Include="Main\Search.aspx" />
-    <Content Include="Scripts\Admin\js\calender.js" />
-    <Content Include="Scripts\Admin\js\charts.js" />
-    <Content Include="Scripts\Admin\js\chat.js" />
-    <Content Include="Scripts\Admin\js\core.js" />
-    <Content Include="Scripts\Admin\js\dashboard.js" />
-    <Content Include="Scripts\Admin\js\dashboard_v2.js" />
-    <Content Include="Scripts\Admin\js\datatables.js" />
-    <Content Include="Scripts\Admin\js\datatable_boostrap_extend.js" />
+    <Content Include="Scripts\Admin\js\adminlte.js" />
+    <Content Include="Scripts\Admin\js\adminlte.min.js" />
+    <Content Include="Scripts\Admin\js\bootstrap.js" />
+    <Content Include="Scripts\Admin\js\bootstrap.min.js" />
+    <Content Include="Scripts\Admin\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\Admin\js\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\Admin\js\demo.js" />
-    <Content Include="Scripts\Admin\js\email_comman.js" />
-    <Content Include="Scripts\Admin\js\form_elements.js" />
-    <Content Include="Scripts\Admin\js\form_validations.js" />
-    <Content Include="Scripts\Admin\js\google_maps.js" />
-    <Content Include="Scripts\Admin\js\group_list.js" />
-    <Content Include="Scripts\Admin\js\icon.js" />
-    <Content Include="Scripts\Admin\js\index.php" />
+    <Content Include="Scripts\Admin\js\fastclick.js" />
+    <Content Include="Scripts\Admin\js\jquery.dataTables.js" />
+    <Content Include="Scripts\Admin\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\Admin\js\jquery.js" />
     <Content Include="Scripts\Admin\js\jquery.min.js" />
-    <Content Include="Scripts\Admin\js\login.js" />
-    <Content Include="Scripts\Admin\js\login_v2.js" />
-    <Content Include="Scripts\Admin\js\messages_notifications.js" />
-    <Content Include="Scripts\Admin\js\notifications.js" />
-    <Content Include="Scripts\Admin\js\search_results.js" />
-    <Content Include="Scripts\Admin\js\support_ticket.js" />
-    <Content Include="Scripts\Admin\js\tabs_accordian.js" />
-    <Content Include="Scripts\Admin\js\vector_maps.js" />
-    <Content Include="Scripts\Admin\js\widgets.js" />
     <Content Include="Content\Admin\plugins\boostrap-checkbox\css\bootstrap-checkbox.css" />
     <Content Include="Content\Admin\plugins\boostrap-checkbox\img\Tick.png" />
     <Content Include="Content\Admin\plugins\boostrap-checkbox\js\bootstrap-checkbox.js" />
@@ -1034,6 +1017,7 @@
     <Content Include="Content\Admin\plugins\webarchScroll.js" />
     <Content Include="Content\Admin\plugins\wysi\css\wysi.css" />
     <Content Include="Content\Admin\plugins\wysi\js\bootstrap-wysiwyg.js" />
+    <Content Include="Scripts\Admin\js\select2.full.min.js" />
     <Content Include="Scripts\Main\bootstrap.js" />
     <Content Include="Scripts\Main\bootstrap.min.js" />
     <Content Include="Scripts\Main\font-awesome.js" />
@@ -1213,7 +1197,6 @@
     <Content Include="Content\Admin\scss\theme.scss" />
     <Content Include="Content\Admin\scss\variables.css.map" />
     <Content Include="Content\Admin\scss\variables.scss" />
-    <Content Include="Staff\Admin.Master" />
     <None Include="Connected Services\NotariatService\NotariatService.wsdl" />
     <None Include="Connected Services\NotariatService\NotariatService.xsd">
       <SubType>Designer</SubType>
@@ -1255,6 +1238,15 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Main\Site.Master" />
+    <Content Include="Staff\Add\Category.aspx" />
+    <Content Include="Staff\Add\Jail.aspx" />
+    <Content Include="Staff\Add\Product.aspx" />
+    <Content Include="Staff\Categories.aspx" />
+    <Content Include="Staff\DeliveredOrders.aspx" />
+    <Content Include="Staff\Jails.aspx" />
+    <Content Include="Staff\Orders.aspx" />
+    <Content Include="Staff\PostDeliveredOrders.aspx" />
+    <Content Include="Staff\Products.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1263,76 +1255,6 @@
     <Content Include="Main\Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Staff\Add\Category.aspx.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff\Add\Category.aspx.designer.cs">
-      <DependentUpon>Category.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\Add\Jail.aspx.cs">
-      <DependentUpon>Jail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff\Add\Jail.aspx.designer.cs">
-      <DependentUpon>Jail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\Add\Product.aspx.cs">
-      <DependentUpon>Product.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff\Add\Product.aspx.designer.cs">
-      <DependentUpon>Product.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\Admin.Master.cs">
-      <DependentUpon>Admin.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff\Admin.Master.designer.cs">
-      <DependentUpon>Admin.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\Categories.aspx.cs">
-      <DependentUpon>Categories.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff\Categories.aspx.designer.cs">
-      <DependentUpon>Categories.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\DeliveredOrders.aspx.cs">
-      <DependentUpon>DeliveredOrders.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff\DeliveredOrders.aspx.designer.cs">
-      <DependentUpon>DeliveredOrders.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\Jails.aspx.cs">
-      <DependentUpon>Jails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff\Jails.aspx.designer.cs">
-      <DependentUpon>Jails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\Orders.aspx.cs">
-      <DependentUpon>Orders.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff\Orders.aspx.designer.cs">
-      <DependentUpon>Orders.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\PostDeliveredOrders.aspx.cs">
-      <DependentUpon>PostDeliveredOrders.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff\PostDeliveredOrders.aspx.designer.cs">
-      <DependentUpon>PostDeliveredOrders.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\Products.aspx.cs">
-      <DependentUpon>Products.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff\Products.aspx.designer.cs">
-      <DependentUpon>Products.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Code\DB.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -1340,13 +1262,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Admin\LeftSideBar.ascx.cs">
-      <DependentUpon>LeftSideBar.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controls\Admin\LeftSideBar.ascx.designer.cs">
-      <DependentUpon>LeftSideBar.ascx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1357,13 +1272,6 @@
     </Compile>
     <Compile Include="Main\AccountVerified.aspx.designer.cs">
       <DependentUpon>AccountVerified.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Main\ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Main\ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
@@ -1478,6 +1386,76 @@
     <Compile Include="Main\Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Staff\Add\Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Add\Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Add\Jail.aspx.cs">
+      <DependentUpon>Jail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Add\Jail.aspx.designer.cs">
+      <DependentUpon>Jail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Add\Product.aspx.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Add\Product.aspx.designer.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Categories.aspx.cs">
+      <DependentUpon>Categories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Categories.aspx.designer.cs">
+      <DependentUpon>Categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\DeliveredOrders.aspx.cs">
+      <DependentUpon>DeliveredOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\DeliveredOrders.aspx.designer.cs">
+      <DependentUpon>DeliveredOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Jails.aspx.cs">
+      <DependentUpon>Jails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Jails.aspx.designer.cs">
+      <DependentUpon>Jails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Orders.aspx.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Orders.aspx.designer.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\PostDeliveredOrders.aspx.cs">
+      <DependentUpon>PostDeliveredOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\PostDeliveredOrders.aspx.designer.cs">
+      <DependentUpon>PostDeliveredOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1493,6 +1471,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Staff\Admin.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

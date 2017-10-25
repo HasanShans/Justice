@@ -1,27 +1,24 @@
 ﻿<%@ Page Title="Məhsul əlavə et" Language="C#" MasterPageFile="~/Staff/Admin.Master" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="Justice.Staff.Add.Product1" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="page-content ">
-        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-        <div class="clearfix"></div>
-        <div class="content">
-
-            <div class="col-md-12">
-                <div class="grid simple">
-                    <div class="grid-title no-border">
-                        <h4>Məhsul  <span class="semi-bold">əlavə et</span>
-                            <br />
-                            <span style="font-size: 13px; color: #0aa699;"></span></h4>
-                        <div class="tools"><a href="javascript:;" class="collapse"></a><a href="#grid-config" data-toggle="modal" class="config"></a><a href="javascript:;" class="reload"></a><a href="javascript:;" class="remove"></a></div>
-                    </div>
-                    <div class="grid-body no-border">
-                        <br>
+    <section class="content">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">Yeni Məhsul</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label class="form-label">Məhsulun adı *</label>
                             <span class="help">Məs :"Nərd"</span>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
-                                <asp:TextBox ID="txtPname" runat="server" CssClass="form-control" ></asp:TextBox>
+                                <asp:TextBox ID="txtPname" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" CssClass="text-danger" runat="server" ErrorMessage="Məhsul Adı Boş Qoyula Bilməz" ControlToValidate="txtPname"></asp:RequiredFieldValidator>
                             </div>
                         </div>
@@ -30,7 +27,7 @@
                             <span class="help">En x uzunluq x hündürlük </span>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
-                                <asp:TextBox ID="txtPsize" runat="server" CssClass="form-control" ></asp:TextBox>
+                                <asp:TextBox ID="txtPsize" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" CssClass="text-danger" runat="server" ErrorMessage="Məhsul Ölçüsü Boş Qoyula Bilməz" ControlToValidate="txtPsize"></asp:RequiredFieldValidator>
                             </div>
                         </div>
@@ -39,7 +36,7 @@
                             <span class="help">Məs: "Taxta"</span>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
-                                <asp:TextBox ID="txtPMaterial" runat="server" CssClass="form-control" ></asp:TextBox>
+                                <asp:TextBox ID="txtPMaterial" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Materialı Boş Qoyula Bilməz" ControlToValidate="txtPMaterial"></asp:RequiredFieldValidator>
                             </div>
                         </div>
@@ -48,7 +45,7 @@
                             <span class="help">Məs: "dekor"</span>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
-                                <asp:TextBox ID="txtPdescription" runat="server" CssClass="form-control" TextMode="MultiLine" ></asp:TextBox>
+                                <asp:TextBox ID="txtPdescription" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group">
@@ -69,7 +66,7 @@
                             <span class="help">e.g. "say"</span>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
-                                <asp:TextBox ID="txtPamount" runat="server" CssClass="form-control" TextMode="Number" ></asp:TextBox>
+                                <asp:TextBox ID="txtPamount" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Anbardakı Sayı Boş Qoyula Bilməz" ControlToValidate="txtPamount"></asp:RequiredFieldValidator>
                             </div>
                         </div>
@@ -88,7 +85,7 @@
                             <label class="form-label">Qiyməti *</label>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
-                                <asp:TextBox ID="txtPprice" runat="server" CssClass="form-control" TextMode="Number" ></asp:TextBox>
+                                <asp:TextBox ID="txtPprice" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Qiyməti Boş Qoyula Bilməz" ControlToValidate="txtPprice"></asp:RequiredFieldValidator>
                             </div>
                         </div>
@@ -96,7 +93,7 @@
                             <label class="form-label">Endirim qiyməti *</label>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
-                                <asp:TextBox ID="txtPdiscountPrice" runat="server" CssClass="form-control" TextMode="Number" ></asp:TextBox>
+                                <asp:TextBox ID="txtPdiscountPrice" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Endirim Qiyməti Şəkil Boş Qoyula Bilməz" ControlToValidate="txtPdiscountPrice"></asp:RequiredFieldValidator>
                             </div>
                         </div>
@@ -116,10 +113,10 @@
                         <div class="form-group">
                             <label class="form-label">Məhsulun Mövcudluğu *</label>
                             <div class="input-with-icon  right">
-                                    <asp:RadioButtonList ID="rblPavailability" runat="server">
-                                        <asp:ListItem>Satışda</asp:ListItem>
-                                        <asp:ListItem>Tezliklə Satışda</asp:ListItem>
-                                    </asp:RadioButtonList>
+                                <asp:RadioButtonList ID="rblPavailability" runat="server">
+                                    <asp:ListItem>Satışda</asp:ListItem>
+                                    <asp:ListItem>Tezliklə Satışda</asp:ListItem>
+                                </asp:RadioButtonList>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator13" CssClass="text-danger" runat="server" ErrorMessage="Bu Sahə Boş Qoyula Bilməz" ControlToValidate="rblPavailability"></asp:RequiredFieldValidator>
                             </div>
                         </div>
@@ -133,5 +130,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </asp:Content>

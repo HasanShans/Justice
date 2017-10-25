@@ -1,24 +1,27 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Staff/Admin.Master" AutoEventWireup="true" CodeBehind="DeliveredOrders.aspx.cs" Inherits="Justice.Staff.DeliveredOrders" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="page-content ">
-        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-        <div class="clearfix"></div>
-        <div class="content">
-            <div class="row-fluid">
-                <div class="span12">
-                    <div class="grid simple ">
-                        <div class="grid-title">
-                            <h4><span class="semi-bold">Delivered orders</span>
-                                <br />
-                                <span style="font-size: 13px; color: #0aa699;"></span></h4>
-                            <div class="tools"><a href="javascript:;" class="collapse"></a><a href="#grid-config" data-toggle="modal" class="config"></a><a href="javascript:;" class="reload"></a><a href="javascript:;" class="remove"></a></div>
-                        </div>
-
-                        <div class="grid-body ">
-                            <table class="table" id="example3">
-                                <thead>
-                                    <tr>
+    <section class="content-header">
+                    <h1>Çatdırılmış Sifarişlər
+                    <small>bütün sifarişlər</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-dashboard"></i>Staff</li>
+                        <li class="active">Çatdırılmış Sifarişlər</li>
+                    </ol>
+    </section>
+  <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Data Table With Full Features</h3>
+                    </div>
+                    <asp:HyperLink runat="server" CssClass="btn btn-primary" Style="margin-bottom: 20px" ID="test2" NavigateUrl="~/Admin/Add/Jail.aspx" Text="Kateqoriya əlavə et"></asp:HyperLink>
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
                                         <th>MƏHSUL KODU</th>
                                         <th>Müştəri</th>
                                         <th>Məbləğ</th>
@@ -28,31 +31,35 @@
                                         <th>Seriya №</th>
                                         <th>zip</th>
                                         <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <asp:Repeater ID="rprtJails" runat="server">
+                                <ItemTemplate>
+                                    <tr>
+                                        <td></td>
                                     </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr class='odd gradeX'>
-                                        <td>".$data->product_name." : ".$data->code."</td>
-                                        <td>".$data->name." ".$data->lastname."</td>
-                                        <td>".$data->total_price." AZN</td>
-                                        <td>".$data->modifed."</td>
-                                        <td>".$data->city."</td>
-                                        <td>".$data->phone." , ".$data->home_phone."</td>
-                                        <td>".$data->aze."</td>
-                                        <td>".$data->poct."</td>
-
-                                        <td><a href=''>
-                                            <button type='button' class='btn btn-primary btn-sm'>Məhsula bax</button></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                                 </tbody>
+                            <tfoot>
+                                <tr>
+                                   <th>MƏHSUL KODU</th>
+                                        <th>Müştəri</th>
+                                        <th>Məbləğ</th>
+                                        <th>Təhvil verildi</th>
+                                        <th>Şəhər</th>
+                                        <th>Telefon</th>
+                                        <th>Seriya №</th>
+                                        <th>zip</th>
+                                        <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </section>
+                       
 </asp:Content>

@@ -33,8 +33,8 @@ namespace Justice.Staff
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
-            rprtPoducts.DataSource = dataTable;
-            rprtPoducts.DataBind();
+            rprtProducts.DataSource = dataTable;
+            rprtProducts.DataBind();
             DB.Connection.Close();
         }
 
