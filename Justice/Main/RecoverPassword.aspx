@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="RecoverPassword.aspx.cs" Inherits="Justice.Main.RecoverPassword" %>
+﻿<%@ Page  Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="RecoverPassword.aspx.cs" Inherits="Justice.Main.RecoverPassword" Title="Şifrə Bərbası"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <section id="user">
         <div class="container">

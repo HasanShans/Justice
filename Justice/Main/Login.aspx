@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Login.aspx.cs" Inherits="Justice.Main.Login" %>
+<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Login.aspx.cs" Inherits="Justice.Main.Login" Title="Daxil Ol" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
@@ -11,8 +11,8 @@
                             <h3>Daxil ol</h3>
                         </div>
                         <div class="login">
+                            <asp:Label ID="lblMsgVerify" runat="server" CssClass="col-md-2 control-label" Text="" Font-Size="Medium"></asp:Label>
                             <br />
-                            <asp:Label runat="server" ID="lblMsgVerify" CssClass="control-label" Font-Size="Large" Text="asdas"></asp:Label>
                                 <div class="form-group row">
                                     <asp:Label ID="Label2" runat="server" CssClass="col-md-2 control-label" Text="Email"></asp:Label>
                                     <div class="col-md-10">
