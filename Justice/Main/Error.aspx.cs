@@ -7,14 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Justice.Main
 {
-    public partial class Orders : System.Web.UI.Page
+    public partial class Error : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["NAME"] == null)
-            {
-                Response.Redirect("Login.aspx");
-            }
+
         }
     }
 }

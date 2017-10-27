@@ -1528,9 +1528,9 @@ a:focus {
  */
 .box {
   position: relative;
-  border-radius: 3px;
+  border-radius: 10px;
   background: #ffffff;
-  border-top: 3px solid #d2d6de;
+  border: 3px solid #d2d6de;
   margin-bottom: 20px;
   width: 100%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -1539,7 +1539,7 @@ a:focus {
   border-top-color: #3c8dbc;
 }
 .box.box-info {
-  border-top-color: #00c0ef;
+  border-color: #00c0ef;
 }
 .box.box-danger {
   border-top-color: #dd4b39;

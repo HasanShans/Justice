@@ -49,9 +49,6 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Pagination">
-      <HintPath>..\..\..\..\Downloads\Pagination.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -174,7 +171,6 @@
     <Content Include="Content\Admin\css\modules\vector_maps.css" />
     <Content Include="Content\Admin\css\print.css" />
     <Content Include="Content\Admin\css\responsive.css" />
-    <Content Include="Content\Admin\css\select2.min.css" />
     <Content Include="Content\Admin\css\style.css" />
     <Content Include="Content\Admin\css\tiles_responsive.css" />
     <Content Include="Content\Admin\css\var.css" />
@@ -182,169 +178,6 @@
     <Content Include="Content\Admin\fonts\custom-set.dev.svg" />
     <Content Include="Content\Admin\fonts\custom-set.svg" />
     <Content Include="Content\Admin\fonts\index.php" />
-    <Content Include="Content\Admin\img\0.01677900 1437069148_img.jpg" />
-    <Content Include="Content\Admin\img\0.02150100 1438278153_img.jpg" />
-    <Content Include="Content\Admin\img\0.03840900 1438278153_img.png" />
-    <Content Include="Content\Admin\img\0.05361700 1437587479_img.jpg" />
-    <Content Include="Content\Admin\img\0.10085500 1437587595_img.jpg" />
-    <Content Include="Content\Admin\img\0.12975600 1437590639_img.jpg" />
-    <Content Include="Content\Admin\img\0.15463400 1438278760_img.png" />
-    <Content Include="Content\Admin\img\0.15489200 1438587722_img.jpg" />
-    <Content Include="Content\Admin\img\0.20003300 1438280276_img.png" />
-    <Content Include="Content\Admin\img\0.20958200 1438587722_img.jpg" />
-    <Content Include="Content\Admin\img\0.21849800 1437589728_img.jpg" />
-    <Content Include="Content\Admin\img\0.24708500 1438540613_img.png" />
-    <Content Include="Content\Admin\img\0.25554800 1437587332_img.png" />
-    <Content Include="Content\Admin\img\0.26507400 1438280276_img.png" />
-    <Content Include="Content\Admin\img\0.27273800 1437589603_img.jpg" />
-    <Content Include="Content\Admin\img\0.29813900 1437587406_img.jpeg" />
-    <Content Include="Content\Admin\img\0.30141500 1437589443_img.jpg" />
-    <Content Include="Content\Admin\img\0.30974100 1437587332_img.jpeg" />
-    <Content Include="Content\Admin\img\0.30995800 1437589603_img.jpg" />
-    <Content Include="Content\Admin\img\0.33341100 1438277890_img.png" />
-    <Content Include="Content\Admin\img\0.33678700 1437587406_img.jpg" />
-    <Content Include="Content\Admin\img\0.34650500 1437587332_img.jpg" />
-    <Content Include="Content\Admin\img\0.34888700 1437587406_img.jpg" />
-    <Content Include="Content\Admin\img\0.35781300 1437590490_img.jpg" />
-    <Content Include="Content\Admin\img\0.36350400 1437589443_img.jpg" />
-    <Content Include="Content\Admin\img\0.36978800 1437590613_img.jpg" />
-    <Content Include="Content\Admin\img\0.37656600 1438277890_img.png" />
-    <Content Include="Content\Admin\img\0.41819800 1437991635_img.jpg" />
-    <Content Include="Content\Admin\img\0.42902700 1438277477_img.png" />
-    <Content Include="Content\Admin\img\0.43080800 1437587541_img.jpg" />
-    <Content Include="Content\Admin\img\0.46673600 1438277477_img.png" />
-    <Content Include="Content\Admin\img\0.49311700 1437587541_img.png" />
-    <Content Include="Content\Admin\img\0.50156600 1438278728_img.png" />
-    <Content Include="Content\Admin\img\0.50171200 1438278610_img.png" />
-    <Content Include="Content\Admin\img\0.50733000 1438279529_img.png" />
-    <Content Include="Content\Admin\img\0.51610200 1438278610_img.jpg" />
-    <Content Include="Content\Admin\img\0.53946600 1437587541_img.jpg" />
-    <Content Include="Content\Admin\img\0.54428400 1438279529_img.png" />
-    <Content Include="Content\Admin\img\0.55897100 1438279591_img.png" />
-    <Content Include="Content\Admin\img\0.57297900 1438278993_img.png" />
-    <Content Include="Content\Admin\img\0.57702400 1438279591_img.jpg" />
-    <Content Include="Content\Admin\img\0.59012200 1438280130_img.png" />
-    <Content Include="Content\Admin\img\0.59206600 1438278993_img.png" />
-    <Content Include="Content\Admin\img\0.61318200 1437075021_img.JPG" />
-    <Content Include="Content\Admin\img\0.64382700 1438280130_img.jpg" />
-    <Content Include="Content\Admin\img\0.65709600 1437587115_img.jpg" />
-    <Content Include="Content\Admin\img\0.65829600 1437075021_img.jpg" />
-    <Content Include="Content\Admin\img\0.66073300 1437589574_img.jpg" />
-    <Content Include="Content\Admin\img\0.68243900 1438280130_img.png" />
-    <Content Include="Content\Admin\img\0.68894700 1438280440_img.png" />
-    <Content Include="Content\Admin\img\0.70107300 1438280440_img.png" />
-    <Content Include="Content\Admin\img\0.70523100 1437589520_img.jpg" />
-    <Content Include="Content\Admin\img\0.70667500 1438277945_img.png" />
-    <Content Include="Content\Admin\img\0.71614600 1438541537_img.png" />
-    <Content Include="Content\Admin\img\0.71696500 1437589520_img.jpg" />
-    <Content Include="Content\Admin\img\0.72016500 1438277945_img.png" />
-    <Content Include="Content\Admin\img\0.72485400 1437589574_img.jpg" />
-    <Content Include="Content\Admin\img\0.74884100 1437587115_img.png" />
-    <Content Include="Content\Admin\img\0.75154300 1437070145_img.jpg" />
-    <Content Include="Content\Admin\img\0.75570400 1437589974_img.jpg" />
-    <Content Include="Content\Admin\img\0.75986800 1438278075_img.png" />
-    <Content Include="Content\Admin\img\0.76960100 1437587115_img.jpeg" />
-    <Content Include="Content\Admin\img\0.77685600 1438278075_img.png" />
-    <Content Include="Content\Admin\img\0.78043900 1438280550_img.jpg" />
-    <Content Include="Content\Admin\img\0.78368700 1438328990_img.jpg" />
-    <Content Include="Content\Admin\img\0.78493200 1438279575_img.png" />
-    <Content Include="Content\Admin\img\0.78820600 1437589768_img.jpg" />
-    <Content Include="Content\Admin\img\0.79263900 1438277826_img.png" />
-    <Content Include="Content\Admin\img\0.79301400 1437983361_img.jpg" />
-    <Content Include="Content\Admin\img\0.79946000 1438280550_img.png" />
-    <Content Include="Content\Admin\img\0.80508100 1437070145_img.jpg" />
-    <Content Include="Content\Admin\img\0.83509400 1437734346_img.jpg" />
-    <Content Include="Content\Admin\img\0.83921900 1438277826_img.png" />
-    <Content Include="Content\Admin\img\0.84940500 1437733615_img.png" />
-    <Content Include="Content\Admin\img\0.85468500 1438278405_img.jpg" />
-    <Content Include="Content\Admin\img\0.87260900 1438278405_img.jpeg" />
-    <Content Include="Content\Admin\img\0.87793700 1438278007_img.png" />
-    <Content Include="Content\Admin\img\0.90935800 1437590150_img.jpg" />
-    <Content Include="Content\Admin\img\0.91795300 1438278007_img.png" />
-    <Content Include="Content\Admin\img\0.92098100 1437590000_img.jpg" />
-    <Content Include="Content\Admin\img\0.92981500 1437734175_img.jpg" />
-    <Content Include="Content\Admin\img\0.93296900 1438277187_img.png" />
-    <Content Include="Content\Admin\img\0.94179900 1437069147_img.jpg" />
-    <Content Include="Content\Admin\img\0.94942000 1437590466_img.jpg" />
-    <Content Include="Content\Admin\img\0.97979600 1437587478_img.png" />
-    <Content Include="Content\Admin\img\0.97992400 1437069147_img.jpg" />
-    <Content Include="Content\Admin\img\0.98136900 1437590118_img.jpg" />
-    <Content Include="Content\Admin\img\0.99193500 1437587478_img.jpeg" />
-    <Content Include="Content\Admin\img\0.99588700 1437589753_img.jpg" />
-    <Content Include="Content\Admin\img\1436466464_img.jpg" />
-    <Content Include="Content\Admin\img\1436466464_img.png" />
-    <Content Include="Content\Admin\img\1436467586_img.jpg" />
-    <Content Include="Content\Admin\img\1436467586_img.png" />
-    <Content Include="Content\Admin\img\1436467636_img.jpg" />
-    <Content Include="Content\Admin\img\1436467636_img.png" />
-    <Content Include="Content\Admin\img\1436467759_img.jpg" />
-    <Content Include="Content\Admin\img\1436467759_img.png" />
-    <Content Include="Content\Admin\img\1436468028_img.jpg" />
-    <Content Include="Content\Admin\img\1436469445_img.jpg" />
-    <Content Include="Content\Admin\img\1436469527_img.jpg" />
-    <Content Include="Content\Admin\img\1436470095_img.jpg" />
-    <Content Include="Content\Admin\img\1436470187_img.png" />
-    <Content Include="Content\Admin\img\1436472037_img.jpg" />
-    <Content Include="Content\Admin\img\1436472073_img.jpg" />
-    <Content Include="Content\Admin\img\1436472192_img.jpg" />
-    <Content Include="Content\Admin\img\1436472301_img.jpg" />
-    <Content Include="Content\Admin\img\1436472397_img.jpg" />
-    <Content Include="Content\Admin\img\1436472423_img.jpg" />
-    <Content Include="Content\Admin\img\1436527293_img.jpg" />
-    <Content Include="Content\Admin\img\1436527293_img.png" />
-    <Content Include="Content\Admin\img\1436527583_img.jpg" />
-    <Content Include="Content\Admin\img\1436527583_img.png" />
-    <Content Include="Content\Admin\img\1436529457_img.png" />
-    <Content Include="Content\Admin\img\1436529687_img.jpg" />
-    <Content Include="Content\Admin\img\1436529687_img.png" />
-    <Content Include="Content\Admin\img\1436529711_img.jpg" />
-    <Content Include="Content\Admin\img\1436529711_img.png" />
-    <Content Include="Content\Admin\img\1436530574_img.jpg" />
-    <Content Include="Content\Admin\img\1436530574_img.png" />
-    <Content Include="Content\Admin\img\1436530641_img.png" />
-    <Content Include="Content\Admin\img\1436531178_img.png" />
-    <Content Include="Content\Admin\img\1436531194_img.png" />
-    <Content Include="Content\Admin\img\1436536959_img.jpg" />
-    <Content Include="Content\Admin\img\1436536959_img.png" />
-    <Content Include="Content\Admin\img\1436537052_img.jpg" />
-    <Content Include="Content\Admin\img\1436537133_img.png" />
-    <Content Include="Content\Admin\img\1436537162_img.jpg" />
-    <Content Include="Content\Admin\img\1436537162_img.png" />
-    <Content Include="Content\Admin\img\1436537195_img.jpg" />
-    <Content Include="Content\Admin\img\1436537195_img.png" />
-    <Content Include="Content\Admin\img\1436537231_img.jpg" />
-    <Content Include="Content\Admin\img\1436537556_img.jpg" />
-    <Content Include="Content\Admin\img\1436537556_img.png" />
-    <Content Include="Content\Admin\img\1436537587_img.jpg" />
-    <Content Include="Content\Admin\img\1436537587_img.png" />
-    <Content Include="Content\Admin\img\1436537613_img.jpg" />
-    <Content Include="Content\Admin\img\1436537613_img.png" />
-    <Content Include="Content\Admin\img\1436537633_img.png" />
-    <Content Include="Content\Admin\img\1437067475_img.jpg" />
-    <Content Include="Content\Admin\img\1437067549_img.jpg" />
-    <Content Include="Content\Admin\img\1437067582_img.jpg" />
-    <Content Include="Content\Admin\img\1437067638_img.jpg" />
-    <Content Include="Content\Admin\img\1437068548_img.jpg" />
-    <Content Include="Content\Admin\img\1437068951_img.jpg" />
-    <Content Include="Content\Admin\img\1437068951_img.png" />
-    <Content Include="Content\Admin\img\1437590233_img.jpeg" />
-    <Content Include="Content\Admin\img\1437590266_img.jpg" />
-    <Content Include="Content\Admin\img\1437590300_img.jpg" />
-    <Content Include="Content\Admin\img\1437734415_img.jpg" />
-    <Content Include="Content\Admin\img\1437734523_img.jpg" />
-    <Content Include="Content\Admin\img\1437734602_img.png" />
-    <Content Include="Content\Admin\img\1438277326_img.jpg" />
-    <Content Include="Content\Admin\img\1438277379_img.jpg" />
-    <Content Include="Content\Admin\img\1438277379_img.png" />
-    <Content Include="Content\Admin\img\55c112d19e408_img.jpg" />
-    <Content Include="Content\Admin\img\55c116ddc57a5_img.jpg" />
-    <Content Include="Content\Admin\img\55c116ddd6f7e_img.png" />
-    <Content Include="Content\Admin\img\55c116ddf2208_img.jpg" />
-    <Content Include="Content\Admin\img\5617c6fb77b0d_img.png" />
-    <Content Include="Content\Admin\img\5617d2d55d0ab_img.png" />
-    <Content Include="Content\Admin\img\cover_pic.png" />
-    <Content Include="Content\Admin\img\Features-List.png" />
-    <Content Include="Content\Admin\img\Features.png" />
     <Content Include="Content\Admin\img\icon\noti-cross-2x.png" />
     <Content Include="Content\Admin\img\icon\noti-cross.png" />
     <Content Include="Content\Admin\img\icon\online-2x.png" />
@@ -357,38 +190,7 @@
     <Content Include="Content\Admin\img\icon\Tick.png" />
     <Content Include="Content\Admin\img\icon\top-tray.png" />
     <Content Include="Content\Admin\img\icon\top-trayx2.png" />
-    <Content Include="Content\Admin\img\index.php" />
-    <Content Include="Content\Admin\img\invoicelogo.png" />
-    <Content Include="Content\Admin\img\invoicelogo2x.png" />
-    <Content Include="Content\Admin\img\logo.png" />
-    <Content Include="Content\Admin\img\logo2x.png" />
-    <Content Include="Content\Admin\img\notification-alert.png" />
-    <Content Include="Content\Admin\img\others\1.jpg" />
-    <Content Include="Content\Admin\img\others\1.png" />
-    <Content Include="Content\Admin\img\others\10.png" />
-    <Content Include="Content\Admin\img\others\11.png" />
-    <Content Include="Content\Admin\img\others\2.jpg" />
-    <Content Include="Content\Admin\img\others\2.png" />
-    <Content Include="Content\Admin\img\others\3.png" />
-    <Content Include="Content\Admin\img\others\4.png" />
-    <Content Include="Content\Admin\img\others\8.png" />
-    <Content Include="Content\Admin\img\others\9.jpg" />
-    <Content Include="Content\Admin\img\others\acadia.jpg" />
-    <Content Include="Content\Admin\img\others\arches.jpg" />
-    <Content Include="Content\Admin\img\others\blue.png" />
-    <Content Include="Content\Admin\img\others\cover.jpg" />
-    <Content Include="Content\Admin\img\others\crater.jpg" />
-    <Content Include="Content\Admin\img\others\denali.jpg" />
-    <Content Include="Content\Admin\img\others\glacier.jpg" />
-    <Content Include="Content\Admin\img\others\grand.jpg" />
-    <Content Include="Content\Admin\img\others\great.jpg" />
-    <Content Include="Content\Admin\img\others\green.png" />
-    <Content Include="Content\Admin\img\others\haleakala.jpg" />
-    <Content Include="Content\Admin\img\others\rob.jpg" />
-    <Content Include="Content\Admin\img\others\yellowstone.jpg" />
-    <Content Include="Content\Admin\img\others\zion.jpg" />
-    <Content Include="Content\Admin\img\profile-pic-big.png" />
-    <Content Include="Content\Admin\img\profile-pic.png" />
+    <Content Include="Content\Admin\img\others\background.jpg" />
     <Content Include="Content\Admin\img\profiles\1.png" />
     <Content Include="Content\Admin\img\profiles\2.png" />
     <Content Include="Content\Admin\img\profiles\3.png" />
@@ -420,14 +222,6 @@
     <Content Include="Content\Admin\img\profiles\f2x.jpg" />
     <Content Include="Content\Admin\img\profiles\h.jpg" />
     <Content Include="Content\Admin\img\profiles\h2x.jpg" />
-    <Content Include="Content\Admin\img\sidebar-menu-arrow.png" />
-    <Content Include="Content\Admin\img\small-profile-pic.png" />
-    <Content Include="Content\Admin\img\wea.jpg" />
-    <Content Include="Content\Admin\img\widget-arrow-blue.png" />
-    <Content Include="Content\Admin\img\widget-arrow-green.png" />
-    <Content Include="Content\Admin\img\widget-arrow-orange.png" />
-    <Content Include="Content\Admin\img\work.jpg" />
-    <Content Include="Content\Admin\index.php" />
     <Content Include="Content\Admin\less\index.php" />
     <Content Include="Content\Admin\scss\index.php" />
     <Content Include="Content\Admin\scss\mixins.css" />
@@ -465,13 +259,13 @@
     <Content Include="Content\Main\css\smoothproducts.css" />
     <Content Include="Content\Main\css\smoothproducts.min.css" />
     <Content Include="Content\Main\css\style.css" />
+    <Content Include="Content\Main\images\404-error.png" />
     <Content Include="Content\Main\images\discount.png" />
     <Content Include="Content\Main\images\double-tail-spin.svg" />
     <Content Include="Content\Main\images\download.jpg" />
     <Content Include="Content\Main\images\download11.png" />
     <Content Include="Content\Main\images\header.png" />
     <Content Include="Content\Main\images\looogooo.png" />
-    <Content Include="Content\Main\images\loqo.png" />
     <Content Include="Content\Main\images\products\110966.jpg" />
     <Content Include="Content\Main\images\products\154247.JPG" />
     <Content Include="Content\Main\images\products\190206.jpg" />
@@ -495,7 +289,6 @@
     <Content Include="Content\Main\images\products\4327.JPG" />
     <Content Include="Content\Main\images\products\5488.jpg" />
     <Content Include="Content\Main\images\products\68732.jpg" />
-    <Content Include="Content\Main\images\products\notfound.jpg" />
     <Content Include="Content\Main\images\slider\slide1.jpg" />
     <Content Include="Content\Main\images\slider\slide2.jpg" />
     <Content Include="Content\Main\images\slider\slide3.jpg" />
@@ -504,7 +297,10 @@
     <Content Include="Content\Main\images\slider\slide6.jpg" />
     <Content Include="Content\Main\images\sp-loading.gif" />
     <Content Include="Content\Main\fonts\index.php" />
+    <Content Include="Content\Main\images\xeta.png" />
     <Content Include="Main\ChangePassword.aspx" />
+    <Content Include="Main\ConfirmOrder.aspx" />
+    <Content Include="Main\Error.aspx" />
     <Content Include="Main\ForgotPassword.aspx" />
     <Content Include="Main\Information.aspx" />
     <Content Include="Controls\LeftSideBar.ascx" />
@@ -1021,7 +817,6 @@
     <Content Include="Content\Admin\plugins\webarchScroll.js" />
     <Content Include="Content\Admin\plugins\wysi\css\wysi.css" />
     <Content Include="Content\Admin\plugins\wysi\js\bootstrap-wysiwyg.js" />
-    <Content Include="Scripts\Admin\js\select2.full.min.js" />
     <Content Include="Scripts\Main\bootstrap.js" />
     <Content Include="Scripts\Main\bootstrap.min.js" />
     <Content Include="Scripts\Main\font-awesome.js" />
@@ -1151,7 +946,6 @@
     <Content Include="Content\Admin\fonts\custom-set.eot" />
     <Content Include="Content\Admin\fonts\custom-set.ttf" />
     <Content Include="Content\Admin\fonts\custom-set.woff" />
-    <Content Include="Content\Admin\img\Thumbs.db" />
     <Content Include="Content\Admin\less\mixins.less" />
     <Content Include="Content\Admin\less\modules\buttons.less" />
     <Content Include="Content\Admin\less\modules\charts.less" />
@@ -1248,6 +1042,7 @@
     <Content Include="Staff\Categories.aspx" />
     <Content Include="Staff\DeliveredOrders.aspx" />
     <Content Include="Staff\Jails.aspx" />
+    <Content Include="Staff\Login.aspx" />
     <Content Include="Staff\Orders.aspx" />
     <Content Include="Staff\PostDeliveredOrders.aspx" />
     <Content Include="Staff\Products.aspx" />
@@ -1276,6 +1071,20 @@
     </Compile>
     <Compile Include="Main\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ConfirmOrder.aspx.cs">
+      <DependentUpon>ConfirmOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\ConfirmOrder.aspx.designer.cs">
+      <DependentUpon>ConfirmOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
@@ -1432,6 +1241,13 @@
     <Compile Include="Staff\Jails.aspx.designer.cs">
       <DependentUpon>Jails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Staff\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Staff\Orders.aspx.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1464,7 +1280,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Admin\plugins\jquery-sparkline\" />
-    <Folder Include="Content\Main\images\profileimages\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

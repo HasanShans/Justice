@@ -62,7 +62,7 @@
                             <hr class="hr1">
                             <p>Çatdırılma</p>
                             <p><span>Çatdırılma pulsuzdur</span></p>
-                                <asp:Button runat="server" ID="btnProductBuy" style="width: 100%;" CssClass="btn btn-success " Text="Məhsulu al" Enabled="false"></asp:Button>
+                                <asp:Button runat="server" OnClick="btnProductBuy_Click" ID="btnProductBuy" style="width: 100%;" CssClass="btn btn-success " Text="Məhsulu al" Enabled="false"></asp:Button>
                         </div>
                     </div>
                 </div>
