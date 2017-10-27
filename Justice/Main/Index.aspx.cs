@@ -35,7 +35,11 @@ namespace Justice.Main
             {
                 data.Add("MSImagePath", dataTable.Rows[0]["ID"].ToString()+"/"+ dataTable.Rows[0]["Name"].ToString()+ dataTable.Rows[0]["Extention"].ToString());
                 data.Add("MSProductName", dataTable.Rows[0]["ProductName"].ToString());
-                data.Add("MSPrice", dataTable.Rows[0]["Price"].ToString());
+                data.Add("MSPrice", dataTable.Rows[0]["DiscountPrice"].ToString());
+            }
+            else
+            {
+                mostSoldProducts.Visible = false;
             }
             
         }
@@ -53,12 +57,33 @@ namespace Justice.Main
             {
                 data.Add("NPImagePath", dataTable.Rows[0]["ID"].ToString() + "/" + dataTable.Rows[0]["Name"].ToString() + dataTable.Rows[0]["Extention"].ToString());
                 data.Add("NPProductName", dataTable.Rows[0]["ProductName"].ToString());
-                data.Add("NPPrice", dataTable.Rows[0]["Price"].ToString());
+                data.Add("NPPrice", dataTable.Rows[0]["DiscountPrice"].ToString());
+            }
+            else
+            {
+                newProducts.Visible = false;
             }
         }
         private void BindConceptProducts()
         {
-
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("ProductsSelectConcept", DB.Connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.ExecuteNonQuery();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            if (dataTable.Rows.Count != 0)
+            {
+                data.Add("CPImagePath", dataTable.Rows[0]["ID"].ToString() + "/" + dataTable.Rows[0]["Name"].ToString() + dataTable.Rows[0]["Extention"].ToString());
+                data.Add("CPProductName", dataTable.Rows[0]["ProductName"].ToString());
+                data.Add("CPPrice", dataTable.Rows[0]["DiscountPrice"].ToString());
+            }
+            else
+            {
+                conceptProducts.Visible = false;
+            }
         }
         private void BindProducts()
         {
@@ -67,6 +92,7 @@ namespace Justice.Main
             SqlCommand sqlCommand;
             if (Request.QueryString.AllKeys.Contains("Category"))
             {
+                slider.Visible = false;
                 String categoryName = Request.QueryString["Category"].ToString();
                 sqlCommand = new SqlCommand("ProductsSelectByCategoryNameJoinCategoriesImages", DB.Connection);
                 sqlCommand.Parameters.AddWithValue("@CategoryName", categoryName);
@@ -87,7 +113,7 @@ namespace Justice.Main
             }
             else
             {
-
+                notfoundProduct.Visible = true;
             }
         }
     }

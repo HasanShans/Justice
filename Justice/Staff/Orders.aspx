@@ -2,14 +2,21 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <section class="content-header">
+                    <h1>Sifarişlər
+                    <small>bütün sifarişlər</small>
+                    </h1>
+                   <ol class="breadcrumb">
+                        <li><i class="fa fa-dashboard"></i>Staff</li>
+                        <li class="active">Sifarişlər</li>
+                    </ol>
+                </section>
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Data Table With Full Features</h3>
                     </div>
-                    <asp:HyperLink runat="server" CssClass="btn btn-primary" Style="margin-bottom: 20px" ID="test2" NavigateUrl="~/Admin/Add/Jail.aspx" Text="Kateqoriya əlavə et"></asp:HyperLink>
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>

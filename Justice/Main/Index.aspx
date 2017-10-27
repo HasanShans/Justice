@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Index.aspx.cs" Inherits="Justice.Main.Index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Index.aspx.cs" Inherits="Justice.Main.Index" Title="Ana Səhifə"%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderContent" runat="Server">
     <script src="../Scripts/Main/jssor.slider-25.2.0.min.js"></script>
@@ -135,7 +135,7 @@
         }
     </style>
 
-    <section id="slider">
+    <section id="slider" runat="server">
         <div class="container-fluid">
             <div class="row">
                 <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1138px; height: 380px; overflow: hidden; visibility: hidden;">
@@ -188,16 +188,16 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section><br />
 
     <section id="show_case">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4" runat="server" id="mostSoldProducts"> 
                     <div class="best_seller">
                         <div class="title">
                             <h3 class="text-left">Ən çox satılan</h3>
-                            <p class="text-right"><a href="ProductsFilter.aspx?ProductsMostSold=">Hamısını göstər</a></p>
+                            <p class="text-right"><a href="ProductsFilter.aspx?filter=MostSoldProducts">Hamısını göstər</a></p>
                         </div>
                         <div class='row title_content'>
                             <div class='col-md-5'>
@@ -213,11 +213,11 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4" runat="server" id ="newProducts">
                     <div class="new_product">
                         <div class="title">
                             <h3 class="text-left">Yeni məhsullar</h3>
-                            <p class="text-right"><a href="ProductsFilter.aspx?ProductsNew=">Hamısını göstər</a></p>
+                            <p class="text-right"><a href="ProductsFilter.aspx?filter=NewProducts">Hamısını göstər</a></p>
                         </div>
                         <div class='row title_content'>
                             <div class='col-md-5'>
@@ -234,20 +234,20 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4" runat="server" id="conceptProducts">
                     <div class="konsept">
                         <div class="title">
                             <h3 class="text-left">Konsept məhsullar</h3>
-                            <p class="text-right"><a href="ProductsFilter.aspx?ProductsConcept=">Hamısını göstər</a></p>
+                            <p class="text-right"><a href="ProductsFilter.aspx?filter=ConceptProducts">Hamısını göstər</a></p>
                         </div>
                         <div class='row title_content'>
                             <div class='col-md-5'>
-                                <img src='thumb/thumb_".$json->data[0]->image1."' alt=''>
+                                <img src='../Content/Main/images/products/<%= data["CPImagePath"] %>' alt=''>
                             </div>
                             <div class='col-md-7'>
-                                <h3>PRODUCT NAME</h3>
+                                <h3><%= data["NPProductName"] %></h3>
                                 <div class='addShopp'>
-                                    <p class='pull-left'>XXX AZN</p>
+                                    <p class='pull-left'><%= data["NPPrice"] %> AZN</p>
                                     <a href=''></a>
                                 </div>
                             </div>
@@ -261,15 +261,15 @@
     <section id="products">
         <div class="container">
             <div class="col-md-12 title">
-                <h3>Sizin üçün seçdiklərimiz</h3>
+                <h3>Bütün Məhsullar</h3>
             </div>
             <div class="row">
                 <asp:Repeater  ID="productRepeater" runat="server">
                     <ItemTemplate>
                         <div class='col-md-3'>
                             <div class='product'>
-                                <div class='discount' style='right: 25px;'>
-                                    <span><%# Eval("Discount")%> AZN</span>
+                                <div runat="server" class="discount" style='right: 25px;' Visible='<%# Eval("Discount").ToString()!="0" %>'>
+                                    <span><%# Eval("Discount")%> %</span>
                                 </div>
                                 <div class='images'>
                                     <a href='Product/?id=<%# Eval("ID") %>'>
@@ -280,7 +280,10 @@
                                         <a href='Product/?id=<%# Eval("ID") %>'><%# Eval("ProductName") %></a>
                                     </h5>
                                     <div class='addShopp'>
-                                        <p class='pull-left'><%# Eval("Price") %> AZN</p>
+                                        <p runat="server" class='pull-left' Visible='<%# Eval("Price").ToString()==Eval("DiscountPrice").ToString() %>'><%# Eval("Price") %> AZN</p>    
+                                        <p runat="server" style="text-decoration:line-through" class='pull-left' Visible='<%# Eval("Price").ToString()!=Eval("DiscountPrice").ToString() %>'><%# Eval("Price") %> AZN</p>
+                                        <p runat="server" class='pull-left' Visible='<%# Eval("Price").ToString()!=Eval("DiscountPrice").ToString() %>'><%# Eval("DiscountPrice") %> AZN</p>
+                                        
                                         <a href=''>
                                             <button class='pull-right'>
                                                 <a href='http://192.168.5.22/api/?v=1&m=addFavorite&user_id=".$json2->data->id."&product_id=".$data->id."'><i class='fa fa-star-o fa-2x' aria-hidden='true'></i></a>
@@ -292,11 +295,26 @@
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
+                <div class='col-md-3' id="notfoundProduct" runat="server" visible="false">
+                    <div class='product'>
+                        <div class='images'>
+                            <a href='#'>
+                                <img class='img-responsive' src='../Content/Main/images/products/notfound.jpg' alt=''></a>
+                        </div>
+                        <div class='detailes'>
+                            <h5 class='text-center'>
+                                <a href='#'>Məhsul Tapılmadı</a>
+                            </h5>
+                            <div class='addShopp'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     <script type="text/javascript">jssor_1_slider_init();</script>
 </asp:Content>
   <asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">
-    <%: Scripts.Render("~/bundles/indexJs") %>
+    
 </asp:Content>

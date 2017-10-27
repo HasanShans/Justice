@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main/Site.Master" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="Justice.Main.Product" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Main/Site.Master" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="Justice.Main.Product" Title="Məhsul"%>
 
 <asp:Content ID="Content" ContentPlaceHolderID="HeaderContent" runat="server">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

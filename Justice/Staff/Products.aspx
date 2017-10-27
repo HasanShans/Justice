@@ -1,16 +1,33 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Staff/Admin.Master" AutoEventWireup="true" CodeBehind="Products.aspx.cs" Inherits="Justice.Staff.Products" %>
 
 <asp:Content ContentPlaceHolderID="MainContent" ID="Content1" runat="server">
+    <section class="content-header">
+                    <h1>Məhsullar
+                    <small>bütün məhsullar</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-dashboard"></i>Staff</li>
+                        <li class="active">Məhsullar</li>
+                    </ol>
+                </section>
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                    <div class="box-header">
+                    <%--<div class="box-header">
                         <h3 class="box-title">Data Table With Full Features</h3>
-                    </div>
-                    <asp:HyperLink runat="server" CssClass="btn btn-primary" Style="margin-bottom: 20px" ID="test2" NavigateUrl="~/Admin/Add/Product.aspx" Text="Məhsul əlavə et"></asp:HyperLink>
+                    </div>--%>
+                    <asp:HyperLink runat="server" CssClass="btn btn-success" Style="margin:10px" ID="test2" NavigateUrl="~/Staff/Add/Product.aspx" Text="Məhsul əlavə et"></asp:HyperLink>
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
+                            <col width="20">
+                            <col width="50">
+                            <col width="100">
+                            <col width="100">
+                            <col width="100">
+                            <col width="100">
+                            <col width="50">
+                            <col width="50">
                             <thead>
                                 <tr>
                                     <th>ID</th>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main/Site.Master" AutoEventWireup="true" CodeBehind="Purchase.aspx.cs" Inherits="Justice.Main.Purchase" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Main/Site.Master" AutoEventWireup="true" CodeBehind="Purchase.aspx.cs" Inherits="Justice.Main.Purchase" Title="Səbət" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
@@ -29,7 +29,7 @@
                                             <td>
                                                 <img width="80" src="../Content/Main/images/products/<%# Eval("ProductID") %>/<%# Eval("Name") %><%# Eval("Extention") %>" alt="<%# Eval("ProductName") %>">
                                             </td>
-                                            <td><%# Eval("Price") %> AZN</td>
+                                            <td><%# Eval("DiscountPrice") %> AZN</td>
                                             <td>
                                                 <select class="count_update">
                                                     <option>1</option>
@@ -61,11 +61,8 @@
                             <p><span id="product_sum"><%= sum %> AZN</span></p>
                             <hr class="hr1">
                             <p>Çatdırılma</p>
-                            <p><span>20AZN dan cox alış-veriş etdiyiniz üçün çatdırılma pulsuzdur</span></p>
-                                <input type="text" name="price" value="" hidden>
-                                <input type="text" name="amount" value=">" hidden>
-                                <button name="buy" type="submit" style="width: 100%;" class="btn btn-success ">Məhsulu al <i class="fa fa-check" aria-hidden="true"></i></button>
-                            <!--<button  type="submit" style="width: 100%;" class="btn btn-success "> <a href="address1.php">Məhsulu al</a> <i class="fa fa-check" aria-hidden="true"></i>-->
+                            <p><span>Çatdırılma pulsuzdur</span></p>
+                                <asp:Button runat="server" ID="btnProductBuy" style="width: 100%;" CssClass="btn btn-success " Text="Məhsulu al" ></asp:Button>
                         </div>
                     </div>
                 </div>

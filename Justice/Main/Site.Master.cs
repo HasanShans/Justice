@@ -85,7 +85,7 @@ namespace Justice
         protected void btnSearchMaster_Click(object sender, EventArgs e)
         {
             string n = String.Format("{0}", Request.Form["word"]);
-            Response.Redirect("~/Main/Search?n=" + n);
+            Response.Redirect("~/Main/ProductsFilter?search=" + n);
         }
     }
 }

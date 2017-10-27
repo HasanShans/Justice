@@ -22,6 +22,15 @@ namespace Justice.Staff.Add {
         protected global::System.Web.UI.WebControls.TextBox txtJail;
         
         /// <summary>
+        /// RequiredFieldValidator6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+        
+        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>

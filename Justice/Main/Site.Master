@@ -7,7 +7,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps" rel="stylesheet">
-    <title><%: Page.Title %></title>
+    <link rel="icon" href="~/Content/Main/images/loqo.png">
+    <title>Həbsxana İncəsənəti | <%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
         <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
@@ -42,7 +43,7 @@
                                     <asp:HyperLink runat="server" NavigateUrl="~/Main/Index.aspx" title=""><i class="fa fa-home"></i>ANA SƏHİFƏ</asp:HyperLink>
                                 </li>
                                 <li class="hidden-sm">
-                                    <asp:HyperLink runat="server" NavigateUrl="~/Main/ProductsFilter.aspx?ProductSoon=">TEZLİKLƏ SATIŞDA</asp:HyperLink></li>
+                                    <asp:HyperLink runat="server" NavigateUrl="~/Main/ProductsFilter.aspx?filter=ProductsSoon">TEZLİKLƏ SATIŞDA</asp:HyperLink></li>
                                 <!-- <li class="hidden-sm"><a href="">Yazarlar</a></li> -->
                                 <!-- <li class="hidden-sm"><a href="/u/yayinevi/2/listele">Yayınevleri</a></li> -->
 
@@ -72,13 +73,13 @@
                                     <div class="hidden-xs">
                                         <div class="as-sepet">
                                             <asp:HyperLink ID="linkCart" runat="server" NavigateUrl="~/Main/Purchase.aspx" CssClass="u-url shop-basket">
-                                            <i class="fa fa-shopping-cart"></i>
-                                            <span class="big">SƏBƏTİM</span>
-                                            <p>
-                                                Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount">
-                                                    <asp:Label runat="server" ID="lblCartCount" Text=""></asp:Label>
-                                                             </span>
-                                            </p>
+                                                <i class="fa fa-shopping-cart"></i>
+                                                <span class="big">SƏBƏTİM</span>
+                                                <p>
+                                                    Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount">
+                                                        <asp:Label runat="server" ID="lblCartCount" Text=""></asp:Label>
+                                                    </span>
+                                                </p>
                                             </asp:HyperLink>
                                         </div>
                                     </div>
@@ -141,9 +142,11 @@
             </div>
         </header>
 
-        <div class="container body-content">
+        <div class="container-fluid body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
+        </div>
+        <div class="conatiner-fluid">
             <hr />
             <section id="about">
                 <div class="container">
@@ -201,5 +204,6 @@
         <asp:ContentPlaceHolder ID="EndContent" runat="server">
         </asp:ContentPlaceHolder>
     </form>
+    <%: Scripts.Render("~/bundles/indexJs") %>
 </body>
 </html>

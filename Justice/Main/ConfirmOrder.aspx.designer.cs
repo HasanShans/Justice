@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Justice.Controls.Admin
+namespace Justice.Main
 {
 
 
-    public partial class LeftSideBar
+    public partial class ConfirmOrder
     {
     }
 }

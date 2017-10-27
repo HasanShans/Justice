@@ -1,6 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Staff/Admin.Master" AutoEventWireup="true" CodeBehind="DeliveredOrders.aspx.cs" Inherits="Justice.Staff.DeliveredOrders" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <section class="content-header">
+                    <h1>Çatdırılmış Sifarişlər
+                    <small>bütün sifarişlər</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-dashboard"></i>Staff</li>
+                        <li class="active">Çatdırılmış Sifarişlər</li>
+                    </ol>
+    </section>
   <section class="content">
         <div class="row">
             <div class="col-xs-12">

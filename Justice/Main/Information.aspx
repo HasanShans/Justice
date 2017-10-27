@@ -1,8 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Information.aspx.cs" Inherits="Justice.Main.Information" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Information.aspx.cs" Inherits="Justice.Main.Information" Title="İstifadəçi Məlumatları" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <section id="my_page">
-
         <div class="container">
             <div class="row">
                 <uc:LeftMenu ID="LeftMenu" runat="server" />
@@ -61,24 +60,6 @@
                                 <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="serialTextBox" ID="RegularExpressionValidator2" ValidationExpression="[0-9]{7,8}$" runat="server" ErrorMessage="8 Rəqəmli Seriya Nömrəsini Daxil Edin" SetFocusOnError="true"></asp:RegularExpressionValidator>
                             </div>
                         </div>
-
-<<<<<<< HEAD
-
-                            <%--<div class='form-group row'>
-                                <asp:Label ID="cityLabel" AssociatedControlID="cityTextBox" Text="Ya&#351;ad&#305;&#287;&#305;n&#305;z &#350;&#601;h&#601;r *" CssClass="col-sm-3 col-form-label" runat="server" />
-                                <div class='col-sm-9'>
-                                    <asp:DropDownList ID="ddlBrands" CssClass="form-control" runat="server"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator runat="server" id="cityValidator" controltovalidate="cityTextBox" cssClass="text-danger" errormessage="Yaşadığınız şəhəri qeyd edin!" />
-                                </div>
-                            </div>--%>
-                            <!-- /.form-group -->
-
-                            <div class='form-group row'>
-                                <div class=' col-sm-12'>
-                                    <button class='btn btn-success pull-right' onserverclick="submitClick" runat="server">
-                                        Yadda Saxla<i class='fa fa-check' aria-hidden='true'></i>
-                                    </button>
-=======
                         <div class='form-group row'>
                             <asp:Label ID="cityLabel" AssociatedControlID="cityTextBox" Text="Şəhər *" CssClass="col-sm-3 col-form-label" runat="server" />
                             <div class='col-sm-9'>
@@ -118,7 +99,6 @@
                                 <div class='input-group'>
                                     <span class='input-group-addon'><i class="fa fa-phone"></i></span>
                                     <asp:TextBox ID="HomePhoneTextBox" CssClass="form-control" runat="server" placeholder="012xxxxxxx"></asp:TextBox>
->>>>>>> e20b681b50dc51c3d76c0a6cd068d4eed34e90e3
                                 </div>
                                 <asp:RegularExpressionValidator ControlToValidate="HomePhoneTextBox" ID="RegularExpressionValidator5" ValidationExpression="[0-9]{10}$" runat="server" ErrorMessage="10 Rəqəmli Ev Telefonu Nomrənizi Daxil Edin" Display="Dynamic" SetFocusOnError="true"></asp:RegularExpressionValidator>
                             </div>
