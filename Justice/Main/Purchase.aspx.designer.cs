@@ -13,13 +13,13 @@ namespace Justice.Main {
     public partial class Purchase {
         
         /// <summary>
-        /// repeater control.
+        /// repeaterPurchase control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeater;
+        protected global::System.Web.UI.WebControls.Repeater repeaterPurchase;
         
         /// <summary>
         /// btnProductBuy control.

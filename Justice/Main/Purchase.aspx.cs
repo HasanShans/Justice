@@ -24,42 +24,28 @@ namespace Justice.Main
         {
             if (Session["NAME"] != null)
             {
-                using (SqlCommand comm = new SqlCommand("CartSelectByUserIDJoinImagesAndProducts", DB.Connection))
+                if (DB.Connection.State == ConnectionState.Closed)
+                    DB.Connection.Open();
+                SqlCommand comm = new SqlCommand("CartSelectByUserIDJoinImagesAndProducts", DB.Connection);
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.Parameters.AddWithValue("@user_id", Convert.ToInt32(Session["ID"]));
+                comm.ExecuteNonQuery();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(comm);
+                DataTable data = new DataTable();
+                sqlDataAdapter.Fill(data);
+                foreach (DataRow row in data.Rows)
                 {
-                    comm.CommandType = CommandType.StoredProcedure;
-                    comm.Parameters.AddWithValue("@user_id", Convert.ToInt32(Session["ID"]));
-                    try
-                    {
-                        if (DB.Connection.State == ConnectionState.Closed)
-                            DB.Connection.Open();
-                        using (SqlDataReader reader = comm.ExecuteReader())
-                        {
-                            DataTable data = new DataTable();
-                            data.Load(reader);
-                            if (data.Rows.Count == 0)
-                            {
-                                btnProductBuy.Enabled = false;
-                            }
-                            
-                            foreach (DataRow row in data.Rows)
-                            {
-                                amount++;
-                                sum += Convert.ToInt32(row["DiscountPrice"]);
-                            }
-                            if (!IsPostBack)
-                            {
-                                repeater.DataSource = data;
-                                repeater.DataBind();
-                            }
-                        }
-                    }
-                    catch (SqlException ex)
-                    {
-                    
-                    }
-                    DB.Connection.Close();
+                    amount++;
+                    sum += Convert.ToInt32(row["DiscountPrice"]);
                 }
-            } else
+                if (data.Rows.Count != 0)
+                {
+                    repeaterPurchase.DataSource = data;
+                    repeaterPurchase.DataBind();
+                    btnProductBuy.Enabled = true;
+                }
+            }
+            else
             {
                 Response.Redirect("~/Main/Login.aspx?rurl=Purchase");
             }
