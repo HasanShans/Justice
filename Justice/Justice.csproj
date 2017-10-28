@@ -259,11 +259,12 @@
     <Content Include="Content\Main\css\smoothproducts.css" />
     <Content Include="Content\Main\css\smoothproducts.min.css" />
     <Content Include="Content\Main\css\style.css" />
-    <Content Include="Content\Main\images\404-error.png" />
+    <Content Include="Content\Main\images\500.png" />
     <Content Include="Content\Main\images\discount.png" />
     <Content Include="Content\Main\images\double-tail-spin.svg" />
     <Content Include="Content\Main\images\download.jpg" />
     <Content Include="Content\Main\images\download11.png" />
+    <Content Include="Content\Main\images\404.png" />
     <Content Include="Content\Main\images\header.png" />
     <Content Include="Content\Main\images\looogooo.png" />
     <Content Include="Content\Main\images\products\110966.jpg" />
@@ -297,7 +298,6 @@
     <Content Include="Content\Main\images\slider\slide6.jpg" />
     <Content Include="Content\Main\images\sp-loading.gif" />
     <Content Include="Content\Main\fonts\index.php" />
-    <Content Include="Content\Main\images\xeta.png" />
     <Content Include="Main\ChangePassword.aspx" />
     <Content Include="Main\ConfirmOrder.aspx" />
     <Content Include="Main\Error.aspx" />

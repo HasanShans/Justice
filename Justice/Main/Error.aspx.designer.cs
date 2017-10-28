@@ -13,21 +13,21 @@ namespace Justice.Main {
     public partial class Error {
         
         /// <summary>
-        /// notfound control.
+        /// error404 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notfound;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error404;
         
         /// <summary>
-        /// xeta control.
+        /// error500 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl xeta;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error500;
     }
 }
