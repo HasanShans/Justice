@@ -13,15 +13,15 @@
                             <div class="panel-body">
                                 <div class="col-md-12">
                                     <strong>Məhsul Ədədi</strong>
-                                    <div class="pull-right"><span></span><span></span></div>
+                                    <div class="pull-right"><span></span><span><asp:Label runat="server" ID="lblProductCount" Text="0"></asp:Label></span></div>
                                 </div>
                                 <div class="col-md-12">
                                     <strong>Ümumi Məbləğ</strong>
-                                    <div class="pull-right"><span></span><span>AZN</span></div>
+                                    <div class="pull-right"><span></span><span><asp:Label runat="server" ID="lbltotaPrice" Text="0"></asp:Label> AZN</span></div>
                                 </div>
                                 <div class="col-md-12">
                                     <strong>Çatdırılma</strong>
-                                    <div class="pull-right"><span></span><span>0 AZN</span></div>
+                                    <div class="pull-right"><span></span><span><asp:Label runat="server" ID="lblShippingPrice" Text="0"></asp:Label> AZN</span></div>
                                 </div>
                                 <br>
                                 <br>
@@ -30,7 +30,7 @@
                                 <hr>
                                 <div class="col-md-12">
                                     <strong>Ödəniləcək Məbləğ</strong>
-                                    <div class="pull-right"><span></span><span>AZN</span></div>
+                                    <div class="pull-right"><span></span><span><asp:Label runat="server" ID="lblTotalPayment" Text="0"></asp:Label> AZN</span></div>
                                     <hr>
                                 </div>
                             </div>

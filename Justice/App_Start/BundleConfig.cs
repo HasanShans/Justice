@@ -42,7 +42,6 @@ namespace Justice
                "~/Content/Admin/css/font-awesome.min.css",
                "~/Content/Admin/css/ionicons.css",
                "~/Content/Admin/css/dataTables.bootstrap.css",
-               "~/Content/Admin/css/select2.min.css",
                "~/Content/Admin/css/AdminLTE.css",
                "~/Content/Admin/css/_all-skins.css"
                ));
@@ -50,7 +49,6 @@ namespace Justice
             bundles.Add(new ScriptBundle("~/bundles/adminJs").Include(
                 "~/Scripts/Admin/js/jquery.js",
                 "~/Scripts/Admin/js/bootstrap.js",
-                "~/Scripts/Admin/js/select2.full.min.js",
                 "~/Scripts/Admin/js/jquery.dataTables.js",
                 "~/Scripts/Admin/js/dataTables.bootstrap.js",
                 "~/Scripts/Admin/js/jquery.slimscroll.js",

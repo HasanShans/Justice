@@ -11,7 +11,16 @@ namespace Justice.Staff
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["ADMINSESSION"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
 
+        protected void adminLogOut_Click(object sender, EventArgs e)
+        {
+            Session["ADMINSESSION"] = null;
+            Response.Redirect("Login.aspx");
         }
     }
 }

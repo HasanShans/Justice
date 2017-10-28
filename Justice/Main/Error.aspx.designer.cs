@@ -10,24 +10,24 @@
 namespace Justice.Main {
     
     
-    public partial class Purchase {
+    public partial class Error {
         
         /// <summary>
-        /// repeaterPurchase control.
+        /// error404 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeaterPurchase;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error404;
         
         /// <summary>
-        /// btnProductBuy control.
+        /// error500 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProductBuy;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error500;
     }
 }

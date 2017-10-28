@@ -11,7 +11,10 @@ namespace Justice.Main
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["NAME"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }

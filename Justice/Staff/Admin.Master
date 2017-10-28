@@ -86,6 +86,7 @@
                         <li><a href="http://localhost:50857/Staff/Jails.aspx"><i class="fa fa-circle-o"></i>Cəzaçəkmə müəssisəsi</a></li>
                         <li><a href="http://localhost:50857/Staff/Orders.aspx"><i class="fa fa-circle-o"></i>Sifarişlər</a></li>
                         <li><a href="http://localhost:50857/Staff/DeliveredOrders.aspx"><i class="fa fa-circle-o"></i>Çatdırılmış Sifarişlər</a></li>
+                        <li><asp:LinkButton runat="server" OnClick="adminLogOut_Click"><i class="fa fa-circle-o"></i>Çıxış</asp:LinkButton></li>
                     </ul>
                 </section>
             </aside>
@@ -124,9 +125,6 @@
                 'autoWidth': false
             })
         })
-        $(function () {
-            $('.select2').select2()
-        }
     </script>
 </body>
 </html>

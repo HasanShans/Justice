@@ -45,19 +45,28 @@ namespace Justice.Main
             sqlDataAdapter.Fill(dataTable);
             if (dataTable.Rows.Count != 0)
             {
-                if (dataTable.Rows[0]["IDSerialNumber"].ToString() == "0")
+                if (!IsPostBack)
                 {
-                    nameTextBox.Text = "Şəxsiyyət Vəsiqəsindəki Adınız";
-                    surnameTextBox.Text = "Şəxsiyyət Vəsiqəsindəki Soyadınız";
-                    emailTextBox.Text = dataTable.Rows[0][3].ToString();
-                }
-                else
-                {
-                    nameTextBox.Text = dataTable.Rows[0]["FirstName"].ToString();
-                    surnameTextBox.Text = dataTable.Rows[0]["LastName"].ToString();
+                    dateTextBox.Text = dataTable.Rows[0]["BirthDate"].ToString();
+                    cityTextBox.Text = dataTable.Rows[0]["City"].ToString();
+                    PostIndexTextBox.Text = dataTable.Rows[0]["PostIndex"].ToString();
+                    MobilePhoneTextBox.Text = dataTable.Rows[0]["MobilePhone"].ToString();
+                    HomePhoneTextBox.Text = dataTable.Rows[0]["HomePhone"].ToString();
                     emailTextBox.Text = dataTable.Rows[0]["Email"].ToString();
-                    serialTextBox.Text = dataTable.Rows[0]["IDSerialNumber"].ToString();
-                    serialTextBox.Enabled = false;
+                    if (string.IsNullOrEmpty(dataTable.Rows[0]["IDSerialNumber"].ToString()))
+                    {
+                        nameTextBox.Text = "Şəxsiyyət Vəsiqəsindəki Adınız";
+                        surnameTextBox.Text = "Şəxsiyyət Vəsiqəsindəki Soyadınız";
+                        emailTextBox.Text = dataTable.Rows[0]["Email"].ToString();
+                    }
+                    else
+                    {
+                        nameTextBox.Text = dataTable.Rows[0]["FirstName"].ToString();
+                        surnameTextBox.Text = dataTable.Rows[0]["LastName"].ToString();
+                        serialTextBox.Text = dataTable.Rows[0]["IDSerialNumber"].ToString();
+
+                        serialTextBox.Enabled = false;
+                    }
                 }
             }
         }

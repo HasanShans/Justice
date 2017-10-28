@@ -26,7 +26,6 @@
                         <tbody>
                             <tr>
                                 <td class="text-center" colspan="3">Xalınızla məhsul almaq üçün minumum xalınız 500 olmalıdır</td>
-
                             </tr>
                         </tbody>
                     </table>
