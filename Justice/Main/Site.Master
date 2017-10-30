@@ -204,6 +204,7 @@
         <asp:ContentPlaceHolder ID="EndContent" runat="server">
         </asp:ContentPlaceHolder>
     </form>
-    <%: Scripts.Render("~/bundles/indexJs") %>
+
+    <%: Scripts.Render("~/bundles/indexjs") %>
 </body>
 </html>

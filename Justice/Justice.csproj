@@ -290,6 +290,7 @@
     <Content Include="Content\Main\images\products\4327.JPG" />
     <Content Include="Content\Main\images\products\5488.jpg" />
     <Content Include="Content\Main\images\products\68732.jpg" />
+    <Content Include="Content\Main\images\products\notfound.jpg" />
     <Content Include="Content\Main\images\slider\slide1.jpg" />
     <Content Include="Content\Main\images\slider\slide2.jpg" />
     <Content Include="Content\Main\images\slider\slide3.jpg" />
@@ -1041,6 +1042,7 @@
     <Content Include="Staff\Add\Product.aspx" />
     <Content Include="Staff\Categories.aspx" />
     <Content Include="Staff\DeliveredOrders.aspx" />
+    <Content Include="Staff\Error.aspx" />
     <Content Include="Staff\Jails.aspx" />
     <Content Include="Staff\Login.aspx" />
     <Content Include="Staff\Orders.aspx" />
@@ -1233,6 +1235,13 @@
     </Compile>
     <Compile Include="Staff\DeliveredOrders.aspx.designer.cs">
       <DependentUpon>DeliveredOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staff\Jails.aspx.cs">
       <DependentUpon>Jails.aspx</DependentUpon>

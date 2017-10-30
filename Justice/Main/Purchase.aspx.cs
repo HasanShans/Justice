@@ -125,7 +125,7 @@ namespace Justice.Main
                         SqlCommand sqlCommand3 = new SqlCommand("OrderedProductsCreate", DB.Connection);
                         sqlCommand3.CommandType = CommandType.StoredProcedure;
                         sqlCommand3.Parameters.AddWithValue("@OrderID", LastOrderID);
-                        sqlCommand3.Parameters.AddWithValue("@ProductID", row["ID"]);
+                        sqlCommand3.Parameters.AddWithValue("@ProductID", row["ProductID"]);
                         sqlCommand3.ExecuteNonQuery();
                     }
                     Response.Redirect("ConfirmOrder.aspx?order=" + LastOrderID * 123456789);

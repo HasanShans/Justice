@@ -45,8 +45,8 @@
                         <div class='sp-wrap'>
                             <asp:Repeater ID="rprtImages" runat="server">
                                 <ItemTemplate>
-                                    <a href='/Content/Main/images/products/<%# Eval("ProductID") %>/<%#Eval("Name") %><%#Eval("Extention") %>'>
-                                        <img src='/Content/Main/images/products/<%# Eval("ProductID") %>/<%#Eval("Name") %><%#Eval("Extention") %>' alt=''></a>
+                                    <a href="../../Content/Main/images/products/<%# Eval("ProductID") %>/<%#Eval("Name") %><%#Eval("Extention") %>">
+                                        <img src="../../Content/Main/images/products/<%# Eval("ProductID") %>/<%#Eval("Name") %><%#Eval("Extention") %>" alt=''></a>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
@@ -138,26 +138,46 @@
 
             </div>
             <div class='row'>
-                <div class='col-md-3'>
-                    <div class='product'>
-                        <div class='discount' style='right: 25px;'>
-                            <span>". ceil(($data->price - $data->discount)*100/$data->price)."%</span>
+               <asp:Repeater  ID="productRepeater" runat="server">
+                    <ItemTemplate>
+                        <div class='col-md-3'>
+                            <div class='product'>
+                                <div runat="server" class="discount" style='right: 25px;' Visible='<%# Eval("Discount").ToString()!="0" %>'>
+                                    <span><%# Eval("Discount")%> %</span>
+                                </div>
+                                <div class='images'>
+                                    <a href='Product/?id=<%# Eval("ID") %>'>
+                                        <img class='img-responsive' src='../../Content/Main/images/products/<%# Eval("ID") %>/<%#Eval("Name") %><%#Eval("Extention") %>' alt=''></a>
+                                </div>
+                                <div class='detailes'>
+                                    <h5 class='text-center'>
+                                        <a href='Product/?id=<%# Eval("ID") %>'><%# Eval("ProductName") %></a>
+                                    </h5>
+                                    <div class='addShopp'>
+                                        <p runat="server" class='pull-left' Visible='<%# Eval("Price").ToString()==Eval("DiscountPrice").ToString() %>'><%# Eval("Price") %> AZN</p>    
+                                        <p runat="server" style="text-decoration:line-through" class='pull-left' Visible='<%# Eval("Price").ToString()!=Eval("DiscountPrice").ToString() %>'><%# Eval("Price") %> AZN</p>
+                                        <p runat="server" class='pull-left' Visible='<%# Eval("Price").ToString()!=Eval("DiscountPrice").ToString() %>'><%# Eval("DiscountPrice") %> AZN</p>
+                                        <a href=''>
+                                            
+                                                <asp:LinkButton CssClass="pull-right" ForeColor="#FEBF00" style="margin-right:10px;" runat="server" CommandArgument='<%# Eval("ID") %>' OnClick="btnAddToCart_Click" data-toggle="tooltip" title="Səbətə əlavə et"><i class='fa fa-cart-plus fa-2x' aria-hidden='true' ></i></asp:LinkButton>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <div class='col-md-3' id="notfoundProduct" runat="server" visible="false">
+                    <div class='product'>
                         <div class='images'>
-                            <a href='productsingle.php?code=". $data->code ."'>
-                                <img class='img-responsive' src='thumb/thumb_".$data->image1."' alt=''></a>
+                            <a href='#'>
+                                <img class='img-responsive' src="../../Content/Main/images/products/notfound.jpg" alt=''></a>
                         </div>
                         <div class='detailes'>
                             <h5 class='text-center'>
-                                <a href='productsingle.php?code=". $data->code ."'>". $data->product_name ."</a>
+                                <a href='#'>Məhsul Tapılmadı</a>
                             </h5>
                             <div class='addShopp'>
-                                <p class='pull-left'>". $data->price ." AZN</p>
-                                <a href=''>
-                                    <button class='pull-right'>
-                                        <a href='/api/?v=1&m=addFavorite&user_id=".$json2->data->id."&product_id=".$data->id."'><i class='fa fa-star-o fa-2x' aria-hidden='true'></i></a>
-                                    </button>
-                                </a>
                             </div>
                         </div>
                     </div>
