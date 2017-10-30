@@ -63,6 +63,7 @@
             /*#endregion responsive code end*/
         };
     </script>
+    
     <style>
         /* jssor slider loading skin double-tail-spin css */
 
@@ -314,5 +315,5 @@
     <script type="text/javascript">jssor_1_slider_init();</script>
 </asp:Content>
   <asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">
-    
+         
 </asp:Content>

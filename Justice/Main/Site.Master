@@ -11,12 +11,12 @@
     <title>Həbsxana İncəsənəti | <%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
         </asp:ContentPlaceHolder>
         <%: Styles.Render("~/bundles/mainCss") %>
         <%: Styles.Render("~/bundles/mainSass") %>
     </asp:PlaceHolder>
-
 </head>
 <body>
     <form runat="server">
@@ -201,9 +201,12 @@
                 </div>
             </footer>
         </div>
+   
+         <%--<%: Scripts.Render("~/bundles/indexJs") %>--%>
         <asp:ContentPlaceHolder ID="EndContent" runat="server">
         </asp:ContentPlaceHolder>
     </form>
-    <%: Scripts.Render("~/bundles/indexJs") %>
+     
+   
 </body>
 </html>
