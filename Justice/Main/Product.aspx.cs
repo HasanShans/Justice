@@ -16,8 +16,11 @@ namespace Justice.Main
         int ProductID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindProduct();
-            BindSimilarProducts();
+            if (!IsPostBack)
+            {
+                BindProduct();
+                BindSimilarProducts();
+            }
         }
         private void BindProduct()
         {
