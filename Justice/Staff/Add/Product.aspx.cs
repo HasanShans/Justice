@@ -149,6 +149,9 @@ namespace Justice.Staff.Add
             if (DB.Connection.State == ConnectionState.Closed)
                 DB.Connection.Open();
             SqlCommand sqlCommand;
+            int discountPrice = Convert.ToInt32(txtPdiscountPrice.Text);
+            int price = Convert.ToInt32(txtPprice.Text);
+            float discount = ((price - discountPrice) * 100) / price;
             if (Request.QueryString.AllKeys.Contains("ProductID"))
             {
                 sqlCommand = new SqlCommand("ProductsUpdate", DB.Connection);
@@ -157,10 +160,8 @@ namespace Justice.Staff.Add
             else
             {
                 sqlCommand = new SqlCommand("ProductsCreate", DB.Connection);
+                sqlCommand.Parameters.AddWithValue("@Discount", discount);
             }
-            int discountPrice = Convert.ToInt32(txtPdiscountPrice.Text);
-            int price = Convert.ToInt32(txtPprice.Text);
-            float discount = ((price - discountPrice) * 100) / price;
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@ProductName", txtPname.Text.ToString().Trim());
             sqlCommand.Parameters.AddWithValue("@Size", txtPsize.Text.ToString().Trim());
@@ -173,7 +174,6 @@ namespace Justice.Staff.Add
             sqlCommand.Parameters.AddWithValue("@JailID", Convert.ToInt32(ddlJails.SelectedItem.Value));
             sqlCommand.Parameters.AddWithValue("@CategoryID", Convert.ToInt32(ddlCategories.SelectedItem.Value));
             sqlCommand.Parameters.AddWithValue("@StockAvailability", productAvailability);
-            sqlCommand.Parameters.AddWithValue("@Discount", discount);
             sqlCommand.Parameters.AddWithValue("@PrisonerID", Convert.ToInt32(ddlPrisoners.SelectedItem.Value));
             sqlCommand.ExecuteNonQuery();
 

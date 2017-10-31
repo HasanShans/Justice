@@ -1,43 +1,44 @@
-﻿<%@ Page  Language="C#" MasterPageFile="~/Main/Site.Master" AutoEventWireup="true" CodeBehind="Orders.aspx.cs" Inherits="Justice.Main.Orders" Title="Sifarişlər" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Main/Site.Master" AutoEventWireup="true" CodeBehind="Orders.aspx.cs" Inherits="Justice.Main.Orders" Title="Sifarişlər" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
- <section id="my_page">   
-                <div class="container">
-                    <div class="row">
-                        <uc:LeftMenu ID="LeftMenu" runat="server" />
-                        <div class="col-sm-9 col-md-9">
-                            <!-- <div class="well"> -->
-                                <div class="title">
-                                    <h3>Sifarişlərim</h3>
-                                </div>
-                                <table class="table  table-bordered table-responsive">
-                                  <thead>
-                                    <tr>
-                                      <th>Məhsul</th>
-                                      <th>Sifariş vaxtı</th>
-                                      <th>Məhsul sayı</th>
-                                      <th> Məbləğ</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                        <td>Təsbeh</td>
-                                        <td>11.03.2017</td>
-                                        <td>2</td>
-                                        <td >80AZN</td>
-
-                                    </tr>
-                                  </tbody>
-                                </table>
-                            <!-- </div> -->
-                        </div>
+    <section id="my_page">
+        <div class="container">
+            <div class="row">
+                <uc:LeftMenu ID="LeftMenu" runat="server" />
+                <div class="col-sm-9 col-md-9">
+                    <div class="title">
+                        <h3>Sifarişlərim</h3>
                     </div>
+                    <table class="table  table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Sifariş Vaxtı</th>
+                                <th>Status</th>
+                                <th>Məhsulun Sayı</th>
+                                <th>Məbləğ</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                            <asp:Repeater ID="rprtOrders" runat="server">
+                                <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("OrderDate") %></td>
+                                        <td><%# Eval("StatusDisplay") %></td>
+                                        <td><%# Eval("ProductCount") %></td>
+                                        <td><%# Eval("PaymentAmount") %></td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <td colspan="4" runat="server" id="tdRow" visible ="false">Hörmətli istifadəçi, siz bizim saytdan məhsul sifariş etməmisiniz</td>
+                        </tbody>
+                    </table>
                 </div>
-
-                
-            </section>
+            </div>
+        </div>
+    </section>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="EndContent" runat="server">

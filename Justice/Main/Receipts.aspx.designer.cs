@@ -10,7 +10,7 @@
 namespace Justice.Main {
     
     
-    public partial class Receits {
+    public partial class Receipts {
         
         /// <summary>
         /// LeftMenu control.
@@ -20,5 +20,23 @@ namespace Justice.Main {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Justice.LeftSideBar LeftMenu;
+        
+        /// <summary>
+        /// rprtReceipts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rprtReceipts;
+        
+        /// <summary>
+        /// tdRow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tdRow;
     }
 }

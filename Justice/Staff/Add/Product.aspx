@@ -105,7 +105,7 @@
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:FileUpload ID="img1p" CssClass="form-control" runat="server" />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger" runat="server" ErrorMessage="Birinci Şəkil Boş Qoyula Bilməz" ControlToValidate="img1p" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger" runat="server" ErrorMessage="Birinci Şəkil Boş Qoyula Bilməz" ControlToValidate="img1p" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator><br />
                                 <asp:FileUpload ID="img2p" CssClass="form-control" runat="server" /><br />
                                 <asp:FileUpload ID="img3p" CssClass="form-control" runat="server" /><br />
                                 <asp:FileUpload ID="img4p" CssClass="form-control" runat="server" /><br />

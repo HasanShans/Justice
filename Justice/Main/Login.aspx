@@ -11,7 +11,7 @@
                             <h3>Daxil ol</h3>
                         </div>
                         <div class="login">
-                            <asp:Label ID="lblMsgVerify" runat="server" CssClass="col-md-2 control-label" Text="" Font-Size="Medium"></asp:Label>
+                            <asp:Label ID="lblMsgVerify" runat="server" CssClass="col-md-12 control-label" Text="" Font-Size="Medium"></asp:Label>
                             <br />
                                 <div class="form-group row">
                                     <asp:Label ID="Label2" runat="server" CssClass="col-md-2 control-label" Text="Email"></asp:Label>

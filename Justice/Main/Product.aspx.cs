@@ -13,22 +13,20 @@ namespace Justice.Main
     public partial class Product : System.Web.UI.Page
     {
         public Dictionary<string, string> data = new Dictionary<string, string>();
-
+        int ProductID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-                BindProduct();
-            
+            BindProduct();
+            BindSimilarProducts();
         }
-
         private void BindProduct()
         {
-            int id = Convert.ToInt32(Request.QueryString["id"]);
+            ProductID = Convert.ToInt32(Request.QueryString["id"]);
             if (DB.Connection.State == ConnectionState.Closed)
                 DB.Connection.Open();
             SqlCommand comm = new SqlCommand("ProductsSelectByIDJoinCategoriesImages", DB.Connection);
             comm.CommandType = CommandType.StoredProcedure;
-            comm.Parameters.AddWithValue("@id", id);
+            comm.Parameters.AddWithValue("@id", ProductID);
             comm.ExecuteNonQuery();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(comm);
             DataTable dataTable = new DataTable();
@@ -50,7 +48,7 @@ namespace Justice.Main
             }
             SqlCommand comm1 = new SqlCommand("ImagesSelectByProductID", DB.Connection);
             comm1.CommandType = CommandType.StoredProcedure;
-            comm1.Parameters.AddWithValue("@ProductID", id);
+            comm1.Parameters.AddWithValue("@ProductID", ProductID);
             comm1.ExecuteNonQuery();
             SqlDataAdapter sqlDataAdapter1 = new SqlDataAdapter(comm1);
             DataTable dataTable1 = new DataTable();
@@ -61,10 +59,34 @@ namespace Justice.Main
                 rprtImages.DataBind();
             }
             DB.Connection.Close();
-            
         }
+        private void BindSimilarProducts()
+        {
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand comm1 = new SqlCommand("ProductSelectSimilar", DB.Connection);
+            comm1.CommandType = CommandType.StoredProcedure;
+            comm1.Parameters.AddWithValue("@CategoryID", data["kateqoriya_ID"]);
+            comm1.Parameters.AddWithValue("@ProductID", ProductID);
+            comm1.ExecuteNonQuery();
+            SqlDataAdapter sqlDataAdapter1 = new SqlDataAdapter(comm1);
+            DataTable dataTable1 = new DataTable();
+            sqlDataAdapter1.Fill(dataTable1);
+            if (dataTable1.Rows.Count != 0)
+            {
+                productRepeater.DataSource = dataTable1;
+                productRepeater.DataBind();
+            }
+            else
+            {
+                notfoundProduct.Visible = true;
+            }
+        }
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
 
-        protected void AddToCart_Click(object sender, EventArgs e)
+        }
+            protected void AddToCart_Click(object sender, EventArgs e)
         {
             if (Session["ID"] != null)
             {

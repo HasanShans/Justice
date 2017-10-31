@@ -201,12 +201,10 @@
                 </div>
             </footer>
         </div>
-   
-         <%--<%: Scripts.Render("~/bundles/indexJs") %>--%>
         <asp:ContentPlaceHolder ID="EndContent" runat="server">
         </asp:ContentPlaceHolder>
+             <script src="/Scripts/Main/bootstrap.js"></script>
+        <script src="/Scripts/Main/script.js"></script>
     </form>
-     
-   
 </body>
 </html>

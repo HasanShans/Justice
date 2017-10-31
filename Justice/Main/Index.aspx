@@ -298,7 +298,7 @@
                     <div class='product'>
                         <div class='images'>
                             <a href='#'>
-                                <img class='img-responsive' src='../Content/Main/images/products/notfound.jpg' alt=''></a>
+                                <img class='img-responsive' src="../Content/Main/images/products/notfound.jpg" alt=''></a>
                         </div>
                         <div class='detailes'>
                             <h5 class='text-center'>
@@ -315,5 +315,4 @@
     <script type="text/javascript">jssor_1_slider_init();</script>
 </asp:Content>
   <asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">
-         
 </asp:Content>
