@@ -203,8 +203,14 @@
         </div>
         <asp:ContentPlaceHolder ID="EndContent" runat="server">
         </asp:ContentPlaceHolder>
-             <script src="/Scripts/Main/bootstrap.js"></script>
         <script src="/Scripts/Main/script.js"></script>
+        <script src="../Scripts/Admin/js/jquery.js"></script>
+        <script src="/Scripts/Main/bootstrap.js"></script>
+
+     <uc:ModalSuccess ID="ModalSuccess" runat="server" />
+    <script>
+        $('#modal-success').modal('show');
+    </script>
     </form>
 </body>
 </html>

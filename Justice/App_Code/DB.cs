@@ -8,3 +8,4 @@ namespace Justice.App_Code
         public static SqlConnection Connection { get { return connection; } }
     }
 }
+

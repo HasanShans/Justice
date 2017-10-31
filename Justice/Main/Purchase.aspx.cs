@@ -18,8 +18,10 @@ namespace Justice.Main
         DataTable data = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
- 
+            if (!IsPostBack)
+            {
                 BindProducts();
+            }
         }
 
         private void BindProducts()

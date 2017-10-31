@@ -16,10 +16,13 @@ namespace Justice.Main
         public Dictionary<string, string> data = new Dictionary<string, string>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindProducts();
-            BindMostSoldProducts();
-            BindNewProducts();
-            BindConceptProducts();
+            if (!IsPostBack)
+            {
+                BindProducts();
+                BindMostSoldProducts();
+                BindNewProducts();
+                BindConceptProducts();
+            }
         }
         private void BindMostSoldProducts()
         {

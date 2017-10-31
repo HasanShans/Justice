@@ -13,21 +13,12 @@ namespace Justice.Staff {
     public partial class DeliveredOrders {
         
         /// <summary>
-        /// test2 control.
+        /// rprtDeliveredOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink test2;
-        
-        /// <summary>
-        /// rprtJails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rprtJails;
+        protected global::System.Web.UI.WebControls.Repeater rprtDeliveredOrders;
     }
 }
