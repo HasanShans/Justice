@@ -85,7 +85,9 @@ html, body {
   margin-left: 0;
   border: 2px solid #fdcb32;
   border-radius: 2px;
-  margin-right: -6px; }
+  margin-right: -6px;
+  margin-top: 5px;
+}
 .top-header .search-form-block input[type=search] {
   padding-left: 15px;
   padding-right: 15px;
@@ -97,7 +99,7 @@ html, body {
   text-transform: uppercase;
   text-align: center;
   position: relative;
-  top: 3px;
+  top: 2px;
   cursor: pointer; }
   .top-header .send i {
     padding-top: 8px;
@@ -721,3 +723,8 @@ span.round-tab:hover {
 .title{
     background-color:black;
 }
+
+.input-group .form-control{
+    z-index:0;
+}
+
