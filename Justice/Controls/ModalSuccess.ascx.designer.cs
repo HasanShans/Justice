@@ -7,36 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Justice.Main {
+namespace Justice {
     
     
-    public partial class ProductsSoon {
+    public partial class ModalSuccess {
         
         /// <summary>
-        /// productRepeater control.
+        /// modalLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater productRepeater;
+        protected global::System.Web.UI.WebControls.Label modalLabel;
         
         /// <summary>
-        /// notfoundProduct control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notfoundProduct;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
-        /// ModalSuccess control.
+        /// hlInformation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Justice.ModalSuccess ModalSuccess;
+        protected global::System.Web.UI.WebControls.HyperLink hlInformation;
+        
+        /// <summary>
+        /// hlPurchase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlPurchase;
     }
 }

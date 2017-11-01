@@ -12,16 +12,15 @@ namespace Justice.Main
 {
     public partial class Purchase : System.Web.UI.Page
     {
+        
+        //public ModalSuccess modalSuccess;
         public int sum = 0;
         public int amount = 0;
         int userID;
         DataTable data = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
                 BindProducts();
-            }
         }
 
         private void BindProducts()
@@ -91,7 +90,7 @@ namespace Justice.Main
                     DB.Connection.Open();
                 SqlCommand sqlCommand = new SqlCommand("UsersSelectByID", DB.Connection);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@ID", userID);
+                sqlCommand.Parameters.AddWithValue("@ID", Convert.ToInt32(Session["ID"]));
                 sqlCommand.ExecuteNonQuery();
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                 DataTable dataTable = new DataTable();
@@ -99,7 +98,9 @@ namespace Justice.Main
                 if (string.IsNullOrEmpty(dataTable.Rows[0]["IDSerialNumber"].ToString())|| string.IsNullOrEmpty(dataTable.Rows[0]["City"].ToString())
                     || string.IsNullOrEmpty(dataTable.Rows[0]["PostIndex"].ToString()) || string.IsNullOrEmpty(dataTable.Rows[0]["MobilePhone"].ToString()))
                 {
-                    Response.Redirect("Information.aspx");
+                    ModalSuccess.HlInformation.Visible = true;
+                    ModalSuccess.LabelModalMsg.Text = "Hörmətli istifadəçi, saytımızdan alış-veriş etmək üçün şəxsi məlumatlarınızı əlavə etməlisiniz. Aşağıdakı düyməyə klikləyərək şəxsi kabinetinizə daxil ola bilərsiniz.";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }
                 else
                 {

@@ -11,12 +11,12 @@
     <title>Həbsxana İncəsənəti | <%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
         </asp:ContentPlaceHolder>
         <%: Styles.Render("~/bundles/mainCss") %>
         <%: Styles.Render("~/bundles/mainSass") %>
     </asp:PlaceHolder>
-
 </head>
 <body>
     <form runat="server">
@@ -192,7 +192,7 @@
                         </div>
                         <div class="col-md-6">
                             <p class="pull-right">
-                                Programming by  <a href="http://fb.com/elsen.zairov.1" target="_blank">Elshan Zairov</a>  &amp; <a href="http://fb.com/vuqar1127" target="_blank">Vuqar Aqayev </a>&amp;
+                                Developed by  <a href="http://fb.com/elsen.zairov.1" target="_blank">Elshan Zairov</a>  &amp; <a href="http://fb.com/vuqar1127" target="_blank">Vuqar Aqayev </a>&amp;
                                 <a href="http://fb.com/hasan.shans" target="_blank">Hasan Shans</a>  &amp; <a href="http://fb.com/qadirn1" target="_blank">Qadir Novruzov </a>| Powered by Ministry of Justice &copy; 2017
                             </p>
                         </div>
@@ -202,8 +202,11 @@
         </div>
         <asp:ContentPlaceHolder ID="EndContent" runat="server">
         </asp:ContentPlaceHolder>
-    </form>
+        <script src="/Scripts/Main/script.js"></script>
+        <script src="../Scripts/Admin/js/jquery.js"></script>
+        <script src="/Scripts/Main/bootstrap.js"></script>
 
-    <%: Scripts.Render("~/bundles/indexjs") %>
+     
+    </form>
 </body>
 </html>

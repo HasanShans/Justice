@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Main/Site.Master" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="Justice.Main.Product" Title="Məhsul"%>
 
 <asp:Content ID="Content" ContentPlaceHolderID="HeaderContent" runat="server">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   
     <style>
         .sp-zoom {
             width: 900px;
@@ -41,12 +41,18 @@
                     <div class='page'>
                         <div class='sp-loading'>
                             <img src='/Content/Main/images/sp-loading.gif' alt=''><br>
-                            LOADING IMAGES</div>
+                            LOADING IMAGES
+                        </div>
                         <div class='sp-wrap'>
                             <asp:Repeater ID="rprtImages" runat="server">
                                 <ItemTemplate>
+<<<<<<< HEAD
+                                     <a href='../../Content/Main/images/products/<%# Eval("ProductID") %>/<%# Eval("Name") %><%# Eval("Extention") %>'>
+                                        <img src='../../Content/Main/images/products/<%# Eval("ProductID") %>/<%# Eval("Name") %><%# Eval("Extention") %>' alt=''></a>
+=======
                                     <a href="../../Content/Main/images/products/<%# Eval("ProductID") %>/<%#Eval("Name") %><%#Eval("Extention") %>">
                                         <img src="../../Content/Main/images/products/<%# Eval("ProductID") %>/<%#Eval("Name") %><%#Eval("Extention") %>" alt=''></a>
+>>>>>>> afb36dae7c8b3201e79475ebe00b2f857e892008
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
@@ -188,9 +194,8 @@
 </asp:Content>
 
 <asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">
-    <script src="/Scripts/Main/bootstrap.js"></script>
-    <script src="/Scripts/Main/script.js"></script>
-    <script type="text/javascript" src="/Scripts/Main/smoothproducts.min.js"></script>
+   
+        <script type="text/javascript" src="/Scripts/Main/smoothproducts.min.js"></script>
     <script type="text/javascript">
         /* wait for images to load */
         $(window).load(function () {

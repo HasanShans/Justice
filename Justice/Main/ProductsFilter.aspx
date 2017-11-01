@@ -29,9 +29,7 @@
                                         <p runat="server" style="text-decoration: line-through" class='pull-left' visible='<%# Eval("Price").ToString()!=Eval("DiscountPrice").ToString() %>'><%# Eval("Price") %> AZN</p>
                                         <p runat="server" class='pull-left' visible='<%# Eval("Price").ToString()!=Eval("DiscountPrice").ToString() %>'><%# Eval("DiscountPrice") %> AZN</p>
                                         <a href=''>
-                                            <button class='pull-right'>
-                                                <a href='http://192.168.5.22/api/?v=1&m=addFavorite&user_id=".$json2->data->id."&product_id=".$data->id."'><i class='fa fa-star-o fa-2x' aria-hidden='true'></i></a>
-                                            </button>
+                                            <asp:LinkButton CssClass="pull-right" ForeColor="#FEBF00" style="margin-right:10px;" runat="server" CommandArgument='<%# Eval("ID") %>' OnClick="btnAddToCart_Click" data-toggle="tooltip" title="Səbətə əlavə et"><i class='fa fa-cart-plus fa-2x' aria-hidden='true' ></i></asp:LinkButton>
                                         </a>
                                     </div>
                                 </div>
@@ -57,6 +55,12 @@
             </div>
         </div>
     </section>
+    <uc:ModalSuccess ID="ModalSuccess" runat="server" />
+    <script>
+        function openModal() {
+            $('#myModal').modal('show');
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="EndContent" runat="server">
 </asp:Content>

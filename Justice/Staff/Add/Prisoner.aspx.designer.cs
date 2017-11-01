@@ -7,72 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Justice.Main {
+namespace Justice.Staff.Add {
     
     
-    public partial class Index {
+    public partial class Prisoner {
         
         /// <summary>
-        /// slider control.
+        /// txtPrisonerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl slider;
+        protected global::System.Web.UI.WebControls.TextBox txtPrisonerName;
         
         /// <summary>
-        /// mostSoldProducts control.
+        /// RequiredFieldValidator6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mostSoldProducts;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
         
         /// <summary>
-        /// newProducts control.
+        /// txtPrisonerSurname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl newProducts;
+        protected global::System.Web.UI.WebControls.TextBox txtPrisonerSurname;
         
         /// <summary>
-        /// conceptProducts control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl conceptProducts;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// productRepeater control.
+        /// txtPrisonerInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater productRepeater;
+        protected global::System.Web.UI.WebControls.TextBox txtPrisonerInfo;
         
         /// <summary>
-        /// notfoundProduct control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notfoundProduct;
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// ModalSuccess control.
+        /// btnEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Justice.ModalSuccess ModalSuccess;
+        protected global::System.Web.UI.WebControls.Button btnEdit;
     }
 }

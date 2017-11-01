@@ -16,11 +16,8 @@ namespace Justice.Main
         int ProductID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                BindProduct();
-                BindSimilarProducts();
-            }
+            BindProduct();
+            BindSimilarProducts();
         }
         private void BindProduct()
         {
@@ -89,7 +86,7 @@ namespace Justice.Main
         {
 
         }
-            protected void AddToCart_Click(object sender, EventArgs e)
+        protected void AddToCart_Click(object sender, EventArgs e)
         {
             if (Session["ID"] != null)
             {
@@ -109,7 +106,7 @@ namespace Justice.Main
                     comm.Parameters.AddWithValue("@product_id", data["mehsul_ID"]);
                     comm.ExecuteNonQuery();
                 }
-                Response.Redirect("Purchase.aspx");
+                Response.Redirect("~/Main/Purchase.aspx");
             }
             else
             {
@@ -117,4 +114,4 @@ namespace Justice.Main
             }
         }
     }
- }
+}

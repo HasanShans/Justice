@@ -75,10 +75,10 @@ namespace Justice.Main
 
                         //Status Message
 
-                        lblMsg.ForeColor = System.Drawing.Color.Green;
                         tbName.Text = tbSurname.Text = tbPassword.Text = tbPasswordConfirm.Text = tbEmail.Text = tbBirthdate.Text = "";
                         tbLicense.Checked = false;
-                        lblMsg.Text = "Siz Qeydiyyatdan Uğurla Keçdiniz. Hesabınızı Təsdiqləmək Üçün Email Adresinizə Daxil Olun";
+                        ModalSuccess.LabelModalMsg.Text = "Siz Qeydiyyatdan Uğurla Keçdiniz. Hesabınızı Təsdiqləmək Üçün Email Adresinizə Daxil Olun";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                     }
                     else
                     {

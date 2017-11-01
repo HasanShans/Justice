@@ -16,13 +16,10 @@ namespace Justice.Main
         public Dictionary<string, string> data = new Dictionary<string, string>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                BindProducts();
-                BindMostSoldProducts();
-                BindNewProducts();
-                BindConceptProducts();
-            }
+            BindProducts();
+            BindMostSoldProducts();
+            BindNewProducts();
+            BindConceptProducts();
         }
         private void BindMostSoldProducts()
         {
@@ -142,8 +139,18 @@ namespace Justice.Main
                     comm.Parameters.AddWithValue("@user_id", UserID);
                     comm.Parameters.AddWithValue("@product_id", ProductID);
                     comm.ExecuteNonQuery();
-                }   
-                Response.Redirect("Purchase.aspx");
+                    ModalSuccess.LabelModalMsg.Text = "Hörmətli istifadəçi, məhsul karta əlavə olundu.";
+                    ModalSuccess.BtnCancel.Text = "Alış-Verişə Davam";
+                    ModalSuccess.HlPurchase.Visible = true;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                }
+                else
+                {
+                    ModalSuccess.LabelModalMsg.Text = "Hörmətli istifadəçi, bu məhsul artıq kartınıza əlavə olunub";
+                    ModalSuccess.BtnCancel.Text = "Alış-Verişə Davam";
+                    ModalSuccess.HlPurchase.Visible = true;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                }
             }
             else
             {

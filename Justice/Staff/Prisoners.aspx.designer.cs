@@ -7,36 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Justice.Main {
+namespace Justice.Staff {
     
     
-    public partial class ProductsSoon {
+    public partial class Prisoners {
         
         /// <summary>
-        /// productRepeater control.
+        /// test2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater productRepeater;
+        protected global::System.Web.UI.WebControls.HyperLink test2;
         
         /// <summary>
-        /// notfoundProduct control.
+        /// rprtPrisoners control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notfoundProduct;
-        
-        /// <summary>
-        /// ModalSuccess control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Justice.ModalSuccess ModalSuccess;
+        protected global::System.Web.UI.WebControls.Repeater rprtPrisoners;
     }
 }

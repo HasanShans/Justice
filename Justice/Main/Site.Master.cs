@@ -15,7 +15,8 @@ namespace Justice
     {
         public string Username;
         protected void Page_Load(object sender, EventArgs e)
-        {
+        { 
+
             BindCategories();
             
             if (Session["NAME"] == null)

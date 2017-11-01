@@ -69,7 +69,15 @@
             </div>
         </div>
     </section>
+    <uc:ModalSuccess ID="ModalSuccess" runat="server" />
+    <script>
+        function openModal() {
+            $('#myModal').modal('show');
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="EndContent" runat="server">
+    
     <%: Scripts.Render("~/bundles/indexJs") %>
+    
 </asp:Content>

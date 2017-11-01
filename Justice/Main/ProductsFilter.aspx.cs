@@ -34,6 +34,46 @@ namespace Justice.Main
                 BindSearchResults();
             }
         }
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)(sender);
+
+            int ProductID = int.Parse(btn.CommandArgument);
+            if (Session["NAME"] != null)
+            {
+                int UserID = Convert.ToInt32(Session["ID"]);
+                if (DB.Connection.State == ConnectionState.Closed)
+                    DB.Connection.Open();
+                SqlCommand comm2 = new SqlCommand("CartSelectByUserIDAndProductID", DB.Connection);
+                comm2.CommandType = CommandType.StoredProcedure;
+                comm2.Parameters.AddWithValue("@user_id", UserID);
+                comm2.Parameters.AddWithValue("@product_id", ProductID);
+                int ifExists = Convert.ToInt32(comm2.ExecuteScalar());
+                if (ifExists == 0)
+                {
+                    SqlCommand comm = new SqlCommand("CartCreate", DB.Connection);
+                    comm.CommandType = CommandType.StoredProcedure;
+                    comm.Parameters.AddWithValue("@user_id", UserID);
+                    comm.Parameters.AddWithValue("@product_id", ProductID);
+                    comm.ExecuteNonQuery();
+                    ModalSuccess.LabelModalMsg.Text = "Hörmətli istifadəçi, məhsul karta əlavə olundu.";
+                    ModalSuccess.BtnCancel.Text = "Alış-Verişə Davam";
+                    ModalSuccess.HlPurchase.Visible = true;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                }
+                else
+                {
+                    ModalSuccess.LabelModalMsg.Text = "Hörmətli istifadəçi, bu məhsul artıq kartınıza əlavə olunub";
+                    ModalSuccess.BtnCancel.Text = "Alış-Verişə Davam";
+                    ModalSuccess.HlPurchase.Visible = true;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                }
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
         private void BindMostSoldProducts()
         {
             producstHeader = "Ən Çox Satılan Məhsullar";
