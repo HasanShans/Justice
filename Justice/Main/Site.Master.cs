@@ -15,8 +15,8 @@ namespace Justice
     {
         public string Username;
         protected void Page_Load(object sender, EventArgs e)
-        {
-            ModalSuccess.Label1.Text = "Gadir";
+        { 
+
             BindCategories();
             
             if (Session["NAME"] == null)

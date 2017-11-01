@@ -1040,6 +1040,7 @@
     <Content Include="Main\Site.Master" />
     <Content Include="Staff\Add\Category.aspx" />
     <Content Include="Staff\Add\Jail.aspx" />
+    <Content Include="Staff\Add\Prisoner.aspx" />
     <Content Include="Staff\Add\Product.aspx" />
     <Content Include="Staff\Categories.aspx" />
     <Content Include="Staff\DeliveredOrders.aspx" />
@@ -1048,6 +1049,7 @@
     <Content Include="Staff\Login.aspx" />
     <Content Include="Staff\Orders.aspx" />
     <Content Include="Staff\PostDeliveredOrders.aspx" />
+    <Content Include="Staff\Prisoners.aspx" />
     <Content Include="Staff\Products.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -1216,6 +1218,13 @@
     <Compile Include="Staff\Add\Jail.aspx.designer.cs">
       <DependentUpon>Jail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Staff\Add\Prisoner.aspx.cs">
+      <DependentUpon>Prisoner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Add\Prisoner.aspx.designer.cs">
+      <DependentUpon>Prisoner.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Staff\Add\Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1278,6 +1287,13 @@
     </Compile>
     <Compile Include="Staff\PostDeliveredOrders.aspx.designer.cs">
       <DependentUpon>PostDeliveredOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Prisoners.aspx.cs">
+      <DependentUpon>Prisoners.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Prisoners.aspx.designer.cs">
+      <DependentUpon>Prisoners.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staff\Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>

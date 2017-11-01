@@ -115,7 +115,6 @@
                 </nav>
             </div>
         </header>
-
         <header id="header" class="top-header" style="border-bottom: 3px solid #FEBF00; padding-bottom: 10px; margin-bottom: 20px;">
             <div class="container">
                 <div class="row">
@@ -193,7 +192,7 @@
                         </div>
                         <div class="col-md-6">
                             <p class="pull-right">
-                                Programming by  <a href="http://fb.com/elsen.zairov.1" target="_blank">Elshan Zairov</a>  &amp; <a href="http://fb.com/vuqar1127" target="_blank">Vuqar Aqayev </a>&amp;
+                                Developed by  <a href="http://fb.com/elsen.zairov.1" target="_blank">Elshan Zairov</a>  &amp; <a href="http://fb.com/vuqar1127" target="_blank">Vuqar Aqayev </a>&amp;
                                 <a href="http://fb.com/hasan.shans" target="_blank">Hasan Shans</a>  &amp; <a href="http://fb.com/qadirn1" target="_blank">Qadir Novruzov </a>| Powered by Ministry of Justice &copy; 2017
                             </p>
                         </div>
@@ -207,10 +206,7 @@
         <script src="../Scripts/Admin/js/jquery.js"></script>
         <script src="/Scripts/Main/bootstrap.js"></script>
 
-     <uc:ModalSuccess ID="ModalSuccess" runat="server" />
-    <script>
-        $('#modal-success').modal('show');
-    </script>
+     
     </form>
 </body>
 </html>

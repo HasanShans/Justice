@@ -14,6 +14,9 @@ namespace Justice
 
         }
 
-        public Label Label1 { get { return modalLabel; } }
+        public Label LabelModalMsg { get { return modalLabel; } }
+        public HyperLink HlInformation { get { return hlInformation; } }
+        public Button BtnCancel { get { return btnCancel; } }
+        public HyperLink HlPurchase { get { return hlPurchase; } }
     }
 }

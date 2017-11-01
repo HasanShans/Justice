@@ -312,6 +312,12 @@
             </div>
         </div>
     </section>
+     <uc:ModalSuccess ID="ModalSuccess" runat="server" />
+    <script>
+        function openModal() {
+            $('#myModal').modal('show');
+        }
+    </script>
     <script type="text/javascript">jssor_1_slider_init();</script>
 </asp:Content>
   <asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">
