@@ -28,7 +28,7 @@
                                         <td><%# Eval("OrderDate") %></td>
                                         <td><%# Eval("StatusDisplay") %></td>
                                         <td><%# Eval("ProductCount") %></td>
-                                        <td><%# Eval("PaymentAmount") %></td>
+                                        <td><%# Eval("PaymentAmount") %> AZN    </td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>

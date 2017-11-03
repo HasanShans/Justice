@@ -16,6 +16,8 @@
                 <asp:Button runat="server" ID="btnCancel" CssClass="btn btn-default" data-dismiss="modal" Text="Ləğv Et" CausesValidation="false"></asp:Button>
                 <asp:HyperLink runat="server" ID="hlInformation" CssClass="btn btn-primary" Text="Şəxsi Məlumatlarım" CausesValidation="false" NavigateUrl="~/Main/Information.aspx" Visible="false"></asp:HyperLink>
                 <asp:HyperLink runat="server" ID="hlPurchase" CssClass="btn btn-primary" Text="Səbətim" CausesValidation="false" NavigateUrl="~/Main/Purchase.aspx" Visible="false"></asp:HyperLink>
+                <asp:HyperLink runat="server" ID="hlLogin" CssClass="btn btn-primary" Text="Login" CausesValidation="false" NavigateUrl="~/Main/Login.aspx" Visible="false"></asp:HyperLink>
+                <asp:HyperLink runat="server" ID="hlIndex" CssClass="btn btn-primary" Text="Ana Səhifəyə Get" CausesValidation="false" NavigateUrl="~/Main/Index.aspx" Visible="false"></asp:HyperLink>
             </div>
         </div>
 

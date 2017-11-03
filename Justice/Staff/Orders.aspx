@@ -26,7 +26,7 @@
                                     <th>Seriya AZE №</th>
                                     <th>Şəhər</th>
                                     <th>Telefon</th>
-                                    <th>zip</th>
+                                    <th>Zip</th>
                                     <th>Məbləğ (azn)</th>
                                     <th>Status</th>
                                 </tr>
@@ -58,7 +58,7 @@
                                     <th>Seriya AZE №</th>
                                     <th>Şəhər</th>
                                     <th>Telefon</th>
-                                    <th>zip</th>
+                                    <th>Zip</th>
                                     <th>Məbləğ (azn)</th>
                                     <th>Status</th>
                                 </tr>

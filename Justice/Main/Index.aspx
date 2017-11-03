@@ -262,7 +262,7 @@
     <section id="products">
         <div class="container">
             <div class="col-md-12 title">
-                <h3>Bütün Məhsullar</h3>
+                <h3><%= productsHeader %></h3>
             </div>
             <div class="row">
                 <asp:Repeater  ID="productRepeater" runat="server">

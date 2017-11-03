@@ -14,6 +14,7 @@ namespace Justice.Main
     public partial class Index : System.Web.UI.Page
     {
         public Dictionary<string, string> data = new Dictionary<string, string>();
+        public string productsHeader = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             BindProducts();
@@ -33,7 +34,7 @@ namespace Justice.Main
             sqlDataAdapter.Fill(dataTable);
             if (dataTable.Rows.Count != 0)
             {
-                data.Add("MSImagePath", dataTable.Rows[0]["ID"].ToString()+"/"+ dataTable.Rows[0]["Name"].ToString()+ dataTable.Rows[0]["Extention"].ToString());
+                data.Add("MSImagePath", dataTable.Rows[0]["ID"].ToString() + "/" + dataTable.Rows[0]["Name"].ToString() + dataTable.Rows[0]["Extention"].ToString());
                 data.Add("MSProductName", dataTable.Rows[0]["ProductName"].ToString());
                 data.Add("MSPrice", dataTable.Rows[0]["DiscountPrice"].ToString());
             }
@@ -41,7 +42,7 @@ namespace Justice.Main
             {
                 mostSoldProducts.Visible = false;
             }
-            
+
         }
         private void BindNewProducts()
         {
@@ -92,6 +93,7 @@ namespace Justice.Main
             SqlCommand sqlCommand;
             if (Request.QueryString.AllKeys.Contains("Category"))
             {
+                productsHeader = Request.QueryString["Category"].ToString();
                 slider.Visible = false;
                 String categoryName = Request.QueryString["Category"].ToString();
                 sqlCommand = new SqlCommand("ProductsSelectByCategoryNameJoinCategoriesImages", DB.Connection);
@@ -99,6 +101,7 @@ namespace Justice.Main
             }
             else
             {
+                productsHeader = "Bütün Məhsullar";
                 sqlCommand = new SqlCommand("ProductsSelectAllJoinImages", DB.Connection);
             }
             sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -120,7 +123,7 @@ namespace Justice.Main
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)(sender);
-           
+
             int ProductID = int.Parse(btn.CommandArgument);
             if (Session["NAME"] != null)
             {
@@ -139,10 +142,7 @@ namespace Justice.Main
                     comm.Parameters.AddWithValue("@user_id", UserID);
                     comm.Parameters.AddWithValue("@product_id", ProductID);
                     comm.ExecuteNonQuery();
-                    ModalSuccess.LabelModalMsg.Text = "Hörmətli istifadəçi, məhsul karta əlavə olundu.";
-                    ModalSuccess.BtnCancel.Text = "Alış-Verişə Davam";
-                    ModalSuccess.HlPurchase.Visible = true;
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    Response.Redirect("~/Main/Purchase.aspx");
                 }
                 else
                 {

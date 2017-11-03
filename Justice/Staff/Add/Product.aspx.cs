@@ -51,6 +51,7 @@ namespace Justice.Staff.Add
             if (!IsPostBack)
             {
                 txtPname.Text = dataTable.Rows[0]["ProductName"].ToString();
+                txtPcode.Text = dataTable.Rows[0]["Code"].ToString();
                 txtPsize.Text = dataTable.Rows[0]["Size"].ToString();
                 txtPMaterial.Text = dataTable.Rows[0]["Material"].ToString();
                 txtPdescription.Text = dataTable.Rows[0]["Description"].ToString();
@@ -70,11 +71,8 @@ namespace Justice.Staff.Add
                     rblPavailability.SelectedIndex = 1;
                 }
             }
+            imagesForm.Visible = false;
             RequiredFieldValidator1.Enabled = false;
-            img1p.Visible = false;
-            img2p.Visible = false;
-            img3p.Visible = false;
-            img4p.Visible = false;
             btnEdit.Visible = true;
             btnSave.Visible = false;
         }
@@ -164,6 +162,7 @@ namespace Justice.Staff.Add
             }
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@ProductName", txtPname.Text.ToString().Trim());
+            sqlCommand.Parameters.AddWithValue("@Code", txtPcode.Text.ToString().Trim());
             sqlCommand.Parameters.AddWithValue("@Size", txtPsize.Text.ToString().Trim());
             sqlCommand.Parameters.AddWithValue("@Material", txtPMaterial.Text.ToString().Trim());
             sqlCommand.Parameters.AddWithValue("@Description", txtPdescription.Text.ToString().Trim());

@@ -32,12 +32,14 @@ namespace Justice.Main
             } else if (Request.QueryString.AllKeys.Contains("search"))
             {
                 BindSearchResults();
+            }else if(Request.QueryString["filter"] == "DiscountProducts")
+            {
+                BindDiscountProducts();
             }
         }
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)(sender);
-
             int ProductID = int.Parse(btn.CommandArgument);
             if (Session["NAME"] != null)
             {
@@ -56,10 +58,7 @@ namespace Justice.Main
                     comm.Parameters.AddWithValue("@user_id", UserID);
                     comm.Parameters.AddWithValue("@product_id", ProductID);
                     comm.ExecuteNonQuery();
-                    ModalSuccess.LabelModalMsg.Text = "Hörmətli istifadəçi, məhsul karta əlavə olundu.";
-                    ModalSuccess.BtnCancel.Text = "Alış-Verişə Davam";
-                    ModalSuccess.HlPurchase.Visible = true;
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    Response.Redirect("~/Main/Purchase.aspx");
                 }
                 else
                 {
@@ -72,6 +71,27 @@ namespace Justice.Main
             else
             {
                 Response.Redirect("Login.aspx");
+            }
+        }
+        private void BindDiscountProducts()
+        {
+            producstHeader = "Endirimdə Olan Məhsullar";
+            if (DB.Connection.State == ConnectionState.Closed)
+                DB.Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("ProductsSelectDiscounted", DB.Connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.ExecuteNonQuery();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            if (dataTable.Rows.Count != 0)
+            {
+                productRepeater.DataSource = dataTable;
+                productRepeater.DataBind();
+            }
+            else
+            {
+                notfoundProduct.Visible = true;
             }
         }
         private void BindMostSoldProducts()

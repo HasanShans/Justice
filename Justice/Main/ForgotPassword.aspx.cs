@@ -32,11 +32,11 @@ namespace Justice.Main
             sqlDataAdapter.Fill(dataTable);
             if (dataTable.Rows.Count != 0)
             {
-                if (Convert.ToInt32(dataTable.Rows[0][11]) == 1)
+                if (Convert.ToInt32(dataTable.Rows[0]["Verified"]) == 1)
                 {
-                    String Name = dataTable.Rows[0][1] + " " + dataTable.Rows[0][2];
+                    String Name = dataTable.Rows[0]["FirstName"] + " " + dataTable.Rows[0]["LastName"];
                     String myGUID = Guid.NewGuid().ToString();
-                    int Uid = Convert.ToInt32(dataTable.Rows[0][0]);
+                    int Uid = Convert.ToInt32(dataTable.Rows[0]["ID"]);
                     SqlCommand sqlCommand1 = new SqlCommand("ForgotPassRequestsCreate", DB.Connection);
                     sqlCommand1.CommandType = CommandType.StoredProcedure;
                     sqlCommand1.Parameters.AddWithValue("@ID", myGUID);
@@ -46,8 +46,7 @@ namespace Justice.Main
 
                     //Send Mail
 
-                    String toEmailAddress = dataTable.Rows[0][3].ToString();
-                    String username = dataTable.Rows[0][1].ToString();
+                    String toEmailAddress = dataTable.Rows[0]["Email"].ToString();
                     String messageBody = "Salam, Hörmətli " + Name + ". <br/><br/>Şifrənizi yeniləmək <a href=\" http://localhost:50857/Main/RecoverPassword.aspx?UserID=" + myGUID + "\">bu linkə</a> klikləyin. <br/><br/>Həbsxana İncəsənəti";
                     MailMessage mailMessage = new MailMessage("youremail@address.com", toEmailAddress);
                     mailMessage.Body = messageBody;
@@ -59,8 +58,13 @@ namespace Justice.Main
                     smtpClient.EnableSsl = true;
                     smtpClient.Send(mailMessage);
 
+                    Label1.Visible = false;
+                    Label2.Visible = false;
+                    tbEmail.Visible = false;
+                    btRequestForgot.Visible = false;
+                    lblMsg.Font.Size = 15;
                     lblMsg.Text = "Şifrənizi Yeniləmək Üçün Email-nizi Yoxlayın";
-                    lblMsg.ForeColor = System.Drawing.Color.Green;
+                    lblMsg.ForeColor = System.Drawing.Color.Black;
                 }
                 else
                 {

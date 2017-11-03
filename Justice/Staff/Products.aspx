@@ -31,7 +31,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Məhsul Kodu</th>
+                                    <th>Kod</th>
                                     <th>Ad</th>
                                     <th>Kateqoriya</th>
                                     <th>Cəzaçəkmə Müəssisəsi</th>
@@ -64,7 +64,7 @@
                             <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Məhsul Kodu</th>
+                                    <th>Kod</th>
                                     <th>Ad</th>
                                     <th>Kateqoriya</th>
                                     <th>Cəzaçəkmə Müəssisəsi</th>

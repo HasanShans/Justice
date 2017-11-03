@@ -60,7 +60,7 @@
                                     </ul>
                                 </li>
                                 <li class="uppercase">
-                                    <asp:HyperLink runat="server" ID="effect" NavigateUrl="#"><i CssClass="fa fa-gift hidden-md hidden-sm" style="color: #FEBF00;"></i><strong>&nbsp;KAMPANİYALAR</strong></asp:HyperLink></li>
+                                    <asp:HyperLink runat="server" ID="effect" NavigateUrl="~/Main/ProductsFilter.aspx?filter=DiscountProducts"><i CssClass="fa fa-gift hidden-md hidden-sm" style="color: #FEBF00;"></i><strong>&nbsp;KAMPANİYALAR</strong></asp:HyperLink></li>
                                 <li class="mypage.php">
                                     <asp:HyperLink ID="linkMypage" runat="server" NavigateUrl="~/Main/Information.aspx">SƏHİFƏM</asp:HyperLink></li>
                                 <!-- telefon formatinda acilacaq olanlar -->

@@ -56,7 +56,7 @@ namespace Justice.Main
                         SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand2);
                         DataTable dataTable = new DataTable();
                         sqlDataAdapter.Fill(dataTable);
-                        int UserID = Convert.ToInt32(dataTable.Rows[0][0])*7654321;
+                        int UserID = Convert.ToInt32(dataTable.Rows[0]["ID"])*7654321;
 
                         //Send mail to user for verification
 

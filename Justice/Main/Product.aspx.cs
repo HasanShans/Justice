@@ -100,13 +100,28 @@ namespace Justice.Main
                 int ifExists = Convert.ToInt32(comm2.ExecuteScalar());
                 if (ifExists == 0)
                 {
-                    SqlCommand comm = new SqlCommand("CartCreate", DB.Connection);
-                    comm.CommandType = CommandType.StoredProcedure;
-                    comm.Parameters.AddWithValue("@user_id", UserID);
-                    comm.Parameters.AddWithValue("@product_id", data["mehsul_ID"]);
-                    comm.ExecuteNonQuery();
+                    //Check if product is in stock
+
+                    SqlCommand comm1 = new SqlCommand("ProductCheckIfInStock", DB.Connection);
+                    comm1.CommandType = CommandType.StoredProcedure;
+                    comm1.Parameters.AddWithValue("@ID", data["mehsul_ID"]);
+                    int ifAvailable = Convert.ToInt32(comm1.ExecuteScalar());
+
+                    if (ifAvailable == 1)
+                    {
+                        SqlCommand comm = new SqlCommand("CartCreate", DB.Connection);
+                        comm.CommandType = CommandType.StoredProcedure;
+                        comm.Parameters.AddWithValue("@user_id", UserID);
+                        comm.Parameters.AddWithValue("@product_id", data["mehsul_ID"]);
+                        comm.ExecuteNonQuery();
+                        Response.Redirect("~/Main/Purchase.aspx");
+                    }
+                    else
+                    {
+                        ModalSuccess.LabelModalMsg.Text = "Hörmətli istifadəçi, hal-hazırda bu məhsul satışda olmadığı üçün, sifariş verə bilməzsiniz. Nəzərinizə çatdıraq ki, bu məhsul tezlikə satışda olacaq.";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    }
                 }
-                Response.Redirect("~/Main/Purchase.aspx");
             }
             else
             {

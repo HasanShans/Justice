@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="form-label">Məhsulun adı *</label>
+                            <label class="form-label">Adı *</label>
                             <span class="help">Məs :"Nərd"</span>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
@@ -23,35 +23,26 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Məhsulun ölçüsü *</label>
+                            <label class="form-label">Kodu *</label>
+                            <div class="input-with-icon  right">
+                                <i class=""></i>
+                                <asp:TextBox ID="txtPcode" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator11" CssClass="text-danger" runat="server" ErrorMessage="Məhsul Kodu Boş Qoyula Bilməz" ControlToValidate="txtPcode" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kateqoriyası *</label>
+                            <asp:DropDownList ID="ddlCategories" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Kateqoriyası Boş Qoyula Bilməz" ControlToValidate="ddlCategories" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Ölçüsü *</label>
                             <span class="help">En x uzunluq x hündürlük </span>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtPsize" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" CssClass="text-danger" runat="server" ErrorMessage="Məhsul Ölçüsü Boş Qoyula Bilməz" ControlToValidate="txtPsize" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Material növü *</label>
-                            <span class="help">Məs: "Taxta"</span>
-                            <div class="input-with-icon  right">
-                                <i class=""></i>
-                                <asp:TextBox ID="txtPMaterial" runat="server" CssClass="form-control"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Materialı Boş Qoyula Bilməz" ControlToValidate="txtPMaterial" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Məhsul haqqında əlavə məlumat </label>
-                            <span class="help">Məs: "dekor"</span>
-                            <div class="input-with-icon  right">
-                                <i class=""></i>
-                                <asp:TextBox ID="txtPdescription" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">İstehsal yeri *</label>
-                            <asp:DropDownList ID="ddlJails" CssClass="form-control" runat="server"></asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" CssClass="text-danger" runat="server" ErrorMessage="İstehsal Yeri Boş Qoyula Bilməz" ControlToValidate="ddlJails" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Ağırlıq (kq)</label>
@@ -63,7 +54,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Anbardakı sayı *</label>
+                            <label class="form-label">Material Növü *</label>
+                            <span class="help">Məs: "Taxta"</span>
+                            <div class="input-with-icon  right">
+                                <i class=""></i>
+                                <asp:TextBox ID="txtPMaterial" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Materialı Boş Qoyula Bilməz" ControlToValidate="txtPMaterial" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">İstehsal Yeri *</label>
+                            <asp:DropDownList ID="ddlJails" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" CssClass="text-danger" runat="server" ErrorMessage="İstehsal Yeri Boş Qoyula Bilməz" ControlToValidate="ddlJails" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Anbardakı Sayı *</label>
                             <span class="help">e.g. "say"</span>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
@@ -72,15 +77,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">İstehsalçı *</label>
+                            <label class="form-label">İstehsalçı Məhbus *</label>
                             <asp:DropDownList ID="ddlPrisoners" CssClass="form-control" runat="server"></asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" CssClass="text-danger" runat="server" ErrorMessage="Məhbus Adı Boş Qoyula Bilməz" ControlToValidate="ddlPrisoners" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Kateqoriyası *</label>
-                            <asp:DropDownList ID="ddlCategories" CssClass="form-control" runat="server"></asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Kateqoriyası Boş Qoyula Bilməz" ControlToValidate="ddlCategories" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Qiyməti *</label>
@@ -91,17 +90,25 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Endirim qiyməti *</label>
+                            <label class="form-label">Endirim Qiyməti *</label>
+                            <span class="help">əgər məhsulun qiymətində heç bir endirim muşahidə olunmursa məhsulun endirim qiyməti onun əsas qiyməti ilə bərabər olmalıdır</span>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtPdiscountPrice" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Məhsulun Endirim Qiyməti Şəkil Boş Qoyula Bilməz" ControlToValidate="txtPdiscountPrice" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label class="form-label">Məhsulun şəkli</label>
-                            <span class="help">(Minimum şəkil sayı 1)</span>
+                            <label class="form-label">Əlavə Məlumat </label>
+                            <span class="help">Məs: "dekor"</span>
+                            <div class="input-with-icon  right">
+                                <i class=""></i>
+                                <asp:TextBox ID="txtPdescription" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="form-group" runat="server" id="imagesForm">
+                            <label class="form-label" runat="server" id="lblImages">Məhsulun Şəkli</label>
+                            <span class="help" runat="server" id="spanImages">(Minimum şəkil sayı 1)</span>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:FileUpload ID="img1p" CssClass="form-control" runat="server" />

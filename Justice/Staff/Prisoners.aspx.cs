@@ -46,7 +46,7 @@ namespace Justice.Staff
 
         protected void PrisonerDeleteClick(object sender, EventArgs e)
         {
-            int PriosonerID = int.Parse(((sender as Button).NamingContainer.FindControl("lblPriosonerID") as Label).Text);
+            int PriosonerID = int.Parse(((sender as Button).NamingContainer.FindControl("lblPrisonerID") as Label).Text);
             if (DB.Connection.State == ConnectionState.Closed)
                 DB.Connection.Open();
             SqlCommand sqlCommand = new SqlCommand("PrisonersDeleteByID", DB.Connection);

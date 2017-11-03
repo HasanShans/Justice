@@ -46,13 +46,8 @@
                         <div class='sp-wrap'>
                             <asp:Repeater ID="rprtImages" runat="server">
                                 <ItemTemplate>
-<<<<<<< HEAD
                                      <a href='../../Content/Main/images/products/<%# Eval("ProductID") %>/<%# Eval("Name") %><%# Eval("Extention") %>'>
                                         <img src='../../Content/Main/images/products/<%# Eval("ProductID") %>/<%# Eval("Name") %><%# Eval("Extention") %>' alt=''></a>
-=======
-                                    <a href="../../Content/Main/images/products/<%# Eval("ProductID") %>/<%#Eval("Name") %><%#Eval("Extention") %>">
-                                        <img src="../../Content/Main/images/products/<%# Eval("ProductID") %>/<%#Eval("Name") %><%#Eval("Extention") %>" alt=''></a>
->>>>>>> afb36dae7c8b3201e79475ebe00b2f857e892008
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
@@ -191,6 +186,12 @@
             </div>
         </div>
     </section>
+     <uc:ModalSuccess ID="ModalSuccess" runat="server" />
+    <script>
+        function openModal() {
+            $('#myModal').modal('show');
+        }
+    </script>
 </asp:Content>
 
 <asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">

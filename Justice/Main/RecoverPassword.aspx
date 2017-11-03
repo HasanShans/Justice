@@ -13,14 +13,16 @@
                                     <asp:Label ID="lblPass" runat="server" CssClass="col-md-2 control-label" Text="Yeni Şifrə" Visible="False"></asp:Label>
                                     <div class="col-md-10">
                                         <asp:TextBox ID="tbPass" CssClass="form-control" runat="server" placeholder="Email" TextMode="Password"  Visible="False"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger" runat="server"  ErrorMessage="Şifrə Boş Qoyula Bilməz" ControlToValidate="tbPass"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator SetFocusOnError="true" Display="Dynamic" ID="RequiredFieldValidator1" CssClass="text-danger" runat="server"  ErrorMessage="Şifrə Boş Qoyula Bilməz" ControlToValidate="tbPass"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator Display = "Dynamic" ControlToValidate = "tbPass" ID="RegularExpressionValidator3" ValidationExpression = "^[\s\S]{6,14}$" runat="server" ErrorMessage="Sizin Şifrə Minimum 6 Maksimum 14 Simvol Olmalıdır" SetFocusOnError="true"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <asp:Label ID="lblPassConf" runat="server" CssClass="col-md-2 control-label" Text="Yeni Şifrə Təkrar" Visible="False"></asp:Label>
                                     <div class="col-md-10">
                                         <asp:TextBox ID="tbPassConf" CssClass="form-control" runat="server" placeholder="Email" TextMode="Password" Visible="False"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Yeni Şifrə Boş Qoyula Bilməz" ControlToValidate="tbPassConf"></asp:RequiredFieldValidator>
+                                         <asp:CompareValidator id="comparePasswords" ToolTip="Şifrələr Eyni Olmalıdır" runat="server" ControlToCompare="tbPass" ControlToValidate="tbPassConf" SetFocusOnError="True"  ErrorMessage="Şifrələr Uyğun Deyil" Display="Dynamic" />
+                                        <asp:RequiredFieldValidator SetFocusOnError="true" Display="Dynamic" ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="Yeni Şifrə Boş Qoyula Bilməz" ControlToValidate="tbPassConf"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -35,6 +37,12 @@
             </div>
         </div>
     </section>
+     <uc:ModalSuccess ID="ModalSuccess" runat="server" />
+    <script>
+        function openModal() {
+            $('#myModal').modal('show');
+        }
+    </script>
 </asp:Content>
   <asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">
     <%: Scripts.Render("~/bundles/indexJs") %>

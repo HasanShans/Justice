@@ -18,5 +18,7 @@ namespace Justice
         public HyperLink HlInformation { get { return hlInformation; } }
         public Button BtnCancel { get { return btnCancel; } }
         public HyperLink HlPurchase { get { return hlPurchase; } }
+        public HyperLink HlLogin { get { return hlLogin; } }
+        public HyperLink HlIndex { get { return hlIndex; } }
     }
 }

@@ -28,7 +28,7 @@
                                     <tr>
                                         <th scope="row"><%# Eval("Number") %></th>
                                         <td><%# Eval("OrderDate") %></td>
-                                        <td><%# Eval("DiscountPrice") %></td>
+                                        <td><%# Eval("DiscountPrice") %> AZN</td>
                                         <td><%# Eval("ProductName") %></td>
                                     </tr>
                                 </ItemTemplate>

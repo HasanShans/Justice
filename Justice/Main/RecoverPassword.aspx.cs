@@ -32,11 +32,12 @@ namespace Justice.Main
                 sqlDataAdapter.Fill(dataTable);
                 if (dataTable.Rows.Count != 0)
                 {
-                    UserID = Convert.ToInt32(dataTable.Rows[0][1]);
+                    UserID = Convert.ToInt32(dataTable.Rows[0]["UserID"]);
                 }
                 else
                 {
-                    lblMsg.ForeColor = System.Drawing.Color.Red;
+                    lblMsg.Font.Size = 15;
+                    lblMsg.ForeColor = System.Drawing.Color.Black;
                     lblMsg.Text = "Sizin Şifrə Yeniləmə Linkinizin Vaxtı Bitib";
                 }
             }
@@ -78,7 +79,17 @@ namespace Justice.Main
                 sqlCommand1.Parameters.AddWithValue("@UserID", UserID);
                 sqlCommand1.ExecuteNonQuery();
                 DB.Connection.Close();
-                Response.Redirect("~/Main/Index.aspx");
+                tbPass.Visible = false;
+                tbPassConf.Visible = false;
+                lblPass.Visible = false;
+                lblPassConf.Visible = false;
+                btRequestForgot.Visible = false;
+                lblMsg.Font.Size = 15;
+                lblMsg.Text = "Şifrəniz Yeniləndi";
+                ModalSuccess.LabelModalMsg.Text = "Hörmətli istifadəçi, sizin şifrəniz uğurla yeniləndi. Aşağıdakı 'Login' düyməsinə klikləyərək hesabınıza daxil ola bilərsiniz.";
+                ModalSuccess.LabelModalMsg.Font.Size = 12;
+                ModalSuccess.HlLogin.Visible = true;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
         }
     }

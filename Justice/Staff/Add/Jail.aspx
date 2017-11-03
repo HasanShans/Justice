@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="form-label">Cəzaçəkmə müəssisəsi adı</label>
+                            <label class="form-label">Adı *</label>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtJail" runat="server" CssClass="form-control"></asp:TextBox>

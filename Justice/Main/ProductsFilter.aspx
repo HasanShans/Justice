@@ -28,8 +28,8 @@
                                         <p runat="server" class='pull-left' visible='<%# Eval("Price").ToString()==Eval("DiscountPrice").ToString() %>'><%# Eval("Price") %> AZN</p>
                                         <p runat="server" style="text-decoration: line-through" class='pull-left' visible='<%# Eval("Price").ToString()!=Eval("DiscountPrice").ToString() %>'><%# Eval("Price") %> AZN</p>
                                         <p runat="server" class='pull-left' visible='<%# Eval("Price").ToString()!=Eval("DiscountPrice").ToString() %>'><%# Eval("DiscountPrice") %> AZN</p>
-                                        <a href=''>
-                                            <asp:LinkButton CssClass="pull-right" ForeColor="#FEBF00" style="margin-right:10px;" runat="server" CommandArgument='<%# Eval("ID") %>' OnClick="btnAddToCart_Click" data-toggle="tooltip" title="Səbətə əlavə et"><i class='fa fa-cart-plus fa-2x' aria-hidden='true' ></i></asp:LinkButton>
+                                        <a href='' runat="server" id="btnAddToCart">
+                                            <asp:LinkButton ID="btnbtn" CssClass="pull-right" ForeColor="#FEBF00" style="margin-right:10px;" runat="server" CommandArgument='<%# Eval("ID") %>' OnClick="btnAddToCart_Click" data-toggle="tooltip" title="Səbətə əlavə et"><i class='fa fa-cart-plus fa-2x' aria-hidden='true' ></i></asp:LinkButton>
                                         </a>
                                     </div>
                                 </div>

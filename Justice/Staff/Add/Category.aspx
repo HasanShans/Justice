@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="form-label">Kateqoriya adı</label>
+                            <label class="form-label">Adı *</label>
                             <div class="input-with-icon  right">
                                 <i class=""></i>
                                 <asp:TextBox ID="txtCat" runat="server" CssClass="form-control"></asp:TextBox>

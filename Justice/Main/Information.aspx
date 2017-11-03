@@ -11,7 +11,7 @@
                     </div>
                     <div class="register">
                         <div class='form-group row'>
-                            <asp:Label ID="nameLabel" AssociatedControlID="nameTextBox" Text="Ad" CssClass="col-sm-3 col-form-label" runat="server" />
+                            <asp:Label ID="nameLabel" AssociatedControlID="nameTextBox" Text="Ad *" CssClass="col-sm-3 col-form-label" runat="server" />
                             <div class='col-sm-9'>
                                 <div class='input-group'>
                                     <span class='input-group-addon'><i class="fa fa-user"></i></span>
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class='form-group row'>
-                            <asp:Label ID="surnameLabel" AssociatedControlID="surnameTextBox" Text="Soyad" CssClass="col-sm-3 col-form-label" runat="server" />
+                            <asp:Label ID="surnameLabel" AssociatedControlID="surnameTextBox" Text="Soyad *" CssClass="col-sm-3 col-form-label" runat="server" />
                             <div class='col-sm-9'>
                                 <div class='input-group'>
                                     <span class='input-group-addon'><i class="fa fa-user"></i></span>
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class='form-group row'>
-                            <asp:Label ID="emailLabel" AssociatedControlID="emailTextBox" Text="Email" CssClass="col-sm-3 col-form-label" runat="server" placeholder="example@gmail.com" />
+                            <asp:Label ID="emailLabel" AssociatedControlID="emailTextBox" Text="Email *" CssClass="col-sm-3 col-form-label" runat="server" placeholder="example@gmail.com" />
                             <div class='col-sm-9'>
                                 <div class='input-group'>
                                     <span class='input-group-addon'><i class="fa fa-envelope"></i></span>
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class='form-group row'>
-                            <asp:Label ID="dateLabel" AssociatedControlID="dateTextBox" Text="Doğum tarixi" CssClass="col-sm-3 col-form-label" runat="server" />
+                            <asp:Label ID="dateLabel" AssociatedControlID="dateTextBox" Text="Doğum tarixi *" CssClass="col-sm-3 col-form-label" runat="server" />
                             <div class='col-sm-9'>
                                 <div class='input-group'>
                                     <span class='input-group-addon'><i class="fa fa-calendar"></i></span>
