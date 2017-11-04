@@ -13,7 +13,7 @@ namespace Justice.Staff
         {
             if (Session["ADMINSESSION"] == null)
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("~/Staff/Login.aspx");
             }
         }
 

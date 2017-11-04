@@ -246,9 +246,9 @@
                                 <img src='../Content/Main/images/products/<%= data["CPImagePath"] %>' alt=''>
                             </div>
                             <div class='col-md-7'>
-                                <h3><%= data["NPProductName"] %></h3>
+                                <h3><%= data["CPProductName"] %></h3>
                                 <div class='addShopp'>
-                                    <p class='pull-left'><%= data["NPPrice"] %> AZN</p>
+                                    <p class='pull-left'><%= data["CPPrice"] %> AZN</p>
                                     <a href=''></a>
                                 </div>
                             </div>

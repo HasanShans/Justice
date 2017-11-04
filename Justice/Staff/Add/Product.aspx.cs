@@ -184,73 +184,40 @@ namespace Justice.Staff.Add
 
             if (img1p.HasFile)
             {
-                string savePath = Server.MapPath("~/Content/Main/images/products/") + lastInsertedID;
-                if (!Directory.Exists(savePath))
-                {
-                    Directory.CreateDirectory(savePath);
-                }
-                string extention = Path.GetExtension(img1p.PostedFile.FileName);
-                img1p.SaveAs(savePath + "\\" + txtPname.Text.ToString().Trim() + "01" + extention);
-                SqlCommand sqlCommand3 = new SqlCommand("ImagesCreate", DB.Connection);
-                sqlCommand3.CommandType = CommandType.StoredProcedure;
-                sqlCommand3.Parameters.AddWithValue("@ProductID", lastInsertedID);
-                sqlCommand3.Parameters.AddWithValue("@Name", txtPname.Text.ToString().Trim() + "01");
-                sqlCommand3.Parameters.AddWithValue("@Extention", extention);
-                sqlCommand3.Parameters.AddWithValue("@Role", "1");
-                sqlCommand3.ExecuteNonQuery();
+                LoadImage(img1p, "01", lastInsertedID, "1");
             }
             if (img2p.HasFile)
             {
-                string savePath = Server.MapPath("~/Content/Main/images/products/") + lastInsertedID;
-                if (!Directory.Exists(savePath))
-                {
-                    Directory.CreateDirectory(savePath);
-                }
-                string extention = Path.GetExtension(img2p.PostedFile.FileName);
-                img3p.SaveAs(savePath + "\\" + txtPname.Text.ToString().Trim() + "02" + extention);
-                SqlCommand sqlCommand3 = new SqlCommand("ImagesCreate", DB.Connection);
-                sqlCommand3.CommandType = CommandType.StoredProcedure;
-                sqlCommand3.Parameters.AddWithValue("@ProductID", lastInsertedID);
-                sqlCommand3.Parameters.AddWithValue("@Name", txtPname.Text.ToString().Trim() + "02");
-                sqlCommand3.Parameters.AddWithValue("@Extention", extention);
-                sqlCommand3.Parameters.AddWithValue("@Role", "0");
-                sqlCommand3.ExecuteNonQuery();
+                LoadImage(img2p, "02", lastInsertedID, "0");
             }
             if (img3p.HasFile)
             {
-                string savePath = Server.MapPath("~/Content/Main/images/products/") + lastInsertedID;
-                if (!Directory.Exists(savePath))
-                {
-                    Directory.CreateDirectory(savePath);
-                }
-                string extention = Path.GetExtension(img3p.PostedFile.FileName);
-                img3p.SaveAs(savePath + "\\" + txtPname.Text.ToString().Trim() + "03" + extention);
-                SqlCommand sqlCommand3 = new SqlCommand("ImagesCreate", DB.Connection);
-                sqlCommand3.CommandType = CommandType.StoredProcedure;
-                sqlCommand3.Parameters.AddWithValue("@ProductID", lastInsertedID);
-                sqlCommand3.Parameters.AddWithValue("@Name", txtPname.Text.ToString().Trim() + "03");
-                sqlCommand3.Parameters.AddWithValue("@Extention", extention);
-                sqlCommand3.Parameters.AddWithValue("@Role", "0");
-                sqlCommand3.ExecuteNonQuery();
+                LoadImage(img3p, "03", lastInsertedID, "0");
             }
             if (img4p.HasFile)
             {
-                string savePath = Server.MapPath("~/Content/Main/images/products/") + lastInsertedID;
-                if (!Directory.Exists(savePath))
-                {
-                    Directory.CreateDirectory(savePath);
-                }
-                string extention = Path.GetExtension(img4p.PostedFile.FileName);
-                img4p.SaveAs(savePath + "\\" + txtPname.Text.ToString().Trim() + "04" + extention);
-                SqlCommand sqlCommand3 = new SqlCommand("ImagesCreate", DB.Connection);
-                sqlCommand3.CommandType = CommandType.StoredProcedure;
-                sqlCommand3.Parameters.AddWithValue("@ProductID", lastInsertedID);
-                sqlCommand3.Parameters.AddWithValue("@Name", txtPname.Text.ToString().Trim() + "04");
-                sqlCommand3.Parameters.AddWithValue("@Extention", extention);
-                sqlCommand3.Parameters.AddWithValue("@Role", "0");
-                sqlCommand3.ExecuteNonQuery();
+                LoadImage(img4p, "04", lastInsertedID, "0");
             }
             Response.Redirect("~/Staff/Products.aspx");
+        }
+
+        private void LoadImage(FileUpload imgFile, string numberOfImg, int lastInsertedID, string role)
+        {
+            string savePath = Server.MapPath("~/Content/Main/images/products/") + lastInsertedID;
+            if (!Directory.Exists(savePath))
+            {
+                Directory.CreateDirectory(savePath);
+            }
+            string extention = Path.GetExtension(imgFile.PostedFile.FileName);
+            string name = txtPname.Text.ToString().Replace(" ", "");
+            imgFile.SaveAs(savePath + "\\" + name + numberOfImg + extention);
+            SqlCommand sqlCommand3 = new SqlCommand("ImagesCreate", DB.Connection);
+            sqlCommand3.CommandType = CommandType.StoredProcedure;
+            sqlCommand3.Parameters.AddWithValue("@ProductID", lastInsertedID);
+            sqlCommand3.Parameters.AddWithValue("@Name", name + numberOfImg);
+            sqlCommand3.Parameters.AddWithValue("@Extention", extention);
+            sqlCommand3.Parameters.AddWithValue("@Role", role);
+            sqlCommand3.ExecuteNonQuery();
         }
     }
 }
