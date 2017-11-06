@@ -11,7 +11,7 @@
     <title>Həbsxana İncəsənəti | <%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        
         <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
         </asp:ContentPlaceHolder>
         <%: Styles.Render("~/bundles/mainCss") %>
@@ -69,32 +69,18 @@
                                     <i class="fa fa-shopping-cart"></i>Səbətim -  Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount"></span>
                                     </asp:HyperLink>
                                 </li>
-                                <li>
-                                    <div class="hidden-xs">
-                                        <div class="as-sepet">
-                                            <asp:HyperLink ID="linkCart" runat="server" NavigateUrl="~/Main/Purchase.aspx" CssClass="u-url shop-basket">
-                                                <i class="fa fa-shopping-cart"></i>
-                                                <span class="big">SƏBƏTİM</span>
-                                                <p>
-                                                    Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount">
-                                                        <asp:Label runat="server" ID="lblCartCount" Text=""></asp:Label>
-                                                    </span>
-                                                </p>
-                                            </asp:HyperLink>
-                                        </div>
-                                    </div>
-                                </li>
+                               
 
-                                <li class="dropdown  altmenu">
-                                    <asp:HyperLink ID="linkLoginReg" runat="server" NavigateUrl="#" CssClass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" Visible="false">Daxil Ol / Yeni<span class="caret"></span></asp:HyperLink>
+                                <li class="dropdown  altmenu pull-right" id="loginSignup">
+                                    <asp:HyperLink ID="linkLoginReg" runat="server" NavigateUrl="#" CssClass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" Visible="false">Daxil ol<span class="caret"></span></asp:HyperLink>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <asp:HyperLink runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink></li>
+                                            <asp:HyperLink runat="server" NavigateUrl="Login.aspx">Daxil ol</asp:HyperLink></li>
                                         <li>
-                                            <asp:HyperLink runat="server" NavigateUrl="Register.aspx">Üzv Ol</asp:HyperLink></li>
+                                            <asp:HyperLink runat="server" NavigateUrl="Register.aspx">Qeydiyyatdan keç</asp:HyperLink></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown  altmenu" style="float: right">
+                                <li class="dropdown  altmenu pull-right">
                                     <asp:HyperLink ID="linkNameEmail" runat="server" NavigateUrl="#" CssClass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" Visible="false"><%=Username %><span class="caret"></span></asp:HyperLink>
                                     <ul class="dropdown-menu">
                                         <li>
@@ -108,6 +94,21 @@
                                         <li>
                                             <asp:LinkButton runat="server" OnClick="signOut_Click" CausesValidation="false">Çıxış</asp:LinkButton></li>
                                     </ul>
+                                </li>
+                                 <li class="pull-right">
+                                    <div class="hidden-xs">
+                                        <div class="as-sepet">
+                                            <asp:HyperLink ID="linkCart" runat="server" NavigateUrl="~/Main/Purchase.aspx" CssClass="u-url shop-basket">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                <span class="big">SƏBƏTİM</span>
+                                                <p>
+                                                    Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount">
+                                                        <asp:Label runat="server" ID="lblCartCount" Text=""></asp:Label>
+                                                    </span>
+                                                </p>
+                                            </asp:HyperLink>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -160,20 +161,18 @@
                         </div>
                         <div class="col-md-3">
                             <ul>
-                                <li><a style="color: #FF9C00;" href="">Mənim Səhifəm</a> </li>
-                                <li><a href="">Məlumatlarım</a></li>
-                                <li><a href="">Ünvanlarım</a></li>
-                                <li><a href="">Sifarişlərim</a></li>
-                                <li><a href="">Bəyəndiklərim</a></li>
-                                <li><a href="">Qəbzlərim</a></li>
+                                <li><a style="color: #FF9C00;" href="../Main/Information.aspx">Mənim Səhifəm</a> </li>
+                                <li><a href="../Main/Information.aspx">Məlumatlarım</a></li>
+                                <li><a href="../Main/Orders.aspx">Sifarişlərim</a></li>
+                                <li><a href="../Main/Receipts.aspx">Qəbzlərim</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3">
                             <ul>
                                 <li><a style="color: #FF9C00;" href="">Menyular</a> </li>
-                                <li><a href="index.php">Ana səhifə</a></li>
-                                <li><a href="sunproducts.php">Tezliklə satışda</a></li>
-                                <li><a href="campaign.php">Kampaniyalar</a></li>
+                                <li><a href="../Main/Index.aspx">Ana səhifə</a></li>
+                                <li><a href="../Main/ProductsFilter?filter=DiscountProducts">Kampaniyalar</a></li>
+                                <li><a href="../Main/ProductsFilter?filter=ProductsSoon">Tezliklə satışda</a></li>
                             </ul>
                         </div>
                         <div class="col-md-2">
@@ -201,9 +200,11 @@
             </footer>
         </div>
         
+        
+        <script src="/Scripts/jquery-1.10.2.min.js"></script>
         <script src="/Scripts/Main/bootstrap.js"></script>
         <script src="/Scripts/Main/script.js"></script>
-        <%--<script src="/Scripts/Admin/js/jquery.js"></script>--%>
+        
         <asp:ContentPlaceHolder ID="EndContent" runat="server">
         </asp:ContentPlaceHolder>
     </form>

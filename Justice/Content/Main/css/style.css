@@ -30,7 +30,7 @@ html, body {
   .shop-basket p, .individual p {
     font-size: 11px;
     color: #a9a9a9;
-    width: 180px; }
+    width: 130px; }
   .shop-basket big, .individual big {
     text-transform: uppercase;
     font-size: 15px;
@@ -744,5 +744,10 @@ span.round-tab:hover {
     display: inline-block;
     text-align: left;
     vertical-align: middle;
+}
+
+.nav {
+    margin-left: 5px;
+    width: 100%;
 }
 
