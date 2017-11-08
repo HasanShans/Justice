@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps" rel="stylesheet">
+    <link href="~/Content/Main/fonts/googlefonts.css" rel="stylesheet">
     <link rel="icon" href="~/Content/Main/images/loqo.png">
     <title>Həbsxana İncəsənəti | <%: Page.Title %></title>
 
