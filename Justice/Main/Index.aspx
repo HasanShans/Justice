@@ -1,9 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Site.Master" CodeBehind="Index.aspx.cs" Inherits="Justice.Main.Index" Title="Ana Səhifə"%>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="HeaderContent" runat="Server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Justice.Main.Index" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="server">
     <script src="../Scripts/Main/jssor.slider-25.2.0.min.js"></script>
 </asp:Content>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
+<asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="Server">
     <script>
         jssor_1_slider_init = function () {
 
@@ -246,9 +245,9 @@
                                 <img src='../Content/Main/images/products/<%= data["CPImagePath"] %>' alt=''>
                             </div>
                             <div class='col-md-7'>
-                                <h3><%= data["NPProductName"] %></h3>
+                                <h3><%= data["CPProductName"] %></h3>
                                 <div class='addShopp'>
-                                    <p class='pull-left'><%= data["NPPrice"] %> AZN</p>
+                                    <p class='pull-left'><%= data["CPPrice"] %> AZN</p>
                                     <a href=''></a>
                                 </div>
                             </div>
@@ -320,7 +319,5 @@
     </script>
     <script type="text/javascript">jssor_1_slider_init();</script>
 </asp:Content>
-  <asp:Content ID="EndContent" ContentPlaceHolderID="EndContent" runat="server">
-
-
+<asp:Content ID="Content3" ContentPlaceHolderID="EndContent" runat="server">
 </asp:Content>
