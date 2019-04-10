@@ -1,0 +1,204 @@
+﻿ <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Justice.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/Content/Main/fonts/googlefonts.css" rel="stylesheet">
+    <link rel="icon" href="~/Content/Main/images/loqo.png">
+    <title><%: Page.Title %></title>
+
+    <asp:PlaceHolder runat="server">
+        <script src="/Scripts/Admin/js/jquery.js"></script>
+
+        <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <%: Styles.Render("~/bundles/mainCss") %>
+        <%: Styles.Render("~/bundles/mainSass") %>
+    </asp:PlaceHolder>
+</head>
+<body>
+    <form runat="server">
+        <style>
+            .top-primary-menu ul li a {
+                font-size: 12px;
+            }
+        </style>
+
+        <header class="top-primary-menu" style="border-top: 3px solid #FEBF00;">
+            <div class="container-fluid sifirla">
+                <nav style="border-bottom: none; margin-bottom: 0px;" class="navbar navbar-default navbar-static-top primary-menu">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                                MENYU
+                            </button>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li style="margin-right: 0px;" class="hidden-xs">
+                                    <asp:HyperLink runat="server" NavigateUrl="~/ana-səhifə" title=""><i class="fa fa-home"></i>ANA SƏHİFƏ</asp:HyperLink>
+                                </li>
+                                <li class="hidden-sm">
+                                    <asp:HyperLink runat="server" NavigateUrl="~/məhsul-filter?filter=ProductsSoon">TEZLİKLƏ SATIŞDA</asp:HyperLink></li>
+                                <li class="dropdown  altmenu">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KATEQORİYALAR <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <asp:Repeater ID="repeaterCategories" runat="server">
+                                            <ItemTemplate>
+                                                <li style="margin-right: 0px;" class="hidden-xs">
+                                                    <a href="ana-səhifə?kateqoriya=<%# Eval("CategoryName") %>"><%# Eval("CategoryName") %></a>
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                    </ul>
+                                </li>
+                                <li class="uppercase">
+                                    <asp:HyperLink runat="server" ID="effect" NavigateUrl="~/məhsul-filter?filter=DiscountProducts"><i class="fa fa-gift hidden-md hidden-sm" style="color: #FEBF00;"></i><strong>&nbsp;KAMPANİYALAR</strong></asp:HyperLink></li>
+                                <li class="mypage.php">
+                                    <asp:HyperLink ID="linkMypage" runat="server" NavigateUrl="~/şəxsi-məlumatlar">SƏHİFƏM</asp:HyperLink></li>
+                                <li class="mypage.php">
+                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/əlaqə">ƏLAQƏ</asp:HyperLink></li>
+                                <!-- telefon formatinda acilacaq olanlar -->
+                                <li class="visible-xs">
+                                    <asp:HyperLink runat="server" NavigateUrl="#" CssClass="u-url shop-basket">
+                                    <i class="fa fa-shopping-cart"></i>Səbətim -  Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount"></span>
+                                    </asp:HyperLink>
+                                </li>
+                                <li class="dropdown  altmenu pull-right">
+                                    <asp:HyperLink ID="linkLoginReg" runat="server" NavigateUrl="#" CssClass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" Visible="false">Daxil Ol<span class="caret"></span></asp:HyperLink>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <asp:HyperLink runat="server" NavigateUrl="~/login">Daxil Ol</asp:HyperLink></li>
+                                        <li>
+                                            <asp:HyperLink runat="server" NavigateUrl="~/qeydiyyat">Qeydiyyatdan Keç</asp:HyperLink></li>
+
+                                    </ul>
+                                </li>
+                                <li class="dropdown  altmenu pull-right">
+                                    <asp:HyperLink ID="linkNameEmail" runat="server" NavigateUrl="#" CssClass="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" Visible="false"><%=Username %><span class="caret"></span></asp:HyperLink>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <asp:HyperLink runat="server" NavigateUrl="~/şəxsi-məlumatlar">Səhifəm</asp:HyperLink></li>
+                                        <li>
+                                        <li>
+                                            <asp:HyperLink runat="server" NavigateUrl="~/sifarişlərim">Sifarişlərim</asp:HyperLink></li>
+                                        <li>
+                                        <li>
+                                            <asp:HyperLink runat="server" NavigateUrl="~/səbət">Səbətim</asp:HyperLink></li>
+                                        <li>
+                                            <asp:LinkButton runat="server" OnClick="signOut_Click" CausesValidation="false">Çıxış</asp:LinkButton></li>
+                                    </ul>
+                                </li>
+                                <li class="pull-right">
+                                    <div class="hidden-xs">
+                                        <div class="as-sepet">
+                                            <asp:HyperLink ID="linkCart" runat="server" NavigateUrl="~/səbət" CssClass="u-url shop-basket">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                <span class="big">SƏBƏTİM</span>
+                                                <p>
+                                                    Məhsul sayı: <span style="font-weight: 600; color: #FEBF00;" class="basketcount">
+                                                        <asp:Label runat="server" ID="lblCartCount" Text=""></asp:Label>
+                                                    </span>
+                                                </p>
+                                            </asp:HyperLink>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <header id="header" class="top-header" style="border-bottom: 3px solid #FEBF00; padding-bottom: 10px; margin-bottom: 20px;">
+            <div class="container">
+                <div class="row">
+                    <div class="middle-area ">
+                        <div class="logo col-md-3">
+                            <asp:HyperLink runat="server" NavigateUrl="~/ana-səhifə">
+                                <img class="img-responsive logo" src="/Content/Main/images/looogooo.png" alt="Logo" />
+                            </asp:HyperLink>
+                        </div>
+                        <div class="col-md-4 col-sm-12 hidden-xs">
+                            <h3 style="margin-top: 10px;">HƏBSXANA İNCƏSƏNƏTİ</h3>
+                        </div>
+                        <div class="search-form-block col-md-5 col-sm-12 col-xs-12">
+
+                            <input type="search" name="word" placeholder="Axtar...." id="txtSearch" autocomplete="off" />
+                            <asp:LinkButton ID="btnSearchMaster" runat="server" CssClass="send" OnClick="btnSearchMaster_Click">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </asp:LinkButton>
+                            <div class="search-suggests" id="divFilterSearch">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="conatiner-fluid">
+            <hr />
+            <section id="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="/Content/Main/images/Edliyye-Logo.png" alt="">
+                        </div>
+
+                        <div class="col-md-3">
+                            <ul>
+                                <li><a style="color: #FF9C00;" href="şəxsi-məlumatlar">Mənim Səhifəm</a> </li>
+                                <li><a href="şəxsi-məlumatlar">Məlumatlarım</a></li>
+                                <li><a href="sifarişlərim">Sifarişlərim</a></li>
+                                <li><a href="qəbzlər">Qəbzlərim</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <ul>
+                                <li><a style="color: #FF9C00;" href="#">Menyular</a> </li>
+                                <li><a href="ana-səhifə">Ana səhifə</a></li>
+                                <li><a href="məhsul-filter?filter=DiscountProducts">Kampaniyalar</a></li>
+                                <li><a href="məhsul-filter?filter=ProductsSoon">Tezliklə satışda</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2">
+                            <ul>
+                                <li><a style="color: #FF9C00;" href="əlaqə">Bizimlə əlaqə</a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="pull-left">Bütün hüquqlar qorunur © 2017. Ədliyyə Nazirliyi.</p>
+                        </div>
+                        <div class="col-md-6">
+                            
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script src="/Scripts/jquery-3.3.1.min.js"></script>
+        <script src="/Scripts/Main/bootstrap.js"></script>
+        <script src="/Scripts/Main/script.js"></script>
+
+        <asp:ContentPlaceHolder ID="EndContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+    <asp:ContentPlaceHolder ID="Extra" runat="server">
+        </asp:ContentPlaceHolder>
+</body>
+</html>

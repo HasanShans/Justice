@@ -31,15 +31,15 @@ namespace Justice
 
             bundles.Add(new ScriptBundle("~/bundles/indexJs").Include(
                 "~/Scripts/Main/bootstrap.js",
-                "~/Scripts/Main/jquery-3.1.1.min.js",
-                "~/Scripts/Main/bootstrap.min.js",
+                "~/Scripts/Main/jquery-3.1.1.js",
+                "~/Scripts/Main/bootstrap.js",
                 "~/Scripts/Main/script.js",
                 "~/Scripts/Main/font-awesome.js"
                 ));
 
             bundles.Add(new StyleBundle("~/bundles/adminCss").Include(
                "~/Content/Admin/css/bootstrap.css",
-               "~/Content/Admin/css/font-awesome.min.css",
+               "~/Content/Admin/css/font-awesome.css",
                "~/Content/Admin/css/ionicons.css",
                "~/Content/Admin/css/dataTables.bootstrap.css",
                "~/Content/Admin/css/AdminLTE.css",
@@ -58,8 +58,8 @@ namespace Justice
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/mainJs").IncludeDirectory("~/Scripts/Main/", "*.js", false));
-            bundles.Add(new StyleBundle("~/bundles/mainCss").IncludeDirectory("~/Content/Main/css", "*.css", false));
-            bundles.Add(new StyleBundle("~/bundles/mainSass").IncludeDirectory("~/Content/Main/sass", "*.sass", false));
+            bundles.Add(new StyleBundle("~/bundles/mainCss").IncludeDirectory("~/Content/Main/css/", "*.css", false));
+            bundles.Add(new StyleBundle("~/bundles/mainSass").IncludeDirectory("~/Content/Main/sass/", "*.sass", false));
 
             //bundles.Add(new StyleBundle("~/bundles/adminCss").IncludeDirectory("~/Scripts/Admin/plugins", "*.css", true)
             //                                   .IncludeDirectory("~/Content/Admin/css", "*.css"));

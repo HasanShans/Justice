@@ -29,48 +29,48 @@ namespace Justice.Staff.Add
         private void BindPrisonerDetails()
         {
             PrisonerID = Convert.ToInt32(Request.QueryString["PrisonerID"]);
-            if (DB.Connection.State == ConnectionState.Closed)
-                DB.Connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("PrisonersSelectByID", DB.Connection);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@ID", PrisonerID);
-            sqlCommand.ExecuteNonQuery();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            if (!IsPostBack)
+            using (SqlConnection connection = new SqlConnection(DB.ConnectionString))
             {
-                txtPrisonerName.Text = dataTable.Rows[0]["FirstName"].ToString();
-                txtPrisonerSurname.Text = dataTable.Rows[0]["LastName"].ToString();
-                txtPrisonerInfo.Text = dataTable.Rows[0]["Information"].ToString();
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("PrisonersSelectByID", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@ID", PrisonerID);
+                sqlCommand.ExecuteNonQuery();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (!IsPostBack)
+                {
+                    txtPrisonerName.Text = dataTable.Rows[0]["FirstName"].ToString();
+                    txtPrisonerSurname.Text = dataTable.Rows[0]["LastName"].ToString();
+                    txtPrisonerInfo.Text = dataTable.Rows[0]["Information"].ToString();
+                }
+                btnEdit.Visible = true;
+                btnSave.Visible = false;
             }
-            btnEdit.Visible = true;
-            btnSave.Visible = false;
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (DB.Connection.State == ConnectionState.Closed)
-                DB.Connection.Open();
-            SqlCommand sqlCommand;
-            if (Request.QueryString.AllKeys.Contains("PrisonerID"))
+            using (SqlConnection connection = new SqlConnection(DB.ConnectionString))
             {
-                sqlCommand = new SqlCommand("PrisonersUpdate", DB.Connection);
-                sqlCommand.Parameters.AddWithValue("@ID", PrisonerID);
+                connection.Open();
+                SqlCommand sqlCommand;
+                if (Request.QueryString.AllKeys.Contains("PrisonerID"))
+                {
+                    sqlCommand = new SqlCommand("PrisonersUpdate", connection);
+                    sqlCommand.Parameters.AddWithValue("@ID", PrisonerID);
+                }
+                else
+                {
+                    sqlCommand = new SqlCommand("PrisonersCreate", connection);
+                }
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@FirstName", txtPrisonerName.Text.ToString().Trim());
+                sqlCommand.Parameters.AddWithValue("@LastName", txtPrisonerSurname.Text.ToString().Trim());
+                sqlCommand.Parameters.AddWithValue("@Information", txtPrisonerInfo.Text.ToString().Trim());
+                sqlCommand.ExecuteNonQuery();
             }
-            else
-            {
-                sqlCommand = new SqlCommand("PrisonersCreate", DB.Connection);
-            }
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@FirstName", txtPrisonerName.Text.ToString().Trim());
-            sqlCommand.Parameters.AddWithValue("@LastName", txtPrisonerSurname.Text.ToString().Trim());
-            sqlCommand.Parameters.AddWithValue("@Information", txtPrisonerInfo.Text.ToString().Trim());
-            sqlCommand.ExecuteNonQuery();
-            Response.Redirect("~/Staff/Prisoners.aspx");
+            Response.Redirect("~/root/məhbuslar");
         }
-
-
-
-
     }
 }

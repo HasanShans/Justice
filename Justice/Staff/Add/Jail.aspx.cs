@@ -28,40 +28,46 @@ namespace Justice.Staff.Add
         private void BindJailDetails()
         {
             JailID = Convert.ToInt32(Request.QueryString["JailID"]);
-            if (DB.Connection.State == ConnectionState.Closed)
-                DB.Connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("JailsSelectByID", DB.Connection);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@ID", JailID);
-            sqlCommand.ExecuteNonQuery();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            if (!IsPostBack)
+            using (SqlConnection connection = new SqlConnection(DB.ConnectionString))
             {
-                txtJail.Text = dataTable.Rows[0][1].ToString();
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("JailsSelectByID", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@ID", JailID);
+                sqlCommand.ExecuteNonQuery();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (!IsPostBack)
+                {
+                    txtJail.Text = dataTable.Rows[0]["JailName"].ToString();
+                    txtJailNo.Text = dataTable.Rows[0]["JailNo"].ToString();
+                }
+                btnEdit.Visible = true;
+                btnSave.Visible = false;
             }
-            btnEdit.Visible = true;
-            btnSave.Visible = false;
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (DB.Connection.State == ConnectionState.Closed)
-                DB.Connection.Open();
-            SqlCommand sqlCommand;
-            if (Request.QueryString.AllKeys.Contains("JailID"))
+            using (SqlConnection connection = new SqlConnection(DB.ConnectionString))
             {
-                sqlCommand = new SqlCommand("JailsUpdate", DB.Connection);
-                sqlCommand.Parameters.AddWithValue("@ID", JailID);
+                connection.Open();
+                SqlCommand sqlCommand;
+                if (Request.QueryString.AllKeys.Contains("JailID"))
+                {
+                    sqlCommand = new SqlCommand("JailsUpdate", connection);
+                    sqlCommand.Parameters.AddWithValue("@ID", JailID);
+                }
+                else
+                {
+                    sqlCommand = new SqlCommand("JailsCreate", connection);
+                }
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@JailName", txtJail.Text.ToString().Trim());
+                sqlCommand.Parameters.AddWithValue("@jailNo", txtJailNo.Text.ToString().Trim());
+                sqlCommand.ExecuteNonQuery();
             }
-            else
-            {
-                sqlCommand = new SqlCommand("JailsCreate", DB.Connection);
-            }
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@JailName", txtJail.Text.ToString().Trim());
-            sqlCommand.ExecuteNonQuery();
-            Response.Redirect("~/Staff/Jails.aspx");
+            Response.Redirect("~/root/həbsxanalar");
         }
     }
 }

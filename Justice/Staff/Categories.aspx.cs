@@ -25,36 +25,38 @@ namespace Justice.Staff
 
         private void BindCategories()
         {
-            if (DB.Connection.State == ConnectionState.Closed)
-                DB.Connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("CategoriesSelectAll", DB.Connection);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.ExecuteNonQuery();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            rprtCategories.DataSource = dataTable;
-            rprtCategories.DataBind();
-            DB.Connection.Close();
+            using (SqlConnection connection = new SqlConnection(DB.ConnectionString))
+            {
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("CategoriesSelectAll", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.ExecuteNonQuery();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                rprtCategories.DataSource = dataTable;
+                rprtCategories.DataBind();
+            }
         }
 
         protected void CategoryEditClick(object sender, EventArgs e)
         {
             int CategoryID = int.Parse(((sender as Button).NamingContainer.FindControl("lblCatID") as Label).Text);
-            Response.Redirect("~/Staff/Add/Category?CategoryID=" + CategoryID);
+            Response.Redirect("~/root/yeni-kateqoriya?CategoryID=" + CategoryID);
         }
 
         protected void CategoryDeleteClick(object sender, EventArgs e)
         {
             int CategoryID = int.Parse(((sender as Button).NamingContainer.FindControl("lblCatID") as Label).Text);
-            if (DB.Connection.State == ConnectionState.Closed)
-                DB.Connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("CategoriesDeleteByID", DB.Connection);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("ID", CategoryID);
-            sqlCommand.ExecuteNonQuery();
-            BindCategories();
-            DB.Connection.Close();
+            using (SqlConnection connection = new SqlConnection(DB.ConnectionString))
+            {
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("CategoriesDeleteByID", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("ID", CategoryID);
+                sqlCommand.ExecuteNonQuery();
+                BindCategories();
+            }
         }
     }
 }

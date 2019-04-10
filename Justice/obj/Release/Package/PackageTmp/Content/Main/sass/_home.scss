@@ -1,0 +1,689 @@
+$color__primary--light: #4C3E30!default;
+// .navbar {
+//   background-image: url("../images/header.png"); 
+  
+//  .nav li a{
+//   	color:#CEA985;
+//   	} }
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+}
+
+html,body{
+	font-family: 'Roboto', sans-serif;
+
+	background-image:url("../images/download11.png"),url("../images/download.jpg");
+background-repeat: repeat-x, repeat, repeat; background-position: 0px 30px, 0% 0%, 0% 0%;
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 7px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #F90;	
+	background-image: -webkit-linear-gradient(45deg,
+	                                          rgba(255, 255, 255, .2) 25%,
+											  transparent 25%,
+											  transparent 50%,
+											  rgba(255, 255, 255, .2) 50%,
+											  rgba(255, 255, 255, .2) 75%,
+											  transparent 75%,
+											  transparent)
+}}
+// ----------------TOP HEADER---------------
+	.shop-basket, .individual {
+		cursor: pointer;
+		position:relative;
+		float: left;
+    	margin-top: 20px;
+		text-decoration: none;
+			&:hover{
+    			i{
+    				color:#FEBF00;
+    				transition: 1s;
+    			}
+    		}
+		
+		p{
+			font-size: 11px;
+    		color: #a9a9a9;
+    		width: 180px;
+
+		}
+		big{
+		    text-transform: uppercase;
+		    font-size: 15px;
+		    color: #484848;			
+		}
+		i{
+			font-size: 2.8em;
+		    color: #fedf80;
+		    float: left;
+		    padding-right: 11px;
+
+
+		}
+
+    
+	}
+
+.fixed{
+	position:fixed;
+	width:100%;
+	background:white; 
+	z-index:2;
+	top:0;
+	border-top:3px solid #FEBF00;
+	padding-top:10px;
+}
+.top-header{
+	h3{
+		text-shadow:2px 2px 8px rgba(255,255,255,1);font-weight:normal;font-variant:small-caps;color:#FEBF00;letter-spacing:1pt;word-spacing:2pt;font-size:25px;text-align:left;font-family:comic sans, comic sans ms, cursive, verdana, arial, sans-serif;line-height:1;
+
+	}
+
+	a {
+    -webkit-transition: color .3s;
+    transition: color .3s;
+	}
+	// border-top:3px solid #FEBF00;
+	// border-bottom:3px solid #FEBF00;
+
+	.list-inline{
+		font-size: 12px;
+		margin-top: 6px;
+	}
+	.menu-access{
+		margin-top: 6px;
+
+		ul{
+			padding-left:0px;
+		}
+		li {
+			list-style:none;
+		}
+		a{
+			text-decoration: none;
+			font-size: 12px;
+			color:#7C7C7C;
+
+
+		}
+	}
+	.top-quick-access{
+		margin-bottom: 25px;
+	}
+	.send, .search-form-block input[type=search]{
+		height: 42px;
+	    display: inline-block;
+	    margin-left: 0;
+	    border: 2px solid #fdcb32;
+	    border-radius: 2px;
+	    margin-right: -6px;
+
+	}
+	.search-form-block input[type=search]{
+		padding-left: 15px;
+    	padding-right: 15px;
+	        width: calc(100% - 53px);
+
+	}
+	.send{
+		 width: 53px;
+	    background-color: #febf00;
+	    color: #fff;
+	    text-transform: uppercase;
+	    text-align: center;
+	    position: relative;
+	    top: 3px;
+	    cursor: pointer;
+	     i {
+		    padding-top: 8px;
+		    font-size: 1.5em;
+		}
+
+
+	}
+		.left-search-text {
+	    float: left;
+		}
+		.right-search-text {
+		    float: right;
+		}
+		.left-search-text b {
+		    margin-left: 5px;
+		    font-size: 15px;
+		    color: #febf00;
+		}
+		.right-search-text b {
+		    margin-left: 5px;
+		    font-size: 15px;
+		    color: #febf00;
+		}
+		.logo {
+	    	// margin-top: 5px;
+		}
+		.shop-basket {
+	    	text-align: left;
+	    	margin-top: 20px;
+		}
+
+}
+
+	@media (max-width:991px) {
+	    .logo {
+	        margin: 40px auto 5px !important;
+
+	    }
+	    .right-search-text{
+	    	display: none;
+	    }
+	}
+		@media(max-width:767px) {
+	    .top-header {
+	        position: static !important;
+	        height: auto !important;
+	    }
+
+	    .search-form-block {
+	        margin-bottom: 15px !important;
+	    }
+	}
+	    @media(max-width:480px) {
+    .left-search-text, .right-search-text {
+        float: none;
+        text-align: center;
+    	}
+	}
+	// top-primary-menu
+	
+	.sifirla{
+		margin:0px;
+		padding:0px;
+	}
+
+
+
+	@media(max-width:767px) {
+    .primary-menu ul li {
+        width: 100%;
+    }
+
+        .primary-menu ul li:after {
+            background: 0 0;
+        }
+	}
+		// -------------- menu uzatmaq-------------------
+	.navbar-toggle {
+	    float: none;
+	    margin: 8px 0;
+	    width: 100%;
+	    border: none;
+	    border-radius: 0;
+	    font-weight: 700;
+	    color: #febf00;
+	}
+
+	.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+	    background-color: #febf00 !important;
+	    color: #fff;
+	}
+	.navbar-default {
+	    background-color: #f8f8f8;
+	    border-color: #e7e7e7;
+	    border-bottom: 3px solid #FEBF00;
+	}
+	.top-primary-menu{
+	 ul li a{
+	 	font-size: 13px;
+	 }
+	}
+// ------------SLIDER---------------
+#slider{
+		.product{
+		&:hover{
+-webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+
+
+		}
+
+		border:1px solid #C7BFB2;
+		// margin-bottom: 30px;
+		min-height: 300px;
+		background: gray; /* For browsers that do not support gradients */
+    	background: -webkit-linear-gradient(#FFD8A2, white); /* For Safari 5.1 to 6.0 */
+    	background: -o-linear-gradient(#FFD8A2, white); /* For Opera 11.1 to 12.0 */
+    	background: -moz-linear-gradient(#FFD8A2, white); /* For Firefox 3.6 to 15 */
+    	background: linear-gradient(#FFD8A2, white); /* Standard syntax */
+
+			.discount {
+			    position: absolute;
+			    // z-index: 790;
+			    padding-top: 25px;
+			    padding-left: 21px;
+			    background: url(../images/discount.png) 10px 10px no-repeat;
+			    width: 60px;
+			    height: 60px;
+			    span{
+			    	color:white;
+			    }
+			}
+			.images{
+				a{
+					img{
+						height: 230px;
+						width: 100%;
+					}
+				}
+			}
+			.detailes {
+			    padding: 0px 4px 6px 4px;	
+			    // font-family: "DINbekMedium",Verdana,Geneva,sans-serif;
+			    // font-size: 15px;
+			    // display: block;
+			    // clear: both;
+			    h5 a{
+			    	color:#727272;
+			    	text-decoration: none;
+			    	font-size: 18px;
+			    	font-weight: 600;
+			    	&:hover{
+			    		color:#D32E12;
+
+			    	}
+			    }
+			    .addShopp{
+			    	button{
+ 						border:none;
+ 						background:none;
+ 						i{
+ 							color:#FEBF00;
+ 						}
+
+
+			    	}
+			    	p{
+			    		margin-left: 15px;
+			    		color:black;
+			    		padding-top:5px;
+			    		font-weight: 600;
+			    		font-style: italic;
+			    	}
+			    }
+
+			}
+
+	}
+	// margin-top:20px;
+	margin-bottom:20px;
+
+	.image{
+		// margin-top:100px;
+		// margin-bottom:30px;
+		height: 250px;
+		background-color:yellow;
+		img{
+			width: 100%;
+			height: 100%;
+			border:5px solid #EEEADF;
+			
+
+		}
+	}
+			.hide-bullets {
+		list-style:none;
+		margin-left: -40px;
+		margin-top:20px;
+		}
+		#myCarousel{
+		min-height: 300px;
+		}
+		.img-responsive,
+		.thumbnail>img, 
+		.thumbnail a>img,
+		.carousel-inner>.item>img,
+		.carousel-inner>.item>a>img{
+		margin: 0 auto;
+		max-width: 100%;
+		max-height: 300px;
+		}
+}
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      // height: 250px;
+      margin: auto;
+			border:5px solid #EEEADF;
+
+  }
+
+// -------------SHOW_CASE-------------
+
+#show_case{
+
+
+
+
+	h3{
+		margin-left: 10px;
+		padding-top:10px;
+		font-weight: 500;
+		font-size: 1.3em;
+
+	}
+	p{
+		margin-right: 10px;
+		margin-top: -5px;
+		a{
+			text-decoration: none;
+			color:#FEBF00;
+		
+		}
+	}
+	.title{
+		height: 50px;
+  		background-image: url("Content/images/header.png"); 
+			h3,p{
+		color:#FEBF00;
+
+		}
+			
+		}
+	.title_content{
+		img{
+			height:128px;
+			width: 100%;
+		}
+		h3{
+			margin-top: 15px;
+			border-top:1px dotted #727272;
+			border-bottom:1px dotted #727272;
+
+		}
+					    .addShopp{
+					    	margin-top: 25px;
+			    	button{
+  						// background-image: url("../images/header.png");
+  							display:inline-block; 
+	/*background: #fc3;*/
+						background:-webkit-linear-gradient(#ffad33,#e68a00);
+						background:-o-linear-gradient(#ffad33,#e68a00);
+						background:-moz-linear-gradient(#ffad33,#e68a00);
+						background: linear-gradient(#ffad33,#e68a00);
+
+  						height: 40px; 
+  						width: 100px;
+  						margin-right: 15px;
+  						border:none;
+						color: white;
+						border-radius:5px ;
+
+  						&:hover{
+  								border-color:#888;
+								text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+								background: -webkit-linear-gradient( to top ,#fc3,#f91);
+								background: -o-linear-gradient( to top ,#fc3,#f91);
+								background: -moz-linear-gradient( to top ,#fc3,#f91);
+								background: linear-gradient( to top ,#fc3,#f91);
+								animation-name: buttonAnimation;
+								animation-duration: 1s;
+								animation-fill-mode: forwards;/* hoveri cekmedikce eevvelki veziyetine qayitmamasi ucundu */
+  						}
+  						&:active{
+  							position:relative;
+  							top:1px;
+  						}
+  						a{
+  							text-decoration: none;
+  							color:white;
+
+
+  						}
+
+			    	}
+			    	p{
+			    		// margin-left: 15px;
+			    		color:black;
+			    		padding-top:5px;
+			    		font-weight: 600;
+			    		font-style: italic;
+			    	}
+			    }
+	}
+	.best_seller{
+
+		margin-bottom:30px;
+		min-height: 180px;
+		border:1px solid #C7BFB2;
+				background: gray; /* For browsers that do not support gradients */
+    	background: -webkit-linear-gradient(#FFD8A2, white); /* For Safari 5.1 to 6.0 */
+    	background: -o-linear-gradient(#FFD8A2, white); /* For Opera 11.1 to 12.0 */
+    	background: -moz-linear-gradient(#FFD8A2, white); /* For Firefox 3.6 to 15 */
+    	background: linear-gradient(#FFD8A2, white); /* Standard syntax */
+	
+
+	}
+	.new_product{
+		margin-bottom:30px;
+		min-height: 180px;
+		border:1px solid #C7BFB2;
+				background: gray; /* For browsers that do not support gradients */
+    	background: -webkit-linear-gradient(#FFD8A2, white); /* For Safari 5.1 to 6.0 */
+    	background: -o-linear-gradient(#FFD8A2, white); /* For Opera 11.1 to 12.0 */
+    	background: -moz-linear-gradient(#FFD8A2, white); /* For Firefox 3.6 to 15 */
+    	background: linear-gradient(#FFD8A2, white); /* Standard syntax */
+
+
+		
+	}
+	.konsept{
+		margin-bottom:30px;
+
+		min-height: 180px;
+		border:1px solid #C7BFB2;
+				background: gray; /* For browsers that do not support gradients */
+    	background: -webkit-linear-gradient(#FFD8A2, white); /* For Safari 5.1 to 6.0 */
+    	background: -o-linear-gradient(#FFD8A2, white); /* For Opera 11.1 to 12.0 */
+    	background: -moz-linear-gradient(#FFD8A2, white); /* For Firefox 3.6 to 15 */
+    	background: linear-gradient(#FFD8A2, white); /* Standard syntax */
+		
+	}
+
+}
+// ---------------PRODUCT----------------
+// 
+#products{
+	// margin-bottom:30px;
+		.title{
+		min-height: 30px;
+  		background-image: url("../images/header.png"); 
+  		margin-bottom: 30px;
+			h3{
+		color:#FEBF00;
+		line-height: 48px;
+		font-weight: 500;
+		font-size: 1.4em;
+			}
+			
+		}
+	.product{
+		&:hover{
+-webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+
+
+		}
+
+		border:1px solid #C7BFB2;
+		margin-bottom: 30px;
+		min-height: 320px;
+		background: gray; /* For browsers that do not support gradients */
+    	background: -webkit-linear-gradient(#FFD8A2, white); /* For Safari 5.1 to 6.0 */
+    	background: -o-linear-gradient(#FFD8A2, white); /* For Opera 11.1 to 12.0 */
+    	background: -moz-linear-gradient(#FFD8A2, white); /* For Firefox 3.6 to 15 */
+    	background: linear-gradient(#FFD8A2, white); /* Standard syntax */
+
+			.discount {
+			    position: absolute;
+			    // z-index: 790;
+			    padding-top: 25px;
+			    padding-left: 21px;
+			    background: url(../images/discount.png) 10px 10px no-repeat;
+			    width: 60px;
+			    height: 60px;
+			    span{
+			    	color:white;
+			    }
+			}
+			.images{
+				a{
+					img{
+						height: 230px;
+						width: 100%;
+					}
+				}
+			}
+			.detailes {
+			    padding: 0px 4px 6px 4px;	
+			    // font-family: "DINbekMedium",Verdana,Geneva,sans-serif;
+			    // font-size: 15px;
+			    // display: block;
+			    // clear: both;
+			    h5 a{
+			    	color:#727272;
+			    	text-decoration: none;
+			    	font-size: 18px;
+			    	font-weight: 600;
+			    	&:hover{
+			    		color:#D32E12;
+
+			    	}
+			    }
+			    .addShopp{
+			    	button{
+ //  						// background-image: url("../images/header.png");
+ //  							display:inline-block; 
+	// /*background: #fc3;*/
+	// 					background:-webkit-linear-gradient(#ffad33,#e68a00);
+	// 					background:-o-linear-gradient(#ffad33,#e68a00);
+	// 					background:-moz-linear-gradient(#ffad33,#e68a00);
+	// 					background: linear-gradient(#ffad33,#e68a00);
+
+ //  						height: 40px; 
+ //  						width: 100px;
+ //  						margin-right: 15px;
+ //  						border:none;
+	// 					color: white;
+	// 					border-radius:5px;
+
+ //  						&:hover{
+ //  								border-color:#888;
+	// 							text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+	// 							background: -webkit-linear-gradient( to top ,#fc3,#f91);
+	// 							background: -o-linear-gradient( to top ,#fc3,#f91);
+	// 							background: -moz-linear-gradient( to top ,#fc3,#f91);
+	// 							background: linear-gradient( to top ,#fc3,#f91);
+	// 							animation-name: buttonAnimation;
+	// 							animation-duration: 1s;
+	// 							animation-fill-mode: forwards;/* hoveri cekmedikce eevvelki veziyetine qayitmamasi ucundu */
+ //  						}
+ //  						&:active{
+ //  							position:relative;
+ //  							top:1px;
+ //  						}
+ //  						a{
+ //  							text-decoration: none;
+ //  							color:white;
+
+
+ //  						}
+ 						border:none;
+ 						background:none;
+ 						i{
+ 							color:#FEBF00;
+ 						}
+
+
+			    	}
+			    	p{
+			    		margin-left: 15px;
+			    		color:black;
+			    		padding-top:5px;
+			    		font-weight: 600;
+			    		font-style: italic;
+			    	}
+			    }
+
+			}
+
+	}
+}
+// ------------------FOOTER------------------
+#about{
+	
+		min-height:220px;
+		background-color:#231a10;
+		background: linear-gradient(#29150C,#010101);
+		background: linear-gradient(#29150C,#010101);
+		background: linear-gradient(#29150C,#010101);
+		background: linear-gradient(#29150C,#010101);
+
+		img{
+			margin-top: 30px;
+		}
+		ul{
+			margin-top: 30px;
+			li {
+				list-style: none;
+				line-height: 25px;
+				a{
+					text-decoration: none;
+					color:white;
+				}
+			}
+		}
+
+
+}
+footer{
+  		background-image: url("../images/header.png");
+  		min-height: 38px;
+  		color:#FEBF00;
+  		padding:10px 10px 0px 10px;
+}
+
+
+// ===== pagination=========
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    border-radius:3px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.pagination a.active {
+    background-color: #FEBF00;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}

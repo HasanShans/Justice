@@ -29,40 +29,44 @@ namespace Justice.Staff.Add
         private void BindCategoryDetails()
         {
             CategoryID = Convert.ToInt32(Request.QueryString["CategoryID"]);
-            if (DB.Connection.State == ConnectionState.Closed)
-                DB.Connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("CategoriesSelectByID", DB.Connection);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@ID", CategoryID);
-            sqlCommand.ExecuteNonQuery();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            if (!IsPostBack)
+            using (SqlConnection connection = new SqlConnection(DB.ConnectionString))
             {
-                txtCat.Text = dataTable.Rows[0]["CategoryName"].ToString();
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("CategoriesSelectByID", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@ID", CategoryID);
+                sqlCommand.ExecuteNonQuery();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (!IsPostBack)
+                {
+                    txtCat.Text = dataTable.Rows[0]["CategoryName"].ToString();
+                }
+                btnEdit.Visible = true;
+                btnSave.Visible = false;
             }
-            btnEdit.Visible = true;
-            btnSave.Visible = false;
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (DB.Connection.State == ConnectionState.Closed)
-                DB.Connection.Open();
-            SqlCommand sqlCommand;
-            if (Request.QueryString.AllKeys.Contains("CategoryID"))
+            using (SqlConnection connection = new SqlConnection(DB.ConnectionString))
             {
-                sqlCommand = new SqlCommand("CategoriesUpdate", DB.Connection);
-                sqlCommand.Parameters.AddWithValue("@ID", CategoryID);
+                connection.Open();
+                SqlCommand sqlCommand;
+                if (Request.QueryString.AllKeys.Contains("CategoryID"))
+                {
+                    sqlCommand = new SqlCommand("CategoriesUpdate", connection);
+                    sqlCommand.Parameters.AddWithValue("@ID", CategoryID);
+                }
+                else
+                {
+                    sqlCommand = new SqlCommand("CategoriesCreate", connection);
+                }
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@CategoryName", txtCat.Text.ToString().Trim());
+                sqlCommand.ExecuteNonQuery();
             }
-            else
-            {
-                sqlCommand = new SqlCommand("CategoriesCreate", DB.Connection);
-            }
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@CategoryName", txtCat.Text.ToString().Trim());
-            sqlCommand.ExecuteNonQuery();
-            Response.Redirect("~/Staff/Categories.aspx");
+            Response.Redirect("~/root/kateqoriyalar");
         }
 
       

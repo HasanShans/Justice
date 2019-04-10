@@ -1,0 +1,62 @@
+
+
+#contact{
+	margin-top:40px;
+	margin-bottom:30px;
+	overflow:hidden;
+	i{
+      	color:#FEBF00;
+
+
+	}
+	.map{
+		margin-bottom: 20px;
+	}
+	.panel{
+		border:2px solid #747474;
+		margin-bottom: 20px;
+		.panel-head{
+			background: #EFEFEF;
+			height: 50px;
+			border-bottom:2px solid #747474;
+			padding: 15px;
+			margin-bottom :5px;
+  			background-image: url("../images/header.png"); 
+
+			i{
+      			// font-size: 0.7em;
+      			margin-right: 10px;
+
+
+			}
+			h3{
+				font-size: 1.3em;
+				color:#FEBF00;
+
+			}
+		}
+		.panel-body{
+			padding:15px;
+			address{
+				font-weight: bold;
+				p{
+					font-style: italic;
+				}
+				i{
+					font-weight: bold;
+					margin-right: 5px;
+				}
+			}
+			button{
+				border:none;
+				outline: none;
+				border-radius: none;
+
+				&:hover{
+					background:#EA4C4C;
+
+				}
+			}
+		}
+	}
+}

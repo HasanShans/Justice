@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Justice</RootNamespace>
     <AssemblyName>Justice</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +35,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,8 +46,15 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BotDetect, Version=4.2.0.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.2.0\lib\net45\BotDetect.dll</HintPath>
+    </Reference>
+    <Reference Include="BotDetect.Web.Mvc, Version=4.2.0.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.2.0\lib\net45\BotDetect.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -52,21 +62,19 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -86,6 +94,7 @@
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -129,6 +138,70 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Main\images\loqo.png" />
+    <Content Include="Content\Main\images\products\10\Nərd01.jpg" />
+    <Content Include="Content\Main\images\products\10\Nərd02.jpg" />
+    <Content Include="Content\Main\images\products\110966.jpg" />
+    <Content Include="Content\Main\images\products\11\Təsbeh01.jpg" />
+    <Content Include="Content\Main\images\products\12\Nərd01.jpg" />
+    <Content Include="Content\Main\images\products\12\Nərd02.jpg" />
+    <Content Include="Content\Main\images\products\13\Qəlyan01.jpg" />
+    <Content Include="Content\Main\images\products\13\Qəlyan02.jpg" />
+    <Content Include="Content\Main\images\products\154247.JPG" />
+    <Content Include="Content\Main\images\products\15\Kəbəmaketi01.jpg" />
+    <Content Include="Content\Main\images\products\15\Kəbəmaketi02.jpg" />
+    <Content Include="Content\Main\images\products\15\Kəbəmaketi03.jpg" />
+    <Content Include="Content\Main\images\products\16\Mücrü01.jpg" />
+    <Content Include="Content\Main\images\products\16\Mücrü02.jpg" />
+    <Content Include="Content\Main\images\products\16\Mücrü03.JPG" />
+    <Content Include="Content\Main\images\products\16\Mücrü04.JPG" />
+    <Content Include="Content\Main\images\products\190206.jpg" />
+    <Content Include="Content\Main\images\products\194808.jpg" />
+    <Content Include="Content\Main\images\products\200171.jpg" />
+    <Content Include="Content\Main\images\products\217076.JPG" />
+    <Content Include="Content\Main\images\products\22\looogooo.png" />
+    <Content Include="Content\Main\images\products\249969.jpg" />
+    <Content Include="Content\Main\images\products\251761.jpg" />
+    <Content Include="Content\Main\images\products\259126.jpg" />
+    <Content Include="Content\Main\images\products\277795.jpg" />
+    <Content Include="Content\Main\images\products\2792.jpg" />
+    <Content Include="Content\Main\images\products\296131.jpg" />
+    <Content Include="Content\Main\images\products\296852.jpg" />
+    <Content Include="Content\Main\images\products\2\ŞahmatTaxtası01.JPG" />
+    <Content Include="Content\Main\images\products\2\ŞahmatTaxtası02.JPG" />
+    <Content Include="Content\Main\images\products\2\ŞahmatTaxtası03.JPG" />
+    <Content Include="Content\Main\images\products\2\ŞahmatTaxtası04.JPG" />
+    <Content Include="Content\Main\images\products\335982.jpg" />
+    <Content Include="Content\Main\images\products\340193.jpg" />
+    <Content Include="Content\Main\images\products\346380.JPG" />
+    <Content Include="Content\Main\images\products\373968.jpg" />
+    <Content Include="Content\Main\images\products\377898.jpg" />
+    <Content Include="Content\Main\images\products\394412.jpg" />
+    <Content Include="Content\Main\images\products\3\Mücrü01.JPG" />
+    <Content Include="Content\Main\images\products\3\Mücrü02.JPG" />
+    <Content Include="Content\Main\images\products\3\Mücrü03.JPG" />
+    <Content Include="Content\Main\images\products\3\Mücrü04.JPG" />
+    <Content Include="Content\Main\images\products\407156.JPG" />
+    <Content Include="Content\Main\images\products\4327.JPG" />
+    <Content Include="Content\Main\images\products\4\Mücrü01.JPG" />
+    <Content Include="Content\Main\images\products\4\Mücrü02.JPG" />
+    <Content Include="Content\Main\images\products\4\Mücrü03.JPG" />
+    <Content Include="Content\Main\images\products\4\Mücrü04.JPG" />
+    <Content Include="Content\Main\images\products\5488.jpg" />
+    <Content Include="Content\Main\images\products\5\Nərd01.JPG" />
+    <Content Include="Content\Main\images\products\5\Nərd02.JPG" />
+    <Content Include="Content\Main\images\products\68732.jpg" />
+    <Content Include="Content\Main\images\products\6\TəyyarəMaketi01.jpg" />
+    <Content Include="Content\Main\images\products\6\TəyyarəMaketi02.jpg" />
+    <Content Include="Content\Main\images\products\6\TəyyarəMaketi03.jpg" />
+    <Content Include="Content\Main\images\products\7\Qəlyan01.jpg" />
+    <Content Include="Content\Main\images\products\7\Qəlyan02.jpg" />
+    <Content Include="Content\Main\images\products\7\Qəlyan03.jpg" />
+    <Content Include="Content\Main\images\products\8\Divan–Kreslo01.jpg" />
+    <Content Include="Content\Main\images\products\8\Divan–Kreslo02.JPG" />
+    <Content Include="Content\Main\images\products\8\Divan–Kreslo03.JPG" />
+    <Content Include="Content\Main\images\products\8\Divan–Kreslo04.JPG" />
+    <Content Include="getStatus.aspx" />
     <None Include="Connected Services\NotariatService\configuration91.svcinfo" />
     <None Include="Connected Services\NotariatService\configuration.svcinfo" />
     <Content Include="Connected Services\NotariatService\Justice.NotariatService.AddPersonRelationInfoResult.datasource">
@@ -150,6 +223,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Contact.aspx" />
     <Content Include="Content\Admin\css\AdminLTE.css" />
     <Content Include="Content\Admin\css\bootstrap.css" />
     <Content Include="Content\Admin\css\dataTables.bootstrap.css" />
@@ -179,29 +253,20 @@
     <Content Include="Content\Main\images\404.png" />
     <Content Include="Content\Main\images\header.png" />
     <Content Include="Content\Main\images\looogooo.png" />
-    <Content Include="Content\Main\images\products\110966.jpg" />
-    <Content Include="Content\Main\images\products\154247.JPG" />
-    <Content Include="Content\Main\images\products\190206.jpg" />
-    <Content Include="Content\Main\images\products\194808.jpg" />
-    <Content Include="Content\Main\images\products\200171.jpg" />
-    <Content Include="Content\Main\images\products\217076.JPG" />
-    <Content Include="Content\Main\images\products\249969.jpg" />
-    <Content Include="Content\Main\images\products\251761.jpg" />
-    <Content Include="Content\Main\images\products\259126.jpg" />
-    <Content Include="Content\Main\images\products\277795.jpg" />
-    <Content Include="Content\Main\images\products\2792.jpg" />
-    <Content Include="Content\Main\images\products\296131.jpg" />
-    <Content Include="Content\Main\images\products\296852.jpg" />
-    <Content Include="Content\Main\images\products\335982.jpg" />
-    <Content Include="Content\Main\images\products\340193.jpg" />
-    <Content Include="Content\Main\images\products\346380.JPG" />
-    <Content Include="Content\Main\images\products\373968.jpg" />
-    <Content Include="Content\Main\images\products\377898.jpg" />
-    <Content Include="Content\Main\images\products\394412.jpg" />
-    <Content Include="Content\Main\images\products\407156.JPG" />
-    <Content Include="Content\Main\images\products\4327.JPG" />
-    <Content Include="Content\Main\images\products\5488.jpg" />
-    <Content Include="Content\Main\images\products\68732.jpg" />
+    <Content Include="Content\Main\images\products\14\Delfin01.jpg" />
+    <Content Include="Content\Main\images\products\14\Delfin02.jpg" />
+    <Content Include="Content\Main\images\products\17\Nərd01.jpg" />
+    <Content Include="Content\Main\images\products\17\Nərd02.jpg" />
+    <Content Include="Content\Main\images\products\17\Nərd03.JPG" />
+    <Content Include="Content\Main\images\products\17\Nərd04.jpg" />
+    <Content Include="Content\Main\images\products\19\Tar–Kaman01.jpg" />
+    <Content Include="Content\Main\images\products\19\Tar–Kaman02.jpg" />
+    <Content Include="Content\Main\images\products\19\Tar–Kaman03.jpg" />
+    <Content Include="Content\Main\images\products\19\Tar–Kaman04.jpg" />
+    <Content Include="Content\Main\images\products\20\Nərd01.jpg" />
+    <Content Include="Content\Main\images\products\20\Nərd02.jpg" />
+    <Content Include="Content\Main\images\products\20\Nərd03.jpg" />
+    <Content Include="Content\Main\images\products\20\Nərd04.jpg" />
     <Content Include="Content\Main\images\products\notfound.jpg" />
     <Content Include="Content\Main\images\slider\slide1.jpg" />
     <Content Include="Content\Main\images\slider\slide2.jpg" />
@@ -212,22 +277,28 @@
     <Content Include="Content\Main\images\sp-loading.gif" />
     <Content Include="Content\Main\fonts\index.php" />
     <Content Include="Controls\ModalSuccess.ascx" />
-    <Content Include="Main\ChangePassword.aspx" />
-    <Content Include="Main\ConfirmOrder.aspx" />
-    <Content Include="Main\Error.aspx" />
-    <Content Include="Main\ForgotPassword.aspx" />
-    <Content Include="Main\Index.aspx" />
-    <Content Include="Main\Information.aspx" />
+    <Content Include="ChangePassword.aspx" />
+    <Content Include="ConfirmOrder.aspx" />
+    <Content Include="error\admin\403.aspx" />
+    <Content Include="error\admin\404.aspx" />
+    <Content Include="error\admin\500.aspx" />
+    <Content Include="error\main\403.aspx" />
+    <Content Include="error\main\404.aspx" />
+    <Content Include="error\main\500.aspx" />
+    <Content Include="ForgotPassword.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Index.aspx" />
+    <Content Include="Information.aspx" />
     <Content Include="Controls\LeftSideBar.ascx" />
-    <Content Include="Main\Login.aspx" />
-    <Content Include="Main\Orders.aspx" />
-    <Content Include="Main\Points.aspx" />
-    <Content Include="Main\Product.aspx" />
-    <Content Include="Main\ProductsFilter.aspx" />
-    <Content Include="Main\Purchase.aspx" />
-    <Content Include="Main\Receipts.aspx" />
-    <Content Include="Main\RecoverPassword.aspx" />
-    <Content Include="Main\Register.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Orders.aspx" />
+    <Content Include="Points.aspx" />
+    <Content Include="Product.aspx" />
+    <Content Include="ProductsFilter.aspx" />
+    <Content Include="Purchase.aspx" />
+    <Content Include="Receipts.aspx" />
+    <Content Include="RecoverPassword.aspx" />
+    <Content Include="Register.aspx" />
     <Content Include="Scripts\Admin\js\adminlte.js" />
     <Content Include="Scripts\Admin\js\adminlte.min.js" />
     <Content Include="Scripts\Admin\js\bootstrap.js" />
@@ -256,7 +327,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Content\Main\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Main\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
     <Content Include="Content\Main\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Main\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Main\fonts\glyphicons-halflings-regular.eot" />
@@ -313,11 +383,17 @@
     <None Include="Connected Services\NotariatService\NotariatService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Content\Main\sass\_contact.scss" />
+    <Content Include="Content\Main\images\Web.config" />
+    <Content Include="Content\Main\images\products\22\web.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile2.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -342,35 +418,46 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Main\Site.Master" />
+    <Content Include="Site.Master" />
+    <Content Include="Staff\Add\Admin.aspx" />
     <Content Include="Staff\Add\Category.aspx" />
     <Content Include="Staff\Add\Jail.aspx" />
     <Content Include="Staff\Add\Prisoner.aspx" />
     <Content Include="Staff\Add\Product.aspx" />
+    <Content Include="Staff\Admins.aspx" />
     <Content Include="Staff\Categories.aspx" />
     <Content Include="Staff\DeliveredOrders.aspx" />
-    <Content Include="Staff\Error.aspx" />
     <Content Include="Staff\Jails.aspx" />
     <Content Include="Staff\Login.aspx" />
     <Content Include="Staff\Orders.aspx" />
-    <Content Include="Staff\PostDeliveredOrders.aspx" />
+    <Content Include="Staff\OrdersByJail.aspx" />
+    <Content Include="Staff\OrdersByProduct.aspx" />
     <Content Include="Staff\Prisoners.aspx" />
     <Content Include="Staff\Products.aspx" />
+    <Content Include="Staff\Users.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Bundle.config" />
-    <Content Include="Main\Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\DB.cs" />
+    <Compile Include="App_Code\HashPassword.cs" />
+    <Compile Include="App_Code\Payment.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Connected Services\NotariatService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controls\ModalSuccess.ascx.cs">
       <DependentUpon>ModalSuccess.ascx</DependentUpon>
@@ -379,49 +466,91 @@
     <Compile Include="Controls\ModalSuccess.ascx.designer.cs">
       <DependentUpon>ModalSuccess.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmOrder.aspx.cs">
+      <DependentUpon>ConfirmOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmOrder.aspx.designer.cs">
+      <DependentUpon>ConfirmOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\admin\403.aspx.cs">
+      <DependentUpon>403.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\admin\403.aspx.designer.cs">
+      <DependentUpon>403.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\admin\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\admin\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\admin\500.aspx.cs">
+      <DependentUpon>500.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\admin\500.aspx.designer.cs">
+      <DependentUpon>500.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\main\403.aspx.cs">
+      <DependentUpon>403.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\main\403.aspx.designer.cs">
+      <DependentUpon>403.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\main\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\main\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error\main\500.aspx.cs">
+      <DependentUpon>500.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error\main\500.aspx.designer.cs">
+      <DependentUpon>500.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getStatus.aspx.cs">
+      <DependentUpon>getStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getStatus.aspx.designer.cs">
+      <DependentUpon>getStatus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Main\ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Main\ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Main\ConfirmOrder.aspx.cs">
-      <DependentUpon>ConfirmOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Main\ConfirmOrder.aspx.designer.cs">
-      <DependentUpon>ConfirmOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Main\Error.aspx.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Main\Error.aspx.designer.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Main\ForgotPassword.aspx.cs">
-      <DependentUpon>ForgotPassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Main\ForgotPassword.aspx.designer.cs">
-      <DependentUpon>ForgotPassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Main\Index.aspx.cs">
+    <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\Index.aspx.designer.cs">
+    <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\Information.aspx.cs">
+    <Compile Include="Information.aspx.cs">
       <DependentUpon>Information.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\Information.aspx.designer.cs">
+    <Compile Include="Information.aspx.designer.cs">
       <DependentUpon>Information.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controls\LeftSideBar.ascx.cs">
@@ -431,83 +560,90 @@
     <Compile Include="Controls\LeftSideBar.ascx.designer.cs">
       <DependentUpon>LeftSideBar.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Main\Login.aspx.cs">
+    <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\Login.aspx.designer.cs">
+    <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\Orders.aspx.cs">
+    <Compile Include="Orders.aspx.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\Orders.aspx.designer.cs">
+    <Compile Include="Orders.aspx.designer.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\Points.aspx.cs">
+    <Compile Include="Points.aspx.cs">
       <DependentUpon>Points.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\Points.aspx.designer.cs">
+    <Compile Include="Points.aspx.designer.cs">
       <DependentUpon>Points.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\Product.aspx.cs">
+    <Compile Include="Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\Product.aspx.designer.cs">
+    <Compile Include="Product.aspx.designer.cs">
       <DependentUpon>Product.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\ProductsFilter.aspx.cs">
+    <Compile Include="ProductsFilter.aspx.cs">
       <DependentUpon>ProductsFilter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\ProductsFilter.aspx.designer.cs">
+    <Compile Include="ProductsFilter.aspx.designer.cs">
       <DependentUpon>ProductsFilter.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\Purchase.aspx.cs">
+    <Compile Include="Purchase.aspx.cs">
       <DependentUpon>Purchase.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\Purchase.aspx.designer.cs">
+    <Compile Include="Purchase.aspx.designer.cs">
       <DependentUpon>Purchase.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\Receipts.aspx.cs">
+    <Compile Include="Receipts.aspx.cs">
       <DependentUpon>Receipts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\Receipts.aspx.designer.cs">
+    <Compile Include="Receipts.aspx.designer.cs">
       <DependentUpon>Receipts.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\RecoverPassword.aspx.cs">
+    <Compile Include="RecoverPassword.aspx.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\RecoverPassword.aspx.designer.cs">
+    <Compile Include="RecoverPassword.aspx.designer.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\Register.aspx.cs">
+    <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\Register.aspx.designer.cs">
+    <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Main\Site.Master.cs">
+    <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\Site.Master.designer.cs">
+    <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Main\Site.Mobile.Master.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    <Compile Include="SiteWF.Master.cs">
+      <DependentUpon>SiteWF.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\Site.Mobile.Master.designer.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    <Compile Include="SiteWF.Master.designer.cs">
+      <DependentUpon>SiteWF.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Add\Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Add\Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staff\Add\Category.aspx.cs">
       <DependentUpon>Category.aspx</DependentUpon>
@@ -544,6 +680,13 @@
     <Compile Include="Staff\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Staff\Admins.aspx.cs">
+      <DependentUpon>Admins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Admins.aspx.designer.cs">
+      <DependentUpon>Admins.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Staff\Categories.aspx.cs">
       <DependentUpon>Categories.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -557,13 +700,6 @@
     </Compile>
     <Compile Include="Staff\DeliveredOrders.aspx.designer.cs">
       <DependentUpon>DeliveredOrders.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Staff\Error.aspx.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff\Error.aspx.designer.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staff\Jails.aspx.cs">
       <DependentUpon>Jails.aspx</DependentUpon>
@@ -586,12 +722,19 @@
     <Compile Include="Staff\Orders.aspx.designer.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Staff\PostDeliveredOrders.aspx.cs">
-      <DependentUpon>PostDeliveredOrders.aspx</DependentUpon>
+    <Compile Include="Staff\OrdersByJail.aspx.cs">
+      <DependentUpon>OrdersByJail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Staff\PostDeliveredOrders.aspx.designer.cs">
-      <DependentUpon>PostDeliveredOrders.aspx</DependentUpon>
+    <Compile Include="Staff\OrdersByJail.aspx.designer.cs">
+      <DependentUpon>OrdersByJail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\OrdersByProduct.aspx.cs">
+      <DependentUpon>OrdersByProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\OrdersByProduct.aspx.designer.cs">
+      <DependentUpon>OrdersByProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staff\Prisoners.aspx.cs">
       <DependentUpon>Prisoners.aspx</DependentUpon>
@@ -607,6 +750,13 @@
     <Compile Include="Staff\Products.aspx.designer.cs">
       <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Staff\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -617,11 +767,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Main\images\products\21\" />
+    <Folder Include="Content\Main\images\products\23\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Staff\Admin.Master" />
+    <Content Include="SiteWF.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

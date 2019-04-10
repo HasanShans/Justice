@@ -18,28 +18,57 @@ namespace Justice.Staff
         {
             if (Session["ADMINSESSION"] != null)
             {
-                Response.Redirect("Products.aspx");
+                Response.Redirect("~/root/məhsullar");
             }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if (DB.Connection.State == ConnectionState.Closed)
-                DB.Connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("AdminsLogin", DB.Connection);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@UserName", tbLogin.Text.Trim());
-            sqlCommand.Parameters.AddWithValue("@Password", tbPassword.Text.Trim());
-            int adminCheck = Convert.ToInt32(sqlCommand.ExecuteScalar());
-            if (adminCheck != 0)
+            bool isHuman = Captcha.Validate(txtCaptcha.Text);
+            txtCaptcha.Text = null;
+            if (!isHuman)
             {
-                Session["ADMINSESSION"] = tbLogin.Text.Trim();
-                Response.Redirect("Products.aspx");
+                CaptchaErrorLabel.ForeColor = System.Drawing.Color.Red;
+                CaptchaErrorLabel.Text = "Kaptça düzgün daxil edilməyib!";
             }
             else
             {
-                lblMsg.ForeColor = System.Drawing.Color.Red;
-                lblMsg.Text = "Login və yaxud parol səhvdir";
+                CaptchaErrorLabel.Text = "";
+                using (SqlConnection connection = new SqlConnection(DB.ConnectionString))
+                {
+                    connection.Open();
+                    SqlCommand sqlCommand = new SqlCommand("AdminsLogin", connection);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@UserName", tbLogin.Text.Trim());
+                    sqlCommand.ExecuteNonQuery();
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                    DataTable dataTable = new DataTable();
+                    sqlDataAdapter.Fill(dataTable);
+                    String userSalt = dataTable.Rows[0]["Salt"].ToString();
+                    String userEnteredHashPassword = HashPassword.GenerateSHA256Hash(tbPassword.Text, userSalt);
+                    if (dataTable.Rows.Count != 0 && userEnteredHashPassword == dataTable.Rows[0]["Password"].ToString())
+                    {
+                        if (tbLogin.Text == "Admin")
+                        {
+                            Session["ADMINSESSION"] = tbLogin.Text;
+                        }
+                        else
+                        {
+                            SqlCommand sqlCommand2 = new SqlCommand("JailsSelectJailID", connection);
+                            sqlCommand2.CommandType = CommandType.StoredProcedure;
+                            sqlCommand2.Parameters.AddWithValue("@JailNo", Convert.ToInt32(dataTable.Rows[0]["JailNum"]));
+                            Int64 JailID = Convert.ToInt64(sqlCommand2.ExecuteScalar());
+                            Session["ADMINSESSION"] = dataTable.Rows[0]["JailNum"].ToString();
+                            Session["ADMINSESSIONJAILNO"] = JailID.ToString();
+                        }
+                        Response.Redirect("~/root/məhsullar");
+                    }
+                    else
+                    {
+                        lblMsg.ForeColor = System.Drawing.Color.Red;
+                        lblMsg.Text = "Login və yaxud parol səhvdir";
+                    }
+                }
             }
         }
     }

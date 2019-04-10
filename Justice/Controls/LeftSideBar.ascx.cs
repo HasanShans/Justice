@@ -18,7 +18,7 @@ namespace Justice
             Session["NAME"] = null;
             Session["EMAIL"] = null;
             Session["ID"] = null;
-            Response.Redirect("Index.aspx");
+            Response.Redirect("~/ana-səhifə");
         }
 
     }

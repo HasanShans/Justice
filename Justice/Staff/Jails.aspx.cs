@@ -23,36 +23,38 @@ namespace Justice.Staff
 
         private void BindJails()
         {
-            if (DB.Connection.State == ConnectionState.Closed)
-                DB.Connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("JailsSelectAll", DB.Connection);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.ExecuteNonQuery();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            rprtJails.DataSource = dataTable;
-            rprtJails.DataBind();
-            DB.Connection.Close();
+            using (SqlConnection connection = new SqlConnection(DB.ConnectionString))
+            {
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("JailsSelectAll", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.ExecuteNonQuery();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                rprtJails.DataSource = dataTable;
+                rprtJails.DataBind();
+            }
         }
 
         protected void JailEditClick(object sender, EventArgs e)
         {
             int JailID = int.Parse(((sender as Button).NamingContainer.FindControl("lblJailID") as Label).Text);
-            Response.Redirect("~/Staff/Add/Jail?JailID=" + JailID);
+            Response.Redirect("~/root/yeni-həbsxana?JailID=" + JailID);
         }
 
         protected void JailDeleteClick(object sender, EventArgs e)
         {
             int JailID = int.Parse(((sender as Button).NamingContainer.FindControl("lblJailID") as Label).Text);
-            if (DB.Connection.State == ConnectionState.Closed)
-                DB.Connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("JailsDeleteByID", DB.Connection);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("ID", JailID);
-            sqlCommand.ExecuteNonQuery();
-            BindJails();
-            DB.Connection.Close();
+            using (SqlConnection connection = new SqlConnection(DB.ConnectionString))
+            {
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("JailsDeleteByID", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("ID", JailID);
+                sqlCommand.ExecuteNonQuery();
+                BindJails();
+            }
         }
     }
 }

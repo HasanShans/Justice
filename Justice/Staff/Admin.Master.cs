@@ -13,14 +13,26 @@ namespace Justice.Staff
         {
             if (Session["ADMINSESSION"] == null)
             {
-                Response.Redirect("~/Staff/Login.aspx");
+                Response.Redirect("~/root/login");
+            }
+            else
+            {
+                if (Session["ADMINSESSION"].ToString() != "Admin")
+                {
+                    users.Visible = false;
+                    jails.Visible = false;
+                    prisoners.Visible = false;
+                    categories.Visible = false;
+                    orders.Visible = false;
+                    ordersByJail.Visible = true;
+                }
             }
         }
 
         protected void adminLogOut_Click(object sender, EventArgs e)
         {
-            Session["ADMINSESSION"] = null;
-            Response.Redirect("Login.aspx");
+            Session.Clear();
+            Response.Redirect("/root/login");
         }
     }
 }

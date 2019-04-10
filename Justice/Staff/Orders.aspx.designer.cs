@@ -13,6 +13,24 @@ namespace Justice.Staff {
     public partial class Orders {
         
         /// <summary>
+        /// ddlYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlYear;
+        
+        /// <summary>
+        /// ddlMonthFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMonthFilter;
+        
+        /// <summary>
         /// rprtOrders control.
         /// </summary>
         /// <remarks>

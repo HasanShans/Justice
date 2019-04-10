@@ -16,22 +16,35 @@ namespace Justice.Staff
         {
             if (!IsPostBack)
             {
+                this.ddlYear.SelectedValue = DateTime.Now.Year.ToString();
                 BindDeliveredOrders();
             }
         }
         private void BindDeliveredOrders()
         {
-            if (DB.Connection.State == ConnectionState.Closed)
-                DB.Connection.Open();
-            SqlCommand sqlCommand = new SqlCommand("OrdersSelectDelivered", DB.Connection);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.ExecuteNonQuery();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            rprtDeliveredOrders.DataSource = dataTable;
-            rprtDeliveredOrders.DataBind();
-            DB.Connection.Close();
+            using (SqlConnection connection = new SqlConnection(DB.ConnectionString))
+            {
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("OrdersSelectDelivered", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@Year", ddlYear.SelectedValue);
+                sqlCommand.Parameters.AddWithValue("@Month", ddlMonthFilter.SelectedIndex);
+                sqlCommand.ExecuteNonQuery();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                rprtDeliveredOrders.DataSource = dataTable;
+                rprtDeliveredOrders.DataBind();
+            }
+        }
+        protected void ddlMonthFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindDeliveredOrders();
+        }
+
+        protected void ddlYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindDeliveredOrders();
         }
     }
 }

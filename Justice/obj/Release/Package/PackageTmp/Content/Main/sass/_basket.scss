@@ -1,0 +1,47 @@
+#basket{
+	min-height:300px;
+	margin-bottom:15px;
+		.title{
+			height: 50px;
+	  		background-image: url("/Content/Main//images/header.png"); 
+			h3{
+				color:#FEBF00;
+				line-height: 48px;
+				font-weight: 500;
+				font-size: 1.4em;
+				margin-left: 10px;
+			}
+		}
+		.basket_about{
+			th{
+				text-align: center !important;
+			}
+		}
+		@media (max-width: 767px){
+			.basket_about table  {
+    			font-size: 11px;
+    			padding: 0;
+				}
+		}
+		.basket_product_buy{
+			width: 100%;
+			i{
+				margin-left: 10px;
+			}
+			.sifaris{
+				p{
+					font-weight: 700;
+					color:#737373;
+					span{
+						color:black;
+					}
+				}
+			}
+			.title{
+				margin-bottom: 15px;
+			}
+		}
+		.hr1{
+			    border-bottom: 1px solid #e6e6e6;
+		}
+}
